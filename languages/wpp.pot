@@ -1,0 +1,775 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: WP Performance\n"
+"POT-Creation-Date: 2018-12-26 17:52+0100\n"
+"PO-Revision-Date: 2018-12-26 17:50+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.3\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: wp-performance.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2;wpp_notify\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: includes/admin/admin.php:23 includes/admin/admin.php:37
+#: includes/admin/cache.php:11
+msgid "Cache"
+msgstr ""
+
+#: includes/admin/admin.php:26 includes/admin/admin.php:40
+msgid "Images"
+msgstr ""
+
+#: includes/admin/admin.php:27 includes/admin/admin.php:41
+msgid "Database"
+msgstr ""
+
+#: includes/admin/admin.php:29 includes/admin/admin.php:43
+#: includes/admin/settings.php:12 includes/helpers.php:544
+#: includes/helpers.php:548
+msgid "Settings"
+msgstr ""
+
+#: includes/admin/cache.php:14
+msgid "Enable cache"
+msgstr ""
+
+#: includes/admin/cache.php:18
+msgid "Reduces your server response time by serving static files to users"
+msgstr ""
+
+#: includes/admin/cache.php:25
+msgid "Separate cache for mobile devices"
+msgstr ""
+
+#: includes/admin/cache.php:28
+msgid "Create a dedicated cache file for mobile devices"
+msgstr ""
+
+#: includes/admin/cache.php:35
+msgid "Clear cache after"
+msgstr ""
+
+#: includes/admin/cache.php:40
+msgid "minutes"
+msgstr ""
+
+#: includes/admin/cache.php:43
+msgid "hours"
+msgstr ""
+
+#: includes/admin/cache.php:46
+msgid "days"
+msgstr ""
+
+#: includes/admin/cache.php:53
+msgid "Clear cache when"
+msgstr ""
+
+#: includes/admin/cache.php:57
+msgid "A new post or page is published or updated"
+msgstr ""
+
+#: includes/admin/cache.php:62
+msgid "A post or page is deleted"
+msgstr ""
+
+#: includes/admin/cache.php:67
+msgid "settings are saved"
+msgstr ""
+
+#: includes/admin/cache.php:73
+msgid "Varnish"
+msgstr ""
+
+#: includes/admin/cache.php:77
+msgid "Enable auto purge"
+msgstr ""
+
+#: includes/admin/cache.php:80
+msgid "If Varnish runs on your server, you need to activate this option"
+msgstr ""
+
+#: includes/admin/cache.php:85
+msgid "Custom host"
+msgstr ""
+
+#: includes/admin/cache.php:97
+msgid "If you are using proxy, you may need this option"
+msgstr ""
+
+#: includes/admin/cache.php:103
+msgid "Cache preloading"
+msgstr ""
+
+#: includes/admin/cache.php:123 includes/admin/cache.php:254
+#: includes/admin/cdn.php:64 includes/admin/css.php:101
+#: includes/admin/css.php:128 includes/admin/css.php:303
+#: includes/admin/css.php:331 includes/admin/css.php:531
+#: includes/admin/images.php:58 includes/admin/images.php:84
+#: includes/admin/javascript.php:101 includes/admin/javascript.php:128
+#: includes/admin/javascript.php:305 includes/admin/javascript.php:333
+#: includes/admin/javascript.php:494 includes/helpers.php:720
+msgid "Remove"
+msgstr ""
+
+#: includes/admin/cache.php:133 includes/admin/cache.php:143
+msgid "Enter path to XML sitemap which will be used for cache preloading"
+msgstr ""
+
+#: includes/admin/cache.php:146
+msgid "Add Sitemap"
+msgstr ""
+
+#: includes/admin/cache.php:154
+msgid "Browser caching"
+msgstr ""
+
+#: includes/admin/cache.php:158
+msgid "Leverage browser caching"
+msgstr ""
+
+#: includes/admin/cache.php:162
+msgid ""
+"Setting an expiry date in the HTTP headers for static resources instructs "
+"the browser to load previously downloaded resources from local disk rather "
+"than over the network"
+msgstr ""
+
+#: includes/admin/cache.php:168
+msgid "Enable gzip compression"
+msgstr ""
+
+#: includes/admin/cache.php:172
+msgid ""
+"Compressing resources with gzip reduce the number of bytes sent over the "
+"network"
+msgstr ""
+
+#: includes/admin/cache.php:181 includes/admin/cdn.php:33
+#: includes/admin/css.php:402 includes/admin/database.php:102
+#: includes/admin/images.php:110 includes/admin/javascript.php:405
+#: includes/admin/settings.php:58
+msgid "Save changes"
+msgstr ""
+
+#: includes/admin/cache.php:189
+msgid "Cache statistics"
+msgstr ""
+
+#: includes/admin/cache.php:190 includes/helpers.php:554
+#: includes/helpers.php:559
+msgid "Clear cache"
+msgstr ""
+
+#: includes/admin/cache.php:209
+msgid "HTML files"
+msgstr ""
+
+#: includes/admin/cache.php:212
+msgid "CSS files"
+msgstr ""
+
+#: includes/admin/cache.php:215
+msgid "JavaScript files"
+msgstr ""
+
+#: includes/admin/cache.php:220
+msgid "Total cache size"
+msgstr ""
+
+#: includes/admin/cache.php:231
+msgid "Exclude URL(s) from cache"
+msgstr ""
+
+#: includes/admin/cache.php:263 includes/admin/cache.php:277
+#: includes/admin/css.php:539 includes/admin/css.php:553
+#: includes/admin/javascript.php:502 includes/admin/javascript.php:516
+msgid "Part of the URL will also work"
+msgstr ""
+
+#: includes/admin/cache.php:264 includes/admin/cache.php:277
+#: includes/admin/cdn.php:73 includes/admin/cdn.php:86
+#: includes/admin/css.php:540 includes/admin/css.php:553
+#: includes/admin/javascript.php:503 includes/admin/javascript.php:516
+msgid "Use {numbers} to match only numbers"
+msgstr ""
+
+#: includes/admin/cache.php:265 includes/admin/cache.php:277
+#: includes/admin/cdn.php:74 includes/admin/cdn.php:86
+#: includes/admin/css.php:541 includes/admin/css.php:553
+#: includes/admin/javascript.php:504 includes/admin/javascript.php:516
+msgid "Use {letters} to match only letters"
+msgstr ""
+
+#: includes/admin/cache.php:266 includes/admin/cache.php:277
+#: includes/admin/cdn.php:75 includes/admin/cdn.php:86
+#: includes/admin/css.php:542 includes/admin/css.php:553
+#: includes/admin/javascript.php:505 includes/admin/javascript.php:516
+msgid "Use {any} to match any string"
+msgstr ""
+
+#: includes/admin/cache.php:280 includes/admin/css.php:145
+#: includes/admin/css.php:156 includes/admin/css.php:350
+#: includes/admin/css.php:361 includes/admin/css.php:556
+#: includes/admin/javascript.php:145 includes/admin/javascript.php:156
+#: includes/admin/javascript.php:352 includes/admin/javascript.php:363
+#: includes/admin/javascript.php:519 includes/helpers.php:721
+msgid "Add URL"
+msgstr ""
+
+#: includes/admin/cdn.php:12
+msgid "Enable CDN"
+msgstr ""
+
+#: includes/admin/cdn.php:16
+msgid ""
+"All URL(s) of static files ( CSS, JavaScript and Images ) will be rewritten "
+"to the CDN hostname you provide. "
+msgstr ""
+
+#: includes/admin/cdn.php:23
+msgid "CDN hostname"
+msgstr ""
+
+#: includes/admin/cdn.php:41
+msgid "Exclude file(s) from CDN"
+msgstr ""
+
+#: includes/admin/cdn.php:89
+msgid "Add file"
+msgstr ""
+
+#: includes/admin/css.php:15 includes/admin/javascript.php:15
+msgid "File"
+msgstr ""
+
+#: includes/admin/css.php:16 includes/admin/javascript.php:16
+msgid "Minify"
+msgstr ""
+
+#: includes/admin/css.php:17 includes/admin/javascript.php:17
+msgid "Inline"
+msgstr ""
+
+#: includes/admin/css.php:18 includes/admin/javascript.php:18
+msgid "Combine"
+msgstr ""
+
+#: includes/admin/css.php:19 includes/admin/javascript.php:19
+msgid "Disable"
+msgstr ""
+
+#: includes/admin/css.php:25 includes/admin/javascript.php:25
+msgid "Update all files in list below"
+msgstr ""
+
+#: includes/admin/css.php:67 includes/admin/css.php:268
+#: includes/admin/javascript.php:67 includes/admin/javascript.php:270
+#: includes/helpers.php:722
+msgid "Disable everywhere"
+msgstr ""
+
+#: includes/admin/css.php:71 includes/admin/css.php:272
+#: includes/admin/javascript.php:71 includes/admin/javascript.php:274
+#: includes/helpers.php:723
+msgid "Disable only on selected URL"
+msgstr ""
+
+#: includes/admin/css.php:75 includes/admin/css.php:276
+#: includes/admin/javascript.php:75 includes/admin/javascript.php:278
+#: includes/helpers.php:724
+msgid "Disable everywhere except on selected URL"
+msgstr ""
+
+#: includes/admin/css.php:243 includes/admin/javascript.php:245
+msgid "External resources"
+msgstr ""
+
+#: includes/admin/css.php:398 includes/admin/javascript.php:401
+msgid ""
+"If some of the files are missing from this list, enable Cache preloading "
+"option."
+msgstr ""
+
+#: includes/admin/css.php:406
+msgid "CSS files not found"
+msgstr ""
+
+#: includes/admin/css.php:410 includes/admin/javascript.php:413
+msgid "Reload"
+msgstr ""
+
+#: includes/admin/css.php:418
+msgid "CSS settings"
+msgstr ""
+
+#: includes/admin/css.php:426
+msgid "Minify inline CSS"
+msgstr ""
+
+#: includes/admin/css.php:433
+msgid "Asynchronously load CSS"
+msgstr ""
+
+#: includes/admin/css.php:437 includes/admin/javascript.php:441
+msgid "Eliminates render-blocking JavaScript"
+msgstr ""
+
+#: includes/admin/css.php:441
+msgid ""
+"Loading CSS asynchronously will produce FOUC effect (a Flash Of Unstyled "
+"Content). In order to minimize the FOUC effect, use critical CSS path."
+msgstr ""
+
+#: includes/admin/css.php:448
+msgid "Critical CSS path"
+msgstr ""
+
+#: includes/admin/css.php:453
+msgid "Enter critical CSS path definitions"
+msgstr ""
+
+#: includes/admin/css.php:458
+msgid "Generate critical CSS path"
+msgstr ""
+
+#: includes/admin/css.php:471
+msgid "Combine Google Fonts"
+msgstr ""
+
+#: includes/admin/css.php:476
+msgid "Load all google fonts in one HTTP request"
+msgstr ""
+
+#: includes/admin/css.php:484
+msgid "Disable CSS optimization for logged-in users"
+msgstr ""
+
+#: includes/admin/css.php:495
+msgid "Prefetch external CSS resources"
+msgstr ""
+
+#: includes/admin/css.php:510 includes/admin/javascript.php:473
+msgid "DNS prefetching can make external resources load faster"
+msgstr ""
+
+#: includes/admin/css.php:518
+msgid "Exclude URL(s) from CSS optimization"
+msgstr ""
+
+#: includes/admin/database.php:21
+msgid "Spam"
+msgstr ""
+
+#: includes/admin/database.php:22 includes/admin/database.php:25
+msgid "Delete all spam comments"
+msgstr ""
+
+#: includes/admin/database.php:25 includes/admin/database.php:34
+#: includes/admin/database.php:44 includes/admin/database.php:54
+#: includes/admin/database.php:62
+msgid "Delete"
+msgstr ""
+
+#: includes/admin/database.php:30
+msgid "Trash"
+msgstr ""
+
+#: includes/admin/database.php:31 includes/admin/database.php:34
+msgid "Delete all pages, posts and comments from trash"
+msgstr ""
+
+#: includes/admin/database.php:40
+msgid "Revisions"
+msgstr ""
+
+#: includes/admin/database.php:41 includes/admin/database.php:44
+msgid "Delete all revisions"
+msgstr ""
+
+#: includes/admin/database.php:50
+msgid "Transients"
+msgstr ""
+
+#: includes/admin/database.php:51 includes/admin/database.php:54
+msgid "Delete all expired transients"
+msgstr ""
+
+#: includes/admin/database.php:59 includes/admin/database.php:62
+msgid "Delete all"
+msgstr ""
+
+#: includes/admin/database.php:73
+msgid "Automatic database cleanup"
+msgstr ""
+
+#: includes/admin/database.php:79
+msgid "Schedule"
+msgstr ""
+
+#: includes/admin/database.php:81
+msgid "Not scheduled"
+msgstr ""
+
+#: includes/admin/database.php:82 includes/helpers.php:951
+msgid "Daily"
+msgstr ""
+
+#: includes/admin/database.php:83 includes/helpers.php:956
+msgid "Weekly"
+msgstr ""
+
+#: includes/admin/database.php:84 includes/helpers.php:961
+msgid "Monthly"
+msgstr ""
+
+#: includes/admin/database.php:87
+msgid "Next run"
+msgstr ""
+
+#: includes/admin/database.php:93
+msgid "Not set"
+msgstr ""
+
+#: includes/admin/images.php:12
+msgid "Lazy load"
+msgstr ""
+
+#: includes/admin/images.php:16
+msgid "Lazy load images"
+msgstr ""
+
+#: includes/admin/images.php:20
+msgid "Reduces the number of HTTP requests and improves loading time"
+msgstr ""
+
+#: includes/admin/images.php:30
+msgid "Disable lazy load on mobile devices"
+msgstr ""
+
+#: includes/admin/images.php:36
+msgid "Responsive images"
+msgstr ""
+
+#: includes/admin/images.php:40
+msgid "Force images to use srcset attribute"
+msgstr ""
+
+#: includes/admin/images.php:43
+msgid ""
+"Loads the best optimized image depending on users screen size and image "
+"sizes settings"
+msgstr ""
+
+#: includes/admin/images.php:48
+msgid "Exclude images"
+msgstr ""
+
+#: includes/admin/images.php:64
+msgid "Add Image"
+msgstr ""
+
+#: includes/admin/images.php:75
+msgid ""
+"Exclude images located in specific html containers like sliders and galleries"
+msgstr ""
+
+#: includes/admin/images.php:91 includes/admin/images.php:100
+msgid "Enter container id or class name"
+msgstr ""
+
+#: includes/admin/images.php:92 includes/admin/images.php:100
+msgid "Example"
+msgstr ""
+
+#: includes/admin/images.php:100
+msgid "Add Container"
+msgstr ""
+
+#: includes/admin/images.php:118
+msgid "Image sizes"
+msgstr ""
+
+#: includes/admin/images.php:119
+msgid "Restore default image sizes"
+msgstr ""
+
+#: includes/admin/images.php:119
+msgid "Restore image sizes"
+msgstr ""
+
+#: includes/admin/images.php:126
+msgid "Name"
+msgstr ""
+
+#: includes/admin/images.php:127
+msgid "Width"
+msgstr ""
+
+#: includes/admin/images.php:128
+msgid "Height"
+msgstr ""
+
+#: includes/admin/images.php:129
+msgid "Crop"
+msgstr ""
+
+#: includes/admin/images.php:130
+msgid "Actions"
+msgstr ""
+
+#: includes/admin/images.php:139
+#, php-format
+msgid "Remove image size %s"
+msgstr ""
+
+#: includes/admin/images.php:145
+msgid "Add size"
+msgstr ""
+
+#: includes/admin/images.php:151
+msgid "Regenerate thumbnails every time you make some changes to image sizes"
+msgstr ""
+
+#: includes/admin/images.php:153
+msgid "Regenerate thumbnails"
+msgstr ""
+
+#: includes/admin/javascript.php:409
+msgid "JavaScript files not found"
+msgstr ""
+
+#: includes/admin/javascript.php:422
+msgid "JavaScript settings"
+msgstr ""
+
+#: includes/admin/javascript.php:430
+msgid "Minify inline JavaScript"
+msgstr ""
+
+#: includes/admin/javascript.php:437
+msgid "Asynchronously load JavaScript"
+msgstr ""
+
+#: includes/admin/javascript.php:447
+msgid "Disable JavaScript optimization for logged-in users"
+msgstr ""
+
+#: includes/admin/javascript.php:458
+msgid "Prefetch external JS resources"
+msgstr ""
+
+#: includes/admin/javascript.php:481
+msgid "Exclude URL(s) from JavaScript optimization"
+msgstr ""
+
+#: includes/admin/settings.php:16
+msgid "Import settings"
+msgstr ""
+
+#: includes/admin/settings.php:18
+msgid "Import"
+msgstr ""
+
+#: includes/admin/settings.php:22
+msgid "Export settings"
+msgstr ""
+
+#: includes/admin/settings.php:24
+msgid "Export"
+msgstr ""
+
+#: includes/admin/settings.php:29
+msgid "Logs"
+msgstr ""
+
+#: includes/admin/settings.php:33
+msgid "Troubleshooting logging"
+msgstr ""
+
+#: includes/admin/settings.php:37
+msgid "Enable troubleshooting logging"
+msgstr ""
+
+#: includes/admin/settings.php:40
+msgid "These logs can be helpful for troubleshooting problems"
+msgstr ""
+
+#: includes/admin/settings.php:46
+msgid "Log file content"
+msgstr ""
+
+#: includes/admin/settings.php:49
+msgid "Content is auto refreshed every 10 seconds"
+msgstr ""
+
+#: includes/admin/settings.php:61
+msgid "Clear log file"
+msgstr ""
+
+#: includes/admin/settings.php:68
+msgid "Previous configuration settings"
+msgstr ""
+
+#: includes/admin/settings.php:84
+msgid "Saved"
+msgstr ""
+
+#: includes/admin/settings.php:87
+msgid "Load configuration settings saved on "
+msgstr ""
+
+#: includes/admin/settings.php:90
+msgid "Load"
+msgstr ""
+
+#: includes/classes/cli.php:23
+msgid "Flushing the cache..."
+msgstr ""
+
+#: includes/classes/cli.php:25
+msgid "Cache flushed."
+msgstr ""
+
+#: includes/classes/db.php:62
+msgid "You are doing it wrong"
+msgstr ""
+
+#: includes/classes/image.php:259
+msgid "Size name already in use"
+msgstr ""
+
+#: includes/classes/image.php:381
+#, php-format
+msgid "%s image left"
+msgid_plural "%s images left"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/classes/image.php:393
+msgid "Done"
+msgstr ""
+
+#: includes/classes/parser.php:31
+msgid "error"
+msgstr ""
+
+#: includes/classes/parser.php:32
+msgid "both head and body tag should be present in template file"
+msgstr ""
+
+#: includes/classes/parser.php:775
+msgid "Optimized by"
+msgstr ""
+
+#: includes/classes/parser.php:791
+#, php-format
+msgid "Cache file was created in %s seconds on %s at %s"
+msgstr ""
+
+#: includes/classes/wpp.php:271
+msgid "is temporarily disabled"
+msgstr ""
+
+#: includes/classes/wpp.php:271 includes/helpers.php:689
+msgid "Enable"
+msgstr ""
+
+#: includes/classes/wpp.php:276
+#, php-format
+msgid ""
+"%s: Log file is getting large, either clear the log or disable "
+"troubleshooting logging"
+msgstr ""
+
+#: includes/classes/wpp.php:281
+#, php-format
+msgid "%s: missing writing permissions for file <code>.htaccess</code>"
+msgstr ""
+
+#: includes/helpers.php:643
+msgid "The following plugins are not compatible with"
+msgstr ""
+
+#: includes/helpers.php:650
+msgid "Deactivate"
+msgstr ""
+
+#: includes/helpers.php:692
+msgid "Temporarily disable"
+msgstr ""
+
+#: includes/helpers.php:719
+msgid "Are you sure?"
+msgstr ""
+
+#: includes/helpers.php:725
+msgid "Something went wrong"
+msgstr ""
+
+#: includes/helpers.php:726
+msgid "Regenerating thumbs"
+msgstr ""
+
+#: includes/helpers.php:727
+msgid "Regenerate thumbnails may take a long time. Do not close your browser."
+msgstr ""
+
+#: includes/helpers.php:966
+msgid "Every minute"
+msgstr ""
+
+#: includes/helpers.php:971
+msgid "Every 5 minutes"
+msgstr ""
+
+#: includes/helpers.php:1291
+msgid "Error"
+msgstr ""
+
+#: includes/helpers.php:1292
+msgid "Warning"
+msgstr ""
+
+#: includes/helpers.php:1293
+msgid "Notice"
+msgstr ""
+
+#: includes/helpers.php:1294
+msgid "Event"
+msgstr ""
+
+#: includes/helpers.php:1322
+msgid "Log file cleared"
+msgstr ""
+
+#: includes/helpers.php:1481
+msgid "Settings saved"
+msgstr ""
+
+#: includes/helpers.php:1531
+msgid "Settings file loaded"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "WP Performance"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://www.wp-performance.com"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "WP Performance Plugin"
+msgstr ""

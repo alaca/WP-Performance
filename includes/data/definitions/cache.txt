@@ -1,0 +1,38 @@
+# WPP Cache load start
+
+<IfModule mod_headers.c>
+Header append Vary: Accept-Encoding
+</IfModule>
+
+<IfModule mod_mime.c>
+    AddType text/html .html_gzip .html_mobile_gzip
+    AddEncoding gzip .html_gzip .html_mobile_gzip
+</IfModule>
+<IfModule mod_setenvif.c>
+    SetEnvIfNoCase Request_URI \.html_gzip$ no-gzip
+    SetEnvIfNoCase Request_URI \.html_mobile_gzip$ no-gzip
+</IfModule>
+
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase {BASEDIR}
+    RewriteCond %{HTTP_USER_AGENT} Mobile [NC]
+    RewriteCond %{HTTP_USER_AGENT} Android [NC]
+    RewriteCond %{HTTP_USER_AGENT} Kindle [NC]
+    RewriteCond %{HTTP_USER_AGENT} BlackBerry [NC]
+    RewriteCond %{HTTP_USER_AGENT} Opera\sMini [NC]
+    RewriteCond %{HTTP_USER_AGENT} Opera\sMobi [NC]
+    RewriteRule .* - [E=WPP_MOBILE_EXT:_mobile]
+    RewriteCond %{HTTP:Accept-Encoding} gzip
+    RewriteRule .* - [E=WPP_GZIP_EXT:_gzip]
+    RewriteCond %{REQUEST_METHOD} GET
+	RewriteCond %{QUERY_STRING} =""
+    RewriteCond %{REQUEST_URI} !^(/wp-json/(.*))$ [NC]
+	RewriteCond %{HTTP:Cookie} !(wordpress_logged_in_|wp-postpass_|wptouch_switch_toggle|comment_author_|comment_author_email_) [NC]
+    RewriteCond "%{DOCUMENT_ROOT}{BASEDIR}wp-content/cache/wpp-cache/%{HTTP_HOST}%{REQUEST_URI}/index.html%{ENV:WPP_MOBILE_EXT}%{ENV:WPP_GZIP_EXT}" -f
+    RewriteRule .* "{BASEDIR}wp-content/cache/wpp-cache/%{HTTP_HOST}%{REQUEST_URI}/index.html%{ENV:WPP_MOBILE_EXT}%{ENV:WPP_GZIP_EXT}" [L]
+</IfModule>
+
+# WPP Cache load end
+
