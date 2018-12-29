@@ -1,7 +1,7 @@
 === WP Performance ===
 Contributors: alaca
 Donate link: https://profiles.wordpress.org/alaca
-Tags: cache, performance, wp-cache, total cache, super cache, lazy load, async, regenerate thumbs, db optimizer, WP Performance
+Tags: wp performance, cache, performance, speed optimization, wpp
 Requires at least: 4.5
 Tested up to: 5.0.2
 Stable tag: 1.0
