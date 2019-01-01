@@ -32,7 +32,7 @@ class Parser
                 __( 'both head and body tag should be present in template file', 'wpp' )
             );
 
-            wpp_log( $error ); 
+            wpp_log( __( 'both head and body tag should be present in template file', 'wpp' ) ); 
 
             exit( $error );
         }
