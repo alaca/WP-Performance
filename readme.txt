@@ -42,6 +42,7 @@ WP Performance does not support multisite yet.
 <ul>
     <li>English</li>
     <li>Hrvatski</li>
+    <li>中文 (by @cmhello)</li>
 </ul>
 
 
@@ -60,3 +61,10 @@ WP Performance does not support multisite yet.
 5. DB Optimizer
 6. CDN
 7. Settings
+
+== Changelog ==
+
+= 1.0.1 =
+[FIX] PCRE2 parser issues
+[FIX] Clear cache JS error
+[NEW] Chinese translation
