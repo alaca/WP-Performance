@@ -1,0 +1,777 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Performance\n"
+"POT-Creation-Date: 2018-12-29 19:28+0800\n"
+"PO-Revision-Date: 2018-12-29 20:24+0800\n"
+"Last-Translator: WordPress淘宝网 <support@wptaobao.com>\n"
+"Language-Team: WordPress淘宝网 <support@wptaobao.com>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.1\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: wp-performance.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: includes/admin/admin.php:23 includes/admin/admin.php:37
+#: includes/admin/cache.php:11
+msgid "Cache"
+msgstr "缓存"
+
+#: includes/admin/admin.php:26 includes/admin/admin.php:40
+msgid "Images"
+msgstr "图片"
+
+#: includes/admin/admin.php:27 includes/admin/admin.php:41
+msgid "Database"
+msgstr "数据库"
+
+#: includes/admin/admin.php:29 includes/admin/admin.php:43
+#: includes/admin/settings.php:12 includes/helpers.php:544
+#: includes/helpers.php:548
+msgid "Settings"
+msgstr "设置"
+
+#: includes/admin/cache.php:14
+msgid "Enable cache"
+msgstr "启用缓存"
+
+#: includes/admin/cache.php:18
+msgid "Reduces your server response time by serving static files to users"
+msgstr "通过向用户提供静态文件，缩短服务器响应时间"
+
+#: includes/admin/cache.php:25
+msgid "Separate cache for mobile devices"
+msgstr "移动设备独立缓存"
+
+#: includes/admin/cache.php:28
+msgid "Create a dedicated cache file for mobile devices"
+msgstr "为移动设备创建专用缓存文件"
+
+#: includes/admin/cache.php:35
+msgid "Clear cache after"
+msgstr "多久后清空缓存"
+
+#: includes/admin/cache.php:40
+msgid "minutes"
+msgstr "分"
+
+#: includes/admin/cache.php:43
+msgid "hours"
+msgstr "时"
+
+#: includes/admin/cache.php:46
+msgid "days"
+msgstr "天"
+
+#: includes/admin/cache.php:53
+msgid "Clear cache when"
+msgstr "什么时候清空缓存"
+
+#: includes/admin/cache.php:57
+msgid "A new post or page is published or updated"
+msgstr "发布或更新文章、页面时"
+
+#: includes/admin/cache.php:62
+msgid "A post or page is deleted"
+msgstr "文章或页面被删除时"
+
+#: includes/admin/cache.php:67
+msgid "settings are saved"
+msgstr "设置保存时"
+
+#: includes/admin/cache.php:73
+msgid "Varnish"
+msgstr "Varnish 缓存"
+
+#: includes/admin/cache.php:77
+msgid "Enable auto purge"
+msgstr "启用自动清除"
+
+#: includes/admin/cache.php:80
+msgid "If Varnish runs on your server, you need to activate this option"
+msgstr "如果在服务器上运行Varnish 缓存，则需要激活此选项"
+
+#: includes/admin/cache.php:85
+msgid "Custom host"
+msgstr "自定义主机"
+
+#: includes/admin/cache.php:97
+msgid "If you are using proxy, you may need this option"
+msgstr "如果您使用的是代理主机，则可能需要此选项"
+
+#: includes/admin/cache.php:103
+msgid "Cache preloading"
+msgstr "高速缓存预加载"
+
+#: includes/admin/cache.php:123 includes/admin/cache.php:254
+#: includes/admin/cdn.php:64 includes/admin/css.php:101
+#: includes/admin/css.php:128 includes/admin/css.php:303
+#: includes/admin/css.php:331 includes/admin/css.php:531
+#: includes/admin/images.php:58 includes/admin/images.php:84
+#: includes/admin/javascript.php:101 includes/admin/javascript.php:128
+#: includes/admin/javascript.php:305 includes/admin/javascript.php:333
+#: includes/admin/javascript.php:494 includes/helpers.php:720
+msgid "Remove"
+msgstr "删除"
+
+#: includes/admin/cache.php:133 includes/admin/cache.php:143
+msgid "Enter path to XML sitemap which will be used for cache preloading"
+msgstr "输入将用于缓存预加载的 xml 站点地图的路径"
+
+#: includes/admin/cache.php:146
+msgid "Add Sitemap"
+msgstr "添加网站地图"
+
+#: includes/admin/cache.php:154
+msgid "Browser caching"
+msgstr "浏览器缓存"
+
+#: includes/admin/cache.php:158
+msgid "Leverage browser caching"
+msgstr "启用浏览器缓存"
+
+#: includes/admin/cache.php:162
+msgid ""
+"Setting an expiry date in the HTTP headers for static resources instructs "
+"the browser to load previously downloaded resources from local disk rather "
+"than over the network"
+msgstr ""
+"在静态资源的 HTTP 标头中设置到期日期指示浏览器从本地磁盘而不是通过网络加载以"
+"前下载的资源"
+
+#: includes/admin/cache.php:168
+msgid "Enable gzip compression"
+msgstr "启用 gzip 压缩"
+
+#: includes/admin/cache.php:172
+msgid ""
+"Compressing resources with gzip reduce the number of bytes sent over the "
+"network"
+msgstr "使用 gzip 压缩资源可减少通过网络发送的字节数"
+
+#: includes/admin/cache.php:181 includes/admin/cdn.php:33
+#: includes/admin/css.php:402 includes/admin/database.php:102
+#: includes/admin/images.php:110 includes/admin/javascript.php:405
+#: includes/admin/settings.php:60
+msgid "Save changes"
+msgstr "保存更改"
+
+#: includes/admin/cache.php:189
+msgid "Cache statistics"
+msgstr "缓存统计信息"
+
+#: includes/admin/cache.php:190 includes/helpers.php:554
+#: includes/helpers.php:559
+msgid "Clear cache"
+msgstr "清除缓存"
+
+#: includes/admin/cache.php:209
+msgid "HTML files"
+msgstr "HTML文件"
+
+#: includes/admin/cache.php:212
+msgid "CSS files"
+msgstr "CSS文件"
+
+#: includes/admin/cache.php:215
+msgid "JavaScript files"
+msgstr "JavaScript文件"
+
+#: includes/admin/cache.php:220
+msgid "Total cache size"
+msgstr "缓存总大小"
+
+#: includes/admin/cache.php:231
+msgid "Exclude URL(s) from cache"
+msgstr "从缓存中排除网址"
+
+#: includes/admin/cache.php:263 includes/admin/cache.php:277
+#: includes/admin/css.php:539 includes/admin/css.php:553
+#: includes/admin/javascript.php:502 includes/admin/javascript.php:516
+msgid "Part of the URL will also work"
+msgstr "包含这些网址部分的页面也一样生效"
+
+#: includes/admin/cache.php:264 includes/admin/cache.php:277
+#: includes/admin/cdn.php:73 includes/admin/cdn.php:86
+#: includes/admin/css.php:540 includes/admin/css.php:553
+#: includes/admin/javascript.php:503 includes/admin/javascript.php:516
+msgid "Use {numbers} to match only numbers"
+msgstr "使用 {numbers} 来匹配数字"
+
+#: includes/admin/cache.php:265 includes/admin/cache.php:277
+#: includes/admin/cdn.php:74 includes/admin/cdn.php:86
+#: includes/admin/css.php:541 includes/admin/css.php:553
+#: includes/admin/javascript.php:504 includes/admin/javascript.php:516
+msgid "Use {letters} to match only letters"
+msgstr "使用 {letters} 来匹配字母"
+
+#: includes/admin/cache.php:266 includes/admin/cache.php:277
+#: includes/admin/cdn.php:75 includes/admin/cdn.php:86
+#: includes/admin/css.php:542 includes/admin/css.php:553
+#: includes/admin/javascript.php:505 includes/admin/javascript.php:516
+msgid "Use {any} to match any string"
+msgstr "使用 {any} 来匹配任何字符串"
+
+#: includes/admin/cache.php:280 includes/admin/css.php:145
+#: includes/admin/css.php:156 includes/admin/css.php:350
+#: includes/admin/css.php:361 includes/admin/css.php:556
+#: includes/admin/javascript.php:145 includes/admin/javascript.php:156
+#: includes/admin/javascript.php:352 includes/admin/javascript.php:363
+#: includes/admin/javascript.php:519 includes/helpers.php:721
+msgid "Add URL"
+msgstr "添加网址"
+
+#: includes/admin/cdn.php:12
+msgid "Enable CDN"
+msgstr "启用CDN"
+
+#: includes/admin/cdn.php:16
+msgid ""
+"All URL(s) of static files ( CSS, JavaScript and Images ) will be rewritten "
+"to the CDN hostname you provide. "
+msgstr ""
+"所有静态文件 (CSS、JavaScript 和图片) 的网址都将被重写到您提供的 CDN 主机"
+"名。 "
+
+#: includes/admin/cdn.php:23
+msgid "CDN hostname"
+msgstr "CDN主机名"
+
+#: includes/admin/cdn.php:41
+msgid "Exclude file(s) from CDN"
+msgstr "从CDN中排除文件"
+
+#: includes/admin/cdn.php:89
+msgid "Add file"
+msgstr "添加文件"
+
+#: includes/admin/css.php:15 includes/admin/javascript.php:15
+msgid "File"
+msgstr "文件"
+
+#: includes/admin/css.php:16 includes/admin/javascript.php:16
+msgid "Minify"
+msgstr "压缩"
+
+#: includes/admin/css.php:17 includes/admin/javascript.php:17
+msgid "Inline"
+msgstr "内联"
+
+#: includes/admin/css.php:18 includes/admin/javascript.php:18
+msgid "Combine"
+msgstr "合并"
+
+#: includes/admin/css.php:19 includes/admin/javascript.php:19
+msgid "Disable"
+msgstr "禁用"
+
+#: includes/admin/css.php:25 includes/admin/javascript.php:25
+msgid "Update all files in list below"
+msgstr "更新下面列表中的所有文件"
+
+#: includes/admin/css.php:67 includes/admin/css.php:268
+#: includes/admin/javascript.php:67 includes/admin/javascript.php:270
+#: includes/helpers.php:722
+msgid "Disable everywhere"
+msgstr "在所有地方禁用"
+
+#: includes/admin/css.php:71 includes/admin/css.php:272
+#: includes/admin/javascript.php:71 includes/admin/javascript.php:274
+#: includes/helpers.php:723
+msgid "Disable only on selected URL"
+msgstr "仅在选定的网址上禁用"
+
+#: includes/admin/css.php:75
+msgid "Disable everywhere execpt on selected URL"
+msgstr "在所选网址以外的任何地方禁用"
+
+#: includes/admin/css.php:243 includes/admin/javascript.php:245
+msgid "External resources"
+msgstr "外部资源"
+
+#: includes/admin/css.php:276 includes/admin/javascript.php:75
+#: includes/admin/javascript.php:278 includes/helpers.php:724
+msgid "Disable everywhere except on selected URL"
+msgstr "在所选网址以外的任何地方禁用"
+
+#: includes/admin/css.php:398 includes/admin/javascript.php:401
+msgid ""
+"If some of the files are missing from this list, enable Cache preloading "
+"option."
+msgstr "如果此列表中缺少某些文件，请启用缓存预加载选项。"
+
+#: includes/admin/css.php:406
+msgid "CSS files not found"
+msgstr "找不到 CSS 文件"
+
+#: includes/admin/css.php:410 includes/admin/javascript.php:413
+msgid "Reload"
+msgstr "刷新"
+
+#: includes/admin/css.php:418
+msgid "CSS settings"
+msgstr "CSS 设置"
+
+#: includes/admin/css.php:426
+msgid "Minify inline CSS"
+msgstr "压缩内联 CSS"
+
+#: includes/admin/css.php:433
+msgid "Asynchronously load CSS"
+msgstr "异步加载 CSS"
+
+#: includes/admin/css.php:437 includes/admin/javascript.php:441
+msgid "Eliminates render-blocking JavaScript"
+msgstr "消除了阻止渲染的 JavaScript"
+
+#: includes/admin/css.php:441
+msgid ""
+"Loading CSS asynchronously will produce FOUC effect (a Flash Of Unstyled "
+"Content). In order to minimize the FOUC effect, use critical CSS path."
+msgstr ""
+"异步加载 CSS 将产生 FOUC 效果 (未设置样式内容的 flash)。为了最大限度地减少 "
+"FOUC 效应，请使用关键 CSS 路径。"
+
+#: includes/admin/css.php:448
+msgid "Critical CSS path"
+msgstr "关键 CSS 路径"
+
+#: includes/admin/css.php:453
+msgid "Enter critical CSS path definitions"
+msgstr "输入关键 CSS 路径"
+
+#: includes/admin/css.php:458
+msgid "Generate critical CSS path"
+msgstr "生成关键 CSS 路径"
+
+#: includes/admin/css.php:471
+msgid "Combine Google Fonts"
+msgstr "合并谷歌字体"
+
+#: includes/admin/css.php:476
+msgid "Load all google fonts in one HTTP request"
+msgstr "在一个 HTTP 请求中加载所有谷歌字体"
+
+#: includes/admin/css.php:484
+msgid "Disable CSS optimization for logged-in users"
+msgstr "对已登录用户不启用CSS优化"
+
+#: includes/admin/css.php:495
+msgid "Prefetch external CSS resources"
+msgstr "预加载外部 CSS 资源"
+
+#: includes/admin/css.php:510 includes/admin/javascript.php:473
+msgid "DNS prefetching can make external resources load faster"
+msgstr "DNS 预加载可以使外部资源加载速度更快"
+
+#: includes/admin/css.php:518
+msgid "Exclude URL(s) from CSS optimization"
+msgstr "从 CSS 优化中排除网址"
+
+#: includes/admin/database.php:21
+msgid "Spam"
+msgstr "垃圾评论"
+
+#: includes/admin/database.php:22 includes/admin/database.php:25
+msgid "Delete all spam comments"
+msgstr "删除所有垃圾评论"
+
+#: includes/admin/database.php:25 includes/admin/database.php:34
+#: includes/admin/database.php:44 includes/admin/database.php:54
+#: includes/admin/database.php:62
+msgid "Delete"
+msgstr "删除"
+
+#: includes/admin/database.php:30
+msgid "Trash"
+msgstr "回收站"
+
+#: includes/admin/database.php:31 includes/admin/database.php:34
+msgid "Delete all pages, posts and comments from trash"
+msgstr "从回收站中删除所有页面、文章和评论"
+
+#: includes/admin/database.php:40
+msgid "Revisions"
+msgstr "修订"
+
+#: includes/admin/database.php:41 includes/admin/database.php:44
+msgid "Delete all revisions"
+msgstr "删除所有修订版本"
+
+#: includes/admin/database.php:50
+msgid "Transients"
+msgstr "瞬态缓存（Transients）"
+
+#: includes/admin/database.php:51 includes/admin/database.php:54
+msgid "Delete all expired transients"
+msgstr "删除所有过期的瞬态缓存"
+
+#: includes/admin/database.php:59 includes/admin/database.php:62
+msgid "Delete all"
+msgstr "全部删除"
+
+#: includes/admin/database.php:73
+msgid "Automatic database cleanup"
+msgstr "自动清理数据库"
+
+#: includes/admin/database.php:79
+msgid "Schedule"
+msgstr "计划"
+
+#: includes/admin/database.php:81
+msgid "Not scheduled"
+msgstr "无计划任务"
+
+#: includes/admin/database.php:82 includes/helpers.php:1004
+msgid "Daily"
+msgstr "按天"
+
+#: includes/admin/database.php:83 includes/helpers.php:1009
+msgid "Weekly"
+msgstr "按周"
+
+#: includes/admin/database.php:84 includes/helpers.php:1014
+msgid "Monthly"
+msgstr "按月"
+
+#: includes/admin/database.php:87
+msgid "Next run"
+msgstr "下一次运行"
+
+#: includes/admin/database.php:93
+msgid "Not set"
+msgstr "没有设置"
+
+#: includes/admin/images.php:12
+msgid "Lazy load"
+msgstr "延迟加载"
+
+#: includes/admin/images.php:16
+msgid "Lazy load images"
+msgstr "延迟加载图片"
+
+#: includes/admin/images.php:20
+msgid "Reduces the number of HTTP requests and improves loading time"
+msgstr "减少 HTTP 请求的数量并缩短加载时间"
+
+#: includes/admin/images.php:30
+msgid "Disable lazy load on mobile devices"
+msgstr "在移动设备上禁用延迟加载"
+
+#: includes/admin/images.php:36
+msgid "Responsive images"
+msgstr "响应式图片"
+
+#: includes/admin/images.php:40
+msgid "Force images to use srcset attribute"
+msgstr "强制图片使用 srcset 属性"
+
+#: includes/admin/images.php:43
+msgid ""
+"Loads the best optimized image depending on users screen size and image "
+"sizes settings"
+msgstr "根据用户屏幕大小和图片大小设置加载最佳优化的图片"
+
+#: includes/admin/images.php:48
+msgid "Exclude images"
+msgstr "排除图片"
+
+#: includes/admin/images.php:64
+msgid "Add Image"
+msgstr "添加图片"
+
+#: includes/admin/images.php:75
+msgid ""
+"Exclude images located in specific html containers like sliders and galleries"
+msgstr "排除位于特定 HTML 容器中的图片，如滑块和图库"
+
+#: includes/admin/images.php:91 includes/admin/images.php:100
+msgid "Enter container id or class name"
+msgstr "输入容器 id 或类名"
+
+#: includes/admin/images.php:92 includes/admin/images.php:100
+msgid "Example"
+msgstr "例子"
+
+#: includes/admin/images.php:100
+msgid "Add Container"
+msgstr "添加容器"
+
+#: includes/admin/images.php:118
+msgid "Image sizes"
+msgstr "图片尺寸"
+
+#: includes/admin/images.php:119
+msgid "Restore default image sizes"
+msgstr "恢复默认图片大小"
+
+#: includes/admin/images.php:119
+msgid "Restore image sizes"
+msgstr "恢复图片大小"
+
+#: includes/admin/images.php:126
+msgid "Name"
+msgstr "名称"
+
+#: includes/admin/images.php:127
+msgid "Width"
+msgstr "宽"
+
+#: includes/admin/images.php:128
+msgid "Height"
+msgstr "高"
+
+#: includes/admin/images.php:129
+msgid "Crop"
+msgstr "裁剪"
+
+#: includes/admin/images.php:130
+msgid "Actions"
+msgstr "操作"
+
+#: includes/admin/images.php:139
+#, php-format
+msgid "Remove image size %s"
+msgstr "删除图片大小 %s"
+
+#: includes/admin/images.php:145
+msgid "Add size"
+msgstr "添加大小"
+
+#: includes/admin/images.php:151
+msgid "Regenerate thumbnails every time you make some changes to image sizes"
+msgstr "每次对图片大小进行某些更改时，都会重新生成缩略图"
+
+#: includes/admin/images.php:153
+msgid "Regenerate thumbnails"
+msgstr "重新生成缩略图"
+
+#: includes/admin/javascript.php:409
+msgid "JavaScript files not found"
+msgstr "找不到 JavaScript 文件"
+
+#: includes/admin/javascript.php:422
+msgid "JavaScript settings"
+msgstr "JavaScript 设置"
+
+#: includes/admin/javascript.php:430
+msgid "Minify inline JavaScript"
+msgstr "压缩内联 JavaScript"
+
+#: includes/admin/javascript.php:437
+msgid "Asynchronously load JavaScript"
+msgstr "异步加载 JavaScript"
+
+#: includes/admin/javascript.php:447
+msgid "Disable JavaScript optimization for logged-in users"
+msgstr "对已登录的用户禁用 JavaScript 优化"
+
+#: includes/admin/javascript.php:458
+msgid "Prefetch external JS resources"
+msgstr "预加载外部 JS 资源"
+
+#: includes/admin/javascript.php:481
+msgid "Exclude URL(s) from JavaScript optimization"
+msgstr "从 JavaScript 优化中排除网址"
+
+#: includes/admin/settings.php:16
+msgid "Import settings"
+msgstr "导入设置"
+
+#: includes/admin/settings.php:22
+msgid "Export settings"
+msgstr "导出设置"
+
+#: includes/admin/settings.php:25
+msgid "Export"
+msgstr "导出"
+
+#: includes/admin/settings.php:31
+msgid "Logs"
+msgstr "日志"
+
+#: includes/admin/settings.php:35
+msgid "Troubleshooting logging"
+msgstr "故障排除日志"
+
+#: includes/admin/settings.php:39
+msgid "Enable troubleshooting logging"
+msgstr "启用故障排除日志"
+
+#: includes/admin/settings.php:42
+msgid "These logs can be helpful for troubleshooting problems"
+msgstr "这些日志可帮助解决问题"
+
+#: includes/admin/settings.php:48
+msgid "Log file content"
+msgstr "记录文件内容"
+
+#: includes/admin/settings.php:51
+msgid "Content is auto refreshed every 10 seconds"
+msgstr "内容每10秒自动刷新一次"
+
+#: includes/admin/settings.php:63
+msgid "Clear log file"
+msgstr "清除日志文件"
+
+#: includes/admin/settings.php:70
+msgid "Previous configuration settings"
+msgstr "以前的配置设置"
+
+#: includes/admin/settings.php:86
+msgid "Saved"
+msgstr "保存于"
+
+#: includes/admin/settings.php:89
+msgid "Load configuration settings saved on "
+msgstr "加载配置设置保存于 "
+
+#: includes/admin/settings.php:92
+msgid "Load"
+msgstr "加载"
+
+#: includes/classes/cli.php:23
+msgid "Flushing the cache..."
+msgstr "刷新缓存......"
+
+#: includes/classes/cli.php:25
+msgid "Cache flushed."
+msgstr "缓存已刷新。"
+
+#: includes/classes/db.php:62
+msgid "You are doing it wrong"
+msgstr "你做错了"
+
+#: includes/classes/image.php:259
+msgid "Size name already in use"
+msgstr "已在使用的大小名称"
+
+#: includes/classes/image.php:381
+#, php-format
+msgid "%s image left"
+msgid_plural "%s images left"
+msgstr[0] "剩余 %s 图片"
+msgstr[1] "剩余 %s 图片"
+
+#: includes/classes/image.php:393
+msgid "Done"
+msgstr "完成"
+
+#: includes/classes/parser.php:31
+msgid "error"
+msgstr "错误"
+
+#: includes/classes/parser.php:32
+msgid "both head and body tag should be present in template file"
+msgstr "head 和 body 标记都应存在模板文件中"
+
+#: includes/classes/parser.php:775
+msgid "Optimized by"
+msgstr "已优化来自"
+
+#: includes/classes/parser.php:791
+#, php-format
+msgid "Cache file was created in %s seconds on %s at %s"
+msgstr "缓存文件创建于 %s 秒，%s 于 %s"
+
+#: includes/classes/wpp.php:277
+msgid "is temporarily disabled"
+msgstr "暂时禁用"
+
+#: includes/classes/wpp.php:277 includes/helpers.php:689
+msgid "Enable"
+msgstr "启用"
+
+#: includes/classes/wpp.php:282
+#, php-format
+msgid ""
+"%s: Log file is getting large, either clear the log or disable "
+"troubleshooting logging"
+msgstr "%s: 日志文件越来越大，可以清除日志，也可以禁用故障排除日志记录"
+
+#: includes/classes/wpp.php:287
+#, php-format
+msgid "%s: missing writing permissions for file <code>.htaccess</code>"
+msgstr "%s: 缺少 <code>. htaccess 文件的写入权限 </code>"
+
+#: includes/helpers.php:643
+msgid "The following plugins are not compatible with"
+msgstr "以下插件不兼容"
+
+#: includes/helpers.php:650
+msgid "Deactivate"
+msgstr "停用"
+
+#: includes/helpers.php:692
+msgid "Temporarily disable"
+msgstr "暂时禁用"
+
+#: includes/helpers.php:719
+msgid "Are you sure?"
+msgstr "你确定？"
+
+#: includes/helpers.php:725
+msgid "Something went wrong"
+msgstr "出了些问题"
+
+#: includes/helpers.php:726
+msgid "Regenerating thumbs"
+msgstr "重新生成缩略图"
+
+#: includes/helpers.php:727
+msgid "Regenerate thumbnails may take a long time. Do not close your browser."
+msgstr "重新生成缩略图可能需要很长时间。不要关闭浏览器。"
+
+#: includes/helpers.php:1019
+msgid "Every minute"
+msgstr "每1分钟"
+
+#: includes/helpers.php:1024
+msgid "Every 5 minutes"
+msgstr "每5分钟"
+
+#: includes/helpers.php:1344
+msgid "Error"
+msgstr "错误"
+
+#: includes/helpers.php:1345
+msgid "Warning"
+msgstr "警告"
+
+#: includes/helpers.php:1346
+msgid "Notice"
+msgstr "通知"
+
+#: includes/helpers.php:1347
+msgid "Event"
+msgstr "活动"
+
+#. Plugin Name of the plugin/theme
+msgid "WP Performance"
+msgstr "WP性能"
+
+#. Plugin URI of the plugin/theme
+msgid "https://www.wp-performance.com"
+msgstr "https://www.wp-performance.com"
+
+#. Description of the plugin/theme
+msgid "WP Performance Optimizer"
+msgstr ""
+"WP性能优化插件，由 WordPress大学 https://www.wpdaxue.com 提供简体中文支持"
+
+#. Author of the plugin/theme
+msgid "Ante Laca"
+msgstr "Ante Laca"
+
+#. Author URI of the plugin/theme
+msgid "https://www.antelaca.xyz"
+msgstr "https://www.antelaca.xyz"
