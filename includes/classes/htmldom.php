@@ -567,7 +567,8 @@ class simple_html_dom_node
             $debug_object->debug_log_entry(1);
         }
 
-        $pattern = "/([\w-:\*]*)(?:\#([\w-]+)|\.([\w-]+))?(?:\[@?(!?[\w-:]+)(?:([!*^$]?=)[\"']?(.*?)[\"']?)?\])?([\/, ]+)/is";
+        #$pattern = "/([\w-:\*]*)(?:\#([\w-]+)|\.([\w-]+))?(?:\[@?(!?[\w-:]+)(?:([!*^$]?=)[\"']?(.*?)[\"']?)?\])?([\/, ]+)/is";
+        $pattern = "/([\w\-:\*]*)(?:\#([\w\-]+)|\.([\w\-]+))?(?:\[@?(!?[\w\-:]+)(?:([!*^$]?=)[\"']?(.*?)[\"']?)?\])?([\/, ]+)/is";
         preg_match_all($pattern, trim($selector_string) . ' ', $matches, PREG_SET_ORDER);
         if (is_object($debug_object)) {
             $debug_object->debug_log(2, "Matches Array: ", $matches);
@@ -770,7 +771,7 @@ class simple_html_dom_node
         if (isset($this->attr['style'])) {
 
             $attributes = array();
-            preg_match_all("/([\w-]+)\s*:\s*([^;]+)\s*;?/", $this->attr['style'], $matches, PREG_SET_ORDER);
+            preg_match_all("/([\w\-]+)\s*:\s*([^;]+)\s*;?/", $this->attr['style'], $matches, PREG_SET_ORDER);
             foreach($matches as $match) {
                 $attributes[$match[1]] = $match[2];
             }
@@ -1247,7 +1248,7 @@ class HtmlDOM
             $this->char = $this->doc[--$this->pos]; 
             return true;
         }
-        if (!preg_match("/^[\w-:]+$/", $tag)) {
+        if (!preg_match("/^[\w\-:]+$/", $tag)) {
             $node->_[HDOM_INFO_TEXT] = '<' . $tag . $this->copy_until('<>');
             if ($this->char === '<') {
                 $this->link_nodes($node, false);
