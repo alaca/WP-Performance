@@ -104,14 +104,12 @@
 
     };
 
-    // check if browser doesn't supports preload
+    // check if browser supports preload
     if (!supportsPreload()) {
-
         load()
-
     }
 
-    window.loadCSS = loadCSS;
+    //window.loadCSS = loadCSS;
 
 
     // Load Script
@@ -139,6 +137,14 @@
                         }
 
                     };
+
+                    // xhr never timeout, so we do it ourselves
+                    setTimeout( function() {
+                        if (xhr.readyState < 4) {
+                            xhr.abort();
+                            return reject(new Error(script.url + ' timeout'));
+                        }
+                    }, 10000);
 
                     xhr.send();
 
