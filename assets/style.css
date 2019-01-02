@@ -77,6 +77,9 @@
     float: left;
 }
 
+.wpp-page-wrapper a {
+    text-decoration: none !important;
+}
 
 .wpp-support input[type="text"] {
     width: 100%;
@@ -374,12 +377,16 @@ table.wpp-file-list tr {
     margin-left: -25px;
 }
 
-.wpp-log-textarea {
+.wpp-log-textarea, .wpp-rules-textarea {
     height: 200px !important;
 }
 
 .wpp-content-section .button, .wpp-content-section .button-primary {
     margin-right: 10px !important;
+}
+
+.wpp-highlight, .wpp-highlight em {
+    color: #fa640e !important;
 }
 
 
