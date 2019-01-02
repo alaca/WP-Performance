@@ -93,7 +93,7 @@ class Cache
         $file = Cache::getFileName();
 
         if ( 
-            get_option( 'permalink_structure', true ) 
+            get_option( 'permalink_structure', false ) 
             && empty( $_GET ) 
             && ! file_exists( $file ) 
         ) {
