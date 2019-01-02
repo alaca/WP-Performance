@@ -23,11 +23,20 @@ use WPP\Option;
  */
 function wpp_activate() {
 
+    if ( 'apache' !== wpp_get_server_software() ) return;
+
+    $htaccess = trailingslashit( ABSPATH ) . '.htaccess';
+
     // Backup htaccess file
-    if ( file_exists( $htaccess = trailingslashit( ABSPATH ) . '.htaccess' ) ) {
+    if ( file_exists( $htaccess ) ) {
         if( ! file_exists( $backup = WPP_DATA_DIR . 'backup/htaccess.backup' ) ) {
             copy( $htaccess, $backup );    
             wpp_log( '.htaccess backup created', 'notice' );            
+        }
+    } else {
+        // Create htaccess file if it doesn't exist
+        if ( ! touch( $htaccess ) ) {
+            wpp_log( 'Error while trying to create .htaccess file. You will need to create it manually' );
         }
     }
                   
@@ -479,6 +488,8 @@ function wpp_active( $tab, $default = false, $output = 'active' ) {
 
         if ( Input::get( 'load' ) ) {
             if ( $tab == 'settings' ) echo $output; 
+        } else if ( Input::get( 'clear' ) ) {
+            if ( $tab == Input::get( 'clear' ) ) echo $output; 
         } else {
             if ( $default && empty( Input::post( 'wpp-tab' ) ) ) echo $output; 
         } 
@@ -605,7 +616,7 @@ function wpp_compatibility_check() {
         || apply_filters( 'wpp_minify_html', false )
     ) {
     
-        array_push( $incompatiblePlugins, [
+        $incompatiblePlugins = array_merge( $incompatiblePlugins, [
             'bwp-minify/bwp-minify.php',
             'wp-minify-fix/wp-minify.php',
             'minqueue/plugin.php',
@@ -620,7 +631,8 @@ function wpp_compatibility_check() {
             'css-optimizer/bpminifycss.php',
             'merge-minify-refresh/merge-minify-refresh.php',
             'async-js-and-css/asyncJSandCSS.php',
-            'wp-js/wp-js.php'
+            'wp-js/wp-js.php',
+            'fast-velocity-minify/fvm.php'
         ] );
         
     }
@@ -894,15 +906,7 @@ function wpp_is_minified( $file ) {
  * @since 1.0.0
  */
 function wpp_is_htaccess_writable() {
-
-    $htaccess = ABSPATH. '.htaccess';
-
-    if ( file_exists( $htaccess ) && is_writable( $htaccess ) ) {
-        return true;
-    }
-
-    return false;
-
+    return is_writable( trailingslashit( ABSPATH ) . '.htaccess' );
 }
 
 /**
@@ -1228,8 +1232,8 @@ function wpp_db_cleanup() {
 function wpp_update_htaccess( $action, $file ) {
 
     $htaccess              = ABSPATH. '.htaccess';
-    $definitionsFile       = WPP_DATA_DIR . 'definitions/' . $file . '.txt';
-    $customDefinitionsFile = WPP_DATA_DIR . 'definitions/' . 'custom.' . $file . '.txt';
+    $definitionsFile       = WPP_DATA_DIR . 'definitions/' . $file . '.apache.txt';
+    $customDefinitionsFile = WPP_DATA_DIR . 'definitions/' . 'custom.' . $file . '.apache.txt';
 
     // Use custom definitions if exists
     if ( file_exists( $customDefinitionsFile ) ) {
@@ -1498,17 +1502,23 @@ function wpp_save_settings( $notify = true ) {
         }
         
     }
-    
-    // Browser cache
-    wpp_update_htaccess( Input::post( 'browser_cache', 'boolean'  ), 'expire' );
 
-    // Gzip compression
-    wpp_update_htaccess( Input::post( 'gzip_compression', 'boolean' ), 'gzip' );
+    // Update htaccess
+    if ( 'apache' === wpp_get_server_software() ) {
 
-    // Htaccess load cache
-    if ( ! is_multisite() ) {
-        wpp_update_htaccess( Input::post( 'cache', 'boolean'  ), 'cache' );
+        // Browser cache
+        wpp_update_htaccess( Input::post( 'browser_cache', 'boolean'  ), 'expire' );
+
+        // Gzip compression
+        wpp_update_htaccess( Input::post( 'gzip_compression', 'boolean' ), 'gzip' );
+
+        // Htaccess load cache
+        if ( ! is_multisite() ) {
+            wpp_update_htaccess( Input::post( 'cache', 'boolean'  ), 'cache' );
+        }
+
     }
+    
 
     // Save configuration settings
     $settings = array_diff_key( $_POST, [
@@ -1582,13 +1592,17 @@ function wpp_load_settings( $filename, $notify = true ) {
                     break;
                 case 'browser_cache':
 
-                    wpp_update_htaccess( $action, 'expire' );
+                    if ( 'apache' === wpp_get_server_software() ) {
+                        wpp_update_htaccess( $action, 'expire' );
+                    }
 
                     break;
                 
                 case 'gzip_compression':
 
-                    wpp_update_htaccess( $action, 'gzip' );
+                    if ( 'apache' === wpp_get_server_software() ) {
+                        wpp_update_htaccess( $action, 'gzip' );
+                    }
 
                     break;
 
@@ -1604,6 +1618,43 @@ function wpp_load_settings( $filename, $notify = true ) {
 
     } 
 
+}
+
+
+/**
+ * Clear files list and cache
+ *
+ * @param string $list
+ * @param boolean $notify
+ * @return void
+ * @since 1.0.2
+ */
+function wpp_clear_files_list( $type, $notify = true  ) {
+
+    $type = str_replace( 'javascript', 'js', $type );
+
+    if ( ! in_array( $type, [ 'js', 'css' ] ) ) {
+        return false;
+    }
+
+    $list_names = [
+        sprintf( 'local_%s_list', $type ), 
+        sprintf( 'external_%s_list', $type ), 
+        sprintf( 'prefetch_%s_list', $type )
+    ];
+
+    foreach ( wpp_get_list_options() as $option ) {
+        if ( in_array( $option, $list_names ) ) {
+            Option::remove( $option );
+        }
+    }
+
+    wpp_log( sprintf( '%s list files cleared', $type ), 'notice' );
+    
+    Cache::clear();       
+    
+    if ( $notify ) wpp_notify( 'Files list cleared' );
+    
 }
 
 /**
@@ -1809,5 +1860,63 @@ function wpp_varnish_http_purge( $url, $regex = false ) {
     } else {
         wpp_log( 'Varnish cache cleared', 'notice' );
     }
+    
+}
+
+
+/**
+ * Get the server software
+ *
+ * @return string (apache|nginx|unknown)
+ * @since 1.0.2
+ */
+function wpp_get_server_software() {
+
+    // Apache
+    if ( preg_match( '#(apache|litespeed|shellrent)#i', Input::server( 'SERVER_SOFTWARE' ) ) ) {
+        return 'apache';
+    }
+
+    // Nginx
+    if ( preg_match( '#(nginx|flywheel)#i', Input::server( 'SERVER_SOFTWARE' ) ) ) {
+        return 'nginx';
+    }
+    
+    return 'unknown';
+
+}
+
+/**
+ * Get Nginx rewrite rules
+ *
+ * @return void
+ * @since 1.0.2
+ */
+function wpp_get_nginx_rewrite_rules() {
+
+    $output = '';
+    
+    // Browser cache
+    if ( Option::boolval( 'browser_cache' ) ) {
+        $output .= File::get( WPP_DATA_DIR . 'definitions/expire.nginx.txt' );
+    }
+
+    // Gzip
+    if ( Option::boolval( 'gzip_compression' ) ) {
+        $output .= File::get( WPP_DATA_DIR . 'definitions/gzip.nginx.txt' );
+    }
+
+    // Cache
+    if ( Option::boolval( 'cache' ) && get_option( 'permalink_structure', false ) ) {
+
+        $definitions = File::get( WPP_DATA_DIR . 'definitions/cache.nginx.txt' );
+        $definitions = str_replace( '{CACHEDIR}', WPP_CACHE_DIR, $definitions );
+        $definitions = str_replace( '{CACHEDIR_BASENAME}', basename( WPP_CACHE_DIR ), $definitions );
+
+        $output .= $definitions;
+
+    }
+
+    return $output;
     
 }
