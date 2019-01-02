@@ -14,11 +14,20 @@ defined('ABSPATH') or exit; ?>
                 <td><strong><?php _e( 'Enable cache', 'wpp' ); ?></strong></td>
                 <td>
                     <label class="wpp-info">
-                        <input type="checkbox" value="1" data-wpp-checkbox="cache" name="cache" form="wpp-settings" <?php wpp_checked( 'cache' ); ?> />
+                        <input type="checkbox" value="1" data-wpp-checkbox="cache|nginx_rules" name="cache" form="wpp-settings" <?php wpp_checked( 'cache' ); ?> />
                         <?php _e( 'Reduces your server response time by serving static files to users', 'wpp' ); ?>
                     </label>
 
                     <div data-wpp-show-checked="cache">
+
+                        <?php if ( wpp_get_server_software() == 'nginx' && get_option( 'permalink_structure', false ) ) : ?>
+                            <br />
+                            <em><span class="dashicons dashicons-info"></span> 
+                                <?php _e( 'Your web site is running on a Nginx server and some additional steps may be required in order to use this option.', 'wpp' ); ?>
+                                <a data-wpp-show-page="settings" data-wpp-highlight="nginx_configuration" href="#"><i class="dashicons dashicons-editor-help"></i></a> 
+                            </em>
+                        <?php endif; ?>
+
                         <br />
                         <label class="wpp-info">
                             <input type="checkbox" value="1" name="mobile_cache" form="wpp-settings" <?php wpp_checked( 'mobile_cache' ); ?> />
@@ -30,7 +39,6 @@ defined('ABSPATH') or exit; ?>
 
                 </td>
             </tr>
-
             <tr data-wpp-show-checked="cache">
                 <td><strong><?php _e( 'Clear cache after', 'wpp' ); ?></strong></td>
                 <td>
@@ -158,9 +166,20 @@ defined('ABSPATH') or exit; ?>
                 <td><strong><?php _e( 'Leverage browser caching', 'wpp' ); ?></strong></td>
                 <td>
                     <label class="wpp-info">
-                        <input type="checkbox" value="1" name="browser_cache" form="wpp-settings" <?php wpp_checked( 'browser_cache' ); ?> />
+                        <input type="checkbox" data-wpp-checkbox="browser_additional|nginx_rules" value="1" name="browser_cache" form="wpp-settings" <?php wpp_checked( 'browser_cache' ); ?> />
                         <?php _e( 'Setting an expiry date in the HTTP headers for static resources instructs the browser to load previously downloaded resources from local disk rather than over the network', 'wpp' ); ?>
                     </label>
+
+                    <?php if ( wpp_get_server_software() == 'nginx' ) : ?>
+                        <div data-wpp-show-checked="browser_additional">
+                            <br />
+                            <em><span class="dashicons dashicons-info"></span> 
+                                <?php _e( 'Your web site is running on a Nginx server and some additional steps may be required in order to use this option.', 'wpp' ); ?>
+                                <a data-wpp-show-page="settings" data-wpp-highlight="nginx_configuration" href="#"><i class="dashicons dashicons-editor-help"></i></a> 
+                            </em>
+                        </div>
+                    <?php endif; ?>
+
                 </td>
             </tr>
             
@@ -168,9 +187,20 @@ defined('ABSPATH') or exit; ?>
                 <td><strong><?php _e('Enable gzip compression', 'wpp'); ?></strong></td>
                 <td>
                     <label class="wpp-info">
-                        <input type="checkbox" value="1" name="gzip_compression" form="wpp-settings" <?php wpp_checked( 'gzip_compression' ); ?> />
+                        <input type="checkbox" data-wpp-checkbox="gzip_additional|nginx_rules" value="1" name="gzip_compression" form="wpp-settings" <?php wpp_checked( 'gzip_compression' ); ?> />
                         <?php _e( 'Compressing resources with gzip reduce the number of bytes sent over the network', 'wpp' ); ?>  
                     </label>
+
+                    <?php if ( wpp_get_server_software() == 'nginx' ) : ?>
+                        <div data-wpp-show-checked="gzip_additional">
+                            <br />
+                            <em><span class="dashicons dashicons-info"></span> 
+                                <?php _e( 'Your web site is running on a Nginx server and some additional steps may be required in order to use this option.', 'wpp' ); ?>
+                                <a data-wpp-show-page="settings" data-wpp-highlight="nginx_configuration" href="#"><i class="dashicons dashicons-editor-help"></i></a> 
+                            </em>
+                        </div>
+                    <?php endif; ?>
+
                 </td>
             </tr>
             

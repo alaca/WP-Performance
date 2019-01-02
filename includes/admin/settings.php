@@ -26,6 +26,26 @@ defined('ABSPATH') or exit; ?>
                     </a>
                 </td>
             </tr>
+            <?php if ( wpp_get_server_software() == 'nginx' || defined( 'WPP_SHOW_NGINX_REWRITE_RULES' ) && WPP_SHOW_NGINX_REWRITE_RULES ) : ?>
+
+                <tr data-wpp-show-checked="nginx_rules">
+                    <td colspan="2">
+                        <h3><?php _e( 'Server', 'wpp' ); ?></h3>
+                    </td>
+                </tr>
+
+                <tr data-wpp-show-checked="nginx_rules" data-wpp-highlight-id="nginx_configuration">
+                    <td><strong><?php _e( 'Nginx configuration', 'wpp' ); ?></strong></td>
+                    <td>
+                        <textarea class="wpp-rules-textarea" readonly="readonly"><?php echo wpp_get_nginx_rewrite_rules(); ?></textarea>
+                        <em><span class="dashicons dashicons-info"></span> 
+                            <?php printf( __( '%s will work out of the box on Nginx servers, this rewrite rules are not required. However, to optimize your website even more, you should add this rules to your Nginx configuration file.', 'wpp' ), WPP_PLUGIN_NAME ); ?>
+                        </em> <br />
+                        <a href="#" class="button"><?php _e( 'Select all', 'wpp' ); ?></a>
+                    </td>
+                </tr>
+
+            <?php endif; ?>
             <tr>
                 <td colspan="2">
                     <h3><?php _e( 'Logs', 'wpp' ); ?></h3>
@@ -47,7 +67,7 @@ defined('ABSPATH') or exit; ?>
                 <tr>
                     <td><strong><?php _e('Log file content', 'wpp'); ?></strong></td>
                     <td>
-                        <textarea class="wpp-log-textarea"><?php echo File::get( wpp_get_log_file() ); ?></textarea>      
+                        <textarea class="wpp-log-textarea" readonly="readonly"><?php echo File::get( wpp_get_log_file() ); ?></textarea>      
                         <em><span class="dashicons dashicons-info"></span> <?php _e( 'Content is auto refreshed every 10 seconds', 'wpp' ); ?></em>                  
                     </td>
                 </tr>
