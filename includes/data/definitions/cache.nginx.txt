@@ -1,0 +1,43 @@
+# WPP Cache load start
+
+set $wpp_cache 1;
+set $wpp_mobile 1;
+
+if ($request_method = POST){
+	set $wpp_cache 0;
+}
+
+if ($is_args) {
+	set $wpp_cache 0;
+}
+
+if (-f "$document_root/.maintenance") {
+	set $wpp_cache 0;
+}
+
+if ($http_cookie ~* (wordpress_logged_in_|wp\-postpass_|wptouch_switch_toggle|comment_author_|comment_author_email_)) {
+	set $wpp_cache 0;
+}
+
+if (!-f "{CACHEDIR}$http_host/$request_uri/index.html") {
+	set $wpp_cache 0;
+}
+
+if (!-f "{CACHEDIR}$http_host/$request_uri/index.html_mobile") {
+	set $wpp_mobile 0;
+}
+
+if ($http_user_agent ~* (Mobile|Android|Kindle|BlackBerry|Opera+Mini|Opera+Mobi)) {
+      set $wpp_cache "{$wpp_cache}{$wpp_mobile}";
+}
+
+if ($wpp_cache = 11){
+    rewrite .* /wp-content/cache/{CACHEDIR_BASENAME}/$http_host/$request_uri/index.html_mobile last;
+}
+
+if ($wpp_cache = 1){
+    rewrite .* /wp-content/cache/{CACHEDIR_BASENAME}/$http_host/$request_uri/index.html last;
+}
+
+# WPP Cache load end
+
