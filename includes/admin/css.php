@@ -72,7 +72,7 @@ defined('ABSPATH') or exit; ?>
                                                 </option>
 
                                                 <option value="except" <?php if ( wpp_key_exists( 'except', $disabled_positions, $css )  ) echo 'selected="selected"'; ?>>
-                                                    <?php _e( 'Disable everywhere execpt on selected URL', 'wpp' ); ?>
+                                                    <?php _e( 'Disable everywhere except on selected URL', 'wpp' ); ?>
                                                 </option>
 
                                             </select>       
@@ -399,7 +399,14 @@ defined('ABSPATH') or exit; ?>
             
             <br /><br />
 
-            <input type="submit" class="button-primary" value="<?php _e('Save changes', 'wpp'); ?>" name="wpp-save-settings" form="wpp-settings" />
+            <input type="submit" class="button-primary" value="<?php _e( 'Save changes', 'wpp' ); ?>" name="wpp-save-settings" form="wpp-settings" />
+
+            <a 
+                data-description="<?php printf( __( 'Clear collected %s files list.%s This option will also clear the cache.', 'wpp' ), 'CSS', '<br />' ); ?>" 
+                href="<?php echo wp_nonce_url( admin_url( 'admin.php?page=' . WPP_PLUGIN_ADMIN_URL . '&clear=css'), 'clear-list', 'nonce' ); ?>" 
+                class="button wpp-load-settings">
+                <?php _e( 'Clear files list', 'wpp' ); ?>
+            </a> 
 
         <?php else: ?>
 
