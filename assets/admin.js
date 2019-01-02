@@ -18,6 +18,24 @@ jQuery(document).ready(function ($) {
         $('[data-wpp-page="' + tab + '"]').add(this).addClass('active');
     });
 
+    $(document).on('click', '[data-wpp-show-page]', function (e) {
+        e.preventDefault();
+        var tab = $(this).data('wpp-show-page');
+        var highlight = $(this).data('wpp-highlight');
+
+        $('[data-wpp-page-id="' + tab + '"]').click();
+
+        if (highlight) {
+            var container =  $('[data-wpp-highlight-id="' + highlight + '"]');
+            container.addClass('wpp-highlight');
+            setTimeout( function(){
+                container.one( 'hover', function(){
+                    $(this).removeClass('wpp-highlight');
+                } );
+            }, 500 );
+        }
+    });
+
     $(document).on('change', '#wpp_mobile_menu select', function (e) {
         e.preventDefault();
         var tab = $(this).val();
