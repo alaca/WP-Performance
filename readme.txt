@@ -64,6 +64,14 @@ WP Performance does not support multisite yet.
 
 == Changelog ==
 
+= 1.0.2 =
+[NEW] Detect server software
+[NEW] Generate NGINX rewrite rules
+[NEW] Clear collected files list
+[IMPROVE] Admin UI
+[UPDATE] Translations
+[FIX] Htaccess permissions notice
+
 = 1.0.1 =
 [FIX] PCRE2 parser issues
 [FIX] Clear cache JS error
