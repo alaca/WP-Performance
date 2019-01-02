@@ -218,6 +218,11 @@ class WP_Performance
                 wpp_load_settings( Input::get( 'load' ) );
             }
 
+            // Clear files list
+            if ( Input::get( 'clear' ) && wp_verify_nonce( Input::get( 'nonce' ), 'clear-list' ) ) {
+                wpp_clear_files_list( Input::get( 'clear' ) );
+            }
+
             // Enable disable plugin
             if ( Input::get( 'wpp-action' ) && wp_verify_nonce( Input::get( 'wpp-nonce' ), 'temp-disable' ) ) {
                 Option::update( 'wpp_disable', ( Input::get( 'wpp-action' ) == 'disable' ) ? true : false );
@@ -282,8 +287,8 @@ class WP_Performance
                     wpp_notify( sprintf( __( '%s: Log file is getting large, either clear the log or disable troubleshooting logging', 'wpp' ), WPP_PLUGIN_NAME ), 'warning', false );
                 }
 
-                // Check if htaccess is writable
-                if ( ! wpp_is_htaccess_writable() ) {
+                // Check if htaccess is writable and server is apache
+                if ( 'apache' === wpp_get_server_software() && ! wpp_is_htaccess_writable() ) {
                     wpp_notify( sprintf( __( '%s: missing writing permissions for file <code>.htaccess</code>', 'wpp' ), WPP_PLUGIN_NAME ), 'error', false );
                 }
 
