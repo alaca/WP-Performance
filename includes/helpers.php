@@ -480,7 +480,7 @@ function wpp_checked( $name, $default = false ) {
  */
 function wpp_active( $tab, $default = false, $output = 'active' ) {
 
-    if( Input::post( 'wpp-tab' ) == $tab ) {
+    if( Input::post( 'wpp-tab' ) == $tab || Input::get( 'tab' ) == $tab ) {
     
         echo $output;    
         
@@ -491,7 +491,7 @@ function wpp_active( $tab, $default = false, $output = 'active' ) {
         } else if ( Input::get( 'clear' ) ) {
             if ( $tab == Input::get( 'clear' ) ) echo $output; 
         } else {
-            if ( $default && empty( Input::post( 'wpp-tab' ) ) ) echo $output; 
+            if ( $default && ! Input::post( 'wpp-tab' ) && ! Input::get( 'tab' ) ) echo $output; 
         } 
             
     } 
@@ -551,9 +551,72 @@ function wpp_add_top_menu_item() {
         ] );
         
         $admin_bar->add_node( [
-            'id'     => 'wpp_settings',
-            'title'  => __( 'Settings', 'wpp' ), 
+            'id'     => 'wpp_cache_topbar_link',
+            'title'  => __( 'Cache', 'wpp' ), 
             'href'   => admin_url( 'admin.php?page=' . WPP_PLUGIN_ADMIN_URL ),
+            'parent' => 'wpp', 
+            'meta'   => [
+                'title' => __( 'Settings', 'wpp' )
+            ]
+        ] );
+
+        $admin_bar->add_node( [
+            'id'     => 'wpp_css_topbar_link',
+            'title'  => 'CSS', 
+            'href'   => admin_url( 'admin.php?page=' . WPP_PLUGIN_ADMIN_URL . '&tab=css' ),
+            'parent' => 'wpp', 
+            'meta'   => [
+                'title' => 'CSS'
+            ]
+        ] );
+
+        $admin_bar->add_node( [
+            'id'     => 'wpp_js_topbar_link',
+            'title'  => 'JavaScript', 
+            'href'   => admin_url( 'admin.php?page=' . WPP_PLUGIN_ADMIN_URL . '&tab=javascript' ),
+            'parent' => 'wpp', 
+            'meta'   => [
+                'title' => 'JavaScript'
+            ]
+        ] );
+
+        $admin_bar->add_node( [
+            'id'     => 'wpp_images_topbar_link',
+            'title'  => __( 'Images', 'wpp' ), 
+            'href'   => admin_url( 'admin.php?page=' . WPP_PLUGIN_ADMIN_URL . '&tab=image-optimization' ),
+            'parent' => 'wpp', 
+            'meta'   => [
+                'title' => __( 'Images', 'wpp' )
+            ]
+        ] );
+
+
+        $admin_bar->add_node( [
+            'id'     => 'wpp_database_topbar_link',
+            'title'  => __( 'Database', 'wpp' ), 
+            'href'   => admin_url( 'admin.php?page=' . WPP_PLUGIN_ADMIN_URL . '&tab=database' ),
+            'parent' => 'wpp', 
+            'meta'   => [
+                'title' => __( 'Database', 'wpp' )
+            ]
+        ] );
+
+
+
+        $admin_bar->add_node( [
+            'id'     => 'wpp_db_topbar_link',
+            'title'  => 'CDN', 
+            'href'   => admin_url( 'admin.php?page=' . WPP_PLUGIN_ADMIN_URL . '&tab=cdn' ),
+            'parent' => 'wpp', 
+            'meta'   => [
+                'title' => 'CDN'
+            ]
+        ] );
+
+        $admin_bar->add_node( [
+            'id'     => 'wpp_settings_topbar_link',
+            'title'  => __( 'Settings', 'wpp' ), 
+            'href'   => admin_url( 'admin.php?page=' . WPP_PLUGIN_ADMIN_URL . '&tab=settings' ),
             'parent' => 'wpp', 
             'meta'   => [
                 'title' => __( 'Settings', 'wpp' )
@@ -1207,7 +1270,25 @@ function wpp_preload_homepage() {
  */
 function wpp_db_cleanup() {
 
-    DB::clear();
+    // Clear trash
+    if ( Option::boolval( 'db_cleanup_trash' ) ) {
+        DB::clearTrash();
+    }
+
+    // Clear spam
+    if ( Option::boolval( 'db_cleanup_spam' ) ) {
+        DB::clearSpam();
+    }
+
+    // Clear revisions
+    if ( Option::boolval( 'db_cleanup_revisions' ) ) {
+        DB::clearRevisions();
+    }
+
+    // Clear revisions
+    if ( Option::boolval( 'db_cleanup_transients' ) ) {
+        DB::clearTransients();
+    }
     
     $schedules = wpp_get_cron_schedules();
     $frequency = Option::get( 'db_cleanup_frequency' );
@@ -1484,7 +1565,14 @@ function wpp_save_settings( $notify = true ) {
     // CDN
     Option::update( 'cdn',                   Input::post( 'cdn', 'boolean' ) );
     Option::update( 'cdn_hostname',          Input::post( 'cdn_hostname', 'url' ) );
-    Option::update( 'cdn_exclude',           Input::post( 'cdn_exclude', 'string', FILTER_REQUIRE_ARRAY ));
+    Option::update( 'cdn_exclude',           Input::post( 'cdn_exclude', 'string', FILTER_REQUIRE_ARRAY ) );
+
+
+    // Database
+    Option::update( 'db_cleanup_transients', Input::post( 'db_cleanup_transients', 'boolean' ) );
+    Option::update( 'db_cleanup_revisions',  Input::post( 'db_cleanup_revisions', 'boolean' ) );
+    Option::update( 'db_cleanup_spam',       Input::post( 'db_cleanup_spam', 'boolean' ) );
+    Option::update( 'db_cleanup_trash',      Input::post( 'db_cleanup_trash', 'boolean' ) );
 
     // Cleanup schedule
     $frequency = Input::post( 'automatic_cleanup_frequency' );
@@ -1889,7 +1977,7 @@ function wpp_get_server_software() {
 /**
  * Get Nginx rewrite rules
  *
- * @return void
+ * @return string
  * @since 1.0.2
  */
 function wpp_get_nginx_rewrite_rules() {
@@ -1919,4 +2007,21 @@ function wpp_get_nginx_rewrite_rules() {
 
     return $output;
     
+}
+
+
+/**
+ * Check if current page is plugin admin page
+ *
+ * @return boolean
+ * @since 1.0.3
+ */
+function wpp_is_plugin_page() {
+
+    if ( isset( $_GET[ 'page' ] ) && $_GET[ 'page' ] == WPP_PLUGIN_ADMIN_URL ) {
+        return true;
+    }
+
+    return false;
+
 }
