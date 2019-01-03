@@ -42,7 +42,7 @@ defined('ABSPATH') or exit; ?>
             <tr data-wpp-show-checked="cache">
                 <td><strong><?php _e( 'Clear cache after', 'wpp' ); ?></strong></td>
                 <td>
-                    <input type="number" min="1" value="<?php echo Option::get( 'cache_time', 24 ); ?>" name="cache_time" form="wpp-settings"> 
+                    <input type="number" min="1" value="<?php echo Option::get( 'cache_time', 10 ); ?>" name="cache_time" form="wpp-settings"> 
                     <select name="cache_length" form="wpp-settings">
                         <option value="60" <?php wpp_selected( 'cache_length', 60 ); ?>>
                             <?php _e( 'minutes', 'wpp' ); ?>
