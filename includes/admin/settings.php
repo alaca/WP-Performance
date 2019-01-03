@@ -41,7 +41,7 @@ defined('ABSPATH') or exit; ?>
                         <em><span class="dashicons dashicons-info"></span> 
                             <?php printf( __( '%s will work out of the box on Nginx servers, this rewrite rules are not required. However, to optimize your website even more, you should add this rules to your Nginx configuration file.', 'wpp' ), WPP_PLUGIN_NAME ); ?>
                         </em> <br />
-                        <a href="#" class="button"><?php _e( 'Select all', 'wpp' ); ?></a>
+                        <a href="#" class="button wpp-select-rules"><?php _e( 'Select all', 'wpp' ); ?></a>
                     </td>
                 </tr>
 
