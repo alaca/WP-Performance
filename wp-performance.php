@@ -3,7 +3,7 @@
 * Plugin Name: WP Performance
 * Plugin URI: https://www.wp-performance.com
 * Description: WP Performance Optimizer
-* Version: 1.0.2
+* Version: 1.0.3
 * Author: Ante Laca
 * Author URI: https://www.antelaca.xyz
 * Licence: GPLv2
@@ -14,7 +14,7 @@
 defined( 'ABSPATH' ) or exit;
 
 // WP Performance
-define( 'WPP_VERSION'       , '1.0.2' );
+define( 'WPP_VERSION'       , '1.0.3' );
 define( 'WPP_SELF'          , __FILE__ );
 define( 'WPP_URI'           , plugin_dir_url( __FILE__ ) );
 define( 'WPP_DIR'           , plugin_dir_path( __FILE__ ) ); 
