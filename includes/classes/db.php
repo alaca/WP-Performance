@@ -139,7 +139,7 @@ class DB
         wpp_log( 'DB optimized', 'notice' );
     }
     
-    private static function clearRevisions() {
+    public static function clearRevisions() {
 
         wpp_log( 'DB revisions deleted', 'notice' );
 
@@ -148,7 +148,7 @@ class DB
         );  
     }
     
-    private static function clearSpam() {
+    public static function clearSpam() {
 
         wpp_log( 'DB spam deleted', 'notice' );
 
@@ -158,7 +158,7 @@ class DB
     }
     
     
-    private static function clearTrash() {
+    public static function clearTrash() {
 
         wpp_log( 'DB trash deleted', 'notice' );
 
@@ -168,7 +168,7 @@ class DB
     }
     
     
-    private static function clearTransients() {
+    public static function clearTransients() {
 
         wpp_log( 'DB transients deleted', 'notice' );
 
