@@ -135,7 +135,7 @@
 .wpp-side-section {
     background-color: #FAFAFA;
     border-left: 1px solid #E0E0E0;
-    padding: 30px 25px 25px 25px; 
+    padding: 15px 25px 25px 25px; 
     width: 35%;
 }
 
@@ -245,10 +245,6 @@
     display: none;
 }
 
-.wpp-load-settings {
-    margin-left: 10px !important;
-}
-
 .wpp-disable-select {
     margin-top: 15px;
 }
@@ -307,6 +303,11 @@
 
 .wpp-file-list {
     width: 100%;
+}
+
+
+#wp-admin-bar-wpp_clear_cache a {
+    color: #ff723a !important;
 }
 
 
@@ -389,10 +390,43 @@ table.wpp-file-list tr {
     color: #fa640e !important;
 }
 
+.wpp-database-table {
+    width: 100%;
+}
+
+.wpp-database-table td {
+    width: 50%;
+    padding-bottom: 20px;
+    color: #727272;
+}
+
+.wpp-database-table td strong {
+    color: #23282d;
+}
+
+.wpp-database-table td:first-child {
+    padding-right: 20px;
+}
+
+.wpp-database-table td:last-child {
+    padding-left: 20px;
+}
+
+.wpp-database-table td a {
+    color: #8f8f8f !important;
+}
+.wpp-database-table td a:hover {
+    color: #0085ba !important;
+}
+
+.wpp-database-table td hr {
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
 
 @media only screen and (max-width: 979px) { 
 
-    
     .wpp-content-section, .wpp-side-section {
         width: 50%;  
     }
@@ -485,6 +519,11 @@ table.wpp-file-list tr {
 
     .wpp-side-section h3 {
         font-size: 16px;
+    }
+
+    .wpp-database-table td {
+        width: 92%;
+        padding: 10px 10px 10px 10px !important;
     }
 
 
