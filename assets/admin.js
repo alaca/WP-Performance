@@ -45,6 +45,14 @@ jQuery(document).ready(function ($) {
     });
 
     /**
+     * Select rules
+     */
+    $(document).on('click', '.wpp-select-rules', function(e){
+        e.preventDefault();
+        $('.wpp-rules-textarea').select();
+    });
+
+    /**
      * Show hide containers depending on checked options
      */
     $('[data-wpp-checkbox]').each(function () {
