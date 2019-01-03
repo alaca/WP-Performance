@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WP Performance\n"
-"POT-Creation-Date: 2019-01-02 17:21+0100\n"
-"PO-Revision-Date: 2019-01-02 17:22+0100\n"
+"POT-Creation-Date: 2019-01-03 21:37+0100\n"
+"PO-Revision-Date: 2019-01-03 21:45+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: hr\n"
@@ -23,21 +23,23 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
 #: includes/admin/admin.php:23 includes/admin/admin.php:37
-#: includes/admin/cache.php:11
+#: includes/admin/cache.php:11 includes/helpers.php:555
 msgid "Cache"
 msgstr "Predmemorija"
 
 #: includes/admin/admin.php:26 includes/admin/admin.php:40
+#: includes/helpers.php:585 includes/helpers.php:589
 msgid "Images"
 msgstr "Slike"
 
 #: includes/admin/admin.php:27 includes/admin/admin.php:41
+#: includes/helpers.php:596 includes/helpers.php:600
 msgid "Database"
 msgstr "Baza podataka"
 
 #: includes/admin/admin.php:29 includes/admin/admin.php:43
-#: includes/admin/settings.php:12 includes/helpers.php:555
-#: includes/helpers.php:559
+#: includes/admin/settings.php:12 includes/helpers.php:559
+#: includes/helpers.php:618 includes/helpers.php:622
 msgid "Settings"
 msgstr "Postavke"
 
@@ -132,7 +134,7 @@ msgstr "Predučitavanje predmemorije"
 #: includes/admin/images.php:58 includes/admin/images.php:84
 #: includes/admin/javascript.php:101 includes/admin/javascript.php:128
 #: includes/admin/javascript.php:305 includes/admin/javascript.php:333
-#: includes/admin/javascript.php:501 includes/helpers.php:732
+#: includes/admin/javascript.php:501 includes/helpers.php:795
 msgid "Remove"
 msgstr "Makni"
 
@@ -177,7 +179,7 @@ msgstr ""
 "mreže"
 
 #: includes/admin/cache.php:211 includes/admin/cdn.php:33
-#: includes/admin/css.php:402 includes/admin/database.php:102
+#: includes/admin/css.php:402 includes/admin/database.php:136
 #: includes/admin/images.php:110 includes/admin/javascript.php:405
 #: includes/admin/settings.php:80
 msgid "Save changes"
@@ -187,8 +189,8 @@ msgstr "Spremi izmjene"
 msgid "Cache statistics"
 msgstr "Statistika predmemorije"
 
-#: includes/admin/cache.php:220 includes/helpers.php:565
-#: includes/helpers.php:570
+#: includes/admin/cache.php:220 includes/helpers.php:628
+#: includes/helpers.php:633
 msgid "Clear cache"
 msgstr "Očisti predmemeoriju"
 
@@ -244,7 +246,7 @@ msgstr "Koristite {any} za podudaranje bilo kojeg niza"
 #: includes/admin/css.php:361 includes/admin/css.php:563
 #: includes/admin/javascript.php:145 includes/admin/javascript.php:156
 #: includes/admin/javascript.php:352 includes/admin/javascript.php:363
-#: includes/admin/javascript.php:526 includes/helpers.php:733
+#: includes/admin/javascript.php:526 includes/helpers.php:796
 msgid "Add URL"
 msgstr "Dodaj URL"
 
@@ -298,19 +300,19 @@ msgstr "Ažurirajte sve datoteke na popisu u nastavku"
 
 #: includes/admin/css.php:67 includes/admin/css.php:268
 #: includes/admin/javascript.php:67 includes/admin/javascript.php:270
-#: includes/helpers.php:734
+#: includes/helpers.php:797
 msgid "Disable everywhere"
 msgstr "Onemogućite svugdje"
 
 #: includes/admin/css.php:71 includes/admin/css.php:272
 #: includes/admin/javascript.php:71 includes/admin/javascript.php:274
-#: includes/helpers.php:735
+#: includes/helpers.php:798
 msgid "Disable only on selected URL"
 msgstr "Onemogućite samo na odabranom URL-u"
 
 #: includes/admin/css.php:75 includes/admin/css.php:276
 #: includes/admin/javascript.php:75 includes/admin/javascript.php:278
-#: includes/helpers.php:736
+#: includes/helpers.php:799
 msgid "Disable everywhere except on selected URL"
 msgstr "Onemogući svugdje osim na odabranom URL-u"
 
@@ -405,77 +407,90 @@ msgstr "Prethodno dohvaćanje DNS-a može ubrzati učitavanje vanjskih resursa"
 msgid "Exclude URL(s) from CSS optimization"
 msgstr "Izuzimanje URL-ova iz CSS optimizacije"
 
-#: includes/admin/database.php:21
-msgid "Spam"
-msgstr "Spam"
-
-#: includes/admin/database.php:22 includes/admin/database.php:25
-msgid "Delete all spam comments"
-msgstr "Izbrišite sve spam komentare"
-
-#: includes/admin/database.php:25 includes/admin/database.php:34
-#: includes/admin/database.php:44 includes/admin/database.php:54
-#: includes/admin/database.php:62
+#: includes/admin/database.php:24 includes/admin/database.php:50
+#: includes/admin/database.php:79 includes/admin/database.php:105
 msgid "Delete"
 msgstr "Izbriši"
 
-#: includes/admin/database.php:30
-msgid "Trash"
-msgstr "Smeće"
-
-#: includes/admin/database.php:31 includes/admin/database.php:34
+#: includes/admin/database.php:28 includes/admin/database.php:35
 msgid "Delete all pages, posts and comments from trash"
 msgstr "Izbrišite sve stranice, postove i komentare iz smeća"
 
-#: includes/admin/database.php:40
-msgid "Revisions"
-msgstr "Revizije"
+#: includes/admin/database.php:32
+msgid "Trash"
+msgstr "Smeće"
 
-#: includes/admin/database.php:41 includes/admin/database.php:44
+#: includes/admin/database.php:41 includes/admin/database.php:67
+#: includes/admin/database.php:96 includes/admin/database.php:122
+msgid "Enable automatic cleanup"
+msgstr "Omogući automatsko čišćenje"
+
+#: includes/admin/database.php:54 includes/admin/database.php:61
+msgid "Delete all spam comments"
+msgstr "Izbrišite sve spam komentare"
+
+#: includes/admin/database.php:58
+msgid "Spam"
+msgstr "Spam"
+
+#: includes/admin/database.php:83 includes/admin/database.php:90
 msgid "Delete all revisions"
 msgstr "Izbrišite sve revizije"
 
-#: includes/admin/database.php:50
-msgid "Transients"
-msgstr "Privremene postavke"
+#: includes/admin/database.php:87
+msgid "Revisions"
+msgstr "Revizije"
 
-#: includes/admin/database.php:51 includes/admin/database.php:54
+#: includes/admin/database.php:109 includes/admin/database.php:116
 msgid "Delete all expired transients"
 msgstr "Izbrišite sve istekle privremene postavke"
 
-#: includes/admin/database.php:59 includes/admin/database.php:62
+#: includes/admin/database.php:113
+msgid "Transients"
+msgstr "Privremene postavke"
+
+#: includes/admin/database.php:132
+msgid ""
+"Backup your database before running any of these cleanup actions. Once a "
+"database cleanup has been performed, there is no way to undo it."
+msgstr ""
+"Izradite sigurnosnu kopiju baze podataka prije pokretanja bilo koje od ovih "
+"akcija čišćenja. Nakon što je već izvršeno čišćenje baze, nema načina da se "
+"izmjene ponište i vrate podaci."
+
+#: includes/admin/database.php:138 includes/admin/database.php:139
 msgid "Delete all"
 msgstr "Izbrisati sve"
 
-#: includes/admin/database.php:73
+#: includes/admin/database.php:147
 msgid "Automatic database cleanup"
 msgstr "Automatsko čišćenje baze podataka"
 
-#: includes/admin/database.php:79
+#: includes/admin/database.php:153
 msgid "Schedule"
 msgstr "Raspored"
 
-#: includes/admin/database.php:81
+#: includes/admin/database.php:155
 msgid "Not scheduled"
 msgstr "Nije zakazano"
 
-#: includes/admin/database.php:82 includes/helpers.php:1008
+#: includes/admin/database.php:156 includes/helpers.php:1071
 msgid "Daily"
 msgstr "Dnevno"
 
-#: includes/admin/database.php:83 includes/helpers.php:1013
+#: includes/admin/database.php:157 includes/helpers.php:1076
 msgid "Weekly"
 msgstr "Tjedno"
 
-#: includes/admin/database.php:84 includes/helpers.php:1018
+#: includes/admin/database.php:158 includes/helpers.php:1081
 msgid "Monthly"
 msgstr "Mjesečno"
 
-#: includes/admin/database.php:87
+#: includes/admin/database.php:161
 msgid "Next run"
 msgstr "Sljedeće čišćenje"
 
-#: includes/admin/database.php:93
+#: includes/admin/database.php:167
 msgid "Not set"
 msgstr "Nije postavljeno"
 
@@ -744,7 +759,7 @@ msgstr "Datoteka predmemorije stvorena je za %s sekundi na dan %s u %s"
 msgid "is temporarily disabled"
 msgstr "je privremeno onemogućen"
 
-#: includes/classes/wpp.php:282 includes/helpers.php:701
+#: includes/classes/wpp.php:282 includes/helpers.php:764
 msgid "Enable"
 msgstr "Omogući"
 
@@ -762,76 +777,76 @@ msgstr ""
 msgid "%s: missing writing permissions for file <code>.htaccess</code>"
 msgstr "%s: nedostaju dozvole za pisanje u datoteku <code> .htaccess </code>"
 
-#: includes/helpers.php:655
+#: includes/helpers.php:718
 msgid "The following plugins are not compatible with"
 msgstr "Slijedeći dodaci nisu kompatibilni sa"
 
-#: includes/helpers.php:662
+#: includes/helpers.php:725
 msgid "Deactivate"
 msgstr "Deaktiviraj"
 
-#: includes/helpers.php:704
+#: includes/helpers.php:767
 msgid "Temporarily disable"
 msgstr "Privremeno onemogući"
 
-#: includes/helpers.php:731
+#: includes/helpers.php:794
 msgid "Are you sure?"
 msgstr "Da li ste sigurni?"
 
-#: includes/helpers.php:737
+#: includes/helpers.php:800
 msgid "Something went wrong"
 msgstr "Nešto je pošlo krivo"
 
-#: includes/helpers.php:738
+#: includes/helpers.php:801
 msgid "Regenerating thumbs"
 msgstr "Regeneriranje umanjenih slika"
 
-#: includes/helpers.php:739
+#: includes/helpers.php:802
 msgid "Regenerate thumbnails may take a long time. Do not close your browser."
 msgstr ""
 "Regeneriranje umanjenih slika može potrajati dugo. Ne zatvarajte preglednik."
 
-#: includes/helpers.php:793
+#: includes/helpers.php:856
 msgid "Invalid settings file"
 msgstr "Nevažeća datoteka postavki"
 
-#: includes/helpers.php:1023
+#: includes/helpers.php:1086
 msgid "Every minute"
 msgstr "Svake minute"
 
-#: includes/helpers.php:1028
+#: includes/helpers.php:1091
 msgid "Every 5 minutes"
 msgstr "Svakih 5 minuta"
 
-#: includes/helpers.php:1348
+#: includes/helpers.php:1429
 msgid "Error"
 msgstr "Greška"
 
-#: includes/helpers.php:1349
+#: includes/helpers.php:1430
 msgid "Warning"
 msgstr "Upozorenje"
 
-#: includes/helpers.php:1350
+#: includes/helpers.php:1431
 msgid "Notice"
 msgstr "Obavijest"
 
-#: includes/helpers.php:1351
+#: includes/helpers.php:1432
 msgid "Event"
 msgstr "Događaj"
 
-#: includes/helpers.php:1379
+#: includes/helpers.php:1460
 msgid "Log file cleared"
 msgstr "Dnevnik je izbrisan"
 
-#: includes/helpers.php:1544
+#: includes/helpers.php:1632
 msgid "Settings saved"
 msgstr "Postavke spremljene"
 
-#: includes/helpers.php:1617
+#: includes/helpers.php:1705
 msgid "Settings file loaded"
 msgstr "Datoteka postavki je učitana"
 
-#: includes/helpers.php:1656
+#: includes/helpers.php:1744
 msgid "Files list cleared"
 msgstr "Lista izbrisana"
 
