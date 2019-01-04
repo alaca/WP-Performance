@@ -34,7 +34,17 @@ class Input
 
         $params = array_pad( $args, 3, null );
 
-        return filter_input( Input::getMethod( $name ), $params[0], Input::getFilter( $params[1] ), $params[2] );
+        if ( $name === 'request' ) {
+
+            if ( isset( $_REQUEST[ $params[ 0 ] ] ) ) {
+                return filter_var( $_REQUEST[ $params[ 0 ] ], Input::getFilter( $params[ 1 ] ), $params[ 2 ] );
+            }
+
+            return $params[ 2 ];
+            
+        }
+
+        return filter_input( Input::getMethod( $name ), $params[ 0 ], Input::getFilter( $params[ 1 ] ), $params[ 2 ] );
 
     }
 
@@ -61,7 +71,8 @@ class Input
             case 'env':
                 return INPUT_ENV;
             default:
-                return INPUT_REQUEST;
+                return 'request';
+
 
         }
     }
