@@ -24,7 +24,7 @@ class WP_Performance
         load_plugin_textdomain( 'wpp', false, plugin_basename( WPP_DIR ) . '/languages' );
 
         // Include helpers
-        include WPP_DIR . 'includes/helpers.php';
+        include WPP_DIR . 'includes/includes.php';
 
         // Define plugin name and plugin admin url
         define( 'WPP_PLUGIN_NAME'     , 'WP Performance' );
@@ -103,17 +103,17 @@ class WP_Performance
         // Sitemaps cache preload
         if ( Option::get( 'sitemaps_list' ) ) {
 
-            add_action( 'wpp_prepare_preload', 'wpp_prepare_preload' );
-            add_action( 'wpp_preload_cache',   'wpp_preload_cache' );
+            add_action( 'wpp_prepare_preload', 'wpp_cron_prepare_preload' );
+            add_action( 'wpp_preload_cache',   'wpp_cron_preload_cache' );
 
             // Prepare preload
             if ( ! wp_next_scheduled( 'wpp_prepare_preload' ) ) {
-                wp_schedule_event( time(), 'wpp_every_5_minutes', 'wpp_prepare_preload' );
+                wp_schedule_event( time(), 'wpp_every_5_minutes', 'wpp_cron_prepare_preload' );
             }
 
             // Preload cache
             if ( ! wp_next_scheduled( 'wpp_preload_cache' ) ) {
-                wp_schedule_event( time(), 'wpp_every_minute', 'wpp_preload_cache' );
+                wp_schedule_event( time(), 'wpp_every_minute', 'wpp_cron_preload_cache' );
             }
 
         }
@@ -121,10 +121,10 @@ class WP_Performance
         // Database cleanup
         if ( $frequency = Option::get( 'db_cleanup_frequency' ) ) {
 
-            add_action( 'wpp_db_cleanup', 'wpp_db_cleanup' );
+            add_action( 'wpp_db_cleanup', 'wpp_cron_db_cleanup' );
 
             if ( ! wp_next_scheduled( 'wpp_db_cleanup' ) ) {
-                wp_schedule_event( time(),  $frequency, 'wpp_db_cleanup' );
+                wp_schedule_event( time(),  $frequency, 'wpp_cron_db_cleanup' );
             }
 
         }
@@ -220,7 +220,7 @@ class WP_Performance
 
             // Clear files list
             if ( Input::get( 'clear' ) && wp_verify_nonce( Input::get( 'nonce' ), 'clear-list' ) ) {
-                wpp_clear_files_list( Input::get( 'clear' ) );
+                wpp_delete_files_list( Input::get( 'clear' ) );
             }
 
             // Enable disable plugin
@@ -306,6 +306,8 @@ class WP_Performance
             add_action( 'activated_plugin',                  'wpp_set_plugin_position' );
             // Filter image sizes
             add_filter( 'intermediate_image_sizes_advanced', 'wpp_get_defined_image_sizes' );
+            // Add page meta box
+            add_action( 'add_meta_boxes',                    'wpp_add_metabox' );
                         
         } );
 
