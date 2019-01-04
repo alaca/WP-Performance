@@ -14,121 +14,105 @@ defined('ABSPATH') or exit; ?>
 <div class="wpp-page-wrapper">
 
     <div class="wpp-content-section">
-    
-        <table class="wpp-database-table">
+
+        <table>
+
             <tr>
+                <td><strong><?php _e( 'Trash', 'wpp' ); ?> (<span class="wpp-db-count" id="wpp-trash-count"><?php echo $trash; ?></span>)</strong></td>
                 <td>
-    
-                    <a 
-                        href="#" 
-                        title="<?php _e( 'Delete', 'wpp' ); ?>"
-                        class="alignright wpp-db-action" 
-                        data-action="trash" 
-                        data-count="<?php echo $trash; ?>" 
-                        data-description="<?php _e( 'Delete all pages, posts and comments from trash', 'wpp' ); ?>">
-                            <span class="dashicons dashicons-trash"></span> 
-                    </a>
-
-                    <strong><?php _e( 'Trash', 'wpp' ); ?> (<span class="wpp-db-count" id="wpp-trash-count"><?php echo $trash; ?></span>)</strong>
-                    <hr />
-
-                    <?php _e( 'Delete all pages, posts and comments from trash', 'wpp' ); ?>
-                    <br /><br />
-
                     <?php if ( Option::get( 'db_cleanup_frequency' ) !== 'none' ): ?>
                         <label class="wpp-info">
                             <input type="checkbox" value="1" name="db_cleanup_trash" form="wpp-settings" <?php wpp_checked( 'db_cleanup_trash' ); ?> />
                             <?php _e( 'Enable automatic cleanup', 'wpp' ); ?>
                         </label>
+                        <br /><br />
                     <?php endif; ?>
-
-                </td>
-                <td>
-
+                    <em><span class="dashicons dashicons-info"></span> <?php _e( 'Delete all pages, posts and comments from trash', 'wpp' ); ?></em>
+                    <br />
                     <a 
                         href="#" 
-                        title="<?php _e( 'Delete', 'wpp' ); ?>"
-                        class="alignright wpp-db-action" 
-                        data-action="spam" 
-                        data-count="<?php echo $spam; ?>" 
-                        data-description="<?php _e( 'Delete all spam comments', 'wpp' ); ?>">
-                            <span class="dashicons dashicons-trash"></span> 
-                    </a> 
+                        class="button wpp-db-action" 
+                        data-action="trash" 
+                        data-count="<?php echo $trash; ?>" 
+                        data-description="<?php _e( 'Delete all pages, posts and comments from trash', 'wpp' ); ?>">
+                            <?php _e( 'Delete', 'wpp' ); ?> 
+                    </a>
+                </td>
+            </tr>
 
-                    <strong><?php _e( 'Spam', 'wpp' ); ?> (<span class="wpp-db-count" id="wpp-spam-count"><?php echo $spam; ?></span>)</strong>
-                    <hr />
-
-                    <?php _e( 'Delete all spam comments', 'wpp' ); ?>
-                    <br /><br />
-
+            <tr>
+                <td><strong><?php _e( 'Spam', 'wpp' ); ?> (<span class="wpp-db-count" id="wpp-spam-count"><?php echo $spam; ?></span>)</strong></td>
+                <td>
                     <?php if ( Option::get( 'db_cleanup_frequency' ) !== 'none' ): ?>
                         <label class="wpp-info">
                             <input type="checkbox" value="1" name="db_cleanup_spam" form="wpp-settings" <?php wpp_checked( 'db_cleanup_spam' ); ?> />
                             <?php _e( 'Enable automatic cleanup', 'wpp' ); ?>
                         </label>
+                        <br /><br />
                     <?php endif; ?>
-
+                    <em><span class="dashicons dashicons-info"></span> <?php _e( 'Delete all spam comments', 'wpp' ); ?></em>
+                    <br />
+                    <a 
+                        href="#" 
+                        class="button wpp-db-action" 
+                        data-action="spam" 
+                        data-count="<?php echo $spam; ?>" 
+                        data-description="<?php _e( 'Delete all spam comments', 'wpp' ); ?>">
+                            <?php _e( 'Delete', 'wpp' ); ?> 
+                    </a>
                 </td>
             </tr>
 
             <tr>
+                <td><strong><?php _e( 'Revisions', 'wpp' ); ?> (<span class="wpp-db-count" id="wpp-revisions-count"><?php echo $revisions; ?></span>)</strong></td>
                 <td>
-
-                    <a 
-                        href="#" 
-                        title="<?php _e( 'Delete', 'wpp' ); ?>"
-                        class="alignright wpp-db-action" 
-                        data-action="revisions" 
-                        data-count="<?php echo $revisions; ?>" 
-                        data-description="<?php _e( 'Delete all revisions', 'wpp' ); ?>">
-                            <span class="dashicons dashicons-trash"></span> 
-                    </a>
-
-                    <strong><?php _e( 'Revisions', 'wpp' ); ?> (<span class="wpp-db-count" id="wpp-revisions-count"><?php echo $revisions; ?></span>)</strong>
-                    <hr />
-
-                    <?php _e( 'Delete all revisions', 'wpp' ); ?> 
-                    <br /><br />
-
                     <?php if ( Option::get( 'db_cleanup_frequency' ) !== 'none' ): ?>
                         <label class="wpp-info">
                             <input type="checkbox" value="1" name="db_cleanup_revisions" form="wpp-settings" <?php wpp_checked( 'db_cleanup_revisions' ); ?> />
                             <?php _e( 'Enable automatic cleanup', 'wpp' ); ?>
                         </label>
+                        <br /><br />
                     <?php endif; ?>
-
-                </td>
-                <td>
-
+                    <em><span class="dashicons dashicons-info"></span> <?php _e( 'Delete all revisions', 'wpp' ); ?></em>
+                    <br />
                     <a 
                         href="#" 
-                        title="<?php _e( 'Delete', 'wpp' ); ?>"
-                        class="alignright wpp-db-action" 
-                        data-action="transients" 
-                        data-count="<?php echo $transients; ?>" 
-                        data-description="<?php _e( 'Delete all expired transients', 'wpp' ); ?>">
-                            <span class="dashicons dashicons-trash"></span>
+                        class="button wpp-db-action" 
+                        data-action="revisions" 
+                        data-count="<?php echo $revisions; ?>" 
+                        data-description="<?php _e( 'Delete all revisions', 'wpp' ); ?>">
+                            <?php _e( 'Delete', 'wpp' ); ?> 
                     </a>
+                </td>
+            </tr>
 
-                    <strong><?php _e( 'Transients', 'wpp' ); ?> (<span class="wpp-db-count" id="wpp-transients-count"><?php echo $transients; ?></span>)</strong>
-                    <hr />
-
-                    <?php _e( 'Delete all expired transients', 'wpp' ); ?> 
-                    <br /><br />
-
+            <tr>
+                <td><strong><?php _e( 'Transients', 'wpp' ); ?> (<span class="wpp-db-count" id="wpp-transients-count"><?php echo $transients; ?></span>)</strong></td>
+                <td>
                     <?php if ( Option::get( 'db_cleanup_frequency' ) !== 'none' ): ?>
                         <label class="wpp-info">
                             <input type="checkbox" value="1" name="db_cleanup_transients" form="wpp-settings" <?php wpp_checked( 'db_cleanup_transients' ); ?> />
                             <?php _e( 'Enable automatic cleanup', 'wpp' ); ?>
                         </label>
+                        <br /><br />
                     <?php endif; ?>
-
+                    <em><span class="dashicons dashicons-info"></span> <?php _e( 'Delete all expired transients', 'wpp' ); ?></em>
+                    <br />
+                    <a 
+                        href="#" 
+                        class="button wpp-db-action" 
+                        data-action="transients" 
+                        data-count="<?php echo $transients; ?>" 
+                        data-description="<?php _e( 'Delete all expired transients', 'wpp' ); ?>">
+                            <?php _e( 'Delete', 'wpp' ); ?> 
+                    </a>
                 </td>
             </tr>
-            
-        </table>
 
-        <hr />
+        </table>
+    
+        <br /><br />
+        
         <em><span class="dashicons dashicons-info"></span> <?php _e( 'Backup your database before running any of these cleanup actions. Once a database cleanup has been performed, there is no way to undo it.', 'wpp' ); ?></em>
         
         <br />
