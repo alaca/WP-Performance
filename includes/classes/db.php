@@ -10,9 +10,11 @@ class DB
 {
     
     /**
-    * Hook up ajax actions
-    * 
-    */
+     * Register ajax actions
+     *
+     * @return json
+     * @since 1.0.0
+     */
     public static function registerActions() {
 
         switch( Input::post( 'db_action' ) ) {
@@ -64,9 +66,11 @@ class DB
     }
        
     /**
-    * Get revisions count
-    * 
-    */
+     * Get revisions count
+     *
+     * @return integer
+     * @since 1.0.0
+     */
     public static function getRevisionsCount() {
         $result = $GLOBALS['wpdb']->get_row('
             SELECT COUNT(ID) as num 
@@ -78,9 +82,11 @@ class DB
     }
     
     /**
-    * Get spam comments count
-    * 
-    */
+     * Get spam comments count
+     *
+     * @return integer
+     * @since 1.0.0
+     */
     public static function getSpamCount() {
         $result = $GLOBALS['wpdb']->get_row('
             SELECT COUNT(*) as num 
@@ -93,9 +99,11 @@ class DB
     }
     
     /**
-    * Get items in trash count
-    * 
-    */
+     * Get items in trash count
+     *
+     * @return integer
+     * @since 1.0.0
+     */
     public static function getTrashCount() {
         $result = $GLOBALS['wpdb']->get_row('
             SELECT COUNT(ID) as num 
@@ -108,9 +116,11 @@ class DB
     }
     
     /**
-    * Get transients count
-    * 
-    */
+     * Get transients count
+     *
+     * @return integer
+     * @since 1.0.0
+     */
     public static function getTransientsCount() {
         
         list(, $seconds) = explode(' ', microtime());
@@ -127,8 +137,10 @@ class DB
     }
 
     /**
-     * Clear all
+     * Run all db cleanups
      *
+     * @return void
+     * @since 1.0.0
      */
     public static function clear() {
         DB::clearRevisions();
@@ -139,6 +151,13 @@ class DB
         wpp_log( 'DB optimized', 'notice' );
     }
     
+
+    /**
+     * Cleanup revisions
+     *
+     * @return void
+     * @since 1.0.0
+     */
     public static function clearRevisions() {
 
         wpp_log( 'DB revisions deleted', 'notice' );
@@ -148,6 +167,13 @@ class DB
         );  
     }
     
+
+    /**
+     * Cleanup spam
+     *
+     * @return void
+     * @since 1.0.0
+     */
     public static function clearSpam() {
 
         wpp_log( 'DB spam deleted', 'notice' );
@@ -158,6 +184,12 @@ class DB
     }
     
     
+    /**
+     * Cleanup trash
+     *
+     * @return void
+     * @since 1.0.0
+     */
     public static function clearTrash() {
 
         wpp_log( 'DB trash deleted', 'notice' );
@@ -168,6 +200,12 @@ class DB
     }
     
     
+    /**
+     * Cleanup transients
+     *
+     * @return void
+     * @since 1.0.0
+     */
     public static function clearTransients() {
 
         wpp_log( 'DB transients deleted', 'notice' );
