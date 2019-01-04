@@ -20,6 +20,7 @@ define( 'WPP_URI'           , plugin_dir_url( __FILE__ ) );
 define( 'WPP_DIR'           , plugin_dir_path( __FILE__ ) ); 
 define( 'WPP_ASSET_DIR'     , trailingslashit( WPP_DIR )        . 'assets/' );
 define( 'WPP_ASSET_URL'     , trailingslashit( WPP_URI )        . 'assets/' );
+define( 'WPP_HELPERS_DIR'   , trailingslashit( WPP_DIR )        . 'includes/helpers/' );
 define( 'WPP_CLASSES_DIR'   , trailingslashit( WPP_DIR )        . 'includes/classes/' );
 define( 'WPP_ADMIN_DIR'     , trailingslashit( WPP_DIR )        . 'includes/admin/' );
 define( 'WPP_DATA_DIR'      , trailingslashit( WPP_DIR )        . 'includes/data/' );
