@@ -12,7 +12,7 @@ defined('ABSPATH') or exit;
     </h1>
     
     <form id="wpp-settings" name="wpp-settings" method="post" action="<?php echo admin_url( 'admin.php?page=' . WPP_PLUGIN_ADMIN_URL ); ?>" enctype="multipart/form-data">
-        <input type="hidden" id="wpp_tab" name="wpp-tab" value="<?php if( empty( Input::post( 'wpp-tab' ) ) ) echo 'cache'; else echo Input::post( 'wpp-tab' ); ?>" />
+        <input type="hidden" id="wpp_tab" name="wpp-tab" value="<?php if ( ! Input::request( 'wpp-tab' ) ) echo 'cache'; else echo Input::request( 'wpp-tab' ); ?>" />
         <?php wp_nonce_field('save-settings', 'wpp-nonce'); ?>
     </form>
         
