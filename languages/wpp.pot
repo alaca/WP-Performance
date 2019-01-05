@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: WP Performance\n"
-"POT-Creation-Date: 2019-01-03 21:36+0100\n"
+"POT-Creation-Date: 2019-01-05 09:45+0100\n"
 "PO-Revision-Date: 2018-12-26 17:50+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -22,23 +22,23 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
 #: includes/admin/admin.php:23 includes/admin/admin.php:37
-#: includes/admin/cache.php:11 includes/helpers.php:555
+#: includes/admin/cache.php:11 includes/functions/admin.php:155
 msgid "Cache"
 msgstr ""
 
 #: includes/admin/admin.php:26 includes/admin/admin.php:40
-#: includes/helpers.php:585 includes/helpers.php:589
+#: includes/functions/admin.php:185 includes/functions/admin.php:189
 msgid "Images"
 msgstr ""
 
 #: includes/admin/admin.php:27 includes/admin/admin.php:41
-#: includes/helpers.php:596 includes/helpers.php:600
+#: includes/functions/admin.php:196 includes/functions/admin.php:200
 msgid "Database"
 msgstr ""
 
 #: includes/admin/admin.php:29 includes/admin/admin.php:43
-#: includes/admin/settings.php:12 includes/helpers.php:559
-#: includes/helpers.php:618 includes/helpers.php:622
+#: includes/admin/settings.php:12 includes/functions/admin.php:159
+#: includes/functions/admin.php:218 includes/functions/admin.php:222
 msgid "Settings"
 msgstr ""
 
@@ -121,14 +121,16 @@ msgstr ""
 msgid "Cache preloading"
 msgstr ""
 
-#: includes/admin/cache.php:131 includes/admin/cache.php:284
-#: includes/admin/cdn.php:64 includes/admin/css.php:101
-#: includes/admin/css.php:128 includes/admin/css.php:303
-#: includes/admin/css.php:331 includes/admin/css.php:538
+#: includes/admin/cache.php:131 includes/admin/cache.php:283
+#: includes/admin/cache.php:303 includes/admin/cdn.php:64
+#: includes/admin/css.php:101 includes/admin/css.php:128
+#: includes/admin/css.php:303 includes/admin/css.php:331
+#: includes/admin/css.php:547 includes/admin/css.php:557
 #: includes/admin/images.php:58 includes/admin/images.php:84
 #: includes/admin/javascript.php:101 includes/admin/javascript.php:128
 #: includes/admin/javascript.php:305 includes/admin/javascript.php:333
-#: includes/admin/javascript.php:501 includes/helpers.php:795
+#: includes/admin/javascript.php:510 includes/admin/javascript.php:520
+#: includes/functions/miscellaneous.php:160
 msgid "Remove"
 msgstr ""
 
@@ -166,7 +168,7 @@ msgid ""
 msgstr ""
 
 #: includes/admin/cache.php:211 includes/admin/cdn.php:33
-#: includes/admin/css.php:402 includes/admin/database.php:136
+#: includes/admin/css.php:402 includes/admin/database.php:156
 #: includes/admin/images.php:110 includes/admin/javascript.php:405
 #: includes/admin/settings.php:80
 msgid "Save changes"
@@ -176,8 +178,8 @@ msgstr ""
 msgid "Cache statistics"
 msgstr ""
 
-#: includes/admin/cache.php:220 includes/helpers.php:628
-#: includes/helpers.php:633
+#: includes/admin/cache.php:220 includes/functions/admin.php:228
+#: includes/functions/admin.php:233
 msgid "Clear cache"
 msgstr ""
 
@@ -201,39 +203,45 @@ msgstr ""
 msgid "Exclude URL(s) from cache"
 msgstr ""
 
-#: includes/admin/cache.php:293 includes/admin/cache.php:307
-#: includes/admin/css.php:546 includes/admin/css.php:560
-#: includes/admin/javascript.php:509 includes/admin/javascript.php:523
+#: includes/admin/cache.php:282 includes/admin/css.php:546
+#: includes/admin/javascript.php:509
+#, php-format
+msgid "Remove %s from excluded URL(s)?"
+msgstr ""
+
+#: includes/admin/cache.php:312 includes/admin/cache.php:326
+#: includes/admin/css.php:565 includes/admin/css.php:579
+#: includes/admin/javascript.php:528 includes/admin/javascript.php:542
 msgid "Part of the URL will also work"
 msgstr ""
 
-#: includes/admin/cache.php:294 includes/admin/cache.php:307
+#: includes/admin/cache.php:313 includes/admin/cache.php:326
 #: includes/admin/cdn.php:73 includes/admin/cdn.php:86
-#: includes/admin/css.php:547 includes/admin/css.php:560
-#: includes/admin/javascript.php:510 includes/admin/javascript.php:523
+#: includes/admin/css.php:566 includes/admin/css.php:579
+#: includes/admin/javascript.php:529 includes/admin/javascript.php:542
 msgid "Use {numbers} to match only numbers"
 msgstr ""
 
-#: includes/admin/cache.php:295 includes/admin/cache.php:307
+#: includes/admin/cache.php:314 includes/admin/cache.php:326
 #: includes/admin/cdn.php:74 includes/admin/cdn.php:86
-#: includes/admin/css.php:548 includes/admin/css.php:560
-#: includes/admin/javascript.php:511 includes/admin/javascript.php:523
+#: includes/admin/css.php:567 includes/admin/css.php:579
+#: includes/admin/javascript.php:530 includes/admin/javascript.php:542
 msgid "Use {letters} to match only letters"
 msgstr ""
 
-#: includes/admin/cache.php:296 includes/admin/cache.php:307
+#: includes/admin/cache.php:315 includes/admin/cache.php:326
 #: includes/admin/cdn.php:75 includes/admin/cdn.php:86
-#: includes/admin/css.php:549 includes/admin/css.php:560
-#: includes/admin/javascript.php:512 includes/admin/javascript.php:523
+#: includes/admin/css.php:568 includes/admin/css.php:579
+#: includes/admin/javascript.php:531 includes/admin/javascript.php:542
 msgid "Use {any} to match any string"
 msgstr ""
 
-#: includes/admin/cache.php:310 includes/admin/css.php:145
+#: includes/admin/cache.php:329 includes/admin/css.php:145
 #: includes/admin/css.php:156 includes/admin/css.php:350
-#: includes/admin/css.php:361 includes/admin/css.php:563
+#: includes/admin/css.php:361 includes/admin/css.php:582
 #: includes/admin/javascript.php:145 includes/admin/javascript.php:156
 #: includes/admin/javascript.php:352 includes/admin/javascript.php:363
-#: includes/admin/javascript.php:526 includes/helpers.php:796
+#: includes/admin/javascript.php:545 includes/functions/miscellaneous.php:161
 msgid "Add URL"
 msgstr ""
 
@@ -285,19 +293,19 @@ msgstr ""
 
 #: includes/admin/css.php:67 includes/admin/css.php:268
 #: includes/admin/javascript.php:67 includes/admin/javascript.php:270
-#: includes/helpers.php:797
+#: includes/functions/miscellaneous.php:162
 msgid "Disable everywhere"
 msgstr ""
 
 #: includes/admin/css.php:71 includes/admin/css.php:272
 #: includes/admin/javascript.php:71 includes/admin/javascript.php:274
-#: includes/helpers.php:798
+#: includes/functions/miscellaneous.php:163
 msgid "Disable only on selected URL"
 msgstr ""
 
 #: includes/admin/css.php:75 includes/admin/css.php:276
 #: includes/admin/javascript.php:75 includes/admin/javascript.php:278
-#: includes/helpers.php:799
+#: includes/functions/miscellaneous.php:164
 msgid "Disable everywhere except on selected URL"
 msgstr ""
 
@@ -386,87 +394,97 @@ msgstr ""
 msgid "Exclude URL(s) from CSS optimization"
 msgstr ""
 
-#: includes/admin/database.php:24 includes/admin/database.php:50
-#: includes/admin/database.php:79 includes/admin/database.php:105
-msgid "Delete"
-msgstr ""
-
-#: includes/admin/database.php:28 includes/admin/database.php:35
+#: includes/admin/database.php:29 includes/admin/database.php:34
 msgid "Delete all pages, posts and comments from trash"
 msgstr ""
 
-#: includes/admin/database.php:32
+#: includes/admin/database.php:30 includes/admin/database.php:54
+#: includes/admin/database.php:81 includes/admin/database.php:104
+#: includes/admin/database.php:130
+msgid "Delete"
+msgstr ""
+
+#: includes/admin/database.php:33
 msgid "Trash"
 msgstr ""
 
-#: includes/admin/database.php:41 includes/admin/database.php:67
-#: includes/admin/database.php:96 includes/admin/database.php:122
+#: includes/admin/database.php:40 includes/admin/database.php:64
+#: includes/admin/database.php:91 includes/admin/database.php:114
+#: includes/admin/database.php:140
 msgid "Enable automatic cleanup"
 msgstr ""
 
-#: includes/admin/database.php:54 includes/admin/database.php:61
+#: includes/admin/database.php:53 includes/admin/database.php:58
 msgid "Delete all spam comments"
 msgstr ""
 
-#: includes/admin/database.php:58
+#: includes/admin/database.php:57
 msgid "Spam"
 msgstr ""
 
-#: includes/admin/database.php:83 includes/admin/database.php:90
+#: includes/admin/database.php:80 includes/admin/database.php:85
 msgid "Delete all revisions"
 msgstr ""
 
-#: includes/admin/database.php:87
+#: includes/admin/database.php:84
 msgid "Revisions"
 msgstr ""
 
-#: includes/admin/database.php:109 includes/admin/database.php:116
+#: includes/admin/database.php:103 includes/admin/database.php:108
 msgid "Delete all expired transients"
 msgstr ""
 
-#: includes/admin/database.php:113
+#: includes/admin/database.php:107
 msgid "Transients"
 msgstr ""
 
-#: includes/admin/database.php:132
+#: includes/admin/database.php:129 includes/admin/database.php:134
+msgid "Delete all cron tasks"
+msgstr ""
+
+#: includes/admin/database.php:133
+msgid "Cron tasks"
+msgstr ""
+
+#: includes/admin/database.php:152
 msgid ""
 "Backup your database before running any of these cleanup actions. Once a "
 "database cleanup has been performed, there is no way to undo it."
 msgstr ""
 
-#: includes/admin/database.php:138 includes/admin/database.php:139
+#: includes/admin/database.php:158 includes/admin/database.php:159
 msgid "Delete all"
 msgstr ""
 
-#: includes/admin/database.php:147
+#: includes/admin/database.php:167
 msgid "Automatic database cleanup"
 msgstr ""
 
-#: includes/admin/database.php:153
+#: includes/admin/database.php:173
 msgid "Schedule"
 msgstr ""
 
-#: includes/admin/database.php:155
+#: includes/admin/database.php:175
 msgid "Not scheduled"
 msgstr ""
 
-#: includes/admin/database.php:156 includes/helpers.php:1071
+#: includes/admin/database.php:176 includes/functions/cron.php:26
 msgid "Daily"
 msgstr ""
 
-#: includes/admin/database.php:157 includes/helpers.php:1076
+#: includes/admin/database.php:177 includes/functions/cron.php:31
 msgid "Weekly"
 msgstr ""
 
-#: includes/admin/database.php:158 includes/helpers.php:1081
+#: includes/admin/database.php:178 includes/functions/cron.php:36
 msgid "Monthly"
 msgstr ""
 
-#: includes/admin/database.php:161
+#: includes/admin/database.php:181
 msgid "Next run"
 msgstr ""
 
-#: includes/admin/database.php:167
+#: includes/admin/database.php:187
 msgid "Not set"
 msgstr ""
 
@@ -602,6 +620,23 @@ msgstr ""
 msgid "Exclude URL(s) from JavaScript optimization"
 msgstr ""
 
+#: includes/admin/metabox.php:10 includes/admin/metabox.php:28
+#: includes/admin/metabox.php:46
+msgid "Page URL will be added to exclude list"
+msgstr ""
+
+#: includes/admin/metabox.php:18
+msgid "Exclude from cache"
+msgstr ""
+
+#: includes/admin/metabox.php:36
+msgid "Exclude from CSS optimization"
+msgstr ""
+
+#: includes/admin/metabox.php:54
+msgid "Exclude from JS optimization"
+msgstr ""
+
 #: includes/admin/settings.php:16
 msgid "Import settings"
 msgstr ""
@@ -686,25 +721,6 @@ msgstr ""
 msgid "Cache flushed."
 msgstr ""
 
-#: includes/classes/db.php:62
-msgid "You are doing it wrong"
-msgstr ""
-
-#: includes/classes/image.php:259
-msgid "Size name already in use"
-msgstr ""
-
-#: includes/classes/image.php:381
-#, php-format
-msgid "%s image left"
-msgid_plural "%s images left"
-msgstr[0] ""
-msgstr[1] ""
-
-#: includes/classes/image.php:393
-msgid "Done"
-msgstr ""
-
 #: includes/classes/parser.php:31
 msgid "error"
 msgstr ""
@@ -713,104 +729,127 @@ msgstr ""
 msgid "both head and body tag should be present in template file"
 msgstr ""
 
-#: includes/classes/parser.php:775
+#: includes/classes/parser.php:789
 msgid "Optimized by"
 msgstr ""
 
-#: includes/classes/parser.php:791
+#: includes/classes/parser.php:805
 #, php-format
 msgid "Cache file was created in %s seconds on %s at %s"
 msgstr ""
 
-#: includes/classes/wpp.php:282
+#: includes/classes/wpp.php:275
 msgid "is temporarily disabled"
 msgstr ""
 
-#: includes/classes/wpp.php:282 includes/helpers.php:764
+#: includes/classes/wpp.php:275 includes/functions/admin.php:253
 msgid "Enable"
 msgstr ""
 
-#: includes/classes/wpp.php:287
+#: includes/classes/wpp.php:280
 #, php-format
 msgid ""
 "%s: Log file is getting large, either clear the log or disable "
 "troubleshooting logging"
 msgstr ""
 
-#: includes/classes/wpp.php:292
+#: includes/classes/wpp.php:285
 #, php-format
 msgid "%s: missing writing permissions for file <code>.htaccess</code>"
 msgstr ""
 
-#: includes/helpers.php:718
-msgid "The following plugins are not compatible with"
-msgstr ""
-
-#: includes/helpers.php:725
-msgid "Deactivate"
-msgstr ""
-
-#: includes/helpers.php:767
+#: includes/functions/admin.php:256
 msgid "Temporarily disable"
 msgstr ""
 
-#: includes/helpers.php:794
-msgid "Are you sure?"
+#: includes/functions/admin.php:276
+msgid "settings"
 msgstr ""
 
-#: includes/helpers.php:800
-msgid "Something went wrong"
-msgstr ""
-
-#: includes/helpers.php:801
-msgid "Regenerating thumbs"
-msgstr ""
-
-#: includes/helpers.php:802
-msgid "Regenerate thumbnails may take a long time. Do not close your browser."
-msgstr ""
-
-#: includes/helpers.php:856
-msgid "Invalid settings file"
-msgstr ""
-
-#: includes/helpers.php:1086
+#: includes/functions/cron.php:41
 msgid "Every minute"
 msgstr ""
 
-#: includes/helpers.php:1091
+#: includes/functions/cron.php:46
 msgid "Every 5 minutes"
 msgstr ""
 
-#: includes/helpers.php:1429
+#: includes/functions/db.php:75
+msgid "You are doing it wrong"
+msgstr ""
+
+#: includes/functions/files.php:231
 msgid "Error"
 msgstr ""
 
-#: includes/helpers.php:1430
+#: includes/functions/files.php:232
 msgid "Warning"
 msgstr ""
 
-#: includes/helpers.php:1431
+#: includes/functions/files.php:233
 msgid "Notice"
 msgstr ""
 
-#: includes/helpers.php:1432
+#: includes/functions/files.php:234
 msgid "Event"
 msgstr ""
 
-#: includes/helpers.php:1460
+#: includes/functions/files.php:262
 msgid "Log file cleared"
 msgstr ""
 
-#: includes/helpers.php:1632
+#: includes/functions/image.php:66
+msgid "Size name already in use"
+msgstr ""
+
+#: includes/functions/image.php:188
+#, php-format
+msgid "%s image left"
+msgid_plural "%s images left"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/functions/image.php:200
+msgid "Done"
+msgstr ""
+
+#: includes/functions/miscellaneous.php:159
+msgid "Are you sure?"
+msgstr ""
+
+#: includes/functions/miscellaneous.php:165
+msgid "Something went wrong"
+msgstr ""
+
+#: includes/functions/miscellaneous.php:166
+msgid "Regenerating thumbs"
+msgstr ""
+
+#: includes/functions/miscellaneous.php:167
+msgid "Regenerate thumbnails may take a long time. Do not close your browser."
+msgstr ""
+
+#: includes/functions/plugin.php:167
+msgid "The following plugins are not compatible with"
+msgstr ""
+
+#: includes/functions/plugin.php:174
+msgid "Deactivate"
+msgstr ""
+
+#: includes/functions/settings.php:57
+msgid "Invalid settings file"
+msgstr ""
+
+#: includes/functions/settings.php:225
 msgid "Settings saved"
 msgstr ""
 
-#: includes/helpers.php:1705
+#: includes/functions/settings.php:298
 msgid "Settings file loaded"
 msgstr ""
 
-#: includes/helpers.php:1744
+#: includes/functions/settings.php:481
 msgid "Files list cleared"
 msgstr ""
 
