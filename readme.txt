@@ -64,6 +64,14 @@ WP Performance does not support multisite yet.
 
 == Changelog ==
 
+= 1.0.3 =
+[NEW] Cron tasks cleanup
+[NEW] Exclude page from Cache, JS and CSS optimization on edit page screen
+[IMPROVE] Admin Database UI
+[IMPROVE] Admin UI on mobile devices
+[UPDATE] Translations
+[FIX] Minor bugfixes
+
 = 1.0.2 =
 [NEW] Detect server software
 [NEW] Generate NGINX rewrite rules
