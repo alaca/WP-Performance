@@ -6,9 +6,6 @@
 * @package WPP
 */
 
-use WPP\DB;
-use WPP\Url;
-use WPP\File;
 use WPP\Input;
 use WPP\Option;
 
@@ -23,8 +20,8 @@ class WP_Performance
         // Load language
         load_plugin_textdomain( 'wpp', false, plugin_basename( WPP_DIR ) . '/languages' );
 
-        // Include helpers
-        include WPP_DIR . 'includes/includes.php';
+        // Load functions
+        include WPP_DIR . 'includes/load.php';
 
         // Define plugin name and plugin admin url
         define( 'WPP_PLUGIN_NAME'     , 'WP Performance' );
@@ -108,12 +105,12 @@ class WP_Performance
 
             // Prepare preload
             if ( ! wp_next_scheduled( 'wpp_prepare_preload' ) ) {
-                wp_schedule_event( time(), 'wpp_every_5_minutes', 'wpp_cron_prepare_preload' );
+                wp_schedule_event( time(), 'wpp_every_5_minutes', 'wpp_prepare_preload' );
             }
 
             // Preload cache
             if ( ! wp_next_scheduled( 'wpp_preload_cache' ) ) {
-                wp_schedule_event( time(), 'wpp_every_minute', 'wpp_cron_preload_cache' );
+                wp_schedule_event( time(), 'wpp_every_minute', 'wpp_preload_cache' );
             }
 
         }
@@ -124,7 +121,7 @@ class WP_Performance
             add_action( 'wpp_db_cleanup', 'wpp_cron_db_cleanup' );
 
             if ( ! wp_next_scheduled( 'wpp_db_cleanup' ) ) {
-                wp_schedule_event( time(),  $frequency, 'wpp_cron_db_cleanup' );
+                wp_schedule_event( time(),  $frequency, 'wpp_db_cleanup' );
             }
 
         }
@@ -151,12 +148,6 @@ class WP_Performance
             wpp_add_top_menu_item();
 
         } else {
-
-            // Exclude WooCommerce pages
-            add_filter( 'wpp_exclude_urls', 'wpp_exclude_woocommerce_pages' );
-
-            // Exclude EDD pages
-            add_filter( 'wpp_exclude_urls', 'wpp_exclude_edd_pages' );
             
             // load cache
             if ( Option::boolval( 'cache' ) && ! isset( $_GET[ 'nocache' ] ) ) {
@@ -265,15 +256,17 @@ class WP_Performance
                 // Clear cache ajax action          
                 add_action( 'wp_ajax_wpp_clear_cache',           [ 'WPP\Cache', 'clear' ] );
                 // Clear database ajax actions
-                add_action( 'wp_ajax_wpp_clean_database',        [ 'WPP\DB', 'registerActions' ] );
+                add_action( 'wp_ajax_wpp_clean_database',        'wpp_ajax_database_actions' );
                 // Images ajax actions
-                add_action( 'wp_ajax_wpp_images_action',         [ 'WPP\Image', 'registerActions' ] );
+                add_action( 'wp_ajax_wpp_images_action',         'wpp_ajax_image_actions' );
                 // Deactivate incompatible plugin
                 add_action( 'admin_post_deactivate_plugin',      'wpp_deactivate_incompatible_plugin' ); 
                 // Get critical CSS ajax action
                 add_action( 'wp_ajax_wpp_get_critical_css_path', 'wpp_get_critical_css_path' );
                 // Get log content
                 add_action( 'wp_ajax_wpp_get_log_content',       'wpp_ajax_get_log_content' );
+                // Remove excluded page
+                add_action( 'wp_ajax_wpp_remove_post_options',   'wpp_ajax_remove_post_options' );
                 // Add disable enable link
                 add_filter( 'plugin_action_links_' . plugin_basename( WPP_SELF ), 'wpp_add_disable_link' );
 
@@ -294,6 +287,8 @@ class WP_Performance
 
             } );
 
+            // Save post options
+            add_action( 'save_post',                         'wpp_save_post_options' );
             // Plugin compatibility check
             add_action( 'admin_init',                        'wpp_compatibility_check' );
             // Add top bar menu
