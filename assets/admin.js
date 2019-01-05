@@ -52,6 +52,41 @@ jQuery(document).ready(function ($) {
         $('.wpp-rules-textarea').select();
     });
 
+
+    /**
+     * Remove excluded page
+     */
+     $('.wpp-remove-manually-excluded').on('click', function(e){
+        e.preventDefault();
+
+        var that = this;
+        var id = $(this).data('id');
+        var type = $(this).data('type');
+
+        $.confirm({
+            content: $(this).data('description'),
+            buttons: {
+                confirm: function () {
+
+                    $.ajax({
+                        method: 'POST',
+                        url: ajaxurl,
+                        data: {
+                            id: id,
+                            type: type,
+                            action: 'wpp_remove_post_options'
+                        }
+                    }).done(function () {
+                        $(that).parent('.wpp-dynamic-input-container').fadeOut();
+                    });
+
+                },
+                cancel: function () { }
+            }
+        });
+
+     });
+
     /**
      * Show hide containers depending on checked options
      */
