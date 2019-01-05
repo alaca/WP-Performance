@@ -268,6 +268,25 @@ defined('ABSPATH') or exit; ?>
 
                 <div id="wpp-exclude-url-container">
 
+                    <?php if ( ! empty( $pages = Option::get( 'cache_post_exclude', [] ) ) ): ?>
+    
+                        <?php foreach( $pages as $id ): $link = get_permalink( $id ); ?>
+                            <div class="wpp-dynamic-input-container">
+
+                                <input class="wpp-dynamic-input" value="<?php echo $link; ?>" type="text" readonly /> &nbsp; 
+                                <a 
+                                    href="#" 
+                                    class="button wpp-remove-manually-excluded" 
+                                    data-id="<?php echo $id; ?>" 
+                                    data-type="cache" 
+                                    data-description="<?php printf( __( 'Remove %s from excluded URL(s)?', 'wpp' ), $link ); ?>">
+                                        <?php _e( 'Remove', 'wpp' ); ?>
+                                </a>
+                            </div>
+                        <?php endforeach; ?>
+
+                    <?php endif; ?>
+
                     <?php foreach( $excluded_urls as $url ): ?>
                         <div data-dynamic-container="cache_url_exclude[]" class="wpp-dynamic-input-container">
 
