@@ -7,64 +7,7 @@
 */
 
 class DB
-{
-    
-    /**
-     * Register ajax actions
-     *
-     * @return json
-     * @since 1.0.0
-     */
-    public static function registerActions() {
-
-        switch( Input::post( 'db_action' ) ) {
-            
-            case 'revisions':
-            
-                DB::clearRevisions();
-                wp_send_json( [ 'status' => 1 ] );    
-                          
-                break;
-                
-            case 'spam':
-            
-                DB::clearSpam();
-                wp_send_json(['status' => 1]);    
- 
-                break;
-                
-            case 'trash':
-            
-                DB::clearTrash();
-                wp_send_json(['status' => 1]);  
-                          
-                break;
-                
-            case 'transients':
-            
-                DB::clearTransients();
-                wp_send_json(['status' => 1]); 
-                          
-                break;
-                
-            case 'all':
-            
-                DB::clearRevisions();
-                DB::clearSpam();
-                DB::clearTrash();
-                DB::clearTransients();
-                wp_send_json(['status' => 1]);   
-            
-                break;
-                
-        } 
-
-        wp_send_json( [
-            'status' => 0, 
-            'note'   => __( 'You are doing it wrong', 'wpp' )
-        ] );   
-    }
-       
+{       
     /**
      * Get revisions count
      *
@@ -74,7 +17,7 @@ class DB
     public static function getRevisionsCount() {
         $result = $GLOBALS['wpdb']->get_row('
             SELECT COUNT(ID) as num 
-            FROM ' . $GLOBALS['wpdb']->prefix . 'posts
+            FROM ' . $GLOBALS['wpdb']->posts . '
             WHERE post_type = "revision"'
         );
 
@@ -90,7 +33,7 @@ class DB
     public static function getSpamCount() {
         $result = $GLOBALS['wpdb']->get_row('
             SELECT COUNT(*) as num 
-            FROM ' . $GLOBALS['wpdb']->prefix . 'comments 
+            FROM ' . $GLOBALS['wpdb']->comments . ' 
             WHERE comment_approved = "spam" 
             OR comment_approved = "trash"'
         );
@@ -107,7 +50,7 @@ class DB
     public static function getTrashCount() {
         $result = $GLOBALS['wpdb']->get_row('
             SELECT COUNT(ID) as num 
-            FROM ' . $GLOBALS['wpdb']->prefix . 'posts 
+            FROM ' . $GLOBALS['wpdb']->posts . ' 
             WHERE post_status = "trash"'
         );
         
@@ -127,12 +70,44 @@ class DB
         
         $result = $GLOBALS['wpdb']->get_row('
             SELECT COUNT(*) as num 
-            FROM ' . $GLOBALS['wpdb']->prefix . 'options 
+            FROM ' . $GLOBALS['wpdb']->options . ' 
             WHERE option_name LIKE "%_transient_timeout_%"
             AND option_value < ' . $seconds            
         ); 
         
         return empty($result) ? 0 : $result->num;
+           
+    }
+
+    /**
+     * Get transients count
+     *
+     * @return integer
+     * @since 1.0.3
+     */
+    public static function getCronTasksCount() {
+        
+        $result = $GLOBALS['wpdb']->get_row('
+            SELECT option_value as tasks  
+            FROM ' . $GLOBALS[ 'wpdb' ]->options . ' 
+            WHERE option_name = "cron"'
+        );
+
+
+        $count = 0;
+
+        $tasks = unserialize( $result->tasks );
+
+        if ( is_array( $tasks ) ) {
+            foreach( $tasks as $id => $task ) {
+                if ( is_array( $task ) ) {
+                    $count += count( $task );
+                }
+            }
+        }
+
+
+        return $count; 
            
     }
 
@@ -147,6 +122,7 @@ class DB
         DB::clearSpam();
         DB::clearTrash();
         DB::clearTransients();
+        DB::clearCronTasks();
 
         wpp_log( 'DB optimized', 'notice' );
     }
@@ -163,7 +139,7 @@ class DB
         wpp_log( 'DB revisions deleted', 'notice' );
 
         return $GLOBALS['wpdb']->query( 
-            'DELETE FROM ' . $GLOBALS['wpdb']->prefix .'posts WHERE post_type = "revision"' 
+            'DELETE FROM ' . $GLOBALS['wpdb']->posts .' WHERE post_type = "revision"' 
         );  
     }
     
@@ -179,7 +155,7 @@ class DB
         wpp_log( 'DB spam deleted', 'notice' );
 
         return $GLOBALS['wpdb']->query( 
-            'DELETE FROM ' . $GLOBALS['wpdb']->prefix .'comments WHERE comment_approved = "spam" OR comment_approved = "trash"'
+            'DELETE FROM ' . $GLOBALS['wpdb']->comments .' WHERE comment_approved = "spam" OR comment_approved = "trash"'
         );
     }
     
@@ -195,7 +171,7 @@ class DB
         wpp_log( 'DB trash deleted', 'notice' );
 
         return $GLOBALS['wpdb']->query( 
-            'DELETE FROM ' . $GLOBALS['wpdb']->prefix . 'posts WHERE post_status = "trash"' 
+            'DELETE FROM ' . $GLOBALS['wpdb']->posts . ' WHERE post_status = "trash"' 
         );    
     }
     
@@ -211,7 +187,23 @@ class DB
         wpp_log( 'DB transients deleted', 'notice' );
 
         return $GLOBALS['wpdb']->query( 
-            'DELETE FROM ' . $GLOBALS['wpdb']->prefix . 'options WHERE option_name LIKE "%_transient_%"' 
+            'DELETE FROM ' . $GLOBALS['wpdb']->options . ' WHERE option_name LIKE "%_transient_%"' 
+        );
+    }
+
+
+    /**
+     * Cleanup cron tasks
+     *
+     * @return void
+     * @since 1.0.0
+     */
+    public static function clearCronTasks() {
+
+        wpp_log( 'DB cron tasks deleted', 'notice' );
+
+        return $GLOBALS['wpdb']->query( 
+            'UPDATE ' . $GLOBALS['wpdb']->options . ' SET option_value = "" WHERE option_name = "cron"' 
         );
     }
 
