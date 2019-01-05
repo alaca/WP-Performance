@@ -21,11 +21,12 @@ function wpp_activate() {
 
     if ( 'apache' !== wpp_get_server_software() ) return;
 
+    $backup   = trailingslashit( ABSPATH ) . '.htaccess_wpp_backup';
     $htaccess = trailingslashit( ABSPATH ) . '.htaccess';
-
+    
     // Backup htaccess file
     if ( file_exists( $htaccess ) ) {
-        if( ! file_exists( $backup = trailingslashit( ABSPATH ) . 'htaccess.backup' ) ) {
+        if( ! file_exists( $backup ) ) {
             copy( $htaccess, $backup );    
             wpp_log( '.htaccess backup created', 'notice' );            
         }
@@ -46,16 +47,35 @@ function wpp_activate() {
  * @since 1.0.0
  */
 function wpp_deactivate() {   
+
+    $backup   = trailingslashit( ABSPATH ) . '.htaccess_wpp_backup';
+    $htaccess = trailingslashit( ABSPATH ) . '.htaccess'; 
         
     // Restore htaccess backup
-    if ( file_exists( $original = trailingslashit( ABSPATH ) . 'htaccess.backup' ) ) {
+    if ( file_exists( $backup ) ) {
         
-        if ( file_exists( $current = trailingslashit( ABSPATH ) . '.htaccess' ) ) {
-            copy( $original, $current );
+        if ( file_exists( $htaccess ) ) {
+            copy( $backup, $htaccess );
             wpp_log( '.htaccess backup restored', 'notice' );   
         }
 
-        unlink( $original );
+        unlink( $backup );
+
+    } else {
+
+        // .htaccess may not be present when WP performance is activated and thats why there is no htaccess backup
+        // lets do additional check if htaccess file exists so we can clean it up
+        if ( file_exists( $htaccess ) ) {
+
+            // Browser cache
+            wpp_update_htaccess( 'remove', 'expire' );
+            // Gzip compression
+            wpp_update_htaccess( 'remove', 'gzip' );
+            // Htaccess load cache
+            wpp_update_htaccess( 'remove', 'cache' );
+
+        }
+
     }
     
     // Clear cron tasks
