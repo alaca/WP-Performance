@@ -112,7 +112,7 @@ function wpp_is_htaccess_writable() {
  */
 function wpp_update_htaccess( $action, $file ) {
 
-    $htaccess              = ABSPATH. '.htaccess';
+    $htaccess              = trailingslashit( ABSPATH ) . '.htaccess';
     $definitionsFile       = WPP_DATA_DIR . 'definitions/' . $file . '.apache.txt';
     $customDefinitionsFile = WPP_DATA_DIR . 'definitions/' . 'custom.' . $file . '.apache.txt';
 
@@ -128,10 +128,9 @@ function wpp_update_htaccess( $action, $file ) {
         return false;
     }
 
-
     switch ( $action ) {
 
-        case true:
+        case 1:
         case 'add':
 
             if ( ! file_exists( $htaccess ) ) {
@@ -165,7 +164,7 @@ function wpp_update_htaccess( $action, $file ) {
 
             break;
 
-        case false:
+        case 0:
         case 'remove':
 
             if ( file_exists( $htaccess ) ) {
