@@ -229,6 +229,11 @@ function wpp_cron_db_cleanup() {
     if ( Option::boolval( 'db_cleanup_transients' ) ) {
         DB::clearTransients();
     }
+
+    // Clear cron tasks
+    if ( Option::boolval( 'db_cleanup_cron' ) ) {
+        DB::clearCronTasks();
+    }
     
     $schedules = wpp_get_cron_schedules();
     $frequency = Option::get( 'db_cleanup_frequency' );

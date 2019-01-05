@@ -33,6 +33,9 @@ function wpp_exclude_woocommerce_pages( $exclude ) {
 
 }
 
+// Exclude WooCommerce pages
+add_filter( 'wpp_exclude_urls', 'wpp_exclude_woocommerce_pages' );
+
 /**
  * Exclude EDD pages checkout, account and cart
  *
@@ -59,3 +62,6 @@ function wpp_exclude_edd_pages( $exclude ) {
     return $exclude;
 
 }
+
+// Exclude EDD pages
+add_filter( 'wpp_exclude_urls', 'wpp_exclude_edd_pages' );

@@ -273,7 +273,7 @@ function wpp_add_metabox() {
 
     add_meta_box(
         'wpp_page_cache_metabox',         
-        WPP_PLUGIN_NAME,  
+        sprintf( '%s %s', WPP_PLUGIN_NAME, __( 'settings', 'wpp' ) ),  
         'wpp_display_cache_metabox',  
         null,
         'side',

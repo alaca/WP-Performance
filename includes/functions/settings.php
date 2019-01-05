@@ -165,14 +165,12 @@ function wpp_save_settings( $notify = true ) {
     Option::update( 'db_cleanup_revisions',  Input::post( 'db_cleanup_revisions', 'boolean' ) );
     Option::update( 'db_cleanup_spam',       Input::post( 'db_cleanup_spam', 'boolean' ) );
     Option::update( 'db_cleanup_trash',      Input::post( 'db_cleanup_trash', 'boolean' ) );
+    Option::update( 'db_cleanup_cron',       Input::post( 'db_cleanup_cron', 'boolean' ) );
 
     // Cleanup schedule
     $frequency = Input::post( 'automatic_cleanup_frequency' );
 
     if ( Option::get( 'db_cleanup_frequency' ) != $frequency ) {
-
-        // Clear cron task
-        wp_clear_scheduled_hook( 'wpp_db_cleanup' );
         
         Option::update( 'db_cleanup_frequency', $frequency );
 
@@ -303,3 +301,183 @@ function wpp_load_settings( $filename, $notify = true ) {
 
 }
 
+
+/**
+ * Save page metabox options
+ *
+ * @param integer $post_id
+ * @return void
+ * @since 1.0.3
+ */
+function wpp_save_post_options( $post_id ) {
+
+    foreach( [ 'cache_post_exclude', 'css_post_exclude', 'js_post_exclude' ] as $option ) {
+
+        $options = Option::get( $option, [] ); 
+
+        if ( Input::post( $option ) ) {
+
+            if ( ! in_array( $post_id, $options ) ) {
+                $options[] = $post_id;
+            }
+            
+        }  else {
+            $options = array_diff( $options, [ $post_id ] );
+        }
+    
+        Option::update( $option, $options );
+
+    }
+
+}
+
+/**
+ * Remove post options added trough metabox
+ *
+ * @return void
+ * @since 1.0.3
+ */
+function wpp_ajax_remove_post_options() {
+
+    $options = [
+        'js'    => 'js_post_exclude',
+        'css'   => 'css_post_exclude',
+        'cache' => 'cache_post_exclude'
+    ];
+
+    if ( array_key_exists( Input::post( 'type' ), $options ) ) {
+
+        $option      = $options[ Input::post( 'type' ) ];
+        $option_data = Option::get( $option, [] ); 
+        $option_data = array_diff( $option_data, [ Input::post( 'id' ) ] );
+
+        Option::update( $option, $option_data );
+
+    }
+
+    exit;
+
+}
+
+/**
+ * Get options prefix
+ * 
+ * @string $name
+ * @since 1.0.0
+ * @return string
+ */
+function wpp_get_prefix( $name = '' ) {
+    return sprintf( '%s_%s', 'wpp', $name );
+}
+
+
+/**
+ * Delete list options
+ * Used after clearing the cache
+ *
+ * @return void
+ * @since 1.0.0
+ */
+function wpp_delete_list_options() {
+
+    $options = wpp_get_list_options();
+
+    foreach ( $options as $option ) {
+        Option::remove( $option );
+    }
+
+    wpp_log( 'List options deleted', 'notice' ); 
+    
+}
+
+
+/**
+ * Get list options
+ *
+ * @return array
+ * @since 1.0.0
+ */
+function wpp_get_list_options() {
+
+    $defaults = [ 
+        'local_css_list', 
+        'local_js_list', 
+        'external_css_list', 
+        'external_js_list', 
+        'prefetch_css_list', 
+        'prefetch_js_list',
+        'css_custom_path_def'
+    ]; 
+
+    /**
+     * Filter options list which will be deleted after clearing the cache
+     * @since 1.0.0
+     */
+    $options = apply_filters( 'wpp-delete-list-options', $defaults );
+
+    return $options;
+
+}
+
+
+/**
+ * Get options
+ *
+ * @return array
+ * @since 1.0.0
+ */
+function wpp_get_options() {
+
+    $options = [];
+
+    // Get all options
+    $result = $GLOBALS[ 'wpdb' ]->get_results( sprintf( 
+        'SELECT option_name, option_value FROM %s WHERE option_name LIKE "%s%%"', 
+        $GLOBALS['wpdb']->options, 
+        wpp_get_prefix() 
+    ) );
+
+    foreach( $result as $row ) {
+        $options[ $row->option_name ] = $row->option_value;
+    }
+
+    return $options;
+
+}
+
+
+/**
+ * Clear files list and cache
+ *
+ * @param string $list
+ * @param boolean $notify
+ * @return void
+ * @since 1.0.2
+ */
+function wpp_delete_files_list( $type, $notify = true  ) {
+
+    $type = str_replace( 'javascript', 'js', $type );
+
+    if ( ! in_array( $type, [ 'js', 'css' ] ) ) {
+        return false;
+    }
+
+    $list_names = [
+        sprintf( 'local_%s_list', $type ), 
+        sprintf( 'external_%s_list', $type ), 
+        sprintf( 'prefetch_%s_list', $type )
+    ];
+
+    foreach ( wpp_get_list_options() as $option ) {
+        if ( in_array( $option, $list_names ) ) {
+            Option::remove( $option );
+        }
+    }
+
+    wpp_log( sprintf( '%s list files cleared', $type ), 'notice' );
+    
+    Cache::clear();       
+    
+    if ( $notify ) wpp_notify( 'Files list cleared' );
+    
+}
