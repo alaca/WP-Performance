@@ -71,6 +71,7 @@ WP Performance does not support multisite yet.
 [IMPROVE] Admin Database UI
 [IMPROVE] Admin UI on mobile devices
 [UPDATE] Translations
+[FIX] htaccess backup handling
 [FIX] Minor bugfixes
 
 = 1.0.2 =
