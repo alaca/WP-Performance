@@ -394,14 +394,52 @@ table.wpp-file-list tr {
     padding: 5px 0;
 }
 
+
+.wpp-database-table td {
+    width: 50%;
+    padding: 30px !important;
+}
+
+.wpp-database-table td:nth-child(odd) {
+    border-right: 1px solid #e2e2e2;
+}
+
+
+.wpp-database-table tr{
+    border-bottom: 1px solid #e2e2e2;
+}
+
+.wpp-database-table tr:last-child{
+    border-bottom: none;
+}
+
+
 @media only screen and (max-width: 979px) { 
 
     .wpp-content-section, .wpp-side-section {
-        width: 50%;  
+        display: table-cell;
+        width: auto;
     }
 
-    .wpp-content-section table td{
-        display: block;
+
+    .wpp-content-section table td {
+        padding: 10px !important;
+    }
+
+    .wpp-database-table td {
+        display: inline-block;
+        width: 100% !important;
+        padding: 10px !important;
+        border: none !important;
+    }
+    
+    .wpp-database-table tr {
+        border-bottom: none !important;
+    }
+
+    .wpp-dynamic-input {
+        width: 100%;
+        margin-bottom: 10px;
     }
 
 }
@@ -411,20 +449,13 @@ table.wpp-file-list tr {
 @media only screen and (max-width: 768px) { 
     
     .wpp-page-wrapper {
-        display: inline-block;
         width: 100%;
-        float: none;
-        padding: 0px;
     }
 
     .wpp-content-section, .wpp-side-section {
-        display: inline-block; 
-        float: none;
-        width: 100%;
-        padding: 5px 5px 30px 5px !important;
+        display: block;
+        padding: 25px !important;
     }
-
-
 
     .wpp-side-section {
         border-top: 1px solid #E0E0E0;
@@ -433,8 +464,13 @@ table.wpp-file-list tr {
     }
 
     .wpp-content-section table, .wpp-side-section table {
-        display: inline-block;
+        width: 100%;
     }
+
+    .wpp-content-section table td, .wpp-side-section table td {
+        display: block;
+    }
+
 
     #wpp_tabs_menu {
         display: none;
@@ -489,11 +525,5 @@ table.wpp-file-list tr {
     .wpp-side-section h3 {
         font-size: 16px;
     }
-
-    .wpp-database-table td {
-        width: 92%;
-        padding: 10px 10px 10px 10px !important;
-    }
-
 
 }
