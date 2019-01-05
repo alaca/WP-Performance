@@ -37,18 +37,32 @@ class Parser
             exit( $error );
         }
 
-        // CSS
+        // CSS optimization
+
+        /**
+         * Exclude URL from CSS optimization filter
+         * @since 1.0.3
+         */
+        $css_url_exclude = apply_filters( 'wpp_css_url_exclude', Option::get( 'css_url_exclude', [] ) );
+
         if ( 
             ! wpp_is_optimization_disabled_for( 'css' ) 
-            && ! wpp_in_array( Option::get( 'css_url_exclude', [] ), Url::current() ) 
+            && ! wpp_in_array( $css_url_exclude , Url::current() ) 
         ) {
             $this->parseCSS();
         }
 
-        // JS
+        // JS optimization
+
+        /**
+         * Exclude URL from JavaScript optimization filter
+         * @since 1.0.3
+         */
+        $js_url_exclude = apply_filters( 'wpp_js_url_exclude', Option::get( 'js_url_exclude', [] ) );
+
         if ( 
             ! wpp_is_optimization_disabled_for( 'js' ) 
-            && ! wpp_in_array( Option::get( 'js_url_exclude', [] ), Url::current() ) 
+            && ! wpp_in_array( $js_url_exclude, Url::current() ) 
         ) {
             $this->parseJS();
         }
