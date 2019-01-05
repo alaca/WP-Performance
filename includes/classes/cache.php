@@ -36,7 +36,6 @@ class Cache
             // GZIP enabled ?
             if ( $gzip ) $file .= '_gzip';
 
-
             if ( file_exists( $file ) && is_readable( $file ) ) {
 
                 if ( time() - intval( Option::get( 'cache_time', 3600 ) * Option::get( 'cache_length', 24 ) ) < filemtime( $file ) ) { 
