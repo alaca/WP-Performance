@@ -25,7 +25,7 @@ function wpp_activate() {
 
     // Backup htaccess file
     if ( file_exists( $htaccess ) ) {
-        if( ! file_exists( $backup = WPP_DATA_DIR . 'backup/htaccess.backup' ) ) {
+        if( ! file_exists( $backup = trailingslashit( ABSPATH ) . 'htaccess.backup' ) ) {
             copy( $htaccess, $backup );    
             wpp_log( '.htaccess backup created', 'notice' );            
         }
@@ -48,7 +48,7 @@ function wpp_activate() {
 function wpp_deactivate() {   
         
     // Restore htaccess backup
-    if ( file_exists( $original = WPP_DATA_DIR . 'backup/htaccess.backup' ) ) {
+    if ( file_exists( $original = trailingslashit( ABSPATH ) . 'htaccess.backup' ) ) {
         
         if ( file_exists( $current = trailingslashit( ABSPATH ) . '.htaccess' ) ) {
             copy( $original, $current );
