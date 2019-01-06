@@ -397,7 +397,7 @@ table.wpp-file-list tr {
 
 .wpp-database-table td {
     width: 50%;
-    padding: 30px !important;
+    padding: 20px !important;
 }
 
 .wpp-database-table td:nth-child(odd) {
