@@ -93,17 +93,32 @@ class DB
             WHERE option_name = "cron"'
         );
 
-
         $count = 0;
+
+        if ( empty( $result ) ) {
+            return $count;
+        }
 
         $tasks = unserialize( $result->tasks );
 
         if ( is_array( $tasks ) ) {
+
             foreach( $tasks as $id => $task ) {
+
                 if ( is_array( $task ) ) {
-                    $count += count( $task );
+
+                    foreach( $task as $hook => $data ) {
+
+                        // Check if hook has action
+                        if ( ! has_action( $hook ) ) {
+                            $count++;
+                        }
+                    }   
+
                 }
+
             }
+
         }
 
 
@@ -202,9 +217,7 @@ class DB
 
         wpp_log( 'DB cron tasks deleted', 'notice' );
 
-        return $GLOBALS['wpdb']->query( 
-            'UPDATE ' . $GLOBALS['wpdb']->options . ' SET option_value = "" WHERE option_name = "cron"' 
-        );
+        delete_option( 'cron' );
     }
 
     
