@@ -87,19 +87,9 @@ class DB
      */
     public static function getCronTasksCount() {
         
-        $result = $GLOBALS['wpdb']->get_row('
-            SELECT option_value as tasks  
-            FROM ' . $GLOBALS[ 'wpdb' ]->options . ' 
-            WHERE option_name = "cron"'
-        );
-
         $count = 0;
 
-        if ( empty( $result ) ) {
-            return $count;
-        }
-
-        $tasks = unserialize( $result->tasks );
+        $tasks = get_option( 'cron' );
 
         if ( is_array( $tasks ) ) {
 
@@ -215,10 +205,40 @@ class DB
      */
     public static function clearCronTasks() {
 
+        $tasks = get_option( 'cron' );
+
+        if ( is_array( $tasks ) ) {
+
+            foreach( $tasks as $id => $task ) {
+
+                if ( is_array( $task ) ) {
+
+                    foreach( $task as $hook => $data ) {
+
+                        // Check if hook has action
+                        if ( ! has_action( $hook ) ) {
+
+                            // Remove action
+                            unset( $tasks[ $id ][ $hook ] );
+
+                            // If there is no other actions, remove hook
+                            if ( count( $tasks[ $id ] ) == 0 ) {
+                                unset( $tasks[ $id ] );
+                            }
+
+                        }
+                    }   
+
+                }
+
+            }
+
+        }
+
+        update_option( 'cron', $tasks );
+
         wpp_log( 'DB cron tasks deleted', 'notice' );
 
-        delete_option( 'cron' );
     }
-
     
 }
