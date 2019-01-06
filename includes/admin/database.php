@@ -126,12 +126,12 @@ defined('ABSPATH') or exit; ?>
                         class="button alignright wpp-db-action" 
                         data-action="cron" 
                         data-count="<?php echo $cron_tasks; ?>" 
-                        data-description="<?php _e( 'Delete all cron tasks', 'wpp' ); ?>">
+                        data-description="<?php _e( 'Delete all unused scheduled tasks', 'wpp' ); ?>">
                             <?php _e( 'Delete', 'wpp' ); ?> 
                     </a>
 
-                    <strong><?php _e( 'Cron tasks', 'wpp' ); ?> (<span class="wpp-db-count" id="wpp-cron-count"><?php echo $cron_tasks; ?></span>)</strong>
-                    <em><?php _e( 'Delete all cron tasks', 'wpp' ); ?></em>
+                    <strong><?php _e( 'Scheduled tasks', 'wpp' ); ?> (<span class="wpp-db-count" id="wpp-cron-count"><?php echo $cron_tasks; ?></span>)</strong>
+                    <em><?php _e( 'Delete all unused scheduled tasks', 'wpp' ); ?></em>
 
                     <?php if ( Option::get( 'db_cleanup_frequency' ) !== 'none' ): ?>
                         <br />
