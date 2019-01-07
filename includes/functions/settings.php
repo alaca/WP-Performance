@@ -125,6 +125,7 @@ function wpp_save_settings( $notify = true ) {
     Option::update( 'css_disable_except',    Input::post( 'css_disable_except', 'string', FILTER_REQUIRE_ARRAY ) );
     Option::update( 'css_defer',             Input::post( 'css_defer', 'boolean' ) );
     Option::update( 'css_prefetch',          Input::post( 'css_prefetch', 'string', FILTER_REQUIRE_ARRAY ) );
+    Option::update( 'css_preconnect',        Input::post( 'css_preconnect', 'string', FILTER_REQUIRE_ARRAY ) );
     Option::update( 'css_combine_fonts',     Input::post( 'css_combine_fonts', 'boolean' ) );
     Option::update( 'css_url_exclude',       Input::post( 'css_url_exclude', 'string', FILTER_REQUIRE_ARRAY ) );
     Option::update( 'css_custom_path_def',   stripslashes( Input::post( 'css_custom_path_def' ) ) );
@@ -135,7 +136,9 @@ function wpp_save_settings( $notify = true ) {
     Option::update( 'js_minify_inline',       Input::post( 'js_minify_inline', 'boolean' ) );
     Option::update( 'js_combine',             Input::post( 'js_combine', 'string', FILTER_REQUIRE_ARRAY ) );
     Option::update( 'js_inline',              Input::post( 'js_inline', 'string', FILTER_REQUIRE_ARRAY ) );
-    Option::update( 'js_defer',               Input::post( 'js_defer', 'boolean' ) );               
+    Option::update( 'js_defer',               Input::post( 'js_defer', 'boolean' ) );   
+    Option::update( 'js_prefetch',            Input::post( 'js_prefetch', 'string', FILTER_REQUIRE_ARRAY ) );
+    Option::update( 'js_preconnect',          Input::post( 'js_preconnect', 'string', FILTER_REQUIRE_ARRAY ) );            
     Option::update( 'js_url_exclude',         Input::post( 'js_url_exclude', 'string', FILTER_REQUIRE_ARRAY ) );
     Option::update( 'js_disable',             Input::post( 'js_disable', 'string', FILTER_REQUIRE_ARRAY ) );
     Option::update( 'js_disable_position',    Input::post( 'js_disable_position', 'string', FILTER_REQUIRE_ARRAY ) );
@@ -150,6 +153,7 @@ function wpp_save_settings( $notify = true ) {
     Option::update( 'disable_lazy_mobile',   Input::post( 'disable_lazy_mobile', 'boolean' ) );
     Option::update( 'images_containers_ids', Input::post( 'images_containers_ids', 'string', FILTER_REQUIRE_ARRAY  ) );
     Option::update( 'images_exclude',        Input::post( 'images_exclude', 'string', FILTER_REQUIRE_ARRAY ) );
+    Option::update( 'image_url_exclude',     Input::post( 'image_url_exclude', 'string', FILTER_REQUIRE_ARRAY ) );
 
     // Settings
     Option::update( 'enable_log',            Input::post( 'enable_log', 'boolean' ) );
@@ -311,7 +315,7 @@ function wpp_load_settings( $filename, $notify = true ) {
  */
 function wpp_save_post_options( $post_id ) {
 
-    foreach( [ 'cache_post_exclude', 'css_post_exclude', 'js_post_exclude' ] as $option ) {
+    foreach( [ 'cache_post_exclude', 'css_post_exclude', 'js_post_exclude', 'image_post_exclude' ] as $option ) {
 
         $options = Option::get( $option, [] ); 
 
@@ -342,7 +346,8 @@ function wpp_ajax_remove_post_options() {
     $options = [
         'js'    => 'js_post_exclude',
         'css'   => 'css_post_exclude',
-        'cache' => 'cache_post_exclude'
+        'cache' => 'cache_post_exclude',
+        'image' => 'image_post_exclude'
     ];
 
     if ( array_key_exists( Input::post( 'type' ), $options ) ) {
