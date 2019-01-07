@@ -34,7 +34,7 @@ function wpp_is_localhost() {
 function wpp_get_file_hostname( $file ) {
 
     if ( $host = parse_url( $file, PHP_URL_HOST ) ) {
-        return '//' .  $host;
+        return $host;
     }
 
     return $file;
