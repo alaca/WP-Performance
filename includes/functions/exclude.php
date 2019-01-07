@@ -13,6 +13,7 @@ use WPP\Option;
  * Cache
  * CSS optimization
  * JavaScript optimization
+ * Image optimization
  *
  * @param array $exclude
  * @return array
@@ -21,9 +22,10 @@ use WPP\Option;
 add_action( 'init', function() {
 
     $hooks = [
-        'wpp_css_url_exclude' => 'css_post_exclude',
-        'wpp_js_url_exclude'  => 'js_post_exclude',
-        'wpp_exclude_urls'    => 'cache_post_exclude',
+        'wpp_css_url_exclude'   => 'css_post_exclude',
+        'wpp_js_url_exclude'    => 'js_post_exclude',
+        'wpp_exclude_urls'      => 'cache_post_exclude',
+        'wpp_image_url_exclude' => 'image_url_exclude',
     ];
 
     foreach( $hooks as $filter => $option ) {
