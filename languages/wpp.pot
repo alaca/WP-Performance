@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: WP Performance\n"
-"POT-Creation-Date: 2019-01-05 09:45+0100\n"
+"POT-Creation-Date: 2019-01-07 16:40+0100\n"
 "PO-Revision-Date: 2018-12-26 17:50+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -125,11 +125,12 @@ msgstr ""
 #: includes/admin/cache.php:303 includes/admin/cdn.php:64
 #: includes/admin/css.php:101 includes/admin/css.php:128
 #: includes/admin/css.php:303 includes/admin/css.php:331
-#: includes/admin/css.php:547 includes/admin/css.php:557
-#: includes/admin/images.php:58 includes/admin/images.php:84
+#: includes/admin/css.php:568 includes/admin/css.php:578
+#: includes/admin/images.php:62 includes/admin/images.php:88
+#: includes/admin/images.php:132 includes/admin/images.php:152
 #: includes/admin/javascript.php:101 includes/admin/javascript.php:128
 #: includes/admin/javascript.php:305 includes/admin/javascript.php:333
-#: includes/admin/javascript.php:510 includes/admin/javascript.php:520
+#: includes/admin/javascript.php:530 includes/admin/javascript.php:540
 #: includes/functions/miscellaneous.php:160
 msgid "Remove"
 msgstr ""
@@ -169,7 +170,7 @@ msgstr ""
 
 #: includes/admin/cache.php:211 includes/admin/cdn.php:33
 #: includes/admin/css.php:402 includes/admin/database.php:156
-#: includes/admin/images.php:110 includes/admin/javascript.php:405
+#: includes/admin/images.php:188 includes/admin/javascript.php:405
 #: includes/admin/settings.php:80
 msgid "Save changes"
 msgstr ""
@@ -203,45 +204,50 @@ msgstr ""
 msgid "Exclude URL(s) from cache"
 msgstr ""
 
-#: includes/admin/cache.php:282 includes/admin/css.php:546
-#: includes/admin/javascript.php:509
+#: includes/admin/cache.php:282 includes/admin/css.php:567
+#: includes/admin/images.php:131 includes/admin/javascript.php:529
 #, php-format
 msgid "Remove %s from excluded URL(s)?"
 msgstr ""
 
 #: includes/admin/cache.php:312 includes/admin/cache.php:326
-#: includes/admin/css.php:565 includes/admin/css.php:579
-#: includes/admin/javascript.php:528 includes/admin/javascript.php:542
+#: includes/admin/css.php:586 includes/admin/css.php:600
+#: includes/admin/images.php:161 includes/admin/images.php:173
+#: includes/admin/javascript.php:548 includes/admin/javascript.php:562
 msgid "Part of the URL will also work"
 msgstr ""
 
 #: includes/admin/cache.php:313 includes/admin/cache.php:326
 #: includes/admin/cdn.php:73 includes/admin/cdn.php:86
-#: includes/admin/css.php:566 includes/admin/css.php:579
-#: includes/admin/javascript.php:529 includes/admin/javascript.php:542
+#: includes/admin/css.php:587 includes/admin/css.php:600
+#: includes/admin/images.php:162 includes/admin/images.php:173
+#: includes/admin/javascript.php:549 includes/admin/javascript.php:562
 msgid "Use {numbers} to match only numbers"
 msgstr ""
 
 #: includes/admin/cache.php:314 includes/admin/cache.php:326
 #: includes/admin/cdn.php:74 includes/admin/cdn.php:86
-#: includes/admin/css.php:567 includes/admin/css.php:579
-#: includes/admin/javascript.php:530 includes/admin/javascript.php:542
+#: includes/admin/css.php:588 includes/admin/css.php:600
+#: includes/admin/images.php:163 includes/admin/images.php:173
+#: includes/admin/javascript.php:550 includes/admin/javascript.php:562
 msgid "Use {letters} to match only letters"
 msgstr ""
 
 #: includes/admin/cache.php:315 includes/admin/cache.php:326
 #: includes/admin/cdn.php:75 includes/admin/cdn.php:86
-#: includes/admin/css.php:568 includes/admin/css.php:579
-#: includes/admin/javascript.php:531 includes/admin/javascript.php:542
+#: includes/admin/css.php:589 includes/admin/css.php:600
+#: includes/admin/images.php:164 includes/admin/images.php:173
+#: includes/admin/javascript.php:551 includes/admin/javascript.php:562
 msgid "Use {any} to match any string"
 msgstr ""
 
 #: includes/admin/cache.php:329 includes/admin/css.php:145
 #: includes/admin/css.php:156 includes/admin/css.php:350
-#: includes/admin/css.php:361 includes/admin/css.php:582
-#: includes/admin/javascript.php:145 includes/admin/javascript.php:156
-#: includes/admin/javascript.php:352 includes/admin/javascript.php:363
-#: includes/admin/javascript.php:545 includes/functions/miscellaneous.php:161
+#: includes/admin/css.php:361 includes/admin/css.php:603
+#: includes/admin/images.php:176 includes/admin/javascript.php:145
+#: includes/admin/javascript.php:156 includes/admin/javascript.php:352
+#: includes/admin/javascript.php:363 includes/admin/javascript.php:565
+#: includes/functions/miscellaneous.php:161
 msgid "Add URL"
 msgstr ""
 
@@ -348,8 +354,8 @@ msgstr ""
 msgid "Asynchronously load CSS"
 msgstr ""
 
-#: includes/admin/css.php:444 includes/admin/javascript.php:448
-msgid "Eliminates render-blocking JavaScript"
+#: includes/admin/css.php:444
+msgid "Eliminates render-blocking CSS"
 msgstr ""
 
 #: includes/admin/css.php:448
@@ -378,19 +384,27 @@ msgstr ""
 msgid "Load all google fonts in one HTTP request"
 msgstr ""
 
-#: includes/admin/css.php:491
+#: includes/admin/css.php:492
 msgid "Disable CSS optimization for logged-in users"
 msgstr ""
 
-#: includes/admin/css.php:502
-msgid "Prefetch external CSS resources"
+#: includes/admin/css.php:503 includes/admin/javascript.php:465
+msgid "Resource Hints"
 msgstr ""
 
-#: includes/admin/css.php:517 includes/admin/javascript.php:480
+#: includes/admin/css.php:510 includes/admin/javascript.php:472
+msgid "Origins"
+msgstr ""
+
+#: includes/admin/css.php:537 includes/admin/javascript.php:499
 msgid "DNS prefetching can make external resources load faster"
 msgstr ""
 
-#: includes/admin/css.php:525
+#: includes/admin/css.php:538 includes/admin/javascript.php:500
+msgid "Preconnect can remove additional roundtrips and reduce request latency"
+msgstr ""
+
+#: includes/admin/css.php:546
 msgid "Exclude URL(s) from CSS optimization"
 msgstr ""
 
@@ -439,11 +453,11 @@ msgid "Transients"
 msgstr ""
 
 #: includes/admin/database.php:129 includes/admin/database.php:134
-msgid "Delete all cron tasks"
+msgid "Delete all unused scheduled tasks"
 msgstr ""
 
 #: includes/admin/database.php:133
-msgid "Cron tasks"
+msgid "Scheduled tasks"
 msgstr ""
 
 #: includes/admin/database.php:152
@@ -519,76 +533,88 @@ msgid ""
 msgstr ""
 
 #: includes/admin/images.php:48
-msgid "Exclude images"
+msgid "Exclude image"
 msgstr ""
 
-#: includes/admin/images.php:64
+#: includes/admin/images.php:51
+msgid "Exclude image by name"
+msgstr ""
+
+#: includes/admin/images.php:68
 msgid "Add Image"
 msgstr ""
 
-#: includes/admin/images.php:75
+#: includes/admin/images.php:77
 msgid ""
 "Exclude images located in specific html containers like sliders and galleries"
 msgstr ""
 
-#: includes/admin/images.php:91 includes/admin/images.php:100
+#: includes/admin/images.php:95 includes/admin/images.php:104
 msgid "Enter container id or class name"
 msgstr ""
 
-#: includes/admin/images.php:92 includes/admin/images.php:100
+#: includes/admin/images.php:96 includes/admin/images.php:104
 msgid "Example"
 msgstr ""
 
-#: includes/admin/images.php:100
+#: includes/admin/images.php:104
 msgid "Add Container"
 msgstr ""
 
-#: includes/admin/images.php:118
+#: includes/admin/images.php:109
+msgid "Exclude URL(s)"
+msgstr ""
+
+#: includes/admin/images.php:112
+msgid "Exclude URL(s) from image optimization"
+msgstr ""
+
+#: includes/admin/images.php:196
 msgid "Image sizes"
 msgstr ""
 
-#: includes/admin/images.php:119
+#: includes/admin/images.php:197
 msgid "Restore default image sizes"
 msgstr ""
 
-#: includes/admin/images.php:119
+#: includes/admin/images.php:197
 msgid "Restore image sizes"
 msgstr ""
 
-#: includes/admin/images.php:126
+#: includes/admin/images.php:204
 msgid "Name"
 msgstr ""
 
-#: includes/admin/images.php:127
+#: includes/admin/images.php:205
 msgid "Width"
 msgstr ""
 
-#: includes/admin/images.php:128
+#: includes/admin/images.php:206
 msgid "Height"
 msgstr ""
 
-#: includes/admin/images.php:129
+#: includes/admin/images.php:207
 msgid "Crop"
 msgstr ""
 
-#: includes/admin/images.php:130
+#: includes/admin/images.php:208
 msgid "Actions"
 msgstr ""
 
-#: includes/admin/images.php:139
+#: includes/admin/images.php:217
 #, php-format
 msgid "Remove image size %s"
 msgstr ""
 
-#: includes/admin/images.php:145
+#: includes/admin/images.php:223
 msgid "Add size"
 msgstr ""
 
-#: includes/admin/images.php:151
+#: includes/admin/images.php:229
 msgid "Regenerate thumbnails every time you make some changes to image sizes"
 msgstr ""
 
-#: includes/admin/images.php:153
+#: includes/admin/images.php:231
 msgid "Regenerate thumbnails"
 msgstr ""
 
@@ -608,33 +634,67 @@ msgstr ""
 msgid "Asynchronously load JavaScript"
 msgstr ""
 
+#: includes/admin/javascript.php:448
+msgid "Eliminates render-blocking JavaScript"
+msgstr ""
+
 #: includes/admin/javascript.php:454
 msgid "Disable JavaScript optimization for logged-in users"
 msgstr ""
 
-#: includes/admin/javascript.php:465
-msgid "Prefetch external JS resources"
-msgstr ""
-
-#: includes/admin/javascript.php:488
+#: includes/admin/javascript.php:508
 msgid "Exclude URL(s) from JavaScript optimization"
 msgstr ""
 
-#: includes/admin/metabox.php:10 includes/admin/metabox.php:28
-#: includes/admin/metabox.php:46
+#: includes/admin/metabox.php:13 includes/admin/metabox.php:72
+#: includes/admin/metabox.php:116 includes/admin/metabox.php:161
 msgid "Page URL will be added to exclude list"
 msgstr ""
 
-#: includes/admin/metabox.php:18
+#: includes/admin/metabox.php:33 includes/admin/metabox.php:60
 msgid "Exclude from cache"
 msgstr ""
 
-#: includes/admin/metabox.php:36
+#: includes/admin/metabox.php:38
+msgid ""
+"This page is your website home page and it is affected by Exclude URL(s) "
+"from cache option. Usually a home page is not excluded from cache. Please "
+"check your exclude settings."
+msgstr ""
+
+#: includes/admin/metabox.php:41
+msgid "This page is affected by URL(s) exclude options on Cache page"
+msgstr ""
+
+#: includes/admin/metabox.php:55
+msgid ""
+"This page is your website home page.<br />Do you want to exclude home page "
+"from cache?"
+msgstr ""
+
+#: includes/admin/metabox.php:92 includes/admin/metabox.php:106
+#: includes/admin/metabox.php:136
 msgid "Exclude from CSS optimization"
 msgstr ""
 
-#: includes/admin/metabox.php:54
+#: includes/admin/metabox.php:96
+msgid "This page is affected by URL(s) exclude options on CSS page"
+msgstr ""
+
+#: includes/admin/metabox.php:140
+msgid "This page is affected by URL(s) exclude options on JavaScript page"
+msgstr ""
+
+#: includes/admin/metabox.php:150
 msgid "Exclude from JS optimization"
+msgstr ""
+
+#: includes/admin/metabox.php:180 includes/admin/metabox.php:194
+msgid "Exclude from Image optimization"
+msgstr ""
+
+#: includes/admin/metabox.php:184
+msgid "This page is affected by URL(s) exclude options on Images page"
 msgstr ""
 
 #: includes/admin/settings.php:16
@@ -729,11 +789,11 @@ msgstr ""
 msgid "both head and body tag should be present in template file"
 msgstr ""
 
-#: includes/classes/parser.php:789
+#: includes/classes/parser.php:850
 msgid "Optimized by"
 msgstr ""
 
-#: includes/classes/parser.php:805
+#: includes/classes/parser.php:866
 #, php-format
 msgid "Cache file was created in %s seconds on %s at %s"
 msgstr ""
@@ -778,23 +838,23 @@ msgstr ""
 msgid "You are doing it wrong"
 msgstr ""
 
-#: includes/functions/files.php:231
+#: includes/functions/files.php:230
 msgid "Error"
 msgstr ""
 
-#: includes/functions/files.php:232
+#: includes/functions/files.php:231
 msgid "Warning"
 msgstr ""
 
-#: includes/functions/files.php:233
+#: includes/functions/files.php:232
 msgid "Notice"
 msgstr ""
 
-#: includes/functions/files.php:234
+#: includes/functions/files.php:233
 msgid "Event"
 msgstr ""
 
-#: includes/functions/files.php:262
+#: includes/functions/files.php:261
 msgid "Log file cleared"
 msgstr ""
 
@@ -829,11 +889,11 @@ msgstr ""
 msgid "Regenerate thumbnails may take a long time. Do not close your browser."
 msgstr ""
 
-#: includes/functions/plugin.php:167
+#: includes/functions/plugin.php:187
 msgid "The following plugins are not compatible with"
 msgstr ""
 
-#: includes/functions/plugin.php:174
+#: includes/functions/plugin.php:194
 msgid "Deactivate"
 msgstr ""
 
@@ -841,15 +901,15 @@ msgstr ""
 msgid "Invalid settings file"
 msgstr ""
 
-#: includes/functions/settings.php:225
+#: includes/functions/settings.php:229
 msgid "Settings saved"
 msgstr ""
 
-#: includes/functions/settings.php:298
+#: includes/functions/settings.php:302
 msgid "Settings file loaded"
 msgstr ""
 
-#: includes/functions/settings.php:481
+#: includes/functions/settings.php:486
 msgid "Files list cleared"
 msgstr ""
 

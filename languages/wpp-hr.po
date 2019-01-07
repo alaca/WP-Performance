@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WP Performance\n"
-"POT-Creation-Date: 2019-01-05 09:45+0100\n"
-"PO-Revision-Date: 2019-01-05 09:49+0100\n"
+"POT-Creation-Date: 2019-01-07 16:40+0100\n"
+"PO-Revision-Date: 2019-01-07 17:02+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: hr\n"
@@ -131,11 +131,12 @@ msgstr "Predučitavanje predmemorije"
 #: includes/admin/cache.php:303 includes/admin/cdn.php:64
 #: includes/admin/css.php:101 includes/admin/css.php:128
 #: includes/admin/css.php:303 includes/admin/css.php:331
-#: includes/admin/css.php:547 includes/admin/css.php:557
-#: includes/admin/images.php:58 includes/admin/images.php:84
+#: includes/admin/css.php:568 includes/admin/css.php:578
+#: includes/admin/images.php:62 includes/admin/images.php:88
+#: includes/admin/images.php:132 includes/admin/images.php:152
 #: includes/admin/javascript.php:101 includes/admin/javascript.php:128
 #: includes/admin/javascript.php:305 includes/admin/javascript.php:333
-#: includes/admin/javascript.php:510 includes/admin/javascript.php:520
+#: includes/admin/javascript.php:530 includes/admin/javascript.php:540
 #: includes/functions/miscellaneous.php:160
 msgid "Remove"
 msgstr "Makni"
@@ -182,7 +183,7 @@ msgstr ""
 
 #: includes/admin/cache.php:211 includes/admin/cdn.php:33
 #: includes/admin/css.php:402 includes/admin/database.php:156
-#: includes/admin/images.php:110 includes/admin/javascript.php:405
+#: includes/admin/images.php:188 includes/admin/javascript.php:405
 #: includes/admin/settings.php:80
 msgid "Save changes"
 msgstr "Spremi izmjene"
@@ -216,45 +217,50 @@ msgstr "Ukupna veličina predmemorije"
 msgid "Exclude URL(s) from cache"
 msgstr "Izuzimanje URL-ova iz predmemorije"
 
-#: includes/admin/cache.php:282 includes/admin/css.php:546
-#: includes/admin/javascript.php:509
+#: includes/admin/cache.php:282 includes/admin/css.php:567
+#: includes/admin/images.php:131 includes/admin/javascript.php:529
 #, php-format
 msgid "Remove %s from excluded URL(s)?"
 msgstr "Makni %s s liste izuzetih URL-ova"
 
 #: includes/admin/cache.php:312 includes/admin/cache.php:326
-#: includes/admin/css.php:565 includes/admin/css.php:579
-#: includes/admin/javascript.php:528 includes/admin/javascript.php:542
+#: includes/admin/css.php:586 includes/admin/css.php:600
+#: includes/admin/images.php:161 includes/admin/images.php:173
+#: includes/admin/javascript.php:548 includes/admin/javascript.php:562
 msgid "Part of the URL will also work"
 msgstr "Dio URL-a će također funkcionirati"
 
 #: includes/admin/cache.php:313 includes/admin/cache.php:326
 #: includes/admin/cdn.php:73 includes/admin/cdn.php:86
-#: includes/admin/css.php:566 includes/admin/css.php:579
-#: includes/admin/javascript.php:529 includes/admin/javascript.php:542
+#: includes/admin/css.php:587 includes/admin/css.php:600
+#: includes/admin/images.php:162 includes/admin/images.php:173
+#: includes/admin/javascript.php:549 includes/admin/javascript.php:562
 msgid "Use {numbers} to match only numbers"
 msgstr "Koristite {numbers} za podudaranje samo brojeva"
 
 #: includes/admin/cache.php:314 includes/admin/cache.php:326
 #: includes/admin/cdn.php:74 includes/admin/cdn.php:86
-#: includes/admin/css.php:567 includes/admin/css.php:579
-#: includes/admin/javascript.php:530 includes/admin/javascript.php:542
+#: includes/admin/css.php:588 includes/admin/css.php:600
+#: includes/admin/images.php:163 includes/admin/images.php:173
+#: includes/admin/javascript.php:550 includes/admin/javascript.php:562
 msgid "Use {letters} to match only letters"
 msgstr "Koristite {letters} za podudaranje samo slova"
 
 #: includes/admin/cache.php:315 includes/admin/cache.php:326
 #: includes/admin/cdn.php:75 includes/admin/cdn.php:86
-#: includes/admin/css.php:568 includes/admin/css.php:579
-#: includes/admin/javascript.php:531 includes/admin/javascript.php:542
+#: includes/admin/css.php:589 includes/admin/css.php:600
+#: includes/admin/images.php:164 includes/admin/images.php:173
+#: includes/admin/javascript.php:551 includes/admin/javascript.php:562
 msgid "Use {any} to match any string"
 msgstr "Koristite {any} za podudaranje bilo kojeg niza"
 
 #: includes/admin/cache.php:329 includes/admin/css.php:145
 #: includes/admin/css.php:156 includes/admin/css.php:350
-#: includes/admin/css.php:361 includes/admin/css.php:582
-#: includes/admin/javascript.php:145 includes/admin/javascript.php:156
-#: includes/admin/javascript.php:352 includes/admin/javascript.php:363
-#: includes/admin/javascript.php:545 includes/functions/miscellaneous.php:161
+#: includes/admin/css.php:361 includes/admin/css.php:603
+#: includes/admin/images.php:176 includes/admin/javascript.php:145
+#: includes/admin/javascript.php:156 includes/admin/javascript.php:352
+#: includes/admin/javascript.php:363 includes/admin/javascript.php:565
+#: includes/functions/miscellaneous.php:161
 msgid "Add URL"
 msgstr "Dodaj URL"
 
@@ -326,7 +332,7 @@ msgstr "Onemogući svugdje osim na odabranom URL-u"
 
 #: includes/admin/css.php:243 includes/admin/javascript.php:245
 msgid "External resources"
-msgstr "Vanjski izvori"
+msgstr "Vanjski resursi"
 
 #: includes/admin/css.php:398 includes/admin/javascript.php:401
 msgid ""
@@ -367,9 +373,9 @@ msgstr "Smanji umetnuti  CSS"
 msgid "Asynchronously load CSS"
 msgstr "Asinhrono učitajte CSS"
 
-#: includes/admin/css.php:444 includes/admin/javascript.php:448
-msgid "Eliminates render-blocking JavaScript"
-msgstr "Uklanja JavaScript koji blokira prikazivanje"
+#: includes/admin/css.php:444
+msgid "Eliminates render-blocking CSS"
+msgstr "CSS se ne prikazuje kao blokirajući sadržaj"
 
 #: includes/admin/css.php:448
 msgid ""
@@ -399,19 +405,29 @@ msgstr "Kombinirajte Google fontove"
 msgid "Load all google fonts in one HTTP request"
 msgstr "Učitajte sve Google fontove u jednom HTTP zahtjevu"
 
-#: includes/admin/css.php:491
+#: includes/admin/css.php:492
 msgid "Disable CSS optimization for logged-in users"
 msgstr "Onemogućite CSS optimizaciju za prijavljene korisnike"
 
-#: includes/admin/css.php:502
-msgid "Prefetch external CSS resources"
-msgstr "Prethodno preuzmite vanjske CSS resurse"
+#: includes/admin/css.php:503 includes/admin/javascript.php:465
+msgid "Resource Hints"
+msgstr "Postavke za vanjske resurse"
 
-#: includes/admin/css.php:517 includes/admin/javascript.php:480
+#: includes/admin/css.php:510 includes/admin/javascript.php:472
+msgid "Origins"
+msgstr "Podrijetlo"
+
+#: includes/admin/css.php:537 includes/admin/javascript.php:499
 msgid "DNS prefetching can make external resources load faster"
 msgstr "Prethodno dohvaćanje DNS-a može ubrzati učitavanje vanjskih resursa"
 
-#: includes/admin/css.php:525
+#: includes/admin/css.php:538 includes/admin/javascript.php:500
+msgid "Preconnect can remove additional roundtrips and reduce request latency"
+msgstr ""
+"Preconnect može ukloniti dodatne HTTP round-trip zahtjeve i tako smanjiti "
+"latenciju HTTP zahtjeva"
+
+#: includes/admin/css.php:546
 msgid "Exclude URL(s) from CSS optimization"
 msgstr "Izuzimanje URL-ova iz CSS optimizacije"
 
@@ -460,11 +476,11 @@ msgid "Transients"
 msgstr "Privremene postavke"
 
 #: includes/admin/database.php:129 includes/admin/database.php:134
-msgid "Delete all cron tasks"
-msgstr "Obrišite sve zakazane zadatke"
+msgid "Delete all unused scheduled tasks"
+msgstr "Obrišite sve zakazane zadatke koji se ne koriste"
 
 #: includes/admin/database.php:133
-msgid "Cron tasks"
+msgid "Scheduled tasks"
 msgstr "Zakazani zadaci"
 
 #: includes/admin/database.php:152
@@ -545,79 +561,91 @@ msgstr ""
 "veličine slike"
 
 #: includes/admin/images.php:48
-msgid "Exclude images"
+msgid "Exclude image"
 msgstr "Izuzmi slike"
 
-#: includes/admin/images.php:64
+#: includes/admin/images.php:51
+msgid "Exclude image by name"
+msgstr "Izuzmi sliku po imenu slike"
+
+#: includes/admin/images.php:68
 msgid "Add Image"
 msgstr "Dodaj sliku"
 
-#: includes/admin/images.php:75
+#: includes/admin/images.php:77
 msgid ""
 "Exclude images located in specific html containers like sliders and galleries"
 msgstr ""
 "Izuzmite slike koje se nalaze u određenim html kontejnerima kao npr. galerije"
 
-#: includes/admin/images.php:91 includes/admin/images.php:100
+#: includes/admin/images.php:95 includes/admin/images.php:104
 msgid "Enter container id or class name"
 msgstr "Unesite ID kontejnera ili naziv klase"
 
-#: includes/admin/images.php:92 includes/admin/images.php:100
+#: includes/admin/images.php:96 includes/admin/images.php:104
 msgid "Example"
 msgstr "Primjer"
 
-#: includes/admin/images.php:100
+#: includes/admin/images.php:104
 msgid "Add Container"
 msgstr "Dodaj kontejner"
 
-#: includes/admin/images.php:118
+#: includes/admin/images.php:109
+msgid "Exclude URL(s)"
+msgstr "Izuzmi URL"
+
+#: includes/admin/images.php:112
+msgid "Exclude URL(s) from image optimization"
+msgstr "Izuzmi URL iz CSS optimizacije"
+
+#: includes/admin/images.php:196
 msgid "Image sizes"
 msgstr "Veličine slika"
 
-#: includes/admin/images.php:119
+#: includes/admin/images.php:197
 msgid "Restore default image sizes"
 msgstr "Vraćanje zadanih veličina slika"
 
-#: includes/admin/images.php:119
+#: includes/admin/images.php:197
 msgid "Restore image sizes"
 msgstr "Vratite zadane veličine slika"
 
-#: includes/admin/images.php:126
+#: includes/admin/images.php:204
 msgid "Name"
 msgstr "Naziv"
 
-#: includes/admin/images.php:127
+#: includes/admin/images.php:205
 msgid "Width"
 msgstr "Širina"
 
-#: includes/admin/images.php:128
+#: includes/admin/images.php:206
 msgid "Height"
 msgstr "Visina"
 
-#: includes/admin/images.php:129
+#: includes/admin/images.php:207
 msgid "Crop"
 msgstr "Izreži"
 
-#: includes/admin/images.php:130
+#: includes/admin/images.php:208
 msgid "Actions"
 msgstr "Akcije"
 
-#: includes/admin/images.php:139
+#: includes/admin/images.php:217
 #, php-format
 msgid "Remove image size %s"
 msgstr "Ukloni veličinu slike %s"
 
-#: includes/admin/images.php:145
+#: includes/admin/images.php:223
 msgid "Add size"
 msgstr "Dodaj veličinu"
 
-#: includes/admin/images.php:151
+#: includes/admin/images.php:229
 msgid "Regenerate thumbnails every time you make some changes to image sizes"
 msgstr ""
 "Regenerirajte umanjene slike svaki put kada napravite neke promjene u "
 "veličini slika"
 
-#: includes/admin/images.php:153
+#: includes/admin/images.php:231
 msgid "Regenerate thumbnails"
 msgstr "Regenerirajte umanjene slike"
 
@@ -637,34 +665,76 @@ msgstr "Smanjite umetnuti JavaScript"
 msgid "Asynchronously load JavaScript"
 msgstr "Asinhrono učitajte JavaScript"
 
+#: includes/admin/javascript.php:448
+msgid "Eliminates render-blocking JavaScript"
+msgstr "JavaScript se ne prikazuje kao blokirajući sadržaj"
+
 #: includes/admin/javascript.php:454
 msgid "Disable JavaScript optimization for logged-in users"
 msgstr "Onemogućite JavaScript optimizaciju za prijavljene korisnike"
 
-#: includes/admin/javascript.php:465
-msgid "Prefetch external JS resources"
-msgstr "Prethodno preuzmite vanjske JS resurse"
-
-#: includes/admin/javascript.php:488
+#: includes/admin/javascript.php:508
 msgid "Exclude URL(s) from JavaScript optimization"
 msgstr "Izuzimanje URL-ova iz JavaScript optimizacije"
 
-#: includes/admin/metabox.php:10 includes/admin/metabox.php:28
-#: includes/admin/metabox.php:46
+#: includes/admin/metabox.php:13 includes/admin/metabox.php:72
+#: includes/admin/metabox.php:116 includes/admin/metabox.php:161
 msgid "Page URL will be added to exclude list"
 msgstr "URL stranice će biti dodan na listu izuzetih URL-ova"
 
-#: includes/admin/metabox.php:18
+#: includes/admin/metabox.php:33 includes/admin/metabox.php:60
 msgid "Exclude from cache"
 msgstr "Izuzmi stranicu iz predmemorije"
 
-#: includes/admin/metabox.php:36
+#: includes/admin/metabox.php:38
+msgid ""
+"This page is your website home page and it is affected by Exclude URL(s) "
+"from cache option. Usually a home page is not excluded from cache. Please "
+"check your exclude settings."
+msgstr ""
+"Ova stranica je početna stranica vaše web stranice i na nju utječu URL-ovi "
+"dodani kao opcije izuzimanja iz predmemorije na stranici Predmemorija. "
+"Obično početna stranica nije isključena iz predmemorije. Provjerite postavke "
+"izuzimanja."
+
+#: includes/admin/metabox.php:41
+msgid "This page is affected by URL(s) exclude options on Cache page"
+msgstr ""
+"Na izuzimanje ove stranice utječu URL-ovi dodani na stranici Predmemorija"
+
+#: includes/admin/metabox.php:55
+msgid ""
+"This page is your website home page.<br />Do you want to exclude home page "
+"from cache?"
+msgstr ""
+"Ova stranica je početna stranica vaše web stranice.<br />Da li želite "
+"izuzeti početnu stranicu iz predmemorije?"
+
+#: includes/admin/metabox.php:92 includes/admin/metabox.php:106
+#: includes/admin/metabox.php:136
 msgid "Exclude from CSS optimization"
 msgstr "Izuzmi stranicu iz CSS optimizacije"
 
-#: includes/admin/metabox.php:54
+#: includes/admin/metabox.php:96
+msgid "This page is affected by URL(s) exclude options on CSS page"
+msgstr "Na izuzimanje ove stranice utječu URL-ovi dodani na stranici CSS"
+
+#: includes/admin/metabox.php:140
+msgid "This page is affected by URL(s) exclude options on JavaScript page"
+msgstr ""
+"Na izuzimanje ove stranice utječu URL-ovi dodani na stranici JavaScript"
+
+#: includes/admin/metabox.php:150
 msgid "Exclude from JS optimization"
-msgstr "Izuzmi stranicu iz JavaScript optimizacije"
+msgstr "Izuzmi stranicu iz JS optimizacije"
+
+#: includes/admin/metabox.php:180 includes/admin/metabox.php:194
+msgid "Exclude from Image optimization"
+msgstr "Izuzmi stranicu iz optimizacije slika"
+
+#: includes/admin/metabox.php:184
+msgid "This page is affected by URL(s) exclude options on Images page"
+msgstr "Na izuzimanje ove stranice utječu URL-ovi dodani na stranici Slike"
 
 #: includes/admin/settings.php:16
 msgid "Import settings"
@@ -761,11 +831,11 @@ msgstr "greška"
 msgid "both head and body tag should be present in template file"
 msgstr "oznaka head i body bi trebale biti prisutne u datoteci predloška"
 
-#: includes/classes/parser.php:789
+#: includes/classes/parser.php:850
 msgid "Optimized by"
 msgstr "Optimizirano sa"
 
-#: includes/classes/parser.php:805
+#: includes/classes/parser.php:866
 #, php-format
 msgid "Cache file was created in %s seconds on %s at %s"
 msgstr "Datoteka predmemorije stvorena je za %s sekundi na dan %s u %s"
@@ -812,23 +882,23 @@ msgstr "Svakih 5 minuta"
 msgid "You are doing it wrong"
 msgstr "Vi to radite krivo"
 
-#: includes/functions/files.php:231
+#: includes/functions/files.php:230
 msgid "Error"
 msgstr "Greška"
 
-#: includes/functions/files.php:232
+#: includes/functions/files.php:231
 msgid "Warning"
 msgstr "Upozorenje"
 
-#: includes/functions/files.php:233
+#: includes/functions/files.php:232
 msgid "Notice"
 msgstr "Obavijest"
 
-#: includes/functions/files.php:234
+#: includes/functions/files.php:233
 msgid "Event"
 msgstr "Događaj"
 
-#: includes/functions/files.php:262
+#: includes/functions/files.php:261
 msgid "Log file cleared"
 msgstr "Dnevnik je izbrisan"
 
@@ -865,11 +935,11 @@ msgid "Regenerate thumbnails may take a long time. Do not close your browser."
 msgstr ""
 "Regeneriranje umanjenih slika može potrajati dugo. Ne zatvarajte preglednik."
 
-#: includes/functions/plugin.php:167
+#: includes/functions/plugin.php:187
 msgid "The following plugins are not compatible with"
 msgstr "Slijedeći dodaci nisu kompatibilni sa"
 
-#: includes/functions/plugin.php:174
+#: includes/functions/plugin.php:194
 msgid "Deactivate"
 msgstr "Deaktiviraj"
 
@@ -877,15 +947,15 @@ msgstr "Deaktiviraj"
 msgid "Invalid settings file"
 msgstr "Nevažeća datoteka postavki"
 
-#: includes/functions/settings.php:225
+#: includes/functions/settings.php:229
 msgid "Settings saved"
 msgstr "Postavke spremljene"
 
-#: includes/functions/settings.php:298
+#: includes/functions/settings.php:302
 msgid "Settings file loaded"
 msgstr "Datoteka postavki je učitana"
 
-#: includes/functions/settings.php:481
+#: includes/functions/settings.php:486
 msgid "Files list cleared"
 msgstr "Lista izbrisana"
 
@@ -908,6 +978,15 @@ msgstr ""
 #. Author URI of the plugin/theme
 msgid "https://www.antelaca.xyz"
 msgstr ""
+
+#~ msgid "Prefetch external CSS resources"
+#~ msgstr "Prethodno preuzmite vanjske CSS resurse"
+
+#~ msgid "Cron tasks"
+#~ msgstr "Zakazani zadaci"
+
+#~ msgid "Prefetch external JS resources"
+#~ msgstr "Prethodno preuzmite vanjske JS resurse"
 
 #~ msgid "Import"
 #~ msgstr "Uvezi"
