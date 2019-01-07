@@ -87,6 +87,36 @@ jQuery(document).ready(function ($) {
 
      });
 
+
+    /**
+     * Checkbox confirmation
+     */
+     $('.wpp-action-confirm').on('click', function(e){
+
+        var that = this;
+
+        if (  $(that).is(':checked') ) {
+
+            $.confirm({
+                content: $(this).data('description'),
+                buttons: {
+                    confirm: function () {
+    
+                        $(that).attr('checked', true );
+    
+                    },
+                    cancel: function () {
+                        $(that).attr('checked', false );
+                    }
+                }
+            });
+
+        } else {
+            $(that).attr('checked', false );
+        }
+
+     });
+
     /**
      * Show hide containers depending on checked options
      */
