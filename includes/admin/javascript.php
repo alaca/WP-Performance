@@ -47,7 +47,7 @@ defined('ABSPATH') or exit; ?>
                                     <?php $info = pathinfo( $js ); ?>
 
                                     <strong><?php echo $info[ 'basename' ]; ?></strong>
-                                    <em><?php echo site_url(  $info[ 'dirname' ] ); ?></em>
+                                    <em><?php echo $info[ 'dirname' ]; ?></em>
 
                                     <?php if ( wpp_key_exists( $js, $disabled ) ): ?>
 
@@ -458,27 +458,47 @@ defined('ABSPATH') or exit; ?>
 
         <?php if ( ! empty( $prefetch = Option::get( 'prefetch_js_list', [] ) ) ): ?>
 
-            <br />
+            <br /><br />
 
             <div>
 
-                <h3><?php _e( 'Prefetch external JS resources', 'wpp' ); ?></h3>
+                <h3><?php _e( 'Resource Hints', 'wpp' ); ?></h3>
 
                 <hr />
 
-                <ul>
+                <table>
+                                        
+                    <tr>
+                        <th><?php _e( 'Origins', 'wpp' ); ?></th>
+                        <th>DNS Prefetch</th>
+                        <th>Preconnect</th>
+                    </tr>
                     <?php foreach ( $prefetch as $js ): ?>
-                        <li>
-                            <label class="wpp-info">                        
-                                <input type="checkbox" value="1" name="js_prefetch[<?php echo $js; ?>]" <?php if ( wpp_key_exists( $js, Option::get( 'js_prefetch', [] ) ) ) echo 'checked'; ?> form="wpp-settings" />
-                                <?php echo $js; ?>
-                            </label>
-                        </li>
+                        <tr>
+                            <td><?php echo $js; ?></td>
+                            <td>                        
+                                <input 
+                                    type="checkbox" 
+                                    value="1" 
+                                    name="js_prefetch[<?php echo $js; ?>]" 
+                                    <?php if ( wpp_key_exists( $js, Option::get( 'js_prefetch', [] ) ) ) echo 'checked'; ?> 
+                                    form="wpp-settings" />
+                            </td>
+                            <td>                        
+                                <input 
+                                    type="checkbox" 
+                                    value="1" 
+                                    name="js_preconnect[<?php echo $js; ?>]"
+                                    <?php if ( wpp_key_exists( $js, Option::get( 'js_preconnect', [] ) ) ) echo 'checked'; ?> 
+                                    form="wpp-settings" />
+                            </td>
+                        </tr>
                     <?php endforeach; ?>
-                </ul>
-
+                </table>
+                <hr />
                 <em><span class="dashicons dashicons-info"></span> <?php _e( 'DNS prefetching can make external resources load faster', 'wpp' ); ?></em> 
-
+                <em><span class="dashicons dashicons-info"></span> <?php _e( 'Preconnect can remove additional roundtrips and reduce request latency', 'wpp' ); ?></em> 
+                
             </div>
 
         <?php endif; ?>

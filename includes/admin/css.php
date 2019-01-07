@@ -47,7 +47,7 @@ defined('ABSPATH') or exit; ?>
                                     <?php $info = pathinfo( $css ); ?>
 
                                     <strong><?php echo $info[ 'basename' ]; ?></strong>
-                                    <em><?php echo site_url(  $info[ 'dirname' ] ); ?></em>
+                                    <em><?php echo $info[ 'dirname' ]; ?></em>
 
                                     <?php if ( wpp_key_exists( $css, $disabled ) ): ?>
 
@@ -441,7 +441,7 @@ defined('ABSPATH') or exit; ?>
         </label>
 
         <br /><br />
-        <em><span class="dashicons dashicons-info"></span> <?php _e( 'Eliminates render-blocking JavaScript', 'wpp' ); ?></em> 
+        <em><span class="dashicons dashicons-info"></span> <?php _e( 'Eliminates render-blocking CSS', 'wpp' ); ?></em> 
 
         <span data-wpp-show-checked="css_defer">
             <br />
@@ -486,6 +486,7 @@ defined('ABSPATH') or exit; ?>
 
         <?php endif; ?>
         
+        
         <label class="wpp-info">
             <input type="checkbox" value="1" name="css_disable_loggedin" form="wpp-settings" <?php wpp_checked( 'css_disable_loggedin' ); ?> />
             <?php _e( 'Disable CSS optimization for logged-in users', 'wpp' ); ?>
@@ -499,22 +500,42 @@ defined('ABSPATH') or exit; ?>
 
             <div>
 
-                <h3><?php _e( 'Prefetch external CSS resources', 'wpp' ); ?></h3>
+                <h3><?php _e( 'Resource Hints', 'wpp' ); ?></h3>
 
                 <hr />
 
-                <ul>
+                <table>
+                                        
+                    <tr>
+                        <th><?php _e( 'Origins', 'wpp' ); ?></th>
+                        <th>DNS Prefetch</th>
+                        <th>Preconnect</th>
+                    </tr>
                     <?php foreach ( $prefetch as $css ): ?>
-                        <li>
-                            <label class="wpp-info">                        
-                                <input type="checkbox" value="1" name="css_prefetch[<?php echo $css; ?>]" <?php if ( wpp_key_exists( $css, Option::get( 'css_prefetch', [] ) ) ) echo 'checked'; ?> form="wpp-settings" />
-                                <?php echo $css; ?>
-                            </label>
-                        </li>
+                        <tr>
+                            <td><?php echo $css; ?></td>
+                            <td>                        
+                                <input 
+                                    type="checkbox" 
+                                    value="1" 
+                                    name="css_prefetch[<?php echo $css; ?>]" 
+                                    <?php if ( wpp_key_exists( $css, Option::get( 'css_prefetch', [] ) ) ) echo 'checked'; ?> 
+                                    form="wpp-settings" />
+                            </td>
+                            <td>                        
+                                <input 
+                                    type="checkbox" 
+                                    value="1" 
+                                    name="css_preconnect[<?php echo $css; ?>]"
+                                    <?php if ( wpp_key_exists( $css, Option::get( 'css_preconnect', [] ) ) ) echo 'checked'; ?> 
+                                    form="wpp-settings" />
+                            </td>
+                        </tr>
                     <?php endforeach; ?>
-                </ul>
-
+                </table>
+                <hr />
                 <em><span class="dashicons dashicons-info"></span> <?php _e( 'DNS prefetching can make external resources load faster', 'wpp' ); ?></em> 
+                <em><span class="dashicons dashicons-info"></span> <?php _e( 'Preconnect can remove additional roundtrips and reduce request latency', 'wpp' ); ?></em> 
                 
             </div>
 
