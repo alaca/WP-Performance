@@ -65,6 +65,16 @@ WP Performance does not support multisite yet.
 
 == Changelog ==
 
+= 1.0.4 =
+[NEW] Resource hints
+[NEW] Exclude page from Image optimization on edit page screen
+[NEW] Exclude URL(s) from Image optimization
+[IMPROVE] Metabox UI on Edit page
+[IMPROVE] Admin UI
+[UPDATE] Translations
+[FIX]  Cron tasks cleanup
+[FIX]  Combine Google fonts
+
 = 1.0.3 =
 [NEW] Cron tasks cleanup
 [NEW] Exclude page from Cache, JS and CSS optimization on edit page screen
