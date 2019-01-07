@@ -45,8 +45,12 @@ defined('ABSPATH') or exit; ?>
         </tr> 
 
         <tr data-wpp-show-checked="images_exclude">
-            <td><strong><?php _e('Exclude images', 'wpp'); ?></strong></td>
+            <td><strong><?php _e('Exclude image', 'wpp'); ?></strong></td>
             <td>
+
+                <?php _e( 'Exclude image by name', 'wpp' ); ?>
+
+                <br /><br />
 
                 <?php $images_exclude = Option::get( 'images_exclude', [] ); ?>
 
@@ -69,12 +73,12 @@ defined('ABSPATH') or exit; ?>
         <tr data-wpp-show-checked="images_exclude">
             <td></td>
             <td>
-
-                <?php $images_containers = Option::get( 'images_containers_ids', [] ); ?>
-
+                
                 <?php _e( 'Exclude images located in specific html containers like sliders and galleries', 'wpp' ); ?>
 
                 <br /><br />
+
+                <?php $images_containers = Option::get( 'images_containers_ids', [] ); ?>
 
                 <div id="wpp-exclude-images-container">
 
@@ -98,11 +102,85 @@ defined('ABSPATH') or exit; ?>
                 </div>
 
                 <a href="#" class="button" data-add-input="images_containers_ids[]" data-info="<?php _e( 'Enter container id or class name', 'wpp' ) ?>|<?php _e( 'Example', 'wpp' ) ?>: #my-container-id"  data-container="#wpp-exclude-images-container"><?php _e( 'Add Container', 'wpp' ); ?></a>
-                
-                
+            </td>
+        </tr>
+
+        <tr data-wpp-show-checked="images_exclude">
+            <td><strong><?php _e( 'Exclude URL(s)', 'wpp' ); ?></strong></td>
+            <td>
+                            
+                <?php _e( 'Exclude URL(s) from image optimization', 'wpp' ); ?>
+
+                <br /><br />
+
+                <?php $excluded_urls = Option::get( 'image_url_exclude', [] ); ?>
+
+                <div id="wpp-exclude-url-image-container">
+
+                    <?php if ( ! empty( $pages = Option::get( 'image_post_exclude', [] ) ) ): ?>
+
+                        <?php foreach( $pages as $id ): $link = get_permalink( $id ); ?>
+                            <div class="wpp-dynamic-input-container">
+
+                                <input class="wpp-dynamic-input" value="<?php echo $link; ?>" type="text" readonly /> &nbsp; 
+                                <a 
+                                    href="#" 
+                                    class="button wpp-remove-manually-excluded" 
+                                    data-id="<?php echo $id; ?>" 
+                                    data-type="image" 
+                                    data-description="<?php printf( __( 'Remove %s from excluded URL(s)?', 'wpp' ), $link ); ?>">
+                                        <?php _e( 'Remove', 'wpp' ); ?>
+                                </a>
+                            </div>
+                        <?php endforeach; ?>
+
+                    <?php endif; ?>
+
+                    <?php foreach( $excluded_urls as $url ): ?>
+                        <div data-dynamic-container="image_url_exclude[]" class="wpp-dynamic-input-container">
+
+                            <input 
+                                name="image_url_exclude[]" 
+                                value="<?php echo $url; ?>" 
+                                placeholder="<?php echo site_url(); ?>" 
+                                class="wpp-dynamic-input" 
+                                form="wpp-settings" 
+                                type="text" 
+                                required
+                            /> &nbsp; 
+
+                            <a href="#" data-name="image_url_exclude[]" class="button wpp-remove-input"><?php _e('Remove', 'wpp'); ?></a>
+
+                        </div>
+                    <?php endforeach; ?>
+
+                </div>
+
+                <?php if( ! empty( $excluded_urls ) ) : ?>
+                    <div data-info-name="image_url_exclude[]">
+                        <em><span class="dashicons dashicons-info"></span> <?php _e( 'Part of the URL will also work', 'wpp' ); ?></em>
+                        <em><span class="dashicons dashicons-info"></span> <?php _e( 'Use {numbers} to match only numbers', 'wpp' ); ?></em>
+                        <em><span class="dashicons dashicons-info"></span> <?php _e( 'Use {letters} to match only letters', 'wpp' ); ?></em>
+                        <em><span class="dashicons dashicons-info"></span> <?php _e( 'Use {any} to match any string', 'wpp' ); ?></em>
+                        <br />
+                    </div>
+                <?php endif; ?>
+
+                <a href="#" 
+                    class="button" 
+                    data-add-input="image_url_exclude[]" 
+                    data-placeholder="<?php echo site_url(); ?>" 
+                    data-info="<?php _e( 'Part of the URL will also work', 'wpp' ); ?>|<?php _e( 'Use {numbers} to match only numbers', 'wpp' ); ?>|<?php _e( 'Use {letters} to match only letters', 'wpp' ); ?>|<?php _e( 'Use {any} to match any string', 'wpp' ); ?>" 
+                    data-container="#wpp-exclude-url-image-container">
+                    
+                    <?php _e( 'Add URL', 'wpp' ); ?>
+
+                </a>
 
             </td>
-        </tr> 
+        </tr>
+
+
 
     </table>
             
