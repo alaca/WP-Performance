@@ -414,6 +414,11 @@ table.wpp-file-list tr {
 }
 
 
+.wpp-meta-option em {
+    color: #808080;
+}
+
+
 @media only screen and (max-width: 979px) { 
 
     .wpp-content-section, .wpp-side-section {
