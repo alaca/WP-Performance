@@ -67,8 +67,18 @@ class Parser
             $this->parseJS();
         }
 
-        // Images
-        $this->parseImages();
+        // Images optimization
+        
+        /**
+         * Exclude URL from Images optimization filter
+         * @since 1.0.4
+         */
+        $image_url_exclude = apply_filters( 'wpp_image_url_exclude', Option::get( 'image_url_exclude', [] ) );
+
+        if ( ! wpp_in_array( $image_url_exclude, Url::current() ) 
+        ) {
+            $this->parseImages();
+        }
 
         // Rebuild the template
         $this->buildTemplate();  
@@ -121,24 +131,6 @@ class Parser
 
         }
 
-        // Prefetch
-        if ( $prefetch = Option::get( 'css_prefetch', [] ) ) {
-
-            $included = [];
-            
-            foreach( $this->html->find( 'link[rel=dns-prefetch]' ) as $link ) {
-                $included[] = $link->href;
-            }
-
-            foreach( array_keys( $prefetch ) as $dns  ) {
-
-                if ( ! wpp_in_array( $dns, $included ) ) {
-                    $this->head->innertext .= '<link data-wpp-prefetch rel="dns-prefetch" href="' . $dns . '" />' . PHP_EOL;
-                }
-
-            }
-
-        }
             
         // Parse link stylesheets
         foreach ( $this->html->find( 'link[rel=stylesheet]' ) as $link ) {
@@ -192,6 +184,7 @@ class Parser
                             Collection::add( 'combine', 'google_fonts', html_entity_decode( urldecode( $url ) ), true );
 
                             $link->outertext = ''; 
+                            
                             continue;
 
                         }
@@ -278,18 +271,30 @@ class Parser
             }
 
         }
-        
-    }
-    
-    /**
-    * Parse JavaScript
-    * 
-    * @return void
-    */
-    private function parseJS() {
 
+
+        // Preconnect
+        if ( ! empty( $preconnect = Option::get( 'css_preconnect', [] ) ) ) {
+
+            $included = [];
+            
+            foreach( $this->html->find( 'link[rel=preconnect]' ) as $link ) {
+                $included[] = $link->href;
+            }
+
+            foreach( array_keys( $preconnect ) as $dns  ) {
+
+                if ( ! wpp_in_array( $dns, $included ) ) {
+                    $this->head->innertext = '<link rel="preconnect" href="//' . $dns . '" />' . PHP_EOL . $this->head->innertext;
+                }
+
+            }
+
+        }
+
+        
         // Prefetch
-        if ( $prefetch = Option::get( 'js_prefetch', [] ) ) {
+        if ( ! empty( $prefetch = Option::get( 'css_prefetch', [] ) ) ) {
 
             $included = [];
             
@@ -300,13 +305,23 @@ class Parser
             foreach( array_keys( $prefetch ) as $dns  ) {
 
                 if ( ! wpp_in_array( $dns, $included ) ) {
-                    $this->head->innertext .= '<link data-wpp-prefetch rel="dns-prefetch" href="' . $dns . '" />' . PHP_EOL;
+                    $this->head->innertext = '<link rel="dns-prefetch" href="//' . $dns . '" />' . PHP_EOL . $this->head->innertext;
                 }
 
             }
 
         }
+        
+    }
+    
+    /**
+    * Parse JavaScript
+    * 
+    * @return void
+    */
+    private function parseJS() {
 
+        // Parse scripts
         foreach ( $this->html->find( 'script' ) as $script ) { 
 
             if (
@@ -440,6 +455,50 @@ class Parser
                 }
                                
             }
+        }
+
+        // Prefetch
+        if ( ! empty( $prefetch = Option::get( 'js_prefetch', [] ) ) ) {
+
+            $included = [];
+            
+            foreach( $this->html->find( 'link[rel=dns-prefetch]' ) as $link ) {
+                $included[] = $link->href;
+            }
+
+            foreach( array_keys( $prefetch ) as $dns  ) {
+
+                if ( 
+                    ! wpp_in_array( $dns, $included ) 
+                    && ! array_key_exists( $dns, Option::get( 'css_prefetch', [] ) ) // prevent including it twice
+                ) {
+                    $this->head->innertext = '<link rel="dns-prefetch" href="//' . $dns . '" />' . PHP_EOL . $this->head->innertext;
+                }
+
+            }
+
+        }
+
+        // Preconnect
+        if ( ! empty( $preconnect = Option::get( 'js_preconnect', [] ) ) ) {
+
+            $included = [];
+            
+            foreach( $this->html->find( 'link[rel=preconnect]' ) as $link ) {
+                $included[] = $link->href;
+            }
+
+            foreach( array_keys( $preconnect ) as $dns  ) {
+
+                if ( 
+                    ! wpp_in_array( $dns, $included ) 
+                    && ! array_key_exists( $dns, Option::get( 'css_preconnect', [] ) ) // prevent including it twice
+                ) {
+                    $this->head->innertext = '<link rel="preconnect" href="//' . $dns . '" />' . PHP_EOL . $this->head->innertext;
+                }
+
+            }
+
         }
         
     }
@@ -622,6 +681,7 @@ class Parser
 
         }
 
+    
         if ( 
             Option::boolval( 'css_defer' ) 
             && boolval( trim( Option::get( 'css_custom_path_def' ) ) )
@@ -775,14 +835,12 @@ class Parser
             $vars[ 'ajax_url' ] = admin_url( 'admin-ajax.php');
         }
 
+        // Preload WPP to set high priority loading
+        $this->head->innertext .= '<link rel="preload" as="script" href="' . WPP_ASSET_URL . 'load/wpp.min.js" />' . PHP_EOL;
         // Script localization
         $this->head->innertext .= '<script>var WPP=' . json_encode( $vars ) . ';</script>' . PHP_EOL;
-
         // WPP JS
         $this->head->innertext .= '<script defer src="' . WPP_ASSET_URL . 'load/wpp.min.js"></script>' . PHP_EOL;  
-
-        // Save html
-        $this->html->save();
 
         // Minify html
         if ( apply_filters( 'wpp_minify_html', false ) ) {
