@@ -117,6 +117,29 @@ jQuery(document).ready(function ($) {
 
      });
 
+
+    /**
+     * Toggle options
+     */
+     $('[data-wpp-toggle-id]').on('click', function(e){
+
+        e.preventDefault();
+
+        var id = $(this).data('wpp-toggle-id');
+        var show = $(this).data('wpp-toggle-show');
+        var hide = $(this).data('wpp-toggle-hide');
+        var toggle = $('[data-wpp-toggle="' + id + '"]');
+
+        if ( toggle.hasClass('wpp-hidden') ) {
+            toggle.removeClass('wpp-hidden');
+            $(this).text(hide);
+        } else {
+            toggle.addClass('wpp-hidden');
+            $(this).text(show);
+        }
+
+     });
+
     /**
      * Show hide containers depending on checked options
      */
