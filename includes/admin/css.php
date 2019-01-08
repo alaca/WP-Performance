@@ -428,6 +428,14 @@ defined('ABSPATH') or exit; ?>
 
         <?php do_action( 'wpp-css-side-section-top'); ?> 
 
+        
+        <?php 
+        
+        $css_custom_path         = Option::get( 'css_custom_path_def' ); 
+        $css_custom_path_defined = boolval( trim( $css_custom_path ) );
+        
+        ?>
+
         <label class="wpp-info">
             <input type="checkbox" value="1" name="css_minify_inline" form="wpp-settings" <?php wpp_checked( 'css_minify_inline' ); ?> />
             <?php _e( 'Minify inline CSS', 'wpp' ); ?>
@@ -436,38 +444,62 @@ defined('ABSPATH') or exit; ?>
         <br /><br />
 
         <label class="wpp-info">
+
             <input type="checkbox" value="1" data-wpp-checkbox="css_defer" name="css_defer" form="wpp-settings" <?php wpp_checked( 'css_defer' ); ?> />
             <?php _e( 'Asynchronously load CSS', 'wpp' ); ?>
+
+            <?php if ( $css_custom_path_defined ): ?>
+                           
+                <span data-wpp-show-checked="css_defer">
+
+                    <a href="#" 
+                        id="wpp-show-hide-critical-css"
+                        class="button alignright" 
+                        data-wpp-toggle-id="css-path" 
+                        data-wpp-toggle-show="<?php _e( 'Show critical CSS', 'wpp' ); ?>" 
+                        data-wpp-toggle-hide="<?php _e( 'Hide critical CSS', 'wpp' ); ?>">
+                        <?php echo ( $css_custom_path_defined ) ?  __( 'Show critical CSS', 'wpp' ) : __( 'Hide critical CSS', 'wpp' ); ?>
+                    </a>
+
+                </span>
+
+            <?php endif; ?>
+
         </label>
 
         <br /><br />
         <em><span class="dashicons dashicons-info"></span> <?php _e( 'Eliminates render-blocking CSS', 'wpp' ); ?></em> 
 
-        <span data-wpp-show-checked="css_defer">
-            <br />
-            <em class="wpp-warning"><span class="dashicons dashicons-info"></span> <?php printf( __( 'Loading CSS asynchronously will produce FOUC effect (a Flash Of Unstyled Content). In order to minimize the FOUC effect, use critical CSS path.', 'wpp' ), WPP_PLUGIN_NAME ); ?></em> 
-        </span>
-        
         <br />
 
-        <div data-wpp-show-checked="css_defer">
+        <span data-wpp-show-checked="css_defer" data-wpp-toggle="css-path" class="<?php if ( $css_custom_path_defined ) echo 'wpp-hidden'; ?>">
+            
+            <em class="wpp-warning"><span class="dashicons dashicons-info"></span> <?php printf( __( 'Loading CSS asynchronously will produce FOUC effect (a Flash Of Unstyled Content). In order to minimize the FOUC effect, use critical CSS path.', 'wpp' ), WPP_PLUGIN_NAME ); ?></em> 
+            <br />
+
+        </span>
+        
+        
+        <div data-wpp-show-checked="css_defer" data-wpp-toggle="css-path" class="<?php if ( $css_custom_path_defined ) echo 'wpp-hidden'; ?>">
 
             <strong><?php _e( 'Critical CSS path', 'wpp' ); ?></strong>
 
-            <textarea name="css_custom_path_def" id="wpp-css-custom-path-def" form="wpp-settings"><?php echo Option::get( 'css_custom_path_def' ); ?></textarea> 
+            <textarea name="css_custom_path_def" id="wpp-css-custom-path-def" form="wpp-settings"><?php echo $css_custom_path; ?></textarea> 
             <br />
 
             <em><span class="dashicons dashicons-info"></span> <?php _e( 'Enter critical CSS path definitions', 'wpp' ); ?></em> 
             <br />
 
             <?php if ( ! wpp_is_localhost() ): ?>
-                <a href="#" class="button" <?php if ( boolval( trim( Option::get( 'css_custom_path_def' ) ) ) ) echo 'disabled'; ?> id="wpp-get-critical-css">
+                <a href="#" class="button <?php if ( $css_custom_path_defined ) echo 'wpp-hidden'; ?>" <?php if ( $css_custom_path_defined ) echo 'disabled'; ?> id="wpp-get-critical-css" data-wpp-toggle="css-path">
                     <?php _e( 'Generate critical CSS path', 'wpp' ); ?>
                 </a>
-                <br /><br />
+                <hr />
             <?php endif; ?>
 
         </div>
+
+
 
         <?php $prefetch = Option::get( 'prefetch_css_list', [] ); ?>
 
@@ -504,7 +536,7 @@ defined('ABSPATH') or exit; ?>
 
                 <hr />
 
-                <table>
+                <table class="wpp-resource-hints-table">
                                         
                     <tr>
                         <th><?php _e( 'Origins', 'wpp' ); ?></th>
