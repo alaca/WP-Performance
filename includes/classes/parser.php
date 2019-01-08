@@ -271,27 +271,6 @@ class Parser
             }
 
         }
-
-
-        // Preconnect
-        if ( ! empty( $preconnect = Option::get( 'css_preconnect', [] ) ) ) {
-
-            $included = [];
-            
-            foreach( $this->html->find( 'link[rel=preconnect]' ) as $link ) {
-                $included[] = $link->href;
-            }
-
-            foreach( array_keys( $preconnect ) as $dns  ) {
-
-                if ( ! wpp_in_array( $dns, $included ) ) {
-                    $this->head->innertext = '<link rel="preconnect" href="//' . $dns . '" />' . PHP_EOL . $this->head->innertext;
-                }
-
-            }
-
-        }
-
         
         // Prefetch
         if ( ! empty( $prefetch = Option::get( 'css_prefetch', [] ) ) ) {
@@ -306,6 +285,25 @@ class Parser
 
                 if ( ! wpp_in_array( $dns, $included ) ) {
                     $this->head->innertext = '<link rel="dns-prefetch" href="//' . $dns . '" />' . PHP_EOL . $this->head->innertext;
+                }
+
+            }
+
+        }
+
+        // Preconnect
+        if ( ! empty( $preconnect = Option::get( 'css_preconnect', [] ) ) ) {
+
+            $included = [];
+            
+            foreach( $this->html->find( 'link[rel=preconnect]' ) as $link ) {
+                $included[] = $link->href;
+            }
+
+            foreach( array_keys( $preconnect ) as $dns  ) {
+
+                if ( ! wpp_in_array( $dns, $included ) ) {
+                    $this->head->innertext = '<link rel="preconnect" href="//' . $dns . '" />' . PHP_EOL . $this->head->innertext;
                 }
 
             }
@@ -457,28 +455,6 @@ class Parser
             }
         }
 
-        // Prefetch
-        if ( ! empty( $prefetch = Option::get( 'js_prefetch', [] ) ) ) {
-
-            $included = [];
-            
-            foreach( $this->html->find( 'link[rel=dns-prefetch]' ) as $link ) {
-                $included[] = $link->href;
-            }
-
-            foreach( array_keys( $prefetch ) as $dns  ) {
-
-                if ( 
-                    ! wpp_in_array( $dns, $included ) 
-                    && ! array_key_exists( $dns, Option::get( 'css_prefetch', [] ) ) // prevent including it twice
-                ) {
-                    $this->head->innertext = '<link rel="dns-prefetch" href="//' . $dns . '" />' . PHP_EOL . $this->head->innertext;
-                }
-
-            }
-
-        }
-
         // Preconnect
         if ( ! empty( $preconnect = Option::get( 'js_preconnect', [] ) ) ) {
 
@@ -495,6 +471,28 @@ class Parser
                     && ! array_key_exists( $dns, Option::get( 'css_preconnect', [] ) ) // prevent including it twice
                 ) {
                     $this->head->innertext = '<link rel="preconnect" href="//' . $dns . '" />' . PHP_EOL . $this->head->innertext;
+                }
+
+            }
+
+        }
+
+        // Prefetch
+        if ( ! empty( $prefetch = Option::get( 'js_prefetch', [] ) ) ) {
+
+            $included = [];
+            
+            foreach( $this->html->find( 'link[rel=dns-prefetch]' ) as $link ) {
+                $included[] = $link->href;
+            }
+
+            foreach( array_keys( $prefetch ) as $dns  ) {
+
+                if ( 
+                    ! wpp_in_array( $dns, $included ) 
+                    && ! array_key_exists( $dns, Option::get( 'css_prefetch', [] ) ) // prevent including it twice
+                ) {
+                    $this->head->innertext = '<link rel="dns-prefetch" href="//' . $dns . '" />' . PHP_EOL . $this->head->innertext;
                 }
 
             }
