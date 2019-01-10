@@ -58,7 +58,7 @@ WP Performance does not support multisite yet.
 * **wp wpp cleanup cron** - Run cron tasks cleanup
 
 ### Report bugs ### 
-If you encounter any bug, please create an issue on [Github](https://github.com/alaca/WP-Performance). Since Github is not a support forum, just bugs are welcomed and any other request will be closed.
+If you encounter any bug, please create an issue on [Github](https://github.com/alaca/WP-Performance). 
 
 == Installation ==
 
