@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WP Performance\n"
-"POT-Creation-Date: 2019-01-07 16:40+0100\n"
-"PO-Revision-Date: 2019-01-07 17:02+0100\n"
+"POT-Creation-Date: 2019-01-10 14:54+0100\n"
+"PO-Revision-Date: 2019-01-10 15:01+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: hr\n"
@@ -131,7 +131,7 @@ msgstr "Predučitavanje predmemorije"
 #: includes/admin/cache.php:303 includes/admin/cdn.php:64
 #: includes/admin/css.php:101 includes/admin/css.php:128
 #: includes/admin/css.php:303 includes/admin/css.php:331
-#: includes/admin/css.php:568 includes/admin/css.php:578
+#: includes/admin/css.php:600 includes/admin/css.php:610
 #: includes/admin/images.php:62 includes/admin/images.php:88
 #: includes/admin/images.php:132 includes/admin/images.php:152
 #: includes/admin/javascript.php:101 includes/admin/javascript.php:128
@@ -182,7 +182,7 @@ msgstr ""
 "mreže"
 
 #: includes/admin/cache.php:211 includes/admin/cdn.php:33
-#: includes/admin/css.php:402 includes/admin/database.php:156
+#: includes/admin/css.php:402 includes/admin/database.php:183
 #: includes/admin/images.php:188 includes/admin/javascript.php:405
 #: includes/admin/settings.php:80
 msgid "Save changes"
@@ -217,14 +217,14 @@ msgstr "Ukupna veličina predmemorije"
 msgid "Exclude URL(s) from cache"
 msgstr "Izuzimanje URL-ova iz predmemorije"
 
-#: includes/admin/cache.php:282 includes/admin/css.php:567
+#: includes/admin/cache.php:282 includes/admin/css.php:599
 #: includes/admin/images.php:131 includes/admin/javascript.php:529
 #, php-format
 msgid "Remove %s from excluded URL(s)?"
 msgstr "Makni %s s liste izuzetih URL-ova"
 
 #: includes/admin/cache.php:312 includes/admin/cache.php:326
-#: includes/admin/css.php:586 includes/admin/css.php:600
+#: includes/admin/css.php:618 includes/admin/css.php:632
 #: includes/admin/images.php:161 includes/admin/images.php:173
 #: includes/admin/javascript.php:548 includes/admin/javascript.php:562
 msgid "Part of the URL will also work"
@@ -232,7 +232,7 @@ msgstr "Dio URL-a će također funkcionirati"
 
 #: includes/admin/cache.php:313 includes/admin/cache.php:326
 #: includes/admin/cdn.php:73 includes/admin/cdn.php:86
-#: includes/admin/css.php:587 includes/admin/css.php:600
+#: includes/admin/css.php:619 includes/admin/css.php:632
 #: includes/admin/images.php:162 includes/admin/images.php:173
 #: includes/admin/javascript.php:549 includes/admin/javascript.php:562
 msgid "Use {numbers} to match only numbers"
@@ -240,7 +240,7 @@ msgstr "Koristite {numbers} za podudaranje samo brojeva"
 
 #: includes/admin/cache.php:314 includes/admin/cache.php:326
 #: includes/admin/cdn.php:74 includes/admin/cdn.php:86
-#: includes/admin/css.php:588 includes/admin/css.php:600
+#: includes/admin/css.php:620 includes/admin/css.php:632
 #: includes/admin/images.php:163 includes/admin/images.php:173
 #: includes/admin/javascript.php:550 includes/admin/javascript.php:562
 msgid "Use {letters} to match only letters"
@@ -248,7 +248,7 @@ msgstr "Koristite {letters} za podudaranje samo slova"
 
 #: includes/admin/cache.php:315 includes/admin/cache.php:326
 #: includes/admin/cdn.php:75 includes/admin/cdn.php:86
-#: includes/admin/css.php:589 includes/admin/css.php:600
+#: includes/admin/css.php:621 includes/admin/css.php:632
 #: includes/admin/images.php:164 includes/admin/images.php:173
 #: includes/admin/javascript.php:551 includes/admin/javascript.php:562
 msgid "Use {any} to match any string"
@@ -256,7 +256,7 @@ msgstr "Koristite {any} za podudaranje bilo kojeg niza"
 
 #: includes/admin/cache.php:329 includes/admin/css.php:145
 #: includes/admin/css.php:156 includes/admin/css.php:350
-#: includes/admin/css.php:361 includes/admin/css.php:603
+#: includes/admin/css.php:361 includes/admin/css.php:635
 #: includes/admin/images.php:176 includes/admin/javascript.php:145
 #: includes/admin/javascript.php:156 includes/admin/javascript.php:352
 #: includes/admin/javascript.php:363 includes/admin/javascript.php:565
@@ -365,19 +365,27 @@ msgstr "Ponovno učitati"
 msgid "CSS settings"
 msgstr "CSS postavke"
 
-#: includes/admin/css.php:433
+#: includes/admin/css.php:441
 msgid "Minify inline CSS"
 msgstr "Smanji umetnuti  CSS"
 
-#: includes/admin/css.php:440
+#: includes/admin/css.php:449
 msgid "Asynchronously load CSS"
 msgstr "Asinhrono učitajte CSS"
 
-#: includes/admin/css.php:444
+#: includes/admin/css.php:459 includes/admin/css.php:461
+msgid "Show critical CSS"
+msgstr "Prikaži CSS definicije"
+
+#: includes/admin/css.php:460 includes/admin/css.php:461
+msgid "Hide critical CSS"
+msgstr "Sakri CSS definicije"
+
+#: includes/admin/css.php:471
 msgid "Eliminates render-blocking CSS"
 msgstr "CSS se ne prikazuje kao blokirajući sadržaj"
 
-#: includes/admin/css.php:448
+#: includes/admin/css.php:477
 msgid ""
 "Loading CSS asynchronously will produce FOUC effect (a Flash Of Unstyled "
 "Content). In order to minimize the FOUC effect, use critical CSS path."
@@ -385,105 +393,113 @@ msgstr ""
 "Učitavanje CSS-a asinkrono će rezultirati FOUC efektom (Flash Of Unstyled "
 "Content). Kako bi se smanjio FOUC učinak, umetnite kritične CSS definicije."
 
-#: includes/admin/css.php:455
+#: includes/admin/css.php:485
 msgid "Critical CSS path"
 msgstr "Kritične CSS definicije"
 
-#: includes/admin/css.php:460
+#: includes/admin/css.php:490
 msgid "Enter critical CSS path definitions"
 msgstr "Unesi kritične CSS definicije"
 
-#: includes/admin/css.php:465
+#: includes/admin/css.php:495
 msgid "Generate critical CSS path"
 msgstr "Generirajte kritične CSS definicije"
 
-#: includes/admin/css.php:478
+#: includes/admin/css.php:510
 msgid "Combine Google Fonts"
 msgstr "Kombinirajte Google fontove"
 
-#: includes/admin/css.php:483
+#: includes/admin/css.php:515
 msgid "Load all google fonts in one HTTP request"
 msgstr "Učitajte sve Google fontove u jednom HTTP zahtjevu"
 
-#: includes/admin/css.php:492
+#: includes/admin/css.php:524
 msgid "Disable CSS optimization for logged-in users"
 msgstr "Onemogućite CSS optimizaciju za prijavljene korisnike"
 
-#: includes/admin/css.php:503 includes/admin/javascript.php:465
+#: includes/admin/css.php:535 includes/admin/javascript.php:465
 msgid "Resource Hints"
 msgstr "Postavke za vanjske resurse"
 
-#: includes/admin/css.php:510 includes/admin/javascript.php:472
+#: includes/admin/css.php:542 includes/admin/javascript.php:472
 msgid "Origins"
 msgstr "Podrijetlo"
 
-#: includes/admin/css.php:537 includes/admin/javascript.php:499
+#: includes/admin/css.php:569 includes/admin/javascript.php:499
 msgid "DNS prefetching can make external resources load faster"
 msgstr "Prethodno dohvaćanje DNS-a može ubrzati učitavanje vanjskih resursa"
 
-#: includes/admin/css.php:538 includes/admin/javascript.php:500
+#: includes/admin/css.php:570 includes/admin/javascript.php:500
 msgid "Preconnect can remove additional roundtrips and reduce request latency"
 msgstr ""
 "Preconnect može ukloniti dodatne HTTP round-trip zahtjeve i tako smanjiti "
 "latenciju HTTP zahtjeva"
 
-#: includes/admin/css.php:546
+#: includes/admin/css.php:578
 msgid "Exclude URL(s) from CSS optimization"
 msgstr "Izuzimanje URL-ova iz CSS optimizacije"
 
-#: includes/admin/database.php:29 includes/admin/database.php:34
+#: includes/admin/database.php:30 includes/admin/database.php:35
 msgid "Delete all pages, posts and comments from trash"
 msgstr "Izbrišite sve stranice, postove i komentare iz smeća"
 
-#: includes/admin/database.php:30 includes/admin/database.php:54
-#: includes/admin/database.php:81 includes/admin/database.php:104
-#: includes/admin/database.php:130
+#: includes/admin/database.php:31 includes/admin/database.php:55
+#: includes/admin/database.php:82 includes/admin/database.php:105
+#: includes/admin/database.php:132 includes/admin/database.php:157
 msgid "Delete"
 msgstr "Izbriši"
 
-#: includes/admin/database.php:33
+#: includes/admin/database.php:34
 msgid "Trash"
 msgstr "Smeće"
 
-#: includes/admin/database.php:40 includes/admin/database.php:64
-#: includes/admin/database.php:91 includes/admin/database.php:114
-#: includes/admin/database.php:140
+#: includes/admin/database.php:41 includes/admin/database.php:65
+#: includes/admin/database.php:92 includes/admin/database.php:115
+#: includes/admin/database.php:142 includes/admin/database.php:167
 msgid "Enable automatic cleanup"
 msgstr "Omogući automatsko čišćenje"
 
-#: includes/admin/database.php:53 includes/admin/database.php:58
+#: includes/admin/database.php:54 includes/admin/database.php:59
 msgid "Delete all spam comments"
 msgstr "Izbrišite sve spam komentare"
 
-#: includes/admin/database.php:57
+#: includes/admin/database.php:58
 msgid "Spam"
 msgstr "Spam"
 
-#: includes/admin/database.php:80 includes/admin/database.php:85
+#: includes/admin/database.php:81 includes/admin/database.php:86
 msgid "Delete all revisions"
 msgstr "Izbrišite sve revizije"
 
-#: includes/admin/database.php:84
+#: includes/admin/database.php:85
 msgid "Revisions"
 msgstr "Revizije"
 
-#: includes/admin/database.php:103 includes/admin/database.php:108
+#: includes/admin/database.php:104 includes/admin/database.php:109
 msgid "Delete all expired transients"
 msgstr "Izbrišite sve istekle privremene postavke"
 
-#: includes/admin/database.php:107
+#: includes/admin/database.php:108
 msgid "Transients"
 msgstr "Privremene postavke"
 
-#: includes/admin/database.php:129 includes/admin/database.php:134
+#: includes/admin/database.php:131 includes/admin/database.php:136
+msgid "Delete all auto drafts"
+msgstr "Izbrišite sve skice"
+
+#: includes/admin/database.php:135
+msgid "Auto Drafts"
+msgstr "Skice"
+
+#: includes/admin/database.php:156 includes/admin/database.php:161
 msgid "Delete all unused scheduled tasks"
 msgstr "Obrišite sve zakazane zadatke koji se ne koriste"
 
-#: includes/admin/database.php:133
+#: includes/admin/database.php:160
 msgid "Scheduled tasks"
 msgstr "Zakazani zadaci"
 
-#: includes/admin/database.php:152
+#: includes/admin/database.php:179
 msgid ""
 "Backup your database before running any of these cleanup actions. Once a "
 "database cleanup has been performed, there is no way to undo it."
@@ -492,39 +508,39 @@ msgstr ""
 "akcija čišćenja. Nakon što je već izvršeno čišćenje baze, nema načina da se "
 "izmjene ponište i vrate podaci."
 
-#: includes/admin/database.php:158 includes/admin/database.php:159
+#: includes/admin/database.php:185 includes/admin/database.php:186
 msgid "Delete all"
 msgstr "Izbrisati sve"
 
-#: includes/admin/database.php:167
+#: includes/admin/database.php:194
 msgid "Automatic database cleanup"
 msgstr "Automatsko čišćenje baze podataka"
 
-#: includes/admin/database.php:173
+#: includes/admin/database.php:200
 msgid "Schedule"
 msgstr "Raspored"
 
-#: includes/admin/database.php:175
+#: includes/admin/database.php:202
 msgid "Not scheduled"
 msgstr "Nije zakazano"
 
-#: includes/admin/database.php:176 includes/functions/cron.php:26
+#: includes/admin/database.php:203 includes/functions/cron.php:26
 msgid "Daily"
 msgstr "Dnevno"
 
-#: includes/admin/database.php:177 includes/functions/cron.php:31
+#: includes/admin/database.php:204 includes/functions/cron.php:31
 msgid "Weekly"
 msgstr "Tjedno"
 
-#: includes/admin/database.php:178 includes/functions/cron.php:36
+#: includes/admin/database.php:205 includes/functions/cron.php:36
 msgid "Monthly"
 msgstr "Mjesečno"
 
-#: includes/admin/database.php:181
+#: includes/admin/database.php:208
 msgid "Next run"
 msgstr "Sljedeće čišćenje"
 
-#: includes/admin/database.php:187
+#: includes/admin/database.php:214
 msgid "Not set"
 msgstr "Nije postavljeno"
 
@@ -823,6 +839,62 @@ msgstr "Čišćenje predmemorije..."
 msgid "Cache flushed."
 msgstr "Predmemorija očišćena."
 
+#: includes/classes/cli.php:71
+msgid "Running tranisent cleanup"
+msgstr "Pokrenuto čišćenje privremenih postavki"
+
+#: includes/classes/cli.php:73
+msgid "Transient cleanup complete"
+msgstr "Završeno čišćenje privremenih postavki"
+
+#: includes/classes/cli.php:79
+msgid "Running revisions cleanup"
+msgstr "Pokrenuto čišćenje revizija"
+
+#: includes/classes/cli.php:81
+msgid "Revisions cleanup complete"
+msgstr "Završeno čišćenje revizija"
+
+#: includes/classes/cli.php:87
+msgid "Running drafts cleanup"
+msgstr "Pokrenuto čišćenje skica"
+
+#: includes/classes/cli.php:89
+msgid "Drafts cleanup complete"
+msgstr "Pokrenuto čišćenje skica"
+
+#: includes/classes/cli.php:95
+msgid "Running trash cleanup"
+msgstr "Pokrenuto čišćenje smeća"
+
+#: includes/classes/cli.php:97
+msgid "Trash cleanup complete"
+msgstr "Završeno čišćenje smeća"
+
+#: includes/classes/cli.php:103
+msgid "Running spam cleanup"
+msgstr "Pokrenuto čišćenje spam-a"
+
+#: includes/classes/cli.php:105
+msgid "Spam cleanup complete"
+msgstr "Završeno čišćenje spam-a"
+
+#: includes/classes/cli.php:111
+msgid "Running cron tasks cleanup"
+msgstr "Pokrenuto čišćenje zakazanih zadataka"
+
+#: includes/classes/cli.php:113
+msgid "Cron tasks cleanup complete"
+msgstr "Završeno čišćenje zakazanih zadataka"
+
+#: includes/classes/cli.php:124
+msgid "Running database cleanup"
+msgstr "Pokrenuto čišćenje baze"
+
+#: includes/classes/cli.php:126
+msgid "Database cleanup complete"
+msgstr "Završeno čišćenje baze"
+
 #: includes/classes/parser.php:31
 msgid "error"
 msgstr "greška"
@@ -831,24 +903,24 @@ msgstr "greška"
 msgid "both head and body tag should be present in template file"
 msgstr "oznaka head i body bi trebale biti prisutne u datoteci predloška"
 
-#: includes/classes/parser.php:850
+#: includes/classes/parser.php:848
 msgid "Optimized by"
 msgstr "Optimizirano sa"
 
-#: includes/classes/parser.php:866
+#: includes/classes/parser.php:864
 #, php-format
 msgid "Cache file was created in %s seconds on %s at %s"
 msgstr "Datoteka predmemorije stvorena je za %s sekundi na dan %s u %s"
 
-#: includes/classes/wpp.php:275
+#: includes/classes/wpp.php:281
 msgid "is temporarily disabled"
 msgstr "je privremeno onemogućen"
 
-#: includes/classes/wpp.php:275 includes/functions/admin.php:253
+#: includes/classes/wpp.php:281 includes/functions/admin.php:253
 msgid "Enable"
 msgstr "Omogući"
 
-#: includes/classes/wpp.php:280
+#: includes/classes/wpp.php:286
 #, php-format
 msgid ""
 "%s: Log file is getting large, either clear the log or disable "
@@ -857,7 +929,7 @@ msgstr ""
 "%s: Datoteka dnevnika postaje sve veća, očistite zapise dnevnika ili "
 "onemogućite zapisivanje u dnevnik"
 
-#: includes/classes/wpp.php:285
+#: includes/classes/wpp.php:291
 #, php-format
 msgid "%s: missing writing permissions for file <code>.htaccess</code>"
 msgstr "%s: nedostaju dozvole za pisanje u datoteku <code> .htaccess </code>"
@@ -878,7 +950,7 @@ msgstr "Svake minute"
 msgid "Every 5 minutes"
 msgstr "Svakih 5 minuta"
 
-#: includes/functions/db.php:75
+#: includes/functions/db.php:83
 msgid "You are doing it wrong"
 msgstr "Vi to radite krivo"
 
@@ -947,15 +1019,15 @@ msgstr "Deaktiviraj"
 msgid "Invalid settings file"
 msgstr "Nevažeća datoteka postavki"
 
-#: includes/functions/settings.php:229
+#: includes/functions/settings.php:230
 msgid "Settings saved"
 msgstr "Postavke spremljene"
 
-#: includes/functions/settings.php:302
+#: includes/functions/settings.php:303
 msgid "Settings file loaded"
 msgstr "Datoteka postavki je učitana"
 
-#: includes/functions/settings.php:486
+#: includes/functions/settings.php:487
 msgid "Files list cleared"
 msgstr "Lista izbrisana"
 
