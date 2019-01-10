@@ -9,6 +9,7 @@ defined('ABSPATH') or exit; ?>
     $revisions  = DB::getRevisionsCount();
     $transients = DB::getTransientsCount();
     $cron_tasks = DB::getCronTasksCount();
+    $drafts     = DB::getAutoDraftsCount();
 
 ?>
 
@@ -119,6 +120,32 @@ defined('ABSPATH') or exit; ?>
             </tr>
 
             <tr>
+
+                <td>
+
+                    <a 
+                        href="#" 
+                        class="button alignright wpp-db-action" 
+                        data-action="drafts" 
+                        data-count="<?php echo $drafts; ?>" 
+                        data-description="<?php _e( 'Delete all auto drafts', 'wpp' ); ?>">
+                            <?php _e( 'Delete', 'wpp' ); ?> 
+                    </a>
+
+                    <strong><?php _e( 'Auto Drafts', 'wpp' ); ?> (<span class="wpp-db-count" id="wpp-drafts-count"><?php echo $drafts; ?></span>)</strong>
+                    <em><?php _e( 'Delete all auto drafts', 'wpp' ); ?></em>
+
+                    <?php if ( Option::get( 'db_cleanup_frequency' ) !== 'none' ): ?>
+                        <br />
+                        <label class="wpp-info">
+                            <input type="checkbox" value="1" name="db_cleanup_autodrafts" form="wpp-settings" <?php wpp_checked( 'db_cleanup_autodrafts' ); ?> />
+                            <?php _e( 'Enable automatic cleanup', 'wpp' ); ?>
+                        </label>
+                    <?php endif; ?>
+
+                </td>
+
+
                 <td>
 
                     <a 
@@ -156,7 +183,7 @@ defined('ABSPATH') or exit; ?>
         <input type="submit" class="button-primary" value="<?php _e( 'Save changes', 'wpp' ); ?>" name="wpp-save-settings" form="wpp-settings" />
         
         <a href="#" class="button wpp-db-action" data-action="all" data-description="<?php _e( 'Delete all', 'wpp' ); ?>">
-            <?php _e( 'Delete all', 'wpp' ); ?> (<span class="wpp-db-count" id="wpp-all-count"><?php echo ( $spam + $trash + $revisions + $transients + $cron_tasks ); ?></span>)
+            <?php _e( 'Delete all', 'wpp' ); ?> (<span class="wpp-db-count" id="wpp-all-count"><?php echo ( $spam + $trash + $revisions + $transients + $cron_tasks + $drafts ); ?></span>)
         </a> 
                 
 
