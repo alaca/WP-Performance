@@ -3,12 +3,19 @@
 [![](https://img.shields.io/wordpress/plugin/tested/wp-performance.svg)](https://wordpress.org/plugins/wp-performance) [![](https://img.shields.io/wordpress/plugin/stars/wp-performance.svg)](https://wordpress.org/plugins/wp-performance) [![](https://img.shields.io/wordpress/plugin/dt/wp-performance.svg)](https://wordpress.org/plugins/wp-performance) [![](https://img.shields.io/wordpress/plugin/v/wp-performance.svg)](https://wordpress.org/plugins/wp-performance)
 
 **Contributors**: alaca
+
 **Tags**: wp performance, cache, performance, speed optimization, wpp
+
 **Requires at least**: 4.5
+
 **Tested up to**: 5.0.3
+
 **Requires PHP**: 5.6
+
 **Stable tag**: 1.0
+
 **License**: GPLv2 or later
+
 **License URI**: http://www.gnu.org/licenses/gpl-2.0.html
 
 ## Description ##
