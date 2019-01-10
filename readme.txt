@@ -82,6 +82,7 @@ If you encounter any bug, please create an issue on [Github](https://github.com/
 [NEW] Drafts cleanup
 [NEW] WP CLI commands - run database cleanups
 [IMPROVE] Admin UI
+[UPDATE] Translations
 [FIX] Minor bugfixes
 
 = 1.0.4 =

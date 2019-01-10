@@ -72,6 +72,7 @@ WP Performance does not support multisite yet.
 * [NEW] Drafts cleanup
 * [NEW] WP CLI commands - database cleanups
 * [IMPROVE] Admin UI
+* [UPDATE] Translations
 * [FIX] Minor bugfixes
 
 ### 1.0.4 ###
