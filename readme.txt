@@ -3,7 +3,7 @@ Contributors: alaca
 Donate link: https://profiles.wordpress.org/alaca
 Tags: wp performance, cache, performance, speed optimization, wpp
 Requires at least: 4.5
-Tested up to: 5.0.2
+Tested up to: 5.0.3
 Requires PHP: 5.6
 Stable tag: 1.0
 License: GPLv2 or later
@@ -14,38 +14,51 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 WP Performance is a performance plugin that aims to make that "speed up" process a bit simpler by adding a variety of performance tweaks to your WordPress site.
 This plugin generates static html files from your dynamic content, and it uses mod_rewrite to load cache files which is the fastest method.
 
-<h4>Multisite Support</h4>
+### Multisite Support ###
 WP Performance does not support multisite yet.
 
-<h4>Features</h4>
+### Features ###
 
-<ul>
-    <li>Page cache</li>
-    <li>Cache preloading</li>
-    <li>Browser cache</li>
-    <li>GZIP Compression</li>
-    <li>Minify CSS, JavaScript, and HTML</li>
-    <li>Asynchronously load CSS/JavaScript</li>
-    <li>Combine CSS/JavaScript</li>
-    <li>Disable CSS/JavaScript</li>
-    <li>DNS Prefetch</li>
-    <li>Critical CSS path generator</li>
-    <li>Database Cleaner</li>
-    <li>Export/import settings</li>
-    <li>Lazy Load images</li>
-    <li>Responsive images</li>
-    <li>Regenerate thumbs</li>
-    <li>CDN</li>
-</ul>
+* Page cache
+* Cache preloading
+* Browser cache
+* GZIP Compression
+* Minify CSS, JavaScript, and HTML
+* Asynchronously load CSS/JavaScript
+* Combine CSS/JavaScript
+* Disable CSS/JavaScript
+* Resource hints
+* Critical CSS path generator
+* Database Cleaner
+* Export/import settings
+* Lazy Load images
+* Responsive images
+* Regenerate thumbs
+* CDN
+* WP-CLI Support
 
-<h4>Supported languages</h4>
+### Supported languages ### 
 
-<ul>
-    <li>English</li>
-    <li>Hrvatski</li>
-    <li>中文 (by @cmhello)</li>
-</ul>
+* English
+* Hrvatski
+* 中文 (by @cmhello)
 
+
+### WP-CLI Support ###
+
+* **wp wpp flush** - Clear the cache
+* **wp wpp disable** - Temporarily disable WP Performance
+* **wp wpp enable** - Enable WP Performance
+* **wp wpp cleanup** - Run all database cleanups
+* **wp wpp cleanup trash** - Run trash cleanup
+* **wp wpp cleanup spam** - Run spam cleanup
+* **wp wpp cleanup revisions** - Run revisions cleanup
+* **wp wpp cleanup drafts** - Run drafts cleanup
+* **wp wpp cleanup transients** - Run transients cleanup
+* **wp wpp cleanup cron** - Run cron tasks cleanup
+
+### Report bugs ### 
+If you encounter any bug, please create an issue on [Github](https://github.com/alaca/WP-Performance). Since Github is not a support forum, just bugs are welcomed and any other request will be closed.
 
 == Installation ==
 
@@ -65,6 +78,12 @@ WP Performance does not support multisite yet.
 
 == Changelog ==
 
+= 1.0.5 =
+[NEW] Drafts cleanup
+[NEW] WP CLI commands - run database cleanups
+[IMPROVE] Admin UI
+[FIX] Minor bugfixes
+
 = 1.0.4 =
 [NEW] Resource hints
 [NEW] Exclude page from Image optimization on edit page screen
@@ -72,8 +91,8 @@ WP Performance does not support multisite yet.
 [IMPROVE] Metabox UI on Edit page
 [IMPROVE] Admin UI
 [UPDATE] Translations
-[FIX]  Cron tasks cleanup
-[FIX]  Combine Google fonts
+[FIX] Cron tasks cleanup
+[FIX] Combine Google fonts
 
 = 1.0.3 =
 [NEW] Cron tasks cleanup
