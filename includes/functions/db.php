@@ -55,6 +55,13 @@ function wpp_ajax_database_actions() {
             wp_send_json(['status' => 1]); 
                         
             break;
+
+        case 'drafts':
+        
+            DB::clearAutoDrafts();
+            wp_send_json(['status' => 1]); 
+                        
+            break;
             
         case 'all':
         
@@ -63,6 +70,7 @@ function wpp_ajax_database_actions() {
             DB::clearTrash();
             DB::clearTransients();
             DB::clearCronTasks();
+            DB::clearAutoDrafts();
 
             wp_send_json(['status' => 1]);   
         

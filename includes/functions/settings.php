@@ -170,6 +170,7 @@ function wpp_save_settings( $notify = true ) {
     Option::update( 'db_cleanup_spam',       Input::post( 'db_cleanup_spam', 'boolean' ) );
     Option::update( 'db_cleanup_trash',      Input::post( 'db_cleanup_trash', 'boolean' ) );
     Option::update( 'db_cleanup_cron',       Input::post( 'db_cleanup_cron', 'boolean' ) );
+    Option::update( 'db_cleanup_autodrafts', Input::post( 'db_cleanup_autodrafts', 'boolean' ) );
 
     // Cleanup schedule
     $frequency = Input::post( 'automatic_cleanup_frequency' );

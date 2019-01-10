@@ -117,6 +117,22 @@ class DB
     }
 
     /**
+     * Get drafts count
+     *
+     * @return integer
+     * @since 1.0.5
+     */
+    public static function getAutoDraftsCount() {
+        $result = $GLOBALS[ 'wpdb' ]->get_row('
+            SELECT COUNT(ID) as num 
+            FROM ' . $GLOBALS[ 'wpdb' ]->posts . '
+            WHERE post_status = "auto-draft"'
+        );
+
+        return empty( $result ) ? 0 : $result->num;    
+    }
+
+    /**
      * Run all db cleanups
      *
      * @return void
@@ -128,6 +144,7 @@ class DB
         DB::clearTrash();
         DB::clearTransients();
         DB::clearCronTasks();
+        DB::clearAutoDrafts();
 
         wpp_log( 'DB optimized', 'notice' );
     }
@@ -238,6 +255,23 @@ class DB
         update_option( 'cron', $tasks );
 
         wpp_log( 'DB cron tasks deleted', 'notice' );
+
+    }
+
+    /**
+     * Cleanup drafts
+     *
+     * @return void
+     * @since 1.0.5
+     */
+    public static function clearAutoDrafts() {
+
+
+        wpp_log( 'DB auto drafts deleted', 'notice' );
+
+        return $GLOBALS['wpdb']->query( 
+            'DELETE FROM ' . $GLOBALS['wpdb']->posts .' WHERE post_status = "auto-draft"' 
+        );  
 
     }
     

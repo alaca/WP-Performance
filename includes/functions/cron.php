@@ -234,6 +234,11 @@ function wpp_cron_db_cleanup() {
     if ( Option::boolval( 'db_cleanup_cron' ) ) {
         DB::clearCronTasks();
     }
+
+    // Clear auto drafts
+    if ( Option::boolval( 'db_cleanup_autodrafts' ) ) {
+        DB::clearAutoDrafts();
+    }
     
     $schedules = wpp_get_cron_schedules();
     $frequency = Option::get( 'db_cleanup_frequency' );
