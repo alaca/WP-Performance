@@ -79,7 +79,13 @@ class WP_Performance
     *  Run WP Performance
     * 
     */
-    public function run() {        
+    public function run() {  
+        
+        // Don't run in CLI
+        if ( defined( 'WP_CLI' ) ) {
+            return null;
+        }
+        
         return is_admin() ? $this->backend() : $this->frontend();   
     }
 
