@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WP Performance\n"
-"POT-Creation-Date: 2019-01-10 15:01+0100\n"
-"PO-Revision-Date: 2019-01-10 15:02+0100\n"
+"POT-Creation-Date: 2019-01-13 13:37+0100\n"
+"PO-Revision-Date: 2019-01-13 13:37+0100\n"
 "Last-Translator: WordPress大学 <support@wpdaxue.com>\n"
 "Language-Team: WordPress淘宝网 <support@wptaobao.com>\n"
 "Language: zh_CN\n"
@@ -22,23 +22,23 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
 #: includes/admin/admin.php:23 includes/admin/admin.php:37
-#: includes/admin/cache.php:11 includes/functions/admin.php:155
+#: includes/admin/cache.php:11 includes/functions/admin.php:156
 msgid "Cache"
 msgstr "缓存"
 
 #: includes/admin/admin.php:26 includes/admin/admin.php:40
-#: includes/functions/admin.php:185 includes/functions/admin.php:189
+#: includes/functions/admin.php:186 includes/functions/admin.php:190
 msgid "Images"
 msgstr "图片"
 
 #: includes/admin/admin.php:27 includes/admin/admin.php:41
-#: includes/functions/admin.php:196 includes/functions/admin.php:200
+#: includes/functions/admin.php:197 includes/functions/admin.php:201
 msgid "Database"
 msgstr "数据库"
 
 #: includes/admin/admin.php:29 includes/admin/admin.php:43
-#: includes/admin/settings.php:12 includes/functions/admin.php:159
-#: includes/functions/admin.php:218 includes/functions/admin.php:222
+#: includes/admin/settings.php:12 includes/functions/admin.php:160
+#: includes/functions/admin.php:219 includes/functions/admin.php:223
 msgid "Settings"
 msgstr "设置"
 
@@ -123,15 +123,14 @@ msgstr "高速缓存预加载"
 
 #: includes/admin/cache.php:131 includes/admin/cache.php:283
 #: includes/admin/cache.php:303 includes/admin/cdn.php:64
-#: includes/admin/css.php:101 includes/admin/css.php:128
-#: includes/admin/css.php:303 includes/admin/css.php:331
-#: includes/admin/css.php:600 includes/admin/css.php:610
+#: includes/admin/css.php:317 includes/admin/css.php:327
 #: includes/admin/images.php:62 includes/admin/images.php:88
 #: includes/admin/images.php:132 includes/admin/images.php:152
-#: includes/admin/javascript.php:101 includes/admin/javascript.php:128
-#: includes/admin/javascript.php:305 includes/admin/javascript.php:333
-#: includes/admin/javascript.php:530 includes/admin/javascript.php:540
-#: includes/functions/miscellaneous.php:160
+#: includes/admin/includes/external_files.php:62
+#: includes/admin/includes/external_files.php:90
+#: includes/admin/includes/local_files.php:65
+#: includes/admin/includes/local_files.php:92 includes/admin/javascript.php:243
+#: includes/admin/javascript.php:253 includes/functions/miscellaneous.php:161
 msgid "Remove"
 msgstr "删除"
 
@@ -171,8 +170,8 @@ msgid ""
 msgstr "使用 gzip 压缩资源可减少通过网络发送的字节数"
 
 #: includes/admin/cache.php:211 includes/admin/cdn.php:33
-#: includes/admin/css.php:402 includes/admin/database.php:183
-#: includes/admin/images.php:188 includes/admin/javascript.php:405
+#: includes/admin/css.php:119 includes/admin/database.php:183
+#: includes/admin/images.php:188 includes/admin/javascript.php:118
 #: includes/admin/settings.php:80
 msgid "Save changes"
 msgstr "保存更改"
@@ -181,8 +180,8 @@ msgstr "保存更改"
 msgid "Cache statistics"
 msgstr "缓存统计信息"
 
-#: includes/admin/cache.php:220 includes/functions/admin.php:228
-#: includes/functions/admin.php:233
+#: includes/admin/cache.php:220 includes/functions/admin.php:229
+#: includes/functions/admin.php:234
 msgid "Clear cache"
 msgstr "清除缓存"
 
@@ -206,50 +205,49 @@ msgstr "缓存总大小"
 msgid "Exclude URL(s) from cache"
 msgstr "从缓存中排除网址"
 
-#: includes/admin/cache.php:282 includes/admin/css.php:599
-#: includes/admin/images.php:131 includes/admin/javascript.php:529
+#: includes/admin/cache.php:282 includes/admin/css.php:316
+#: includes/admin/images.php:131 includes/admin/javascript.php:242
 #, php-format
 msgid "Remove %s from excluded URL(s)?"
 msgstr "从已排除的网址中删除%s？"
 
 #: includes/admin/cache.php:312 includes/admin/cache.php:326
-#: includes/admin/css.php:618 includes/admin/css.php:632
+#: includes/admin/css.php:335 includes/admin/css.php:349
 #: includes/admin/images.php:161 includes/admin/images.php:173
-#: includes/admin/javascript.php:548 includes/admin/javascript.php:562
+#: includes/admin/javascript.php:261 includes/admin/javascript.php:275
 msgid "Part of the URL will also work"
 msgstr "包含这些网址部分的页面也一样生效"
 
 #: includes/admin/cache.php:313 includes/admin/cache.php:326
 #: includes/admin/cdn.php:73 includes/admin/cdn.php:86
-#: includes/admin/css.php:619 includes/admin/css.php:632
+#: includes/admin/css.php:336 includes/admin/css.php:349
 #: includes/admin/images.php:162 includes/admin/images.php:173
-#: includes/admin/javascript.php:549 includes/admin/javascript.php:562
+#: includes/admin/javascript.php:262 includes/admin/javascript.php:275
 msgid "Use {numbers} to match only numbers"
 msgstr "使用 {numbers} 来匹配数字"
 
 #: includes/admin/cache.php:314 includes/admin/cache.php:326
 #: includes/admin/cdn.php:74 includes/admin/cdn.php:86
-#: includes/admin/css.php:620 includes/admin/css.php:632
+#: includes/admin/css.php:337 includes/admin/css.php:349
 #: includes/admin/images.php:163 includes/admin/images.php:173
-#: includes/admin/javascript.php:550 includes/admin/javascript.php:562
+#: includes/admin/javascript.php:263 includes/admin/javascript.php:275
 msgid "Use {letters} to match only letters"
 msgstr "使用 {letters} 来匹配字母"
 
 #: includes/admin/cache.php:315 includes/admin/cache.php:326
 #: includes/admin/cdn.php:75 includes/admin/cdn.php:86
-#: includes/admin/css.php:621 includes/admin/css.php:632
+#: includes/admin/css.php:338 includes/admin/css.php:349
 #: includes/admin/images.php:164 includes/admin/images.php:173
-#: includes/admin/javascript.php:551 includes/admin/javascript.php:562
+#: includes/admin/javascript.php:264 includes/admin/javascript.php:275
 msgid "Use {any} to match any string"
 msgstr "使用 {any} 来匹配任何字符串"
 
-#: includes/admin/cache.php:329 includes/admin/css.php:145
-#: includes/admin/css.php:156 includes/admin/css.php:350
-#: includes/admin/css.php:361 includes/admin/css.php:635
-#: includes/admin/images.php:176 includes/admin/javascript.php:145
-#: includes/admin/javascript.php:156 includes/admin/javascript.php:352
-#: includes/admin/javascript.php:363 includes/admin/javascript.php:565
-#: includes/functions/miscellaneous.php:161
+#: includes/admin/cache.php:329 includes/admin/css.php:352
+#: includes/admin/images.php:176 includes/admin/includes/external_files.php:109
+#: includes/admin/includes/external_files.php:120
+#: includes/admin/includes/local_files.php:109
+#: includes/admin/includes/local_files.php:120
+#: includes/admin/javascript.php:278 includes/functions/miscellaneous.php:162
 msgid "Add URL"
 msgstr "添加网址"
 
@@ -277,100 +275,94 @@ msgstr "从CDN中排除文件"
 msgid "Add file"
 msgstr "添加文件"
 
-#: includes/admin/css.php:15 includes/admin/javascript.php:15
+#: includes/admin/css.php:26 includes/admin/javascript.php:26
 msgid "File"
 msgstr "文件"
 
-#: includes/admin/css.php:16 includes/admin/javascript.php:16
+#: includes/admin/css.php:27 includes/admin/includes/local_files.php:153
+#: includes/admin/javascript.php:27
 msgid "Minify"
 msgstr "压缩"
 
-#: includes/admin/css.php:17 includes/admin/javascript.php:17
+#: includes/admin/css.php:28 includes/admin/includes/local_files.php:171
+#: includes/admin/javascript.php:28
 msgid "Inline"
 msgstr "内联"
 
-#: includes/admin/css.php:18 includes/admin/javascript.php:18
+#: includes/admin/css.php:29 includes/admin/includes/local_files.php:189
+#: includes/admin/javascript.php:29
 msgid "Combine"
 msgstr "合并"
 
-#: includes/admin/css.php:19 includes/admin/javascript.php:19
+#: includes/admin/css.php:30 includes/admin/includes/external_files.php:144
+#: includes/admin/includes/local_files.php:213 includes/admin/javascript.php:30
 msgid "Disable"
 msgstr "禁用"
 
-#: includes/admin/css.php:25 includes/admin/javascript.php:25
+#: includes/admin/css.php:37 includes/admin/javascript.php:37
 msgid "Update all files in list below"
 msgstr "更新下面列表中的所有文件"
 
-#: includes/admin/css.php:67 includes/admin/css.php:268
-#: includes/admin/javascript.php:67 includes/admin/javascript.php:270
-#: includes/functions/miscellaneous.php:162
-msgid "Disable everywhere"
-msgstr "在所有地方禁用"
+#: includes/admin/css.php:47 includes/admin/javascript.php:47
+msgid "Theme"
+msgstr ""
 
-#: includes/admin/css.php:71 includes/admin/css.php:272
-#: includes/admin/javascript.php:71 includes/admin/javascript.php:274
-#: includes/functions/miscellaneous.php:163
-msgid "Disable only on selected URL"
-msgstr "仅在选定的网址上禁用"
+#: includes/admin/css.php:69 includes/admin/javascript.php:69
+msgid "Plugins"
+msgstr ""
 
-#: includes/admin/css.php:75 includes/admin/css.php:276
-#: includes/admin/javascript.php:75 includes/admin/javascript.php:278
-#: includes/functions/miscellaneous.php:164
-msgid "Disable everywhere except on selected URL"
-msgstr "在所选网址以外的任何地方禁用"
-
-#: includes/admin/css.php:243 includes/admin/javascript.php:245
+#: includes/admin/css.php:92 includes/admin/javascript.php:92
 msgid "External resources"
 msgstr "外部资源"
 
-#: includes/admin/css.php:398 includes/admin/javascript.php:401
+#: includes/admin/css.php:115 includes/admin/javascript.php:114
 msgid ""
 "If some of the files are missing from this list, enable Cache preloading "
 "option."
 msgstr "如果此列表中缺少某些文件，请启用缓存预加载选项。"
 
-#: includes/admin/css.php:405 includes/admin/javascript.php:408
+#: includes/admin/css.php:122 includes/admin/javascript.php:121
 #, php-format
 msgid "Clear collected %s files list.%s This option will also clear the cache."
 msgstr "清除收集到的 %s 文件列表。%s 这个选项也将会清除缓存。"
 
-#: includes/admin/css.php:408 includes/admin/javascript.php:411
+#: includes/admin/css.php:125 includes/admin/javascript.php:124
 msgid "Clear files list"
 msgstr "清除文件列表"
 
-#: includes/admin/css.php:413
+#: includes/admin/css.php:130
 msgid "CSS files not found"
 msgstr "找不到 CSS 文件"
 
-#: includes/admin/css.php:417 includes/admin/javascript.php:420
+#: includes/admin/css.php:134 includes/admin/javascript.php:133
 msgid "Reload"
 msgstr "刷新"
 
-#: includes/admin/css.php:425
+#: includes/admin/css.php:142
 msgid "CSS settings"
 msgstr "CSS 设置"
 
-#: includes/admin/css.php:441
+#: includes/admin/css.php:158
 msgid "Minify inline CSS"
 msgstr "压缩内联 CSS"
 
-#: includes/admin/css.php:449
+#: includes/admin/css.php:166
 msgid "Asynchronously load CSS"
 msgstr "异步加载 CSS"
 
-#: includes/admin/css.php:459 includes/admin/css.php:461
+#: includes/admin/css.php:176 includes/admin/css.php:178
 msgid "Show critical CSS"
 msgstr ""
 
-#: includes/admin/css.php:460 includes/admin/css.php:461
+#: includes/admin/css.php:177 includes/admin/css.php:178
 msgid "Hide critical CSS"
 msgstr ""
 
-#: includes/admin/css.php:471
+#: includes/admin/css.php:188
 msgid "Eliminates render-blocking CSS"
 msgstr ""
 
-#: includes/admin/css.php:477
+#: includes/admin/css.php:194
 msgid ""
 "Loading CSS asynchronously will produce FOUC effect (a Flash Of Unstyled "
 "Content). In order to minimize the FOUC effect, use critical CSS path."
@@ -378,47 +370,47 @@ msgstr ""
 "异步加载 CSS 将产生 FOUC 效果 (未设置样式内容的 flash)。为了最大限度地减少 "
 "FOUC 效应，请使用关键 CSS 路径。"
 
-#: includes/admin/css.php:485
+#: includes/admin/css.php:202
 msgid "Critical CSS path"
 msgstr "关键 CSS 路径"
 
-#: includes/admin/css.php:490
+#: includes/admin/css.php:207
 msgid "Enter critical CSS path definitions"
 msgstr "输入关键 CSS 路径"
 
-#: includes/admin/css.php:495
+#: includes/admin/css.php:212
 msgid "Generate critical CSS path"
 msgstr "生成关键 CSS 路径"
 
-#: includes/admin/css.php:510
+#: includes/admin/css.php:227
 msgid "Combine Google Fonts"
 msgstr "合并谷歌字体"
 
-#: includes/admin/css.php:515
+#: includes/admin/css.php:232
 msgid "Load all google fonts in one HTTP request"
 msgstr "在一个 HTTP 请求中加载所有谷歌字体"
 
-#: includes/admin/css.php:524
+#: includes/admin/css.php:241
 msgid "Disable CSS optimization for logged-in users"
 msgstr "对已登录用户不启用CSS优化"
 
-#: includes/admin/css.php:535 includes/admin/javascript.php:465
+#: includes/admin/css.php:252 includes/admin/javascript.php:178
 msgid "Resource Hints"
 msgstr ""
 
-#: includes/admin/css.php:542 includes/admin/javascript.php:472
+#: includes/admin/css.php:259 includes/admin/javascript.php:185
 msgid "Origins"
 msgstr ""
 
-#: includes/admin/css.php:569 includes/admin/javascript.php:499
+#: includes/admin/css.php:286 includes/admin/javascript.php:212
 msgid "DNS prefetching can make external resources load faster"
 msgstr "DNS 预加载可以使外部资源加载速度更快"
 
-#: includes/admin/css.php:570 includes/admin/javascript.php:500
+#: includes/admin/css.php:287 includes/admin/javascript.php:213
 msgid "Preconnect can remove additional roundtrips and reduce request latency"
 msgstr ""
 
-#: includes/admin/css.php:578
+#: includes/admin/css.php:295
 msgid "Exclude URL(s) from CSS optimization"
 msgstr "从 CSS 优化中排除网址"
 
@@ -642,31 +634,49 @@ msgstr "每次对图片大小进行某些更改时，都会重新生成缩略图
 msgid "Regenerate thumbnails"
 msgstr "重新生成缩略图"
 
-#: includes/admin/javascript.php:416
+#: includes/admin/includes/external_files.php:27
+#: includes/admin/includes/local_files.php:31
+#: includes/functions/miscellaneous.php:163
+msgid "Disable everywhere"
+msgstr "在所有地方禁用"
+
+#: includes/admin/includes/external_files.php:31
+#: includes/admin/includes/local_files.php:35
+#: includes/functions/miscellaneous.php:164
+msgid "Disable only on selected URL"
+msgstr "仅在选定的网址上禁用"
+
+#: includes/admin/includes/external_files.php:35
+#: includes/admin/includes/local_files.php:39
+#: includes/functions/miscellaneous.php:165
+msgid "Disable everywhere except on selected URL"
+msgstr "在所选网址以外的任何地方禁用"
+
+#: includes/admin/javascript.php:129
 msgid "JavaScript files not found"
 msgstr "找不到 JavaScript 文件"
 
-#: includes/admin/javascript.php:429
+#: includes/admin/javascript.php:142
 msgid "JavaScript settings"
 msgstr "JavaScript 设置"
 
-#: includes/admin/javascript.php:437
+#: includes/admin/javascript.php:150
 msgid "Minify inline JavaScript"
 msgstr "压缩内联 JavaScript"
 
-#: includes/admin/javascript.php:444
+#: includes/admin/javascript.php:157
 msgid "Asynchronously load JavaScript"
 msgstr "异步加载 JavaScript"
 
-#: includes/admin/javascript.php:448
+#: includes/admin/javascript.php:161
 msgid "Eliminates render-blocking JavaScript"
 msgstr "消除了阻止渲染的 JavaScript"
 
-#: includes/admin/javascript.php:454
+#: includes/admin/javascript.php:167
 msgid "Disable JavaScript optimization for logged-in users"
 msgstr "对已登录的用户禁用 JavaScript 优化"
 
-#: includes/admin/javascript.php:508
+#: includes/admin/javascript.php:221
 msgid "Exclude URL(s) from JavaScript optimization"
 msgstr "从 JavaScript 优化中排除网址"
 
@@ -871,11 +881,11 @@ msgstr "错误"
 msgid "both head and body tag should be present in template file"
 msgstr "head 和 body 标记都应存在模板文件中"
 
-#: includes/classes/parser.php:848
+#: includes/classes/parser.php:858
 msgid "Optimized by"
 msgstr "已优化来自"
 
-#: includes/classes/parser.php:864
+#: includes/classes/parser.php:874
 #, php-format
 msgid "Cache file was created in %s seconds on %s at %s"
 msgstr "缓存文件创建于 %s 秒，%s 于 %s"
@@ -884,7 +894,7 @@ msgstr "缓存文件创建于 %s 秒，%s 于 %s"
 msgid "is temporarily disabled"
 msgstr "暂时禁用"
 
-#: includes/classes/wpp.php:281 includes/functions/admin.php:253
+#: includes/classes/wpp.php:281 includes/functions/admin.php:254
 msgid "Enable"
 msgstr "启用"
 
@@ -900,11 +910,11 @@ msgstr "%s: 日志文件越来越大，可以清除日志，也可以禁用故�
 msgid "%s: missing writing permissions for file <code>.htaccess</code>"
 msgstr "%s: 缺少 <code>. htaccess 文件的写入权限 </code>"
 
-#: includes/functions/admin.php:256
+#: includes/functions/admin.php:257
 msgid "Temporarily disable"
 msgstr "暂时禁用"
 
-#: includes/functions/admin.php:276
+#: includes/functions/admin.php:277
 msgid "settings"
 msgstr "设置"
 
@@ -916,7 +926,7 @@ msgstr "每1分钟"
 msgid "Every 5 minutes"
 msgstr "每5分钟"
 
-#: includes/functions/db.php:83
+#: includes/functions/db.php:85
 msgid "You are doing it wrong"
 msgstr "你做错了"
 
@@ -936,34 +946,34 @@ msgstr "通知"
 msgid "Event"
 msgstr "活动"
 
-#: includes/functions/image.php:66
+#: includes/functions/image.php:68
 msgid "Size name already in use"
 msgstr "已在使用的大小名称"
 
-#: includes/functions/image.php:188
+#: includes/functions/image.php:190
 #, php-format
 msgid "%s image left"
 msgid_plural "%s images left"
 msgstr[0] "剩余 %s 图片"
 msgstr[1] "剩余 %s 图片"
 
-#: includes/functions/image.php:200
+#: includes/functions/image.php:202
 msgid "Done"
 msgstr "完成"
 
-#: includes/functions/miscellaneous.php:159
+#: includes/functions/miscellaneous.php:160
 msgid "Are you sure?"
 msgstr "你确定？"
 
-#: includes/functions/miscellaneous.php:165
+#: includes/functions/miscellaneous.php:166
 msgid "Something went wrong"
 msgstr "出了些问题"
 
-#: includes/functions/miscellaneous.php:166
+#: includes/functions/miscellaneous.php:167
 msgid "Regenerating thumbs"
 msgstr "重新生成缩略图"
 
-#: includes/functions/miscellaneous.php:167
+#: includes/functions/miscellaneous.php:168
 msgid "Regenerate thumbnails may take a long time. Do not close your browser."
 msgstr "重新生成缩略图可能需要很长时间。不要关闭浏览器。"
 
