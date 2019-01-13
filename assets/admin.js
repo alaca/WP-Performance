@@ -74,7 +74,8 @@ jQuery(document).ready(function ($) {
                         data: {
                             id: id,
                             type: type,
-                            action: 'wpp_remove_post_options'
+                            action: 'wpp_remove_post_options',
+                            nonce: WPP.nonce
                         }
                     }).done(function () {
                         $(that).parent('.wpp-dynamic-input-container').fadeOut();
@@ -237,7 +238,8 @@ jQuery(document).ready(function ($) {
                         url: ajaxurl,
                         dataType: 'json',
                         data: {
-                            action: 'wpp_clear_cache'
+                            action: 'wpp_clear_cache',
+                            nonce: WPP.nonce
                         }
                     }).done(function () {
                         $('#wpp_overlay').remove();
@@ -272,7 +274,8 @@ jQuery(document).ready(function ($) {
             url: ajaxurl,
             dataType: 'json',
             data: {
-                action: 'wpp_get_critical_css_path'
+                action: 'wpp_get_critical_css_path',
+                nonce: WPP.nonce
             }
         }).done(function ( response ) {
 
@@ -540,7 +543,8 @@ jQuery(document).ready(function ($) {
                             data: {
                                 action: 'wpp_images_action',
                                 image_action: 'remove_size',
-                                size: name
+                                size: name,
+                                nonce: WPP.nonce
                             }
                         }).done(function (response) {
 
@@ -584,7 +588,8 @@ jQuery(document).ready(function ($) {
                         dataType: 'json',
                         data: {
                             action: 'wpp_images_action',
-                            image_action: 'restore_sizes'
+                            image_action: 'restore_sizes',
+                            nonce: WPP.nonce
                         },
                         
                     }).done(function (response) {
@@ -592,7 +597,7 @@ jQuery(document).ready(function ($) {
                         if (response.status) {
 
                             // response from first request? hmm...
-                            $.post(ajaxurl, { action: 'wpp_images_action', image_action: 'get_all_sizes' }, function (data) {
+                            $.post(ajaxurl, { action: 'wpp_images_action', image_action: 'get_all_sizes', nonce: WPP.nonce }, function (data) {
 
                                 var tableBody = $('#wpp-image-sizes-table tbody');
 
@@ -687,7 +692,8 @@ jQuery(document).ready(function ($) {
                 data: {
                     action: 'wpp_images_action',
                     image_action: 'add_size',
-                    size: inputs.serialize()
+                    size: inputs.serialize(),
+                    nonce: WPP.nonce
 
                 }
             }).done(function (response) {
@@ -757,7 +763,8 @@ jQuery(document).ready(function ($) {
                 data: {
                     action: 'wpp_images_action',
                     image_action: 'regenerate_thumbnails',
-                    remove_flag: removeFlag
+                    remove_flag: removeFlag,
+                    nonce: WPP.nonce
                 }
             }).done(function (response) {
                 
@@ -829,8 +836,8 @@ jQuery(document).ready(function ($) {
                         dataType: 'json',
                         data: {
                             action: 'wpp_clean_database',
-                            db_action: action
-
+                            db_action: action,
+                            nonce: WPP.nonce
                         }
                     }).done(function () {
                         
@@ -963,6 +970,7 @@ jQuery(document).ready(function ($) {
                 url: ajaxurl,
                 data: {
                     action: 'wpp_get_log_content',
+                    nonce: WPP.nonce
                 }
             }).done(function ( data ) {
                 log_textarea.val( data )
