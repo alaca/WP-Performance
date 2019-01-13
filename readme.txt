@@ -78,6 +78,14 @@ If you encounter any bug, please create an issue on [Github](https://github.com/
 
 == Changelog ==
 
+= 1.0.6 =
+[NEW] Group resources ( Theme, Plugins, External )
+[IMPROVE] Security
+[IMPROVE] Admin UI on mobile devices
+[UPDATE] Translations
+[FIX] Clear cache on front-page
+[FIX] Various minor bugfixes
+
 = 1.0.5 =
 [NEW] Drafts cleanup
 [NEW] WP CLI commands - run database cleanups
