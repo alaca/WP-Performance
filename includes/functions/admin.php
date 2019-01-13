@@ -130,7 +130,8 @@ function wpp_add_top_menu_item() {
             wp_enqueue_script( 'wpp-cache-js', WPP_ASSET_URL . 'cache.js', [ 'jquery' ], null, true );
             wp_localize_script( 'wpp-cache-js', 'WPP', [
                 'path' => WPP_ASSET_URL,
-                'ajax' => admin_url( 'admin-ajax.php' ) 
+                'ajax_url' => admin_url( 'admin-ajax.php' ),
+                'nonce' => wp_create_nonce( 'wpp-ajax' )
             ] );
 
         }); 
@@ -338,5 +339,29 @@ function wpp_is_plugin_page() {
     }
 
     return false;
+
+}
+
+
+/**
+ * Load admin template
+ *
+ * @param string $template
+ * @param array $vars
+ * @return string
+ * @since 1.0.6
+ */
+function wpp_load_template( $template, $vars = [] ) {
+
+    if ( file_exists( $file = WPP_ADMIN_DIR . $template . '.php' ) ) {
+
+        ob_start();
+        extract( $vars );
+        include $file;
+        $content = ob_get_clean();
+
+        echo $content;
+        
+    }
 
 }

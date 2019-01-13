@@ -155,6 +155,7 @@ function wpp_enqueue_backend_assets() {
         'path' => WPP_ASSET_URL,
         'site_url' => trailingslashit( site_url() ),
         'admin_url' => trailingslashit( admin_url() ),
+        'nonce' => wp_create_nonce( 'wpp-ajax' ),   
         'lang' => [
             'confirm' => __( 'Are you sure?', 'wpp' ),
             'remove'  => __( 'Remove', 'wpp' ),
@@ -308,6 +309,12 @@ function wpp_is_resource_disabled( $type, $resource ) {
  * @return array
  */
 function wpp_get_critical_css_path() {
+
+    /**
+     * Check nonce
+     * @since 1.0.6
+     */
+    check_ajax_referer( 'wpp-ajax', 'nonce' );
 
     // Disable plugin
     Option::update( 'wpp_disable', true );
