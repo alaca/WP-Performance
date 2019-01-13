@@ -83,6 +83,7 @@ If you encounter any bug, please create an issue on [Github](https://github.com/
 [IMPROVE] Security
 [IMPROVE] Admin UI on mobile devices
 [UPDATE] Translations
+[FIX] Disable external resources
 [FIX] Clear cache on front-page
 [FIX] Various minor bugfixes
 

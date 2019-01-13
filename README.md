@@ -64,6 +64,7 @@ WP Performance does not support multisite yet.
 * [IMPROVE] Security
 * [IMPROVE] Admin UI on mobile devices
 * [UPDATE] Translations
+* [FIX] Disable external resources
 * [FIX] Clear cache on front-page
 * [FIX] Various minor bugfixes
 
