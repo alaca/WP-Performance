@@ -339,6 +339,12 @@ table.wpp-file-list tr {
 
 .wpp-bulk-update {
     border-top: 1px solid rgb(221, 221, 221);
+
+    font-size: 15px;
+}
+
+.wpp-files-type {
+    border-top: 1px solid rgb(221, 221, 221);
     background-color: rgb(250, 250, 250);
     font-size: 15px;
 }
@@ -422,6 +428,9 @@ table.wpp-file-list tr {
     height: 200px;
 }
 
+.wpp-visible-mobile {
+    display: none;
+}
 
 @media only screen and (max-width: 979px) { 
 
@@ -505,7 +514,7 @@ table.wpp-file-list tr {
 
 
     .wpp-list-filename em {
-        display: none;
+        margin-top: 6px;
     }
 
     .wpp-file-list thead {
@@ -552,4 +561,12 @@ table.wpp-file-list tr {
     .wpp-resource-hints-table td:nth-child(n+2) {
         padding-left: 20px;
     }
+
+    .wpp-visible-mobile {
+        display: block;
+        margin-top: 5px;
+        font-size: 14px;
+    }
+
+    
 }
