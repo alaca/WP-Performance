@@ -147,8 +147,13 @@ class Parser
             
             if ( File::isLocal( $href ) ) {
 
-                Collection::add( 'local', 'css', $href );
-
+                // Is this a plugin file ?
+                if ( strstr( $link->href, plugins_url() ) ) {
+                    Collection::add( 'plugin', 'css', $href );
+                } else {
+                    Collection::add( 'theme', 'css', $href );
+                }
+                
                 // Check if resource is disabled
                 if ( wpp_is_resource_disabled( 'css', $href ) ) {
                     $link->outertext = ''; 
@@ -336,7 +341,12 @@ class Parser
             
             if ( File::isLocal( $src ) ) {
 
-                Collection::add( 'local', 'js', $src );
+                // Is this a plugin file ?
+                if ( strstr( $script->src, plugins_url() ) ) {
+                    Collection::add( 'plugin', 'js', $src );
+                } else {
+                    Collection::add( 'theme', 'js', $src );
+                }       
 
                 // Check if resource is disabled
                 if ( wpp_is_resource_disabled( 'js', $src ) ) {
@@ -657,7 +667,7 @@ class Parser
     private function buildTemplate()
     {
         // Build lists
-        foreach( [ 'local', 'external', 'prefetch' ]  as $list ) {
+        foreach( [ 'theme', 'plugin', 'external', 'prefetch' ]  as $list ) {
 
             foreach( Collection::get( $list ) as $type => $items ) {
 
