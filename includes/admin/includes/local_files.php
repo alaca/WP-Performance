@@ -45,7 +45,7 @@ defined('ABSPATH') or exit; ?>
                     
                         <?php $selected_found = false; ?>
                         
-                        <?php foreach( Option::get('<?php echo $type ?>_disable_selected', [] ) as $file => $urls ): ?>
+                        <?php foreach( Option::get( $type . '_disable_selected', [] ) as $file => $urls ): ?>
                         
                             <?php if ( $file != $resource ) continue; $selected_found = true; ?>
 
@@ -72,7 +72,7 @@ defined('ABSPATH') or exit; ?>
 
                         <?php $everywhere_except = false; ?>
 
-                        <?php foreach( Option::get('<?php echo $type ?>_disable_except', [] ) as $file => $urls ): ?>
+                        <?php foreach( Option::get( $type . '_disable_except', [] ) as $file => $urls ): ?>
                         
                             <?php if ( $file != $resource ) continue; $everywhere_except = true; ?>
 

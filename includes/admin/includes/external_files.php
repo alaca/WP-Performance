@@ -1,6 +1,8 @@
 <?php namespace WPP;
 
-defined('ABSPATH') or exit; ?>
+defined('ABSPATH') or exit; 
+
+?>
 
 <?php foreach ( $list as $key => $name ): ?>
 
@@ -18,7 +20,9 @@ defined('ABSPATH') or exit; ?>
                     
                     <select 
                         class="wpp-disable-select-position" 
+                        data-wpp-file="<?php echo $resource; ?>" 
                         data-wpp-index="<?php echo $key; ?>" 
+                        data-wpp-prefix="<?php echo $type ?>" 
                         data-wpp-container="wpp-option-<?php echo $type ?>-<?php echo $resource; ?>" 
                         name="<?php echo $type ?>_disable_position[<?php echo $resource; ?>]" 
                         form="wpp-settings">
@@ -27,11 +31,11 @@ defined('ABSPATH') or exit; ?>
                             <?php _e( 'Disable everywhere', 'wpp' ); ?>
                         </option>
 
-                        <option value="selected_url" <?php if ( wpp_key_exists('selected_url', $disabled_positions, $resource )  ) echo 'selected="selected"'; ?>>
+                        <option value="selected" <?php if ( wpp_key_exists( 'selected', $disabled_positions, $resource )  ) echo 'selected="selected"'; ?>>
                             <?php _e( 'Disable only on selected URL', 'wpp' ); ?>
                         </option>
 
-                        <option value="everywhere_except" <?php if ( wpp_key_exists( 'everywhere_except', $disabled_positions, $resource )  ) echo 'selected="selected"'; ?>>
+                        <option value="except" <?php if ( wpp_key_exists( 'except', $disabled_positions, $resource )  ) echo 'selected="selected"'; ?>>
                             <?php _e( 'Disable everywhere except on selected URL', 'wpp' ); ?>
                         </option>
 
@@ -41,7 +45,7 @@ defined('ABSPATH') or exit; ?>
                     
                         <?php $selected_found = false; ?>
                         
-                        <?php foreach( Option::get('<?php echo $type ?>_disable_selected', [] ) as $file => $urls ): ?>
+                        <?php foreach( Option::get( $type . '_disable_selected', [] ) as $file => $urls ): ?>
                         
                             <?php if ( $file != $resource ) continue; $selected_found = true; ?>
 
@@ -70,7 +74,7 @@ defined('ABSPATH') or exit; ?>
 
                         <?php $everywhere_except = false; ?>
 
-                        <?php foreach( Option::get('<?php echo $type ?>_disable_except', [] ) as $file => $urls ): ?>
+                        <?php foreach( Option::get( $type . '_disable_except', [] ) as $file => $urls ): ?>
                         
                             <?php if ( $file != $resource ) continue; $everywhere_except = true; ?>
 
@@ -133,7 +137,11 @@ defined('ABSPATH') or exit; ?>
                 value="1" 
                 class="wpp-disable-option" 
                 data-wpp-index="<?php echo $resource; ?>" 
+                data-wpp-file="<?php echo $resource; ?>" 
+                data-wpp-name="<?php echo $type ?>_disable_position" 
+                data-wpp-prefix="<?php echo $type ?>" 
                 data-wpp-show-option="<?php echo $type ?>_position_<?php echo $resource; ?>" 
+                data-wpp-option-data="" 
                 data-wpp-group="<?php echo $type ?>-disable" 
                 data-wpp-disable-option="" 
                 name="<?php echo $type ?>_disable[<?php echo $resource; ?>]" 

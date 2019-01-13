@@ -457,7 +457,8 @@ jQuery(document).ready(function ($) {
         var prefix = $(this).data('wpp-prefix');
         var container = $(this).data('wpp-container');
         var data_options = $(this).data('wpp-options');
-        var options = data_options.split('|');
+
+        var options = ( data_options ) ? data_options.split('|') : false ;
 
         switch( position ) {
             case 'selected':
@@ -482,11 +483,15 @@ jQuery(document).ready(function ($) {
                 $('#' + container).html('');
                 $('[data-container="#' + container + '"]').remove();
 
-                $.each(options , function(i, name ){
+                if ( options ) {
 
-                    $('input[name="' + name + '[' + file + ']"]').attr('disabled', true );
+                    $.each(options , function(i, name ){
 
-                });
+                        $('input[name="' + name + '[' + file + ']"]').attr('disabled', true );
+    
+                    });
+
+                }
 
         }
         
