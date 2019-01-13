@@ -47,6 +47,8 @@ function wpp_get_defined_image_sizes( $sizes ) {
  */
 function wpp_ajax_image_actions() {
 
+    check_ajax_referer( 'wpp-ajax', 'nonce' );
+
     switch ( Input::post( 'image_action' ) ) {
 
         case 'add_size':

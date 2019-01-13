@@ -344,6 +344,8 @@ function wpp_save_post_options( $post_id ) {
  */
 function wpp_ajax_remove_post_options() {
 
+    check_ajax_referer( 'wpp-ajax', 'nonce' );
+
     $options = [
         'js'    => 'js_post_exclude',
         'css'   => 'css_post_exclude',
@@ -406,8 +408,10 @@ function wpp_delete_list_options() {
 function wpp_get_list_options() {
 
     $defaults = [ 
-        'local_css_list', 
-        'local_js_list', 
+        'plugin_css_list', 
+        'theme_css_list', 
+        'plugin_js_list', 
+        'theme_js_list', 
         'external_css_list', 
         'external_js_list', 
         'prefetch_css_list', 
@@ -469,7 +473,8 @@ function wpp_delete_files_list( $type, $notify = true  ) {
     }
 
     $list_names = [
-        sprintf( 'local_%s_list', $type ), 
+        sprintf( 'theme_%s_list', $type ), 
+        sprintf( 'plugin_%s_list', $type ), 
         sprintf( 'external_%s_list', $type ), 
         sprintf( 'prefetch_%s_list', $type )
     ];

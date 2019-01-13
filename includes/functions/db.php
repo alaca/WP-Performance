@@ -19,6 +19,8 @@ use WPP\Input;
  */
 function wpp_ajax_database_actions() {
 
+    check_ajax_referer( 'wpp-ajax', 'nonce' );
+
     switch( Input::post( 'db_action' ) ) {
         
         case 'revisions':

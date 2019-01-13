@@ -149,6 +149,10 @@ class Cache
      */
     public static function clear( $preload = true ) {
 
+        if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
+            check_ajax_referer( 'wpp-ajax', 'nonce' );
+        }
+
         /**
          * Hook fired right before deleting the cache files
          * @since 1.0.0

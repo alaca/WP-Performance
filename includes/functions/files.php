@@ -271,6 +271,8 @@ function wpp_clear_log() {
  */
 function wpp_ajax_get_log_content() {
 
+    check_ajax_referer( 'wpp-ajax', 'nonce' );
+
     if ( file_exists( $file = wpp_get_log_file() ) ) {
         echo File::get( $file ); 
     }
