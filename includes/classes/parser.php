@@ -841,6 +841,7 @@ class Parser
         if ( Option::boolval( 'cache' ) ) {
             $vars[ 'expire' ]   = time() + intval( Option::get( 'cache_time', 3600 ) * Option::get( 'cache_length', 24 ) );
             $vars[ 'ajax_url' ] = admin_url( 'admin-ajax.php');
+            $vars[ 'nonce' ]    = wp_create_nonce( 'wpp-ajax' );
         }
 
         // Preload WPP to set high priority loading
