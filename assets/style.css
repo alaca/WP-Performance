@@ -568,5 +568,8 @@ table.wpp-file-list tr {
         font-size: 14px;
     }
 
-    
+    .wpp-content-section select {
+        width: 90% !important;
+    }
+
 }
