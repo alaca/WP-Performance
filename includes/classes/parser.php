@@ -543,8 +543,12 @@ class Parser
         // Get images
         foreach( $this->html->find( 'img' ) as $img ) {
 
-            // skip image if it has skip attribute or its excluded from admin
-            if ( $img->{'data-skip'} === 'true' || wpp_in_array( $excluded, $img->src ) ) {
+            // skip image if it has skip attribute or src is empty and its excluded from admin
+            if ( 
+                $img->{'data-skip'} === 'true' 
+                || ! $img->src 
+                || wpp_in_array( $excluded, $img->src ) 
+            ) {
                 continue;
             }
 
@@ -564,27 +568,35 @@ class Parser
                 if ( strstr( $img->src, $upload[ 'baseurl' ] ) ) {
 
                     // check image width
-                    $size = getimagesize( File::path( $img->src ) );
-
-                    // skip images smaller than 640px width
-                    if ( $size[ 0 ] < 640 ) {
+                    if ( ! file_exists( $image = File::path( $img->src ) ) ) {
+                        wpp_log( sprintf( 'Image %s is found on site, but looks like it does not exists', $img->src ) );
                         continue;
                     }
 
-                    // remove attributes
-                    $img->removeAttribute( 'sizes' );
-                    $img->removeAttribute( 'width' );
-                    $img->removeAttribute( 'height' );
+                    $size = @getimagesize( $image );
 
-                    $img->srcset = '';
+                    // skip images smaller than 640px width
+                    if ( isset( $size[ 0 ] ) && $size[ 0 ] < 640 ) {
+                        continue;
+                    }
 
                     $variations = Image::getAllVariations( $img->src );
 
-                    foreach ( $variations as $width => $image ) {
-                        $img->srcset .=  sprintf( '%s %sw,', $image, $width ); 
-                    }  
-                    
-                    $img->srcset = rtrim( $img->srcset, ',' );
+                    if ( ! empty( $variations ) ) {
+
+                        // Remove attributes
+                        $img->removeAttribute( 'sizes' );
+                        $img->removeAttribute( 'width' );
+                        $img->removeAttribute( 'height' );
+                        $img->srcset = '';
+
+                        foreach ( $variations as $width => $image ) {
+                            $img->srcset .=  sprintf( '%s %sw,', $image, $width ); 
+                        }  
+                        
+                        $img->srcset = rtrim( $img->srcset, ',' );
+
+                    }
 
                 }
 
