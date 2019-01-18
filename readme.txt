@@ -78,6 +78,11 @@ If you encounter any bug, please create an issue on [Github](https://github.com/
 
 == Changelog ==
 
+= 1.0.7 =
+[FIX] Add items to menu error
+[FIX] Parser warnings for responsive images
+[IMPROVE] Admin UI on mobile devices
+
 = 1.0.6 =
 [NEW] Group resources ( Theme, Plugins, External )
 [IMPROVE] Security
