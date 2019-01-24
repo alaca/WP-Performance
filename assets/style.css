@@ -23,7 +23,7 @@
     list-style: none;
     padding: 0;
     margin: 0;
-    line-height: 25px;
+    line-height: 27px;
 }
 
 #wpp_tabs_menu ul li {
@@ -31,9 +31,9 @@
 }
 
 #wpp_tabs_menu ul a {
-    padding: 9px 20px;
-    font-size: 15px;       
-    line-height: 15px;
+    padding: 10px 22px;
+    font-size: 14px;       
+    line-height: 16px;
     text-decoration: none;
     border: 1px solid #E0E0E0;
     color: #585858;
@@ -41,19 +41,25 @@
     box-shadow: none;
     margin: 0;
     background-color: #E8E8E8;
-
+    text-transform: uppercase;
 }
 
 #wpp_tabs_menu ul a.active {
     background-color: #fff;
     border-left: 1px solid #E0E0E0;
-    border-top: 2px solid #f87225;
+    border-top: 1px solid #fc4213;
     border-right: 1px solid #E0E0E0;
     border-bottom: 1px solid #fff;
 }
 
 #wpp_tabs_menu ul a:not(.active):hover {
     background-color: #F7F7F7;
+}
+
+#wpp_tabs_menu i {
+    position: relative;
+    top: 4px;
+    left: -5px;
 }
 
 .wpp_page {
@@ -176,10 +182,9 @@
 
 
 .wpp-content-section table td {
-    padding: 15px 5px;
+    padding: 18px 0;
     text-align: left;
     vertical-align: top;
-    word-break: break-all;
 }
 
 .wpp-content-section table td:first-child {
@@ -296,8 +301,7 @@
 }
 
 #wpp_mobile_menu select {
-    padding: 10px;
-    height: 50px;
+    height: 42px;
     font-size: 22px;
 }
 
@@ -306,7 +310,7 @@
 }
 
 
-#wp-admin-bar-wpp_clear_cache a {
+#wp-admin-bar-wpp_clear_cache a, #wp-admin-bar-wpp_clear_cf_cache a {
     color: #ff723a !important;
 }
 
@@ -432,6 +436,40 @@ table.wpp-file-list tr {
     display: none;
 }
 
+
+.wpp-section-title {
+    border-bottom: 1px solid #E0E0E0;
+}
+
+.wpp_page input[type="checkbox"] {
+    width: 18px !important;
+    height: 18px !important;
+    border-radius: 3px !important;
+    margin-top: 2px !important;
+}
+
+.wpp_page input[type="checkbox"]:checked::before {
+    width: 18px !important;
+    margin-top: -1px !important;
+    margin-left: -3px !important;
+    font-size: 20px !important;
+}
+
+.wpp-cf-input {
+    width: 100%;
+    height: 34px;
+    margin-bottom: 10px;
+}
+
+.wpp-ml-link {
+    margin-left: 10px;
+}
+
+.wpp_page h3 {
+    color: rgb(22, 22, 22);
+}
+
+
 @media only screen and (max-width: 979px) { 
 
     .wpp-content-section, .wpp-side-section {
@@ -460,7 +498,9 @@ table.wpp-file-list tr {
         margin-bottom: 10px;
     }
 
+
 }
+
 
 
 
@@ -472,7 +512,7 @@ table.wpp-file-list tr {
 
     .wpp-content-section, .wpp-side-section {
         display: block;
-        padding: 25px !important;
+        padding: 10px !important;
     }
 
     .wpp-side-section {
@@ -540,10 +580,6 @@ table.wpp-file-list tr {
         font-size: 14px;
     }
 
-    .wpp-side-section h3 {
-        font-size: 16px;
-    }
-
     #wpp-show-hide-critical-css {
         float: none;
         margin-top: 20px;
@@ -566,10 +602,82 @@ table.wpp-file-list tr {
         display: block;
         margin-top: 5px;
         font-size: 14px;
+        color: #444;
+    }
+
+    .wpp-hidden-mobile {
+        display: none;
     }
 
     .wpp-content-section select {
-        width: 90% !important;
+        width: 100%;
+        margin-bottom: 10px;
     }
+
+    .wpp-cache-time {
+        width: 75% !important;
+        height: 40px !important;
+    }
+
+    .wpp-page-wrapper strong {
+        margin-bottom: 0;
+    }
+
+    .wpp-file-list select {
+        width: 90% !important;
+        margin-bottom: 0 !important;
+    }
+
+
+    .wpp_page input[type="checkbox"] {
+        width: 22px !important;
+        height: 22px !important;
+        margin-top: 0 !important;
+    }
+    
+    .wpp_page input[type="checkbox"]:checked::before {
+        width: 22px !important;
+        font-size: 24px !important;
+    }
+
+
+    #wpp-image-sizes-table thead {
+        display: none;
+    }
+
+    #wpp-image-sizes-table td {
+        display: block;
+        padding: 10px;
+        text-align: right;
+        border-bottom: 1px solid rgb(228, 228, 228);    
+        min-height: 20px;
+    }
+
+    #wpp-image-sizes-table td:last-child {    
+        min-height: 50px;
+        border-bottom: none;
+    }
+
+    #wpp-image-sizes-table span {
+        float: left;
+        margin-top: -1px;
+    }
+
+    #wpp-image-sizes-table input {
+        float: none;
+    }
+
+    .wpp-add-image-size-row td {
+        text-align: left !important;
+    }
+
+    .wpp_page h3 {
+        font-size: 16px;
+    }
+
+    .wpp_page .button {
+        padding: 4px 8px !important;
+    }
+
 
 }
