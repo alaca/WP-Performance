@@ -26,6 +26,53 @@ defined('ABSPATH') or exit; ?>
                     </a>
                 </td>
             </tr>
+
+            <tr>
+                <td colspan="2">
+                    <h3><?php _e( 'Add-ons', 'wpp' ); ?></h3>
+                </td>
+            </tr>
+
+            <tr>
+                <td><strong><?php _e( 'Cloudflare', 'wpp' ); ?></strong></td>
+                <td>
+                    <label class="wpp-info">
+                        <input type="checkbox" value="1" name="cf_enabled" form="wpp-settings" <?php wpp_checked( 'cf_enabled' ); ?> />
+                        <?php _e( 'Enable', 'wpp' ); ?>
+                    </label>
+                </td>
+            </tr>
+
+            <tr data-wpp-show-checked="cache">
+                <td><strong><?php _e( 'Varnish', 'wpp' ); ?></strong></td>
+                <td>
+                    <label class="wpp-info">
+                        <input type="checkbox"  data-wpp-checkbox="varnish_auto_purge" value="1" name="varnish_auto_purge" form="wpp-settings" <?php wpp_checked( 'varnish_auto_purge' ); ?> />
+                        <?php _e( 'Enable', 'wpp' ); ?>
+                    </label>
+                    <br /> <br />
+                    <em><span class="dashicons dashicons-info"></span> <?php _e( 'If Varnish runs on your server, you need to activate this option.', 'wpp' ); ?></em>
+
+                    <div data-wpp-show-checked="varnish_auto_purge">
+                        <br />
+                        <div><?php _e( 'Custom host', 'wpp' ); ?></div><br />
+                        <input 
+                            type="text" 
+                            placeholder="http://"
+                            name="varnish_custom_host" 
+                            value="<?php echo Option::get( 'varnish_custom_host' ); ?>" 
+                            form="wpp-settings"
+                            class="wpp-dynamic-input" />  
+                                
+                            <br /><br />
+
+                        <em><span class="dashicons dashicons-info"></span> <?php _e( 'If you are using proxy, you may need this option', 'wpp' ); ?></em>
+
+                    </div>
+
+                </td>
+            </tr>
+
             <?php if ( wpp_get_server_software() == 'nginx' || defined( 'WPP_SHOW_NGINX_REWRITE_RULES' ) && WPP_SHOW_NGINX_REWRITE_RULES ) : ?>
 
                 <tr data-wpp-show-checked="nginx_rules">
@@ -82,6 +129,8 @@ defined('ABSPATH') or exit; ?>
         <?php if( Option::boolval( 'enable_log' ) ): ?>
             <input type="submit" class="button" value="<?php _e( 'Clear log file', 'wpp' ); ?>" name="wpp-clear-log" form="wpp-settings" />
         <?php endif; ?>
+
+        <br /><br />
 
     </div>
 
