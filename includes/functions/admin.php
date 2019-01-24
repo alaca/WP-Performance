@@ -223,6 +223,34 @@ function wpp_add_top_menu_item() {
                 'title' => __( 'Settings', 'wpp' )
             ]
         ] );
+
+
+        // Cloudflare
+        if ( Option::boolval( 'cf_enabled' ) ) {
+
+            $admin_bar->add_node( [
+                'id'     => 'wpp_cloudflare_topbar_link',
+                'title'  => 'Cloudflare', 
+                'href'   => admin_url( 'admin.php?page=' . WPP_PLUGIN_ADMIN_URL . '&wpp-tab=cloudflare' ),
+                'parent' => 'wpp', 
+                'meta'   => [
+                    'title' => 'Cloudflare'
+                ]
+            ] );
+
+
+            $admin_bar->add_node( [
+                'id'     => 'wpp_clear_cf_cache',
+                'title'  => __( 'Clear Cloudflare cache', 'wpp' ), 
+                'href'   => '#',
+                'parent' => 'wpp', 
+                'meta'   => [
+                    'class' => 'wpp_clear_cf_cache', 
+                    'title' => __( 'Clear Cloudflare cache', 'wpp' )
+                ]
+            ] );
+
+        }
         
         $admin_bar->add_node( [
             'id'     => 'wpp_clear_cache',
@@ -234,6 +262,8 @@ function wpp_add_top_menu_item() {
                 'title' => __( 'Clear cache', 'wpp' )
             ]
         ] );
+
+        
 
     }, 99 );
     
