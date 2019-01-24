@@ -154,28 +154,21 @@ class WP_Performance
             wpp_add_top_menu_item();
 
         } else {
-            
             // load cache
-            if ( Option::boolval( 'cache' ) && ! isset( $_GET[ 'nocache' ] ) ) {
-                Cache::load();
-            }
-
+            if ( Option::boolval( 'cache' ) ) Cache::load();
         }
 
-        if ( ! isset( $_GET[ 'noparse' ] ) ) {
+        /**
+         * Frontend actions hook
+         * 
+         * @since 1.0.8
+         */
+        do_action( 'wpp_frontend_actions' );
 
-            // Cleanup header
-            if ( apply_filters( 'wpp_cleanup_header', true ) ) {
-                wpp_cleanup_header();
-            }
-
-            // Hook up
-            add_action( 'wp', function() {
-                if ( ! is_404() ) add_filter( 'template_include', [ 'WPP\Parser', 'init' ], 99999 );
-            } );
-
-
-        }
+        // Hook up
+        add_action( 'wp', function() {
+            if ( ! is_404() ) add_filter( 'template_include', [ 'WPP\Parser', 'init' ], 99999 );
+        } );
         
     }
 
@@ -206,7 +199,7 @@ class WP_Performance
             }
     
             // Get initial CSS and JS files by loading the front page
-            if ( ! Option::get( 'local_css' ) || ! Option::get( 'local_js' ) ) {
+            if ( ! Option::get( 'local_css' ) ) {
                 wpp_preload_homepage();
             }   
 
@@ -228,6 +221,11 @@ class WP_Performance
             // Save settings
             if ( Input::post( 'wpp-save-settings' ) && wp_verify_nonce( Input::post( 'wpp-nonce' ), 'save-settings' ) ) {
                 wpp_save_settings();
+            }
+
+            // Cloudflare settings
+            if ( Input::post( 'wpp-cf-save-settings' ) && wp_verify_nonce( Input::post( 'wpp-nonce' ), 'save-settings' )) {
+                wpp_cloudflare_save_settings();
             }
 
             // Clear log file
@@ -289,6 +287,11 @@ class WP_Performance
                 // Check if htaccess is writable and server is apache
                 if ( 'apache' === wpp_get_server_software() && ! wpp_is_htaccess_writable() ) {
                     wpp_notify( sprintf( __( '%s: missing writing permissions for file <code>.htaccess</code>', 'wpp' ), WPP_PLUGIN_NAME ), 'error', false );
+                }
+
+                // Check if Cloudflare api key and email are set
+                if ( Option::boolval( 'cf_enabled' ) && ! Option::boolval( 'cf_api_key' ) && ! Option::boolval( 'cf_email' ) ) {
+                    wpp_notify( sprintf( __( '%s: enter Cloudflare credentials', 'wpp' ), WPP_PLUGIN_NAME ), 'warning', false );
                 }
 
             } );

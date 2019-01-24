@@ -111,6 +111,8 @@ function wpp_save_settings( $notify = true ) {
     Option::update( 'browser_cache',         Input::post( 'browser_cache', 'boolean' ) );
     Option::update( 'gzip_compression',      Input::post( 'gzip_compression', 'boolean' ) );
     Option::update( 'sitemaps_list',         Input::post( 'sitemaps_list', 'string', FILTER_REQUIRE_ARRAY ) );
+    
+    // Varnish
     Option::update( 'varnish_auto_purge',    Input::post( 'varnish_auto_purge', 'boolean' ) );
     Option::update( 'varnish_custom_host',   Input::post( 'varnish_custom_host', 'url' ) );
 
@@ -163,7 +165,6 @@ function wpp_save_settings( $notify = true ) {
     Option::update( 'cdn_hostname',          Input::post( 'cdn_hostname', 'url' ) );
     Option::update( 'cdn_exclude',           Input::post( 'cdn_exclude', 'string', FILTER_REQUIRE_ARRAY ) );
 
-
     // Database
     Option::update( 'db_cleanup_transients', Input::post( 'db_cleanup_transients', 'boolean' ) );
     Option::update( 'db_cleanup_revisions',  Input::post( 'db_cleanup_revisions', 'boolean' ) );
@@ -171,6 +172,10 @@ function wpp_save_settings( $notify = true ) {
     Option::update( 'db_cleanup_trash',      Input::post( 'db_cleanup_trash', 'boolean' ) );
     Option::update( 'db_cleanup_cron',       Input::post( 'db_cleanup_cron', 'boolean' ) );
     Option::update( 'db_cleanup_autodrafts', Input::post( 'db_cleanup_autodrafts', 'boolean' ) );
+
+    // Cloudflare
+    Option::update( 'cf_enabled',            Input::post( 'cf_enabled', 'boolean' ) );
+
 
     // Cleanup schedule
     $frequency = Input::post( 'automatic_cleanup_frequency' );
