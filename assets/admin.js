@@ -5,7 +5,7 @@ jQuery(document).ready(function ($) {
 
     jconfirm.defaults = {
         title: WPP.lang.confirm,
-        boxWidth: '500px',
+        theme: 'supervan',
         useBootstrap: false,
         draggable: false,
     };
@@ -66,7 +66,7 @@ jQuery(document).ready(function ($) {
         $.confirm({
             content: $(this).data('description'),
             buttons: {
-                confirm: function () {
+                Confirm: function () {
 
                     $.ajax({
                         method: 'POST',
@@ -82,7 +82,7 @@ jQuery(document).ready(function ($) {
                     });
 
                 },
-                cancel: function () { }
+                Cancel: function () { }
             }
         });
 
@@ -101,12 +101,12 @@ jQuery(document).ready(function ($) {
             $.confirm({
                 content: $(this).data('description'),
                 buttons: {
-                    confirm: function () {
+                    Confirm: function () {
     
                         $(that).attr('checked', true );
     
                     },
-                    cancel: function () {
+                    Cancel: function () {
                         $(that).attr('checked', false );
                     }
                 }
@@ -229,7 +229,7 @@ jQuery(document).ready(function ($) {
         $.confirm({
             content: $(this).data('description') || $(this).attr('title'),
             buttons: {
-                confirm: function () {
+                Confirm: function () {
 
                     $('body').append('<div id="wpp_overlay"><img id="wpp_loader" src="' + WPP.path + 'loader.svg" /></div>');
 
@@ -247,7 +247,46 @@ jQuery(document).ready(function ($) {
                     });
 
                 },
-                cancel: function () { }
+                Cancel: function () { }
+            }
+        });
+
+    });
+
+    /**
+     * Clear Cloudflare cache
+     */
+    $(document).on('click', '#wpp-clear-cf-cache, li.wpp_clear_cf_cache a', function (e) {
+
+        e.preventDefault();
+
+        $.confirm({
+            content: $(this).data('description') || $(this).attr('title'),
+            buttons: {
+                Confirm: function () {
+
+                    $('body').append('<div id="wpp_overlay"><img id="wpp_loader" src="' + WPP.path + 'loader.svg" /></div>');
+
+                    $.ajax({
+                        method: 'POST',
+                        url: ajaxurl,
+                        dataType: 'json',
+                        data: {
+                            action: 'wpp_clear_cf_cache',
+                            nonce: WPP.nonce
+                        }
+                    }).done(function ( response ) {
+
+                        if ( ! response.status ) {
+                            console.log( response.message );
+                        }
+
+                        $('#wpp_overlay').remove();
+
+                    });
+
+                },
+                Cancel: function () { }
             }
         });
 
@@ -504,10 +543,10 @@ jQuery(document).ready(function ($) {
 
         e.preventDefault();
 
-        var row = '<tr><td><input type="text" placeholder="name" size="12" name="name" /></td>';
-        row += '<td><input type="text" placeholder="width" size="3" maxlength="4" name="width" /></td>';
-        row += '<td><input type="text" placeholder="height" size="3" maxlength="4" name="height" /></td>';
-        row += '<td><input type="checkbox" name="crop" /></td>';
+        var row = '<tr class="wpp-add-image-size-row"><td><input type="text" placeholder="name" size="12" name="name" />&nbsp;</td>';
+        row += '<td><input type="text" placeholder="width" size="3" maxlength="4" name="width" />&nbsp;</td>';
+        row += '<td><input type="text" placeholder="height" size="3" maxlength="4" name="height" />&nbsp;</td>';
+        row += '<td><input type="checkbox" name="crop" />&nbsp;</td>';
         row += '<td><a href="#" class="button wpp-save-image-size">Save</a> <a href="#" class="button wpp-remove-user-image-size">x</a></td></tr>';
 
         var lastSize = $('#wpp-image-sizes-table tbody tr:last-child');
@@ -537,7 +576,7 @@ jQuery(document).ready(function ($) {
             $.confirm({
                 content: description,
                 buttons: {
-                    confirm: function () {
+                    Confirm: function () {
 
                         self.parents('tr').remove();
 
@@ -560,7 +599,7 @@ jQuery(document).ready(function ($) {
                         });
 
                     },
-                    cancel: function () { }
+                    Cancel: function () { }
                 }
             });
 
@@ -585,7 +624,7 @@ jQuery(document).ready(function ($) {
         $.confirm({
             content: description,
             buttons: {
-                confirm: function () {
+                Confirm: function () {
 
                     $.ajax({
                         method: 'POST',
@@ -631,7 +670,7 @@ jQuery(document).ready(function ($) {
                     });
 
                 },
-                cancel: function () { }
+                Cancel: function () { }
             }
         });
 
@@ -797,7 +836,6 @@ jQuery(document).ready(function ($) {
         $.confirm({
             title: title,
             content: '<div>' + WPP.lang.regenerate_thumbs_info + '</div>',
-            theme: 'supervan',
             buttons: {
                 Confirm: {
                     action: function () {
@@ -831,7 +869,7 @@ jQuery(document).ready(function ($) {
         $.confirm({
             content: description,
             buttons: {
-                confirm: function () {
+                Confirm: function () {
 
                     $('body').append('<div id="wpp_overlay"><img id="wpp_loader" src="' + WPP.path + 'loader.svg" /></div>');
 
@@ -859,7 +897,7 @@ jQuery(document).ready(function ($) {
                     });
 
                 },
-                cancel: function () { }
+                Cancel: function () { }
             }
         });
 
@@ -880,10 +918,10 @@ jQuery(document).ready(function ($) {
         $.confirm({
             content: description,
             buttons: {
-                confirm: function () {
+                Confirm: function () {
                     window.location.href = href;
                 },
-                cancel: function () {
+                Cancel: function () {
                 }
             }
         });
@@ -956,7 +994,7 @@ jQuery(document).ready(function ($) {
 
         window.setTimeout(function(){
             notice.fadeOut();
-        }, 3000 );
+        }, 5000 );
 
     }
 
