@@ -870,6 +870,13 @@ class Parser
 
         $this->html .= PHP_EOL . sprintf( '<!-- %s %s %s -->', __( 'Optimized by', 'wpp' ), WPP_PLUGIN_NAME, WPP_VERSION ) . PHP_EOL;
 
+        /**
+         * Filter parsed content
+         * 
+         * @since 1.0.8
+         */
+        $output = apply_filters( 'wpp_parsed_content', $this->html );
+
         // Should we cache this page ?
         if ( 
             Option::boolval( 'cache' ) 
@@ -878,25 +885,30 @@ class Parser
             && ! is_user_logged_in() 
         ) {
 
+            /**
+             * Filter excluded urls
+             * 
+             * @since 1.0.0
+             */
             $excluded = apply_filters( 'wpp_exclude_urls', Option::get( 'cache_url_exclude', [] ) );
 
             // Check if page is excluded
             if ( ! wpp_in_array( $excluded, Url::current() ) ) {
         
-                $this->html .= sprintf( 
+                $output .= sprintf( 
                     '<!-- ' . __( 'Cache file was created in %s seconds on %s at %s', 'wpp' ) . ' -->',  
                     number_format( ( microtime( true ) - $this->time ), 2 ), 
                     date( get_option( 'date_format' ) ),
                     date( get_option( 'time_format' ) ) 
                 );
                 
-                Cache::save( $this->html );
+                Cache::save( $output );
                 
             }
 
         }
         
-        exit( $this->html );
+        exit( $output );
         
     }
 
