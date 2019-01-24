@@ -2,7 +2,7 @@
 
 defined('ABSPATH') or exit; ?>
 
-<?php foreach ( $list as $i => $resource ): ?>
+<?php foreach ( $list as $resource ): $index = md5( $resource ); ?>
 
     <tr class="<?php if ( wpp_key_exists( $resource, $disabled ) ) echo 'wpp-disabled-row'; ?>">
 
@@ -15,15 +15,15 @@ defined('ABSPATH') or exit; ?>
 
             <?php if ( wpp_key_exists( $resource, $disabled ) ): ?>
 
-                <div class="wpp-disable-select" data-wpp-option="<?php echo $type ?>_position_<?php echo $i; ?>">
+                <div class="wpp-disable-select" data-wpp-option="<?php echo $type ?>_position_<?php echo $index; ?>">
                     
                     <select 
                         class="wpp-disable-select-position" 
                         data-wpp-file="<?php echo $resource; ?>" 
-                        data-wpp-index="<?php echo $i; ?>" 
+                        data-wpp-index="<?php echo $index ; ?>" 
                         data-wpp-prefix="<?php echo $type ?>" 
                         data-wpp-options="<?php echo $type ?>_minify|<?php echo $type ?>_inline|<?php echo $type ?>_combine" 
-                        data-wpp-container="wpp-option-<?php echo $type ?>-<?php echo $i; ?>" 
+                        data-wpp-container="wpp-option-<?php echo $type ?>-<?php echo $index ; ?>" 
                         name="<?php echo $type ?>_disable_position[<?php echo $resource; ?>]" 
                         form="wpp-settings">
 
@@ -41,7 +41,7 @@ defined('ABSPATH') or exit; ?>
 
                     </select>       
 
-                    <div class="wpp-disabled-options-container" id="wpp-option-<?php echo $type ?>-<?php echo $i; ?>">
+                    <div class="wpp-disabled-options-container" id="wpp-option-<?php echo $type ?>-<?php echo $index; ?>">
                     
                         <?php $selected_found = false; ?>
                         
@@ -105,7 +105,7 @@ defined('ABSPATH') or exit; ?>
                             data-placeholder="<?php echo trailingslashit( site_url() ); ?>" 
                             class="button wpp-disable-container-options-btn" 
                             data-add-input="<?php echo $type ?>_disable_selected[<?php echo $resource; ?>][]"
-                            data-container="#wpp-option-<?php echo $type ?>-<?php echo $i; ?>">
+                            data-container="#wpp-option-<?php echo $type ?>-<?php echo $index ; ?>">
                             <?php _e( 'Add URL', 'wpp' ); ?></a>
 
                     <?php endif; ?>
@@ -116,7 +116,7 @@ defined('ABSPATH') or exit; ?>
                             data-placeholder="<?php echo trailingslashit( site_url() ); ?>" 
                             class="button wpp-disable-container-options-btn" 
                             data-add-input="<?php echo $type ?>_disable_except[<?php echo $resource; ?>][]"  
-                            data-container="#wpp-option-<?php echo $type ?>-<?php echo $i; ?>">
+                            data-container="#wpp-option-<?php echo $type ?>-<?php echo $index; ?>">
                             <?php _e( 'Add URL', 'wpp' ); ?></a>
                     
                     <?php endif; ?>
@@ -197,11 +197,11 @@ defined('ABSPATH') or exit; ?>
                 type="checkbox" 
                 value="1" 
                 class="wpp-disable-option" 
-                data-wpp-index="<?php echo $i; ?>" 
+                data-wpp-index="<?php echo $index; ?>" 
                 data-wpp-file="<?php echo $resource; ?>" 
                 data-wpp-name="<?php echo $type ?>_disable_position" 
                 data-wpp-prefix="<?php echo $type ?>" 
-                data-wpp-show-option="<?php echo $type ?>_position_<?php echo $i; ?>" 
+                data-wpp-show-option="<?php echo $type ?>_position_<?php echo $index; ?>" 
                 data-wpp-option-data="<?php echo $type ?>_combine|<?php echo $type ?>_inline|<?php echo $type ?>_minify" 
                 data-wpp-group="<?php echo $type ?>-disable" 
                 data-wpp-disable-option="<?php echo $type ?>_combine[<?php echo $resource; ?>]|<?php echo $type ?>_inline[<?php echo $resource; ?>]|<?php echo $type ?>_minify[<?php echo $resource; ?>]" 

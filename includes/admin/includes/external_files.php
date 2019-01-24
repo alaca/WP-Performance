@@ -4,7 +4,7 @@ defined('ABSPATH') or exit;
 
 ?>
 
-<?php foreach ( $list as $key => $name ): ?>
+<?php foreach ( $list as $name ): $index = md5( $name ); ?>
 
     <?php $resource = wpp_get_file_clean_name( $name ); ?>
 
@@ -16,14 +16,14 @@ defined('ABSPATH') or exit;
 
             <?php if ( wpp_key_exists( $resource, $disabled ) ): ?>
 
-                <div class="wpp-disable-select" data-wpp-option="<?php echo $type ?>_position_<?php echo $resource; ?>">
+                <div class="wpp-disable-select" data-wpp-option="<?php echo $type ?>_position_<?php echo $index; ?>">
                     
                     <select 
                         class="wpp-disable-select-position" 
                         data-wpp-file="<?php echo $resource; ?>" 
-                        data-wpp-index="<?php echo $key; ?>" 
+                        data-wpp-index="<?php echo $index; ?>" 
                         data-wpp-prefix="<?php echo $type ?>" 
-                        data-wpp-container="wpp-option-<?php echo $type ?>-<?php echo $resource; ?>" 
+                        data-wpp-container="wpp-option-<?php echo $type ?>-<?php echo $index; ?>" 
                         name="<?php echo $type ?>_disable_position[<?php echo $resource; ?>]" 
                         form="wpp-settings">
                             
@@ -41,7 +41,7 @@ defined('ABSPATH') or exit;
 
                     </select>       
 
-                    <div class="wpp-disabled-options-container" id="wpp-option-<?php echo $type ?>-<?php echo $resource; ?>">
+                    <div class="wpp-disabled-options-container" id="wpp-option-<?php echo $type ?>-<?php echo $index; ?>">
                     
                         <?php $selected_found = false; ?>
                         
@@ -109,7 +109,7 @@ defined('ABSPATH') or exit;
                             data-placeholder="<?php echo trailingslashit( site_url() ); ?>" 
                             class="button wpp-disable-container-options-btn" 
                             data-add-input="<?php echo $type ?>_disable_selected[<?php echo $resource; ?>][]"  
-                            data-container="#wpp-option-<?php echo $type ?>-<?php echo $resource; ?>">
+                            data-container="#wpp-option-<?php echo $type ?>-<?php echo $index; ?>">
                             <?php _e( 'Add URL', 'wpp' ); ?></a>
                     
                     <?php endif; ?>
@@ -120,7 +120,7 @@ defined('ABSPATH') or exit;
                             data-placeholder="<?php echo trailingslashit( site_url() ); ?>" 
                             class="button wpp-disable-container-options-btn" 
                             data-add-input="<?php echo $type ?>_disable_except[<?php echo $resource; ?>][]"  
-                            data-container="#wpp-option-<?php echo $type ?>-<?php echo $resource; ?>">
+                            data-container="#wpp-option-<?php echo $type ?>-<?php echo $index; ?>">
                             <?php _e( 'Add URL', 'wpp' ); ?></a>
                     
                     <?php endif; ?>
@@ -136,11 +136,11 @@ defined('ABSPATH') or exit;
                 type="checkbox" 
                 value="1" 
                 class="wpp-disable-option" 
-                data-wpp-index="<?php echo $resource; ?>" 
+                data-wpp-index="<?php echo $index; ?>" 
                 data-wpp-file="<?php echo $resource; ?>" 
                 data-wpp-name="<?php echo $type ?>_disable_position" 
                 data-wpp-prefix="<?php echo $type ?>" 
-                data-wpp-show-option="<?php echo $type ?>_position_<?php echo $resource; ?>" 
+                data-wpp-show-option="<?php echo $type ?>_position_<?php echo $index; ?>" 
                 data-wpp-option-data="" 
                 data-wpp-group="<?php echo $type ?>-disable" 
                 data-wpp-disable-option="" 
