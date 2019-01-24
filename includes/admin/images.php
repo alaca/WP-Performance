@@ -45,6 +45,10 @@ defined('ABSPATH') or exit; ?>
         </tr> 
 
         <tr data-wpp-show-checked="images_exclude">
+            <td colspan="2"><h3><?php _e( 'Exclude', 'wpp' ); ?></h3></td>
+        </tr>
+
+        <tr data-wpp-show-checked="images_exclude">
             <td><strong><?php _e('Exclude image', 'wpp'); ?></strong></td>
             <td>
 
@@ -187,6 +191,7 @@ defined('ABSPATH') or exit; ?>
     <br />
     <input type="submit" class="button-primary" value="<?php _e( 'Save changes', 'wpp' ); ?>" name="wpp-save-settings" form="wpp-settings" />
     
+    <br /><br />
 
     </div>
 
@@ -210,16 +215,45 @@ defined('ABSPATH') or exit; ?>
             <tbody>
             <?php foreach ( Image::getAllDefinedSizes() as $name => $data ): ?>
                 <tr>
-                    <td><?php echo $name; ?></td>
-                    <td><?php echo $data[0]; ?> px</td>
-                    <td><?php if ($data[1]) : ?><?php echo $data[1]; ?> px <?php endif; ?></td>
-                    <td><?php if (isset($data[2])) echo $data[2]; ?></td>
-                    <td><a href="#" data-size-name="<?php echo $name; ?>" data-description="<?php printf( __( 'Remove image size %s', 'wpp' ), $name ); ?>" class="button wpp-remove-user-image-size">x</a></td>
+                    <td>
+                        <span class="wpp-visible-mobile">
+                            <?php _e( 'Name', 'wpp' ) ?>
+                        </span>
+                        <?php echo $name; ?>
+                    </td>
+                    <td>
+                        <span class="wpp-visible-mobile">
+                            <?php _e( 'Width', 'wpp' ) ?>
+                        </span>
+                        <?php echo $data[0]; ?> px
+                    </td>
+                    <td>
+                        <span class="wpp-visible-mobile">
+                            <?php _e( 'Height', 'wpp' ) ?>
+                        </span>
+                        <?php if ( $data[1] ) : ?><?php echo $data[ 1 ]; ?> px <?php endif; ?>
+                    </td>
+                    <td>
+                        <span class="wpp-visible-mobile">
+                            <?php _e( 'Crop', 'wpp' ) ?>
+                        </span>
+                        <?php if ( isset( $data[2] ) && $data[2] == 1 ) _e( 'Yes', 'wpp' ); ?>
+                    </td>
+                    <td>
+                        <a href="#" 
+                            data-size-name="<?php echo $name; ?>" 
+                            data-description="<?php printf( __( 'Remove image size %s', 'wpp' ), $name ); ?>" 
+                            class="button wpp-remove-user-image-size">
+                            <span class="wpp-visible-mobile"><?php _e( 'Remove size', 'wpp' ) ?></span>
+                            <span class="wpp-hidden-mobile">x</span>
+                        </a>
+                    </td>
                 </tr>
             <?php endforeach; ?>
             </tbody>
         </table>
 
+        <br />
         <a href="#" id="wpp-add-image-size" class="button"><?php _e( 'Add size', 'wpp' ); ?></a> 
 
         <div id="wpp-image-errors"></div>

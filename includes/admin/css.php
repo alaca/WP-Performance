@@ -18,7 +18,7 @@ $external_list      = Option::get( 'external_css_list', [] );
     <div class="wpp-content-section">
 
         <?php if ( ! empty( $theme_files ) ): ?>
-
+        
             <table class="wpp-file-list">
 
                 <thead>

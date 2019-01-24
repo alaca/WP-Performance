@@ -32,6 +32,8 @@ defined('ABSPATH') or exit; ?>
 
         <input type="submit" class="button-primary" value="<?php _e( 'Save changes', 'wpp' ); ?>" name="wpp-save-settings" form="wpp-settings" />
 
+        <br /><br />
+
     </div>
 
     <div class="wpp-side-section">
