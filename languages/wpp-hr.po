@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WP Performance\n"
-"POT-Creation-Date: 2019-01-13 13:37+0100\n"
-"PO-Revision-Date: 2019-01-13 13:37+0100\n"
+"POT-Creation-Date: 2019-01-24 11:39+0100\n"
+"PO-Revision-Date: 2019-01-24 11:56+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: hr\n"
@@ -22,39 +22,39 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: includes/admin/admin.php:23 includes/admin/admin.php:37
-#: includes/admin/cache.php:11 includes/functions/admin.php:156
+#: includes/admin/admin.php:23 includes/admin/admin.php:40
+#: includes/functions/admin.php:156
 msgid "Cache"
 msgstr "Predmemorija"
 
-#: includes/admin/admin.php:26 includes/admin/admin.php:40
+#: includes/admin/admin.php:26 includes/admin/admin.php:43
 #: includes/functions/admin.php:186 includes/functions/admin.php:190
 msgid "Images"
 msgstr "Slike"
 
-#: includes/admin/admin.php:27 includes/admin/admin.php:41
+#: includes/admin/admin.php:27 includes/admin/admin.php:44
 #: includes/functions/admin.php:197 includes/functions/admin.php:201
 msgid "Database"
 msgstr "Baza podataka"
 
-#: includes/admin/admin.php:29 includes/admin/admin.php:43
+#: includes/admin/admin.php:29 includes/admin/admin.php:46
 #: includes/admin/settings.php:12 includes/functions/admin.php:160
 #: includes/functions/admin.php:219 includes/functions/admin.php:223
 msgid "Settings"
 msgstr "Postavke"
 
-#: includes/admin/cache.php:14
+#: includes/admin/cache.php:11
 msgid "Enable cache"
 msgstr "Omogući predmemoriju"
 
-#: includes/admin/cache.php:18
+#: includes/admin/cache.php:15
 msgid "Reduces your server response time by serving static files to users"
 msgstr ""
 "Smanjuje vrijeme odgovora poslužitelja posluživanjem statičkih datoteka "
 "korisnicima"
 
-#: includes/admin/cache.php:26 includes/admin/cache.php:177
-#: includes/admin/cache.php:198
+#: includes/admin/cache.php:23 includes/admin/cache.php:144
+#: includes/admin/cache.php:165
 msgid ""
 "Your web site is running on a Nginx server and some additional steps may be "
 "required in order to use this option."
@@ -62,103 +62,82 @@ msgstr ""
 "Vaša web stranica se nalazi na Nginx poslužitelju i možda će biti potrebni "
 "dodatni koraci kako bi se koristila ova opcija."
 
-#: includes/admin/cache.php:34
+#: includes/admin/cache.php:31
 msgid "Separate cache for mobile devices"
 msgstr "Odvojite predmemoriju za mobilne uređaje"
 
-#: includes/admin/cache.php:37
+#: includes/admin/cache.php:34
 msgid "Create a dedicated cache file for mobile devices"
 msgstr "Spremite predmemoriju u zasebnu datoteku za mobilne uređaje"
 
-#: includes/admin/cache.php:43
+#: includes/admin/cache.php:40
 msgid "Clear cache after"
 msgstr "Očisti predmemoriju nakon"
 
-#: includes/admin/cache.php:48
+#: includes/admin/cache.php:45
 msgid "minutes"
 msgstr "minuta"
 
-#: includes/admin/cache.php:51
+#: includes/admin/cache.php:48
 msgid "hours"
 msgstr "sat"
 
-#: includes/admin/cache.php:54
+#: includes/admin/cache.php:51
 msgid "days"
 msgstr "dan"
 
-#: includes/admin/cache.php:61
+#: includes/admin/cache.php:58
 msgid "Clear cache when"
 msgstr "Očisti predmemoriju kada"
 
-#: includes/admin/cache.php:65
+#: includes/admin/cache.php:62
 msgid "A new post or page is published or updated"
 msgstr "Nova stranica ili post je objavljen ili ažuriran"
 
-#: includes/admin/cache.php:70
+#: includes/admin/cache.php:67
 msgid "A post or page is deleted"
 msgstr "Stranica ili post je izbrisan"
 
-#: includes/admin/cache.php:75
+#: includes/admin/cache.php:72
 msgid "settings are saved"
 msgstr "postavke su spremljene"
 
-#: includes/admin/cache.php:81
-msgid "Varnish"
-msgstr "Varnish"
-
-#: includes/admin/cache.php:85
-msgid "Enable auto purge"
-msgstr "Omogući automatsko čišćenje"
-
-#: includes/admin/cache.php:88
-msgid "If Varnish runs on your server, you need to activate this option"
-msgstr ""
-"Ako je Varnish instaliran na vašem poslužitelju, morate aktivirati ovu opciju"
-
-#: includes/admin/cache.php:93
-msgid "Custom host"
-msgstr "Prilagođeni URL host"
-
-#: includes/admin/cache.php:105
-msgid "If you are using proxy, you may need this option"
-msgstr "Ako koristite proxy, možda vam zatreba ova opcija"
-
-#: includes/admin/cache.php:111
+#: includes/admin/cache.php:78
 msgid "Cache preloading"
 msgstr "Predučitavanje predmemorije"
 
-#: includes/admin/cache.php:131 includes/admin/cache.php:283
-#: includes/admin/cache.php:303 includes/admin/cdn.php:64
+#: includes/admin/cache.php:98 includes/admin/cache.php:251
+#: includes/admin/cache.php:271 includes/admin/cdn.php:66
 #: includes/admin/css.php:317 includes/admin/css.php:327
-#: includes/admin/images.php:62 includes/admin/images.php:88
-#: includes/admin/images.php:132 includes/admin/images.php:152
-#: includes/admin/includes/external_files.php:62
-#: includes/admin/includes/external_files.php:90
+#: includes/admin/images.php:66 includes/admin/images.php:92
+#: includes/admin/images.php:136 includes/admin/images.php:156
+#: includes/admin/includes/external_files.php:66
+#: includes/admin/includes/external_files.php:94
 #: includes/admin/includes/local_files.php:65
 #: includes/admin/includes/local_files.php:92 includes/admin/javascript.php:243
-#: includes/admin/javascript.php:253 includes/functions/miscellaneous.php:161
+#: includes/admin/javascript.php:253 includes/functions/miscellaneous.php:174
 msgid "Remove"
 msgstr "Makni"
 
-#: includes/admin/cache.php:141 includes/admin/cache.php:151
+#: includes/admin/cache.php:108 includes/admin/cache.php:118
 msgid "Enter path to XML sitemap which will be used for cache preloading"
 msgstr ""
 "Unesite putanju do XML mape stranice koji će se koristiti za predučitavanje "
 "predmemorije"
 
-#: includes/admin/cache.php:154
+#: includes/admin/cache.php:121
 msgid "Add Sitemap"
 msgstr "Dodaj XML mapu stranice"
 
-#: includes/admin/cache.php:162
+#: includes/admin/cache.php:129
 msgid "Browser caching"
 msgstr "Predmemorija preglednika"
 
-#: includes/admin/cache.php:166
+#: includes/admin/cache.php:133
 msgid "Leverage browser caching"
 msgstr "Iskoristite predmemoriju preglednika"
 
-#: includes/admin/cache.php:170
+#: includes/admin/cache.php:137
 msgid ""
 "Setting an expiry date in the HTTP headers for static resources instructs "
 "the browser to load previously downloaded resources from local disk rather "
@@ -168,11 +147,11 @@ msgstr ""
 "preglednik na učitavanje prethodno preuzetih resursa s lokalnog diska, a ne "
 "preko mreže"
 
-#: includes/admin/cache.php:187
+#: includes/admin/cache.php:154
 msgid "Enable gzip compression"
 msgstr "Omogući gzip kompresiju"
 
-#: includes/admin/cache.php:191
+#: includes/admin/cache.php:158
 msgid ""
 "Compressing resources with gzip reduce the number of bytes sent over the "
 "network"
@@ -180,85 +159,85 @@ msgstr ""
 "Komprimiranje resursa pomoću gzip-a smanjuje broj bajtova poslanih preko "
 "mreže"
 
-#: includes/admin/cache.php:211 includes/admin/cdn.php:33
-#: includes/admin/css.php:119 includes/admin/database.php:183
-#: includes/admin/images.php:188 includes/admin/javascript.php:118
-#: includes/admin/settings.php:80
+#: includes/admin/cache.php:178 includes/admin/cdn.php:33
+#: includes/admin/cloudflare.php:146 includes/admin/css.php:119
+#: includes/admin/database.php:183 includes/admin/images.php:192
+#: includes/admin/javascript.php:118 includes/admin/settings.php:127
 msgid "Save changes"
 msgstr "Spremi izmjene"
 
-#: includes/admin/cache.php:219
+#: includes/admin/cache.php:187
 msgid "Cache statistics"
 msgstr "Statistika predmemorije"
 
-#: includes/admin/cache.php:220 includes/functions/admin.php:229
-#: includes/functions/admin.php:234
+#: includes/admin/cache.php:188 includes/admin/cloudflare.php:21
+#: includes/functions/admin.php:257 includes/functions/admin.php:262
 msgid "Clear cache"
 msgstr "Očisti predmemeoriju"
 
-#: includes/admin/cache.php:239
+#: includes/admin/cache.php:207
 msgid "HTML files"
 msgstr "HTML datoteke"
 
-#: includes/admin/cache.php:242
+#: includes/admin/cache.php:210
 msgid "CSS files"
 msgstr "CSS datoteke"
 
-#: includes/admin/cache.php:245
+#: includes/admin/cache.php:213
 msgid "JavaScript files"
 msgstr "JavaScript datoteke"
 
-#: includes/admin/cache.php:250
+#: includes/admin/cache.php:218
 msgid "Total cache size"
 msgstr "Ukupna veličina predmemorije"
 
-#: includes/admin/cache.php:261
+#: includes/admin/cache.php:229
 msgid "Exclude URL(s) from cache"
 msgstr "Izuzimanje URL-ova iz predmemorije"
 
-#: includes/admin/cache.php:282 includes/admin/css.php:316
-#: includes/admin/images.php:131 includes/admin/javascript.php:242
+#: includes/admin/cache.php:250 includes/admin/css.php:316
+#: includes/admin/images.php:135 includes/admin/javascript.php:242
 #, php-format
 msgid "Remove %s from excluded URL(s)?"
 msgstr "Makni %s s liste izuzetih URL-ova"
 
-#: includes/admin/cache.php:312 includes/admin/cache.php:326
+#: includes/admin/cache.php:280 includes/admin/cache.php:294
 #: includes/admin/css.php:335 includes/admin/css.php:349
-#: includes/admin/images.php:161 includes/admin/images.php:173
+#: includes/admin/images.php:165 includes/admin/images.php:177
 #: includes/admin/javascript.php:261 includes/admin/javascript.php:275
 msgid "Part of the URL will also work"
 msgstr "Dio URL-a će također funkcionirati"
 
-#: includes/admin/cache.php:313 includes/admin/cache.php:326
-#: includes/admin/cdn.php:73 includes/admin/cdn.php:86
+#: includes/admin/cache.php:281 includes/admin/cache.php:294
+#: includes/admin/cdn.php:75 includes/admin/cdn.php:88
 #: includes/admin/css.php:336 includes/admin/css.php:349
-#: includes/admin/images.php:162 includes/admin/images.php:173
+#: includes/admin/images.php:166 includes/admin/images.php:177
 #: includes/admin/javascript.php:262 includes/admin/javascript.php:275
 msgid "Use {numbers} to match only numbers"
 msgstr "Koristite {numbers} za podudaranje samo brojeva"
 
-#: includes/admin/cache.php:314 includes/admin/cache.php:326
-#: includes/admin/cdn.php:74 includes/admin/cdn.php:86
+#: includes/admin/cache.php:282 includes/admin/cache.php:294
+#: includes/admin/cdn.php:76 includes/admin/cdn.php:88
 #: includes/admin/css.php:337 includes/admin/css.php:349
-#: includes/admin/images.php:163 includes/admin/images.php:173
+#: includes/admin/images.php:167 includes/admin/images.php:177
 #: includes/admin/javascript.php:263 includes/admin/javascript.php:275
 msgid "Use {letters} to match only letters"
 msgstr "Koristite {letters} za podudaranje samo slova"
 
-#: includes/admin/cache.php:315 includes/admin/cache.php:326
-#: includes/admin/cdn.php:75 includes/admin/cdn.php:86
+#: includes/admin/cache.php:283 includes/admin/cache.php:294
+#: includes/admin/cdn.php:77 includes/admin/cdn.php:88
 #: includes/admin/css.php:338 includes/admin/css.php:349
-#: includes/admin/images.php:164 includes/admin/images.php:173
+#: includes/admin/images.php:168 includes/admin/images.php:177
 #: includes/admin/javascript.php:264 includes/admin/javascript.php:275
 msgid "Use {any} to match any string"
 msgstr "Koristite {any} za podudaranje bilo kojeg niza"
 
-#: includes/admin/cache.php:329 includes/admin/css.php:352
-#: includes/admin/images.php:176 includes/admin/includes/external_files.php:109
-#: includes/admin/includes/external_files.php:120
+#: includes/admin/cache.php:297 includes/admin/css.php:352
+#: includes/admin/images.php:180 includes/admin/includes/external_files.php:113
+#: includes/admin/includes/external_files.php:124
 #: includes/admin/includes/local_files.php:109
 #: includes/admin/includes/local_files.php:120
-#: includes/admin/javascript.php:278 includes/functions/miscellaneous.php:162
+#: includes/admin/javascript.php:278 includes/functions/miscellaneous.php:175
 msgid "Add URL"
 msgstr "Dodaj URL"
 
@@ -278,22 +257,146 @@ msgstr ""
 msgid "CDN hostname"
 msgstr "Naziv CDN poslužitelja"
 
-#: includes/admin/cdn.php:41
+#: includes/admin/cdn.php:43
 msgid "Exclude file(s) from CDN"
 msgstr "Izuzmi datoteke iz CDN-a"
 
-#: includes/admin/cdn.php:89
+#: includes/admin/cdn.php:91
 msgid "Add file"
 msgstr "Dodaj datoteku"
+
+#: includes/admin/cloudflare.php:13
+msgid "Caching"
+msgstr "Predmemorija"
+
+#: includes/admin/cloudflare.php:19
+msgid "Cloudflare cache"
+msgstr "Cloudflare predmemeorija"
+
+#: includes/admin/cloudflare.php:21
+msgid "Clear all Cloudflare cache"
+msgstr "Očisti Cloudflare predmemoriju"
+
+#: includes/admin/cloudflare.php:26
+msgid "Development mode"
+msgstr "Uključi development mode"
+
+#: includes/admin/cloudflare.php:30 includes/admin/cloudflare.php:123
+#: includes/admin/cloudflare.php:135 includes/admin/settings.php:41
+#: includes/admin/settings.php:51 includes/classes/wpp.php:279
+#: includes/functions/admin.php:284
+msgid "Enable"
+msgstr "Omogući"
+
+#: includes/admin/cloudflare.php:33
+msgid "Temporarily activate development mode on your website."
+msgstr "Privremeno uključuje development mode na stranici"
+
+#: includes/admin/cloudflare.php:34
+msgid "This setting will automatically turn off after 3 hours."
+msgstr "Ova opcija će se automatski isključiti nakon 3 sata"
+
+#: includes/admin/cloudflare.php:39
+msgid "Cache level"
+msgstr "Level predmemorija"
+
+#: includes/admin/cloudflare.php:42
+msgid "Aggressive - Standard"
+msgstr "Agresivno - Standardno"
+
+#: includes/admin/cloudflare.php:43
+msgid "Simplified - Ignore query string"
+msgstr "Pojednostavljeno"
+
+#: includes/admin/cloudflare.php:44
+msgid "Basic - No query string"
+msgstr "Osnovno"
+
+#: includes/admin/cloudflare.php:49
+msgid ""
+"Aggressive: Delivers a different resource each time the query string changes."
+msgstr ""
+"Agresivno: isporučuje drugi resurs svaki put kad se niz upita promijeni."
+
+#: includes/admin/cloudflare.php:50
+msgid ""
+"Simplified: Delivers the same resource to everyone independent of the query "
+"string."
+msgstr "Pojednostavljeno: donosi isti resurs svima neovisno o nizu upita."
+
+#: includes/admin/cloudflare.php:51
+msgid ""
+"Basic: Only delivers resources from cache when there is no query string."
+msgstr "Osnovno: isporučuje samo resurse iz predmemorije kada nema niza upita."
+
+#: includes/admin/cloudflare.php:66
+msgid "Browser Cache Expiration"
+msgstr "Istek predmemorije preglednika"
+
+#: includes/admin/cloudflare.php:69
+msgid "Respect Existing Headers"
+msgstr "Poštuj postojeća zaglavlja"
+
+#: includes/admin/cloudflare.php:79
+msgid ""
+"Browser cache TTL (in seconds) specifies how long CloudFlare-cached "
+"resources will remain on your visitors computers."
+msgstr ""
+"Predmemorija preglednika TTL (u sekundama) određuje koliko dugo će resursi "
+"spremljeni u CloudFlareu ostati na računalima posjetitelja."
+
+#: includes/admin/cloudflare.php:80
+msgid "The minimum TTL available depends on the plan level of the zone."
+msgstr "Minimalna dostupnost TTL-a ovisi o planu zone koji koristite."
+
+#: includes/admin/cloudflare.php:88
+msgid "Content"
+msgstr "Sadržaj"
+
+#: includes/admin/cloudflare.php:94 includes/admin/css.php:27
+#: includes/admin/includes/local_files.php:153 includes/admin/javascript.php:27
+msgid "Minify"
+msgstr "Umanji"
+
+#: includes/admin/cloudflare.php:119
+msgid "Rocket Loader"
+msgstr "Rocket Loader"
+
+#: includes/admin/cloudflare.php:126
+msgid "Rocket Loader is a asynchronous JavaScript loader."
+msgstr "Rocket Loader je asinkroni JavaScript loader."
+
+#: includes/admin/cloudflare.php:131
+msgid "Brotli"
+msgstr "Brotli"
+
+#: includes/admin/cloudflare.php:138
+msgid ""
+"Speed up page load times for your visitor’s HTTPS traffic by applying Brotli "
+"compression."
+msgstr ""
+"Ubrzajte vrijeme učitavanja stranice za HTTPS promet posjetitelja primjenom "
+"Brotli kompresije."
+
+#: includes/admin/cloudflare.php:155
+msgid "Cloudflare credentials"
+msgstr "Cloudflare podaci"
+
+#: includes/admin/cloudflare.php:159
+msgid "API key"
+msgstr "API ključ"
+
+#: includes/admin/cloudflare.php:166
+msgid "Account email"
+msgstr "E-pošta računa"
+
+#: includes/admin/cloudflare.php:171
+msgid "Zone ID"
+msgstr "ID Zone"
 
 #: includes/admin/css.php:26 includes/admin/javascript.php:26
 msgid "File"
 msgstr "Datoteka"
-
-#: includes/admin/css.php:27 includes/admin/includes/local_files.php:153
-#: includes/admin/javascript.php:27
-msgid "Minify"
-msgstr "Umanjiti"
 
 #: includes/admin/css.php:28 includes/admin/includes/local_files.php:171
 #: includes/admin/javascript.php:28
@@ -305,7 +408,7 @@ msgstr "Umetni"
 msgid "Combine"
 msgstr "Kombinirati"
 
-#: includes/admin/css.php:30 includes/admin/includes/external_files.php:144
+#: includes/admin/css.php:30 includes/admin/includes/external_files.php:152
 #: includes/admin/includes/local_files.php:213 includes/admin/javascript.php:30
 msgid "Disable"
 msgstr "Onesposobiti"
@@ -569,109 +672,121 @@ msgstr ""
 "veličine slike"
 
 #: includes/admin/images.php:48
+msgid "Exclude"
+msgstr "Izuzmi"
+
+#: includes/admin/images.php:52
 msgid "Exclude image"
 msgstr "Izuzmi slike"
 
-#: includes/admin/images.php:51
+#: includes/admin/images.php:55
 msgid "Exclude image by name"
 msgstr "Izuzmi sliku po imenu slike"
 
-#: includes/admin/images.php:68
+#: includes/admin/images.php:72
 msgid "Add Image"
 msgstr "Dodaj sliku"
 
-#: includes/admin/images.php:77
+#: includes/admin/images.php:81
 msgid ""
 "Exclude images located in specific html containers like sliders and galleries"
 msgstr ""
 "Izuzmite slike koje se nalaze u određenim html kontejnerima kao npr. galerije"
 
-#: includes/admin/images.php:95 includes/admin/images.php:104
+#: includes/admin/images.php:99 includes/admin/images.php:108
 msgid "Enter container id or class name"
 msgstr "Unesite ID kontejnera ili naziv klase"
 
-#: includes/admin/images.php:96 includes/admin/images.php:104
+#: includes/admin/images.php:100 includes/admin/images.php:108
 msgid "Example"
 msgstr "Primjer"
 
-#: includes/admin/images.php:104
+#: includes/admin/images.php:108
 msgid "Add Container"
 msgstr "Dodaj kontejner"
 
-#: includes/admin/images.php:109
+#: includes/admin/images.php:113
 msgid "Exclude URL(s)"
 msgstr "Izuzmi URL"
 
-#: includes/admin/images.php:112
+#: includes/admin/images.php:116
 msgid "Exclude URL(s) from image optimization"
 msgstr "Izuzmi URL iz CSS optimizacije"
 
-#: includes/admin/images.php:196
+#: includes/admin/images.php:201
 msgid "Image sizes"
 msgstr "Veličine slika"
 
-#: includes/admin/images.php:197
+#: includes/admin/images.php:202
 msgid "Restore default image sizes"
 msgstr "Vraćanje zadanih veličina slika"
 
-#: includes/admin/images.php:197
+#: includes/admin/images.php:202
 msgid "Restore image sizes"
 msgstr "Vratite zadane veličine slika"
 
-#: includes/admin/images.php:204
+#: includes/admin/images.php:209 includes/admin/images.php:220
 msgid "Name"
 msgstr "Naziv"
 
-#: includes/admin/images.php:205
+#: includes/admin/images.php:210 includes/admin/images.php:226
 msgid "Width"
 msgstr "Širina"
 
-#: includes/admin/images.php:206
+#: includes/admin/images.php:211 includes/admin/images.php:232
 msgid "Height"
 msgstr "Visina"
 
-#: includes/admin/images.php:207
+#: includes/admin/images.php:212 includes/admin/images.php:238
 msgid "Crop"
 msgstr "Izreži"
 
-#: includes/admin/images.php:208
+#: includes/admin/images.php:213
 msgid "Actions"
 msgstr "Akcije"
 
-#: includes/admin/images.php:217
+#: includes/admin/images.php:240
+msgid "Yes"
+msgstr "Da"
+
+#: includes/admin/images.php:245
 #, php-format
 msgid "Remove image size %s"
 msgstr "Ukloni veličinu slike %s"
 
-#: includes/admin/images.php:223
+#: includes/admin/images.php:247
+msgid "Remove size"
+msgstr "Makni veličinu"
+
+#: includes/admin/images.php:257
 msgid "Add size"
 msgstr "Dodaj veličinu"
 
-#: includes/admin/images.php:229
+#: includes/admin/images.php:263
 msgid "Regenerate thumbnails every time you make some changes to image sizes"
 msgstr ""
 "Regenerirajte umanjene slike svaki put kada napravite neke promjene u "
 "veličini slika"
 
-#: includes/admin/images.php:231
+#: includes/admin/images.php:265
 msgid "Regenerate thumbnails"
 msgstr "Regenerirajte umanjene slike"
 
-#: includes/admin/includes/external_files.php:27
+#: includes/admin/includes/external_files.php:31
 #: includes/admin/includes/local_files.php:31
-#: includes/functions/miscellaneous.php:163
+#: includes/functions/miscellaneous.php:176
 msgid "Disable everywhere"
 msgstr "Onemogućite svugdje"
 
-#: includes/admin/includes/external_files.php:31
+#: includes/admin/includes/external_files.php:35
 #: includes/admin/includes/local_files.php:35
-#: includes/functions/miscellaneous.php:164
+#: includes/functions/miscellaneous.php:177
 msgid "Disable only on selected URL"
 msgstr "Onemogućite samo na odabranom URL-u"
 
-#: includes/admin/includes/external_files.php:35
+#: includes/admin/includes/external_files.php:39
 #: includes/admin/includes/local_files.php:39
-#: includes/functions/miscellaneous.php:165
+#: includes/functions/miscellaneous.php:178
 msgid "Disable everywhere except on selected URL"
 msgstr "Onemogući svugdje osim na odabranom URL-u"
 
@@ -774,15 +889,41 @@ msgstr "Izvezi postavke"
 msgid "Export"
 msgstr "Izvezi"
 
-#: includes/admin/settings.php:33
+#: includes/admin/settings.php:32
+msgid "Add-ons"
+msgstr "Dodaci"
+
+#: includes/admin/settings.php:37
+msgid "Cloudflare"
+msgstr "Cloudflare"
+
+#: includes/admin/settings.php:47
+msgid "Varnish"
+msgstr "Varnish"
+
+#: includes/admin/settings.php:54
+msgid "If Varnish runs on your server, you need to activate this option."
+msgstr ""
+"Ako je Varnish instaliran na vašem poslužitelju, morate aktivirati ovu "
+"opciju."
+
+#: includes/admin/settings.php:58
+msgid "Custom host"
+msgstr "Prilagođeni URL host"
+
+#: includes/admin/settings.php:69
+msgid "If you are using proxy, you may need this option"
+msgstr "Ako koristite proxy, možda vam zatreba ova opcija"
+
+#: includes/admin/settings.php:80
 msgid "Server"
 msgstr "Poslužitelj"
 
-#: includes/admin/settings.php:38
+#: includes/admin/settings.php:85
 msgid "Nginx configuration"
 msgstr "Nginx postavke"
 
-#: includes/admin/settings.php:42
+#: includes/admin/settings.php:89
 #, php-format
 msgid ""
 "%s will work out of the box on Nginx servers, this rewrite rules are not "
@@ -793,53 +934,58 @@ msgstr ""
 "nisu neophodne. Međutim, da biste dodatno optimizirali vašu web stranicu, "
 "dodajte ove definicije u Nginx konfiguracijsku datoteku."
 
-#: includes/admin/settings.php:44
+#: includes/admin/settings.php:91
 msgid "Select all"
 msgstr "Odabrati sve"
 
-#: includes/admin/settings.php:51
+#: includes/admin/settings.php:98
 msgid "Logs"
 msgstr "Zapisi"
 
-#: includes/admin/settings.php:55
+#: includes/admin/settings.php:102
 msgid "Troubleshooting logging"
 msgstr "Dnevnik"
 
-#: includes/admin/settings.php:59
+#: includes/admin/settings.php:106
 msgid "Enable troubleshooting logging"
 msgstr "Omogući dnevnik"
 
-#: includes/admin/settings.php:62
+#: includes/admin/settings.php:109
 msgid "These logs can be helpful for troubleshooting problems"
 msgstr "Ovi zapisi mogu biti korisni za rješavanje problema"
 
-#: includes/admin/settings.php:68
+#: includes/admin/settings.php:115
 msgid "Log file content"
 msgstr "Sadržaj datoteke dnevnika"
 
-#: includes/admin/settings.php:71
+#: includes/admin/settings.php:118
 msgid "Content is auto refreshed every 10 seconds"
 msgstr "Sadržaj se automatski osvježava svakih 10 sekundi"
 
-#: includes/admin/settings.php:83
+#: includes/admin/settings.php:130
 msgid "Clear log file"
 msgstr "Očisti datoteku dnevnika"
 
-#: includes/admin/settings.php:90
+#: includes/admin/settings.php:139
 msgid "Previous configuration settings"
 msgstr "Prethodne postavke konfiguracije"
 
-#: includes/admin/settings.php:106
+#: includes/admin/settings.php:155
 msgid "Saved"
 msgstr "Spremljeno"
 
-#: includes/admin/settings.php:109
+#: includes/admin/settings.php:158
 msgid "Load configuration settings saved on "
 msgstr "Učitajte postavke konfiguracije spremljene u "
 
-#: includes/admin/settings.php:112
+#: includes/admin/settings.php:161
 msgid "Load"
 msgstr "Učitaj"
+
+#: includes/classes/api.php:131
+#, php-format
+msgid "Call to undefined method %s"
+msgstr ""
 
 #: includes/classes/cli.php:23
 msgid "Flushing the cache..."
@@ -913,24 +1059,20 @@ msgstr "greška"
 msgid "both head and body tag should be present in template file"
 msgstr "oznaka head i body bi trebale biti prisutne u datoteci predloška"
 
-#: includes/classes/parser.php:858
+#: includes/classes/parser.php:871
 msgid "Optimized by"
 msgstr "Optimizirano sa"
 
-#: includes/classes/parser.php:874
+#: includes/classes/parser.php:899
 #, php-format
 msgid "Cache file was created in %s seconds on %s at %s"
 msgstr "Datoteka predmemorije stvorena je za %s sekundi na dan %s u %s"
 
-#: includes/classes/wpp.php:281
+#: includes/classes/wpp.php:279
 msgid "is temporarily disabled"
 msgstr "je privremeno onemogućen"
 
-#: includes/classes/wpp.php:281 includes/functions/admin.php:254
-msgid "Enable"
-msgstr "Omogući"
-
-#: includes/classes/wpp.php:286
+#: includes/classes/wpp.php:284
 #, php-format
 msgid ""
 "%s: Log file is getting large, either clear the log or disable "
@@ -939,18 +1081,86 @@ msgstr ""
 "%s: Datoteka dnevnika postaje sve veća, očistite zapise dnevnika ili "
 "onemogućite zapisivanje u dnevnik"
 
-#: includes/classes/wpp.php:291
+#: includes/classes/wpp.php:289
 #, php-format
 msgid "%s: missing writing permissions for file <code>.htaccess</code>"
 msgstr "%s: nedostaju dozvole za pisanje u datoteku <code> .htaccess </code>"
 
-#: includes/functions/admin.php:257
+#: includes/classes/wpp.php:294
+#, php-format
+msgid "%s: enter Cloudflare credentials"
+msgstr "%s: unesite Cloudflare podatke računa"
+
+#: includes/functions/admin.php:244 includes/functions/admin.php:249
+msgid "Clear Cloudflare cache"
+msgstr "Očisti Cloudflare predmemeoriju"
+
+#: includes/functions/admin.php:287
 msgid "Temporarily disable"
 msgstr "Privremeno onemogući"
 
-#: includes/functions/admin.php:277
+#: includes/functions/admin.php:307
 msgid "settings"
 msgstr "settings"
+
+#: includes/functions/cloudflare.php:28
+msgid "Cloudflare API credentials not set"
+msgstr "Cloudflare API podaci nisu postavljeni"
+
+#: includes/functions/cloudflare.php:44
+msgid " Cloudflare cannot get zone details. Check your Cloudflare credentials"
+msgstr ""
+"Cloudflare ne može dobiti detalje zone. Provjerite Cloudflare podatke računa"
+
+#: includes/functions/cloudflare.php:51
+#, php-format
+msgid ""
+" Cloudflare zone %s is not activated. Please go to your Cloudflare dashboard "
+"and activate it."
+msgstr ""
+"Cloudflare zona %s nije aktivirana. Idite u svoju Cloudflare nadzornu ploču "
+"i aktivirajte je."
+
+#: includes/functions/cloudflare.php:55
+#, php-format
+msgid ""
+" Cloudflare zone %s status is pending and these settings won't have any "
+"effect on your website."
+msgstr ""
+"Cloudflare zona %s je na čekanju i ove postavke neće imati nikakvog utjecaja "
+"na vašu web-lokaciju."
+
+#: includes/functions/cloudflare.php:70
+msgid " Cloudflare development mode not set"
+msgstr "Cloudflare razvojni mod nije postavljen"
+
+#: includes/functions/cloudflare.php:79
+msgid " Cloudflare cache level not set"
+msgstr "Cloudflare level predmemorije nije postavljen"
+
+#: includes/functions/cloudflare.php:89
+msgid " Cloudflare browser cache expiration not set"
+msgstr "Cloudflare istek predmemorije preglednika nije postavljen"
+
+#: includes/functions/cloudflare.php:103
+msgid " Cloudflare minify not set"
+msgstr "Cloudflare minifikacija nije postavljena"
+
+#: includes/functions/cloudflare.php:115
+msgid " Cloudflare Rocket loader mode not set"
+msgstr " Cloudflare Rocket loader mod nije postavljen"
+
+#: includes/functions/cloudflare.php:125
+msgid " Cloudflare Brotli mode not set"
+msgstr " Cloudflare Brotli mod nije postavljen"
+
+#: includes/functions/cloudflare.php:137
+msgid "Cloudflare settings saved"
+msgstr "Cloudflare postavke spremljene"
+
+#: includes/functions/cloudflare.php:160
+msgid "Something went wrong. Cannot purge Cloudflare cache"
+msgstr ""
 
 #: includes/functions/cron.php:41
 msgid "Every minute"
@@ -1000,19 +1210,19 @@ msgstr[2] "Ostalo je %s slika"
 msgid "Done"
 msgstr "Gotovo"
 
-#: includes/functions/miscellaneous.php:160
+#: includes/functions/miscellaneous.php:173
 msgid "Are you sure?"
 msgstr "Da li ste sigurni?"
 
-#: includes/functions/miscellaneous.php:166
+#: includes/functions/miscellaneous.php:179
 msgid "Something went wrong"
 msgstr "Nešto je pošlo krivo"
 
-#: includes/functions/miscellaneous.php:167
+#: includes/functions/miscellaneous.php:180
 msgid "Regenerating thumbs"
 msgstr "Regeneriranje umanjenih slika"
 
-#: includes/functions/miscellaneous.php:168
+#: includes/functions/miscellaneous.php:181
 msgid "Regenerate thumbnails may take a long time. Do not close your browser."
 msgstr ""
 "Regeneriranje umanjenih slika može potrajati dugo. Ne zatvarajte preglednik."
@@ -1029,15 +1239,15 @@ msgstr "Deaktiviraj"
 msgid "Invalid settings file"
 msgstr "Nevažeća datoteka postavki"
 
-#: includes/functions/settings.php:230
+#: includes/functions/settings.php:235
 msgid "Settings saved"
 msgstr "Postavke spremljene"
 
-#: includes/functions/settings.php:303
+#: includes/functions/settings.php:308
 msgid "Settings file loaded"
 msgstr "Datoteka postavki je učitana"
 
-#: includes/functions/settings.php:492
+#: includes/functions/settings.php:497
 msgid "Files list cleared"
 msgstr "Lista izbrisana"
 
@@ -1060,6 +1270,9 @@ msgstr ""
 #. Author URI of the plugin/theme
 msgid "https://www.antelaca.xyz"
 msgstr ""
+
+#~ msgid "Enable auto purge"
+#~ msgstr "Omogući automatsko čišćenje"
 
 #~ msgid "Prefetch external CSS resources"
 #~ msgstr "Prethodno preuzmite vanjske CSS resurse"

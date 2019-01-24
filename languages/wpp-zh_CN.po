@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WP Performance\n"
-"POT-Creation-Date: 2019-01-13 13:37+0100\n"
-"PO-Revision-Date: 2019-01-13 13:37+0100\n"
+"POT-Creation-Date: 2019-01-24 11:57+0100\n"
+"PO-Revision-Date: 2019-01-24 11:57+0100\n"
 "Last-Translator: WordPress大学 <support@wpdaxue.com>\n"
 "Language-Team: WordPress淘宝网 <support@wptaobao.com>\n"
 "Language: zh_CN\n"
@@ -21,136 +21,116 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: includes/admin/admin.php:23 includes/admin/admin.php:37
-#: includes/admin/cache.php:11 includes/functions/admin.php:156
+#: includes/admin/admin.php:23 includes/admin/admin.php:40
+#: includes/functions/admin.php:156
 msgid "Cache"
 msgstr "缓存"
 
-#: includes/admin/admin.php:26 includes/admin/admin.php:40
+#: includes/admin/admin.php:26 includes/admin/admin.php:43
 #: includes/functions/admin.php:186 includes/functions/admin.php:190
 msgid "Images"
 msgstr "图片"
 
-#: includes/admin/admin.php:27 includes/admin/admin.php:41
+#: includes/admin/admin.php:27 includes/admin/admin.php:44
 #: includes/functions/admin.php:197 includes/functions/admin.php:201
 msgid "Database"
 msgstr "数据库"
 
-#: includes/admin/admin.php:29 includes/admin/admin.php:43
+#: includes/admin/admin.php:29 includes/admin/admin.php:46
 #: includes/admin/settings.php:12 includes/functions/admin.php:160
 #: includes/functions/admin.php:219 includes/functions/admin.php:223
 msgid "Settings"
 msgstr "设置"
 
-#: includes/admin/cache.php:14
+#: includes/admin/cache.php:11
 msgid "Enable cache"
 msgstr "启用缓存"
 
-#: includes/admin/cache.php:18
+#: includes/admin/cache.php:15
 msgid "Reduces your server response time by serving static files to users"
 msgstr "通过向用户提供静态文件，缩短服务器响应时间"
 
-#: includes/admin/cache.php:26 includes/admin/cache.php:177
-#: includes/admin/cache.php:198
+#: includes/admin/cache.php:23 includes/admin/cache.php:144
+#: includes/admin/cache.php:165
 msgid ""
 "Your web site is running on a Nginx server and some additional steps may be "
 "required in order to use this option."
 msgstr "您的网站在 Nginx 服务器上运行，可能需要一些其他步骤才能使用此选项。"
 
-#: includes/admin/cache.php:34
+#: includes/admin/cache.php:31
 msgid "Separate cache for mobile devices"
 msgstr "移动设备独立缓存"
 
-#: includes/admin/cache.php:37
+#: includes/admin/cache.php:34
 msgid "Create a dedicated cache file for mobile devices"
 msgstr "为移动设备创建专用缓存文件"
 
-#: includes/admin/cache.php:43
+#: includes/admin/cache.php:40
 msgid "Clear cache after"
 msgstr "多久后清空缓存"
 
-#: includes/admin/cache.php:48
+#: includes/admin/cache.php:45
 msgid "minutes"
 msgstr "分"
 
-#: includes/admin/cache.php:51
+#: includes/admin/cache.php:48
 msgid "hours"
 msgstr "时"
 
-#: includes/admin/cache.php:54
+#: includes/admin/cache.php:51
 msgid "days"
 msgstr "天"
 
-#: includes/admin/cache.php:61
+#: includes/admin/cache.php:58
 msgid "Clear cache when"
 msgstr "什么时候清空缓存"
 
-#: includes/admin/cache.php:65
+#: includes/admin/cache.php:62
 msgid "A new post or page is published or updated"
 msgstr "发布或更新文章、页面时"
 
-#: includes/admin/cache.php:70
+#: includes/admin/cache.php:67
 msgid "A post or page is deleted"
 msgstr "文章或页面被删除时"
 
-#: includes/admin/cache.php:75
+#: includes/admin/cache.php:72
 msgid "settings are saved"
 msgstr "设置保存时"
 
-#: includes/admin/cache.php:81
-msgid "Varnish"
-msgstr "Varnish 缓存"
-
-#: includes/admin/cache.php:85
-msgid "Enable auto purge"
-msgstr "启用自动清除"
-
-#: includes/admin/cache.php:88
-msgid "If Varnish runs on your server, you need to activate this option"
-msgstr "如果在服务器上运行Varnish 缓存，则需要激活此选项"
-
-#: includes/admin/cache.php:93
-msgid "Custom host"
-msgstr "自定义主机"
-
-#: includes/admin/cache.php:105
-msgid "If you are using proxy, you may need this option"
-msgstr "如果您使用的是代理主机，则可能需要此选项"
-
-#: includes/admin/cache.php:111
+#: includes/admin/cache.php:78
 msgid "Cache preloading"
 msgstr "高速缓存预加载"
 
-#: includes/admin/cache.php:131 includes/admin/cache.php:283
-#: includes/admin/cache.php:303 includes/admin/cdn.php:64
+#: includes/admin/cache.php:98 includes/admin/cache.php:251
+#: includes/admin/cache.php:271 includes/admin/cdn.php:66
 #: includes/admin/css.php:317 includes/admin/css.php:327
-#: includes/admin/images.php:62 includes/admin/images.php:88
-#: includes/admin/images.php:132 includes/admin/images.php:152
-#: includes/admin/includes/external_files.php:62
-#: includes/admin/includes/external_files.php:90
+#: includes/admin/images.php:66 includes/admin/images.php:92
+#: includes/admin/images.php:136 includes/admin/images.php:156
+#: includes/admin/includes/external_files.php:66
+#: includes/admin/includes/external_files.php:94
 #: includes/admin/includes/local_files.php:65
 #: includes/admin/includes/local_files.php:92 includes/admin/javascript.php:243
-#: includes/admin/javascript.php:253 includes/functions/miscellaneous.php:161
+#: includes/admin/javascript.php:253 includes/functions/miscellaneous.php:174
 msgid "Remove"
 msgstr "删除"
 
-#: includes/admin/cache.php:141 includes/admin/cache.php:151
+#: includes/admin/cache.php:108 includes/admin/cache.php:118
 msgid "Enter path to XML sitemap which will be used for cache preloading"
 msgstr "输入将用于缓存预加载的 xml 站点地图的路径"
 
-#: includes/admin/cache.php:154
+#: includes/admin/cache.php:121
 msgid "Add Sitemap"
 msgstr "添加网站地图"
 
-#: includes/admin/cache.php:162
+#: includes/admin/cache.php:129
 msgid "Browser caching"
 msgstr "浏览器缓存"
 
-#: includes/admin/cache.php:166
+#: includes/admin/cache.php:133
 msgid "Leverage browser caching"
 msgstr "启用浏览器缓存"
 
-#: includes/admin/cache.php:170
+#: includes/admin/cache.php:137
 msgid ""
 "Setting an expiry date in the HTTP headers for static resources instructs "
 "the browser to load previously downloaded resources from local disk rather "
@@ -159,95 +139,95 @@ msgstr ""
 "在静态资源的 HTTP 标头中设置到期日期指示浏览器从本地磁盘而不是通过网络加载以"
 "前下载的资源"
 
-#: includes/admin/cache.php:187
+#: includes/admin/cache.php:154
 msgid "Enable gzip compression"
 msgstr "启用 gzip 压缩"
 
-#: includes/admin/cache.php:191
+#: includes/admin/cache.php:158
 msgid ""
 "Compressing resources with gzip reduce the number of bytes sent over the "
 "network"
 msgstr "使用 gzip 压缩资源可减少通过网络发送的字节数"
 
-#: includes/admin/cache.php:211 includes/admin/cdn.php:33
-#: includes/admin/css.php:119 includes/admin/database.php:183
-#: includes/admin/images.php:188 includes/admin/javascript.php:118
-#: includes/admin/settings.php:80
+#: includes/admin/cache.php:178 includes/admin/cdn.php:33
+#: includes/admin/cloudflare.php:146 includes/admin/css.php:119
+#: includes/admin/database.php:183 includes/admin/images.php:192
+#: includes/admin/javascript.php:118 includes/admin/settings.php:127
 msgid "Save changes"
 msgstr "保存更改"
 
-#: includes/admin/cache.php:219
+#: includes/admin/cache.php:187
 msgid "Cache statistics"
 msgstr "缓存统计信息"
 
-#: includes/admin/cache.php:220 includes/functions/admin.php:229
-#: includes/functions/admin.php:234
+#: includes/admin/cache.php:188 includes/admin/cloudflare.php:21
+#: includes/functions/admin.php:257 includes/functions/admin.php:262
 msgid "Clear cache"
 msgstr "清除缓存"
 
-#: includes/admin/cache.php:239
+#: includes/admin/cache.php:207
 msgid "HTML files"
 msgstr "HTML文件"
 
-#: includes/admin/cache.php:242
+#: includes/admin/cache.php:210
 msgid "CSS files"
 msgstr "CSS文件"
 
-#: includes/admin/cache.php:245
+#: includes/admin/cache.php:213
 msgid "JavaScript files"
 msgstr "JavaScript文件"
 
-#: includes/admin/cache.php:250
+#: includes/admin/cache.php:218
 msgid "Total cache size"
 msgstr "缓存总大小"
 
-#: includes/admin/cache.php:261
+#: includes/admin/cache.php:229
 msgid "Exclude URL(s) from cache"
 msgstr "从缓存中排除网址"
 
-#: includes/admin/cache.php:282 includes/admin/css.php:316
-#: includes/admin/images.php:131 includes/admin/javascript.php:242
+#: includes/admin/cache.php:250 includes/admin/css.php:316
+#: includes/admin/images.php:135 includes/admin/javascript.php:242
 #, php-format
 msgid "Remove %s from excluded URL(s)?"
 msgstr "从已排除的网址中删除%s？"
 
-#: includes/admin/cache.php:312 includes/admin/cache.php:326
+#: includes/admin/cache.php:280 includes/admin/cache.php:294
 #: includes/admin/css.php:335 includes/admin/css.php:349
-#: includes/admin/images.php:161 includes/admin/images.php:173
+#: includes/admin/images.php:165 includes/admin/images.php:177
 #: includes/admin/javascript.php:261 includes/admin/javascript.php:275
 msgid "Part of the URL will also work"
 msgstr "包含这些网址部分的页面也一样生效"
 
-#: includes/admin/cache.php:313 includes/admin/cache.php:326
-#: includes/admin/cdn.php:73 includes/admin/cdn.php:86
+#: includes/admin/cache.php:281 includes/admin/cache.php:294
+#: includes/admin/cdn.php:75 includes/admin/cdn.php:88
 #: includes/admin/css.php:336 includes/admin/css.php:349
-#: includes/admin/images.php:162 includes/admin/images.php:173
+#: includes/admin/images.php:166 includes/admin/images.php:177
 #: includes/admin/javascript.php:262 includes/admin/javascript.php:275
 msgid "Use {numbers} to match only numbers"
 msgstr "使用 {numbers} 来匹配数字"
 
-#: includes/admin/cache.php:314 includes/admin/cache.php:326
-#: includes/admin/cdn.php:74 includes/admin/cdn.php:86
+#: includes/admin/cache.php:282 includes/admin/cache.php:294
+#: includes/admin/cdn.php:76 includes/admin/cdn.php:88
 #: includes/admin/css.php:337 includes/admin/css.php:349
-#: includes/admin/images.php:163 includes/admin/images.php:173
+#: includes/admin/images.php:167 includes/admin/images.php:177
 #: includes/admin/javascript.php:263 includes/admin/javascript.php:275
 msgid "Use {letters} to match only letters"
 msgstr "使用 {letters} 来匹配字母"
 
-#: includes/admin/cache.php:315 includes/admin/cache.php:326
-#: includes/admin/cdn.php:75 includes/admin/cdn.php:86
+#: includes/admin/cache.php:283 includes/admin/cache.php:294
+#: includes/admin/cdn.php:77 includes/admin/cdn.php:88
 #: includes/admin/css.php:338 includes/admin/css.php:349
-#: includes/admin/images.php:164 includes/admin/images.php:173
+#: includes/admin/images.php:168 includes/admin/images.php:177
 #: includes/admin/javascript.php:264 includes/admin/javascript.php:275
 msgid "Use {any} to match any string"
 msgstr "使用 {any} 来匹配任何字符串"
 
-#: includes/admin/cache.php:329 includes/admin/css.php:352
-#: includes/admin/images.php:176 includes/admin/includes/external_files.php:109
-#: includes/admin/includes/external_files.php:120
+#: includes/admin/cache.php:297 includes/admin/css.php:352
+#: includes/admin/images.php:180 includes/admin/includes/external_files.php:113
+#: includes/admin/includes/external_files.php:124
 #: includes/admin/includes/local_files.php:109
 #: includes/admin/includes/local_files.php:120
-#: includes/admin/javascript.php:278 includes/functions/miscellaneous.php:162
+#: includes/admin/javascript.php:278 includes/functions/miscellaneous.php:175
 msgid "Add URL"
 msgstr "添加网址"
 
@@ -267,22 +247,141 @@ msgstr ""
 msgid "CDN hostname"
 msgstr "CDN主机名"
 
-#: includes/admin/cdn.php:41
+#: includes/admin/cdn.php:43
 msgid "Exclude file(s) from CDN"
 msgstr "从CDN中排除文件"
 
-#: includes/admin/cdn.php:89
+#: includes/admin/cdn.php:91
 msgid "Add file"
 msgstr "添加文件"
+
+#: includes/admin/cloudflare.php:13
+msgid "Caching"
+msgstr ""
+
+#: includes/admin/cloudflare.php:19
+msgid "Cloudflare cache"
+msgstr ""
+
+#: includes/admin/cloudflare.php:21
+msgid "Clear all Cloudflare cache"
+msgstr ""
+
+#: includes/admin/cloudflare.php:26
+msgid "Development mode"
+msgstr ""
+
+#: includes/admin/cloudflare.php:30 includes/admin/cloudflare.php:123
+#: includes/admin/cloudflare.php:135 includes/admin/settings.php:41
+#: includes/admin/settings.php:51 includes/classes/wpp.php:279
+#: includes/functions/admin.php:284
+msgid "Enable"
+msgstr "启用"
+
+#: includes/admin/cloudflare.php:33
+msgid "Temporarily activate development mode on your website."
+msgstr ""
+
+#: includes/admin/cloudflare.php:34
+msgid "This setting will automatically turn off after 3 hours."
+msgstr ""
+
+#: includes/admin/cloudflare.php:39
+msgid "Cache level"
+msgstr ""
+
+#: includes/admin/cloudflare.php:42
+msgid "Aggressive - Standard"
+msgstr ""
+
+#: includes/admin/cloudflare.php:43
+msgid "Simplified - Ignore query string"
+msgstr ""
+
+#: includes/admin/cloudflare.php:44
+msgid "Basic - No query string"
+msgstr ""
+
+#: includes/admin/cloudflare.php:49
+msgid ""
+"Aggressive: Delivers a different resource each time the query string changes."
+msgstr ""
+
+#: includes/admin/cloudflare.php:50
+msgid ""
+"Simplified: Delivers the same resource to everyone independent of the query "
+"string."
+msgstr ""
+
+#: includes/admin/cloudflare.php:51
+msgid ""
+"Basic: Only delivers resources from cache when there is no query string."
+msgstr ""
+
+#: includes/admin/cloudflare.php:66
+msgid "Browser Cache Expiration"
+msgstr ""
+
+#: includes/admin/cloudflare.php:69
+msgid "Respect Existing Headers"
+msgstr ""
+
+#: includes/admin/cloudflare.php:79
+msgid ""
+"Browser cache TTL (in seconds) specifies how long CloudFlare-cached "
+"resources will remain on your visitors computers."
+msgstr ""
+
+#: includes/admin/cloudflare.php:80
+msgid "The minimum TTL available depends on the plan level of the zone."
+msgstr ""
+
+#: includes/admin/cloudflare.php:88
+msgid "Content"
+msgstr ""
+
+#: includes/admin/cloudflare.php:94 includes/admin/css.php:27
+#: includes/admin/includes/local_files.php:153 includes/admin/javascript.php:27
+msgid "Minify"
+msgstr "压缩"
+
+#: includes/admin/cloudflare.php:119
+msgid "Rocket Loader"
+msgstr ""
+
+#: includes/admin/cloudflare.php:126
+msgid "Rocket Loader is a asynchronous JavaScript loader."
+msgstr ""
+
+#: includes/admin/cloudflare.php:131
+msgid "Brotli"
+msgstr ""
+
+#: includes/admin/cloudflare.php:138
+msgid ""
+"Speed up page load times for your visitor’s HTTPS traffic by applying Brotli "
+"compression."
+msgstr ""
+
+#: includes/admin/cloudflare.php:155
+msgid "Cloudflare credentials"
+msgstr ""
+
+#: includes/admin/cloudflare.php:159
+msgid "API key"
+msgstr ""
+
+#: includes/admin/cloudflare.php:166
+msgid "Account email"
+msgstr ""
+
+#: includes/admin/cloudflare.php:171
+msgid "Zone ID"
+msgstr ""
 
 #: includes/admin/css.php:26 includes/admin/javascript.php:26
 msgid "File"
 msgstr "文件"
-
-#: includes/admin/css.php:27 includes/admin/includes/local_files.php:153
-#: includes/admin/javascript.php:27
-msgid "Minify"
-msgstr "压缩"
 
 #: includes/admin/css.php:28 includes/admin/includes/local_files.php:171
 #: includes/admin/javascript.php:28
@@ -294,7 +393,7 @@ msgstr "内联"
 msgid "Combine"
 msgstr "合并"
 
-#: includes/admin/css.php:30 includes/admin/includes/external_files.php:144
+#: includes/admin/css.php:30 includes/admin/includes/external_files.php:152
 #: includes/admin/includes/local_files.php:213 includes/admin/javascript.php:30
 msgid "Disable"
 msgstr "禁用"
@@ -549,106 +648,118 @@ msgid ""
 msgstr "根据用户屏幕大小和图片大小设置加载最佳优化的图片"
 
 #: includes/admin/images.php:48
+msgid "Exclude"
+msgstr ""
+
+#: includes/admin/images.php:52
 msgid "Exclude image"
 msgstr ""
 
-#: includes/admin/images.php:51
+#: includes/admin/images.php:55
 msgid "Exclude image by name"
 msgstr ""
 
-#: includes/admin/images.php:68
+#: includes/admin/images.php:72
 msgid "Add Image"
 msgstr "添加图片"
 
-#: includes/admin/images.php:77
+#: includes/admin/images.php:81
 msgid ""
 "Exclude images located in specific html containers like sliders and galleries"
 msgstr "排除位于特定 HTML 容器中的图片，如滑块和图库"
 
-#: includes/admin/images.php:95 includes/admin/images.php:104
+#: includes/admin/images.php:99 includes/admin/images.php:108
 msgid "Enter container id or class name"
 msgstr "输入容器 id 或类名"
 
-#: includes/admin/images.php:96 includes/admin/images.php:104
+#: includes/admin/images.php:100 includes/admin/images.php:108
 msgid "Example"
 msgstr "例子"
 
-#: includes/admin/images.php:104
+#: includes/admin/images.php:108
 msgid "Add Container"
 msgstr "添加容器"
 
-#: includes/admin/images.php:109
+#: includes/admin/images.php:113
 msgid "Exclude URL(s)"
 msgstr ""
 
-#: includes/admin/images.php:112
+#: includes/admin/images.php:116
 msgid "Exclude URL(s) from image optimization"
 msgstr ""
 
-#: includes/admin/images.php:196
+#: includes/admin/images.php:201
 msgid "Image sizes"
 msgstr "图片尺寸"
 
-#: includes/admin/images.php:197
+#: includes/admin/images.php:202
 msgid "Restore default image sizes"
 msgstr "恢复默认图片大小"
 
-#: includes/admin/images.php:197
+#: includes/admin/images.php:202
 msgid "Restore image sizes"
 msgstr "恢复图片大小"
 
-#: includes/admin/images.php:204
+#: includes/admin/images.php:209 includes/admin/images.php:220
 msgid "Name"
 msgstr "名称"
 
-#: includes/admin/images.php:205
+#: includes/admin/images.php:210 includes/admin/images.php:226
 msgid "Width"
 msgstr "宽"
 
-#: includes/admin/images.php:206
+#: includes/admin/images.php:211 includes/admin/images.php:232
 msgid "Height"
 msgstr "高"
 
-#: includes/admin/images.php:207
+#: includes/admin/images.php:212 includes/admin/images.php:238
 msgid "Crop"
 msgstr "裁剪"
 
-#: includes/admin/images.php:208
+#: includes/admin/images.php:213
 msgid "Actions"
 msgstr "操作"
 
-#: includes/admin/images.php:217
+#: includes/admin/images.php:240
+msgid "Yes"
+msgstr ""
+
+#: includes/admin/images.php:245
 #, php-format
 msgid "Remove image size %s"
 msgstr "删除图片大小 %s"
 
-#: includes/admin/images.php:223
+#: includes/admin/images.php:247
+msgid "Remove size"
+msgstr ""
+
+#: includes/admin/images.php:257
 msgid "Add size"
 msgstr "添加大小"
 
-#: includes/admin/images.php:229
+#: includes/admin/images.php:263
 msgid "Regenerate thumbnails every time you make some changes to image sizes"
 msgstr "每次对图片大小进行某些更改时，都会重新生成缩略图"
 
-#: includes/admin/images.php:231
+#: includes/admin/images.php:265
 msgid "Regenerate thumbnails"
 msgstr "重新生成缩略图"
 
-#: includes/admin/includes/external_files.php:27
+#: includes/admin/includes/external_files.php:31
 #: includes/admin/includes/local_files.php:31
-#: includes/functions/miscellaneous.php:163
+#: includes/functions/miscellaneous.php:176
 msgid "Disable everywhere"
 msgstr "在所有地方禁用"
 
-#: includes/admin/includes/external_files.php:31
+#: includes/admin/includes/external_files.php:35
 #: includes/admin/includes/local_files.php:35
-#: includes/functions/miscellaneous.php:164
+#: includes/functions/miscellaneous.php:177
 msgid "Disable only on selected URL"
 msgstr "仅在选定的网址上禁用"
 
-#: includes/admin/includes/external_files.php:35
+#: includes/admin/includes/external_files.php:39
 #: includes/admin/includes/local_files.php:39
-#: includes/functions/miscellaneous.php:165
+#: includes/functions/miscellaneous.php:178
 msgid "Disable everywhere except on selected URL"
 msgstr "在所选网址以外的任何地方禁用"
 
@@ -743,15 +854,39 @@ msgstr "导出设置"
 msgid "Export"
 msgstr "导出"
 
-#: includes/admin/settings.php:33
+#: includes/admin/settings.php:32
+msgid "Add-ons"
+msgstr ""
+
+#: includes/admin/settings.php:37
+msgid "Cloudflare"
+msgstr ""
+
+#: includes/admin/settings.php:47
+msgid "Varnish"
+msgstr "Varnish 缓存"
+
+#: includes/admin/settings.php:54
+msgid "If Varnish runs on your server, you need to activate this option."
+msgstr ""
+
+#: includes/admin/settings.php:58
+msgid "Custom host"
+msgstr "自定义主机"
+
+#: includes/admin/settings.php:69
+msgid "If you are using proxy, you may need this option"
+msgstr "如果您使用的是代理主机，则可能需要此选项"
+
+#: includes/admin/settings.php:80
 msgid "Server"
 msgstr "服务器"
 
-#: includes/admin/settings.php:38
+#: includes/admin/settings.php:85
 msgid "Nginx configuration"
 msgstr "Nginx 配置"
 
-#: includes/admin/settings.php:42
+#: includes/admin/settings.php:89
 #, php-format
 msgid ""
 "%s will work out of the box on Nginx servers, this rewrite rules are not "
@@ -761,53 +896,58 @@ msgstr ""
 "%s 将在 Nginx 服务器上开箱即用，此重写规则不是必需的。但是，为了进一步优化您"
 "的网站，您应该将此规则添加到您的 Nginx 配置文件。"
 
-#: includes/admin/settings.php:44
+#: includes/admin/settings.php:91
 msgid "Select all"
 msgstr "全选"
 
-#: includes/admin/settings.php:51
+#: includes/admin/settings.php:98
 msgid "Logs"
 msgstr "日志"
 
-#: includes/admin/settings.php:55
+#: includes/admin/settings.php:102
 msgid "Troubleshooting logging"
 msgstr "故障排除日志"
 
-#: includes/admin/settings.php:59
+#: includes/admin/settings.php:106
 msgid "Enable troubleshooting logging"
 msgstr "启用故障排除日志"
 
-#: includes/admin/settings.php:62
+#: includes/admin/settings.php:109
 msgid "These logs can be helpful for troubleshooting problems"
 msgstr "这些日志可帮助解决问题"
 
-#: includes/admin/settings.php:68
+#: includes/admin/settings.php:115
 msgid "Log file content"
 msgstr "记录文件内容"
 
-#: includes/admin/settings.php:71
+#: includes/admin/settings.php:118
 msgid "Content is auto refreshed every 10 seconds"
 msgstr "内容每10秒自动刷新一次"
 
-#: includes/admin/settings.php:83
+#: includes/admin/settings.php:130
 msgid "Clear log file"
 msgstr "清除日志文件"
 
-#: includes/admin/settings.php:90
+#: includes/admin/settings.php:139
 msgid "Previous configuration settings"
 msgstr "以前的配置设置"
 
-#: includes/admin/settings.php:106
+#: includes/admin/settings.php:155
 msgid "Saved"
 msgstr "保存于"
 
-#: includes/admin/settings.php:109
+#: includes/admin/settings.php:158
 msgid "Load configuration settings saved on "
 msgstr "加载配置设置保存于 "
 
-#: includes/admin/settings.php:112
+#: includes/admin/settings.php:161
 msgid "Load"
 msgstr "加载"
+
+#: includes/classes/api.php:131
+#, php-format
+msgid "Call to undefined method %s"
+msgstr ""
 
 #: includes/classes/cli.php:23
 msgid "Flushing the cache..."
@@ -881,42 +1021,101 @@ msgstr "错误"
 msgid "both head and body tag should be present in template file"
 msgstr "head 和 body 标记都应存在模板文件中"
 
-#: includes/classes/parser.php:858
+#: includes/classes/parser.php:871
 msgid "Optimized by"
 msgstr "已优化来自"
 
-#: includes/classes/parser.php:874
+#: includes/classes/parser.php:899
 #, php-format
 msgid "Cache file was created in %s seconds on %s at %s"
 msgstr "缓存文件创建于 %s 秒，%s 于 %s"
 
-#: includes/classes/wpp.php:281
+#: includes/classes/wpp.php:279
 msgid "is temporarily disabled"
 msgstr "暂时禁用"
 
-#: includes/classes/wpp.php:281 includes/functions/admin.php:254
-msgid "Enable"
-msgstr "启用"
-
-#: includes/classes/wpp.php:286
+#: includes/classes/wpp.php:284
 #, php-format
 msgid ""
 "%s: Log file is getting large, either clear the log or disable "
 "troubleshooting logging"
 msgstr "%s: 日志文件越来越大，可以清除日志，也可以禁用故障排除日志记录"
 
-#: includes/classes/wpp.php:291
+#: includes/classes/wpp.php:289
 #, php-format
 msgid "%s: missing writing permissions for file <code>.htaccess</code>"
 msgstr "%s: 缺少 <code>. htaccess 文件的写入权限 </code>"
 
-#: includes/functions/admin.php:257
+#: includes/classes/wpp.php:294
+#, php-format
+msgid "%s: enter Cloudflare credentials"
+msgstr ""
+
+#: includes/functions/admin.php:244 includes/functions/admin.php:249
+msgid "Clear Cloudflare cache"
+msgstr ""
+
+#: includes/functions/admin.php:287
 msgid "Temporarily disable"
 msgstr "暂时禁用"
 
-#: includes/functions/admin.php:277
+#: includes/functions/admin.php:307
 msgid "settings"
 msgstr "设置"
+
+#: includes/functions/cloudflare.php:28
+msgid "Cloudflare API credentials not set"
+msgstr ""
+
+#: includes/functions/cloudflare.php:44
+msgid " Cloudflare cannot get zone details. Check your Cloudflare credentials"
+msgstr ""
+
+#: includes/functions/cloudflare.php:51
+#, php-format
+msgid ""
+" Cloudflare zone %s is not activated. Please go to your Cloudflare dashboard "
+"and activate it."
+msgstr ""
+
+#: includes/functions/cloudflare.php:55
+#, php-format
+msgid ""
+" Cloudflare zone %s status is pending and these settings won't have any "
+"effect on your website."
+msgstr ""
+
+#: includes/functions/cloudflare.php:70
+msgid " Cloudflare development mode not set"
+msgstr ""
+
+#: includes/functions/cloudflare.php:79
+msgid " Cloudflare cache level not set"
+msgstr ""
+
+#: includes/functions/cloudflare.php:89
+msgid " Cloudflare browser cache expiration not set"
+msgstr ""
+
+#: includes/functions/cloudflare.php:103
+msgid " Cloudflare minify not set"
+msgstr ""
+
+#: includes/functions/cloudflare.php:115
+msgid " Cloudflare Rocket loader mode not set"
+msgstr ""
+
+#: includes/functions/cloudflare.php:125
+msgid " Cloudflare Brotli mode not set"
+msgstr ""
+
+#: includes/functions/cloudflare.php:137
+msgid "Cloudflare settings saved"
+msgstr ""
+
+#: includes/functions/cloudflare.php:160
+msgid "Something went wrong. Cannot purge Cloudflare cache"
+msgstr ""
 
 #: includes/functions/cron.php:41
 msgid "Every minute"
@@ -961,19 +1160,19 @@ msgstr[1] "剩余 %s 图片"
 msgid "Done"
 msgstr "完成"
 
-#: includes/functions/miscellaneous.php:160
+#: includes/functions/miscellaneous.php:173
 msgid "Are you sure?"
 msgstr "你确定？"
 
-#: includes/functions/miscellaneous.php:166
+#: includes/functions/miscellaneous.php:179
 msgid "Something went wrong"
 msgstr "出了些问题"
 
-#: includes/functions/miscellaneous.php:167
+#: includes/functions/miscellaneous.php:180
 msgid "Regenerating thumbs"
 msgstr "重新生成缩略图"
 
-#: includes/functions/miscellaneous.php:168
+#: includes/functions/miscellaneous.php:181
 msgid "Regenerate thumbnails may take a long time. Do not close your browser."
 msgstr "重新生成缩略图可能需要很长时间。不要关闭浏览器。"
 
@@ -1005,6 +1204,9 @@ msgstr "Ante Laca"
 #. Author URI of the plugin/theme
 msgid "https://www.antelaca.xyz"
 msgstr "https://www.antelaca.xyz"
+
+#~ msgid "Enable auto purge"
+#~ msgstr "启用自动清除"
 
 #~ msgid "Prefetch external CSS resources"
 #~ msgstr "预加载外部 CSS 资源"
