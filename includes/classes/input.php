@@ -81,6 +81,8 @@ class Input
     /**
      * Get filter
      *
+     * @see http://php.net/manual/en/function.filter-list.php
+     * 
      * @param string $name
      * @return void
      * @since 1.0.0
