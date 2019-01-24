@@ -15,6 +15,19 @@ use WPP\Option;
 
 
 /**
+ * Frontend actions
+ */
+add_action( 'wpp_frontend_actions', function(){
+
+    // Cleanup header
+    if ( apply_filters( 'wpp_cleanup_header', true ) ) {
+        wpp_cleanup_header();
+    }
+
+} );
+
+
+/**
  * Check if array key exists
  *
  * @since 1.0.0   
