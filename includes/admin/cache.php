@@ -8,9 +8,6 @@ defined('ABSPATH') or exit; ?>
     
         <table>
             <tr>
-                <td colspan="2"><h3><?php _e( 'Cache', 'wpp' ); ?></h3></td>
-            </tr>
-            <tr>
                 <td><strong><?php _e( 'Enable cache', 'wpp' ); ?></strong></td>
                 <td>
                     <label class="wpp-info">
@@ -43,7 +40,7 @@ defined('ABSPATH') or exit; ?>
                 <td><strong><?php _e( 'Clear cache after', 'wpp' ); ?></strong></td>
                 <td>
                     <input type="number" min="1" value="<?php echo Option::get( 'cache_time', 10 ); ?>" name="cache_time" form="wpp-settings"> 
-                    <select name="cache_length" form="wpp-settings">
+                    <select class="wpp-cache-time" name="cache_length" form="wpp-settings">
                         <option value="60" <?php wpp_selected( 'cache_length', 60 ); ?>>
                             <?php _e( 'minutes', 'wpp' ); ?>
                         </option>
@@ -74,36 +71,6 @@ defined('ABSPATH') or exit; ?>
                         <input type="checkbox" value="1" name="save_clear" form="wpp-settings" <?php wpp_checked( 'save_clear' ); ?> />
                         <?php echo WPP_PLUGIN_NAME; ?> <?php _e( 'settings are saved', 'wpp' ); ?>
                     </label>
-                </td>
-            </tr>
-
-            <tr data-wpp-show-checked="cache">
-                <td><strong><?php _e( 'Varnish', 'wpp' ); ?></strong></td>
-                <td>
-                    <label class="wpp-info">
-                        <input type="checkbox"  data-wpp-checkbox="varnish_auto_purge" value="1" name="varnish_auto_purge" form="wpp-settings" <?php wpp_checked( 'varnish_auto_purge' ); ?> />
-                        <?php _e( 'Enable auto purge', 'wpp' ); ?>
-                    </label>
-                    <br /> <br />
-                    <em><span class="dashicons dashicons-info"></span> <?php _e( 'If Varnish runs on your server, you need to activate this option', 'wpp' ); ?></em>
-                </td>
-            </tr>
-
-            <tr data-wpp-show-checked="varnish_auto_purge">
-                <td><strong><?php _e( 'Custom host', 'wpp' ); ?></strong></td>
-                <td>
-                    <input 
-                        type="text" 
-                        placeholder="http://"
-                        name="varnish_custom_host" 
-                        value="<?php echo Option::get( 'varnish_custom_host' ); ?>" 
-                        form="wpp-settings"
-                        class="wpp-dynamic-input" />  
-                            
-                        <br /><br />
-
-                    <em><span class="dashicons dashicons-info"></span> <?php _e( 'If you are using proxy, you may need this option', 'wpp' ); ?></em>
-
                 </td>
             </tr>
 
@@ -210,6 +177,7 @@ defined('ABSPATH') or exit; ?>
 
         <input type="submit" class="button-primary" value="<?php _e( 'Save changes', 'wpp' ); ?>" name="wpp-save-settings" form="wpp-settings" />
         
+        <br /><br />
 
     </div>
 
