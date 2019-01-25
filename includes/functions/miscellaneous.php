@@ -161,8 +161,8 @@ function wpp_cleanup_header() {
 function wpp_enqueue_backend_assets() {
 
     // Enqueue scripts and styles
-    wp_enqueue_script( 'wpp-confirms', WPP_ASSET_URL . 'confirm.js', [ 'jquery' ] );
-    wp_enqueue_script( 'wpp-settings', WPP_ASSET_URL . 'admin.js', [ 'jquery' ] );
+    wp_enqueue_script( 'wpp-confirms', WPP_ASSET_URL . 'confirm.js', [ 'jquery' ], WPP_VERSION );
+    wp_enqueue_script( 'wpp-settings', WPP_ASSET_URL . 'admin.js', [ 'jquery' ], WPP_VERSION );
     
     wp_localize_script( 'wpp-settings', 'WPP', [
         'path' => WPP_ASSET_URL,
@@ -182,9 +182,9 @@ function wpp_enqueue_backend_assets() {
         ]
     ] );
 
-    wp_enqueue_style( 'wpp-admin-css', WPP_ASSET_URL . 'style.css' );    
-    wp_enqueue_style( 'wpp-overlay', WPP_ASSET_URL . 'overlay.css' );   
-    wp_enqueue_style( 'wpp-confirm', WPP_ASSET_URL . 'confirm.css' ); 
+    wp_enqueue_style( 'wpp-admin-css', WPP_ASSET_URL . 'style.css', [], WPP_VERSION );    
+    wp_enqueue_style( 'wpp-overlay', WPP_ASSET_URL . 'overlay.css', [], WPP_VERSION );   
+    wp_enqueue_style( 'wpp-confirm', WPP_ASSET_URL . 'confirm.css', [], WPP_VERSION ); 
 
 }
 
