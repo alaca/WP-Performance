@@ -157,19 +157,19 @@ defined('ABSPATH') or exit; ?>
         <hr />     
 
         <strong><?php _e( 'API key', 'wpp' ); ?></strong>
-        <input name="cf_api_key" required="required" class="wpp-cf-input" value="<?php echo Option::get( 'cf_api_key' ); ?>" type="text" form="wpp-settings" />
+        <input name="cf_api_key" class="wpp-cf-input" value="<?php echo Option::get( 'cf_api_key' ); ?>" type="text" form="wpp-settings" />
 
         <a href="https://support.cloudflare.com/hc/en-us/articles/200167836-Where-do-I-find-my-Cloudflare-API-key-" target="_blank">Find your API key</a>
 
         <br /><br />
 
         <strong><?php _e( 'Account email', 'wpp' ); ?></strong>
-        <input name="cf_email" required="required" class="wpp-cf-input" value="<?php echo Option::get( 'cf_email' ); ?>" type="email" form="wpp-settings" />
+        <input name="cf_email" class="wpp-cf-input" value="<?php echo Option::get( 'cf_email' ); ?>" type="email" form="wpp-settings" />
 
         <br /><br />
 
         <strong><?php _e( 'Zone ID', 'wpp' ); ?></strong>
-        <input name="cf_zone_id" required="required" class="wpp-cf-input" value="<?php echo Option::get( 'cf_zone_id' ); ?>" type="text" form="wpp-settings" />
+        <input name="cf_zone_id" class="wpp-cf-input" value="<?php echo Option::get( 'cf_zone_id' ); ?>" type="text" form="wpp-settings" />
 
 
         <br /><br />
