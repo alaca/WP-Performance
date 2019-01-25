@@ -60,6 +60,9 @@ WP Performance does not support multisite yet.
 
 ## Changelog ##
 
+### 1.0.8.1 ###
+* [FIX] Minor bug fixes
+
 ### 1.0.8 ###
 * [NEW] Cloudflare integration
 * [IMPROVE] Admin UI for desktop devices

@@ -79,6 +79,9 @@ If you encounter any bug, please create an issue on [Github](https://github.com/
 
 == Changelog ==
 
+= 1.0.8.1 =
+[FIX] Minor bug fixes
+
 = 1.0.8 =
 [NEW] Cloudflare integration
 [IMPROVE] Admin UI for desktop devices
