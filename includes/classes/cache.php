@@ -131,11 +131,7 @@ class Cache
          */
         do_action( 'wpp_after_cache_save', $file, $content );
 
-        include $file;
-
         wpp_log( sprintf( 'Cache saved for URL %s', Url::current() ), 'notice' );
-
-        exit;
 
     }
    
