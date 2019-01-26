@@ -167,7 +167,7 @@ class WP_Performance
 
         // Hook up
         add_action( 'wp', function() {
-            if ( ! is_404() ) add_filter( 'template_include', [ 'WPP\Parser', 'init' ], 99999 );
+            if ( ! is_404() ) ob_start( [ 'WPP\Parser', 'init' ] );
         } );
         
     }

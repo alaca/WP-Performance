@@ -18,7 +18,7 @@ class Parser
         $this->time = microtime( true ); 
 
         // load template
-        $this->html = new HtmlDOM( $this->loadTemplate( $template ), false, false );
+        $this->html = new HtmlDOM( $template, false, false );
         $this->body = $this->html->find( 'body', 0 );
         $this->head = $this->html->find( 'head', 0 );
 
@@ -34,7 +34,8 @@ class Parser
 
             wpp_log( __( 'both head and body tag should be present in template file', 'wpp' ) ); 
 
-            exit( $error );
+            return $error;
+
         }
 
         // CSS optimization
@@ -881,7 +882,6 @@ class Parser
         if ( 
             Option::boolval( 'cache' ) 
             && empty( $_POST ) 
-            && ! isset( $_GET[ 'nocache' ] ) 
             && ! is_user_logged_in() 
         ) {
 
@@ -908,24 +908,19 @@ class Parser
 
         }
         
-        exit( $output );
+        return $output;
         
     }
 
+
     /**
-     * Load template
+     * Return html content
      *
-     * @since 1.0.0
-     * @param string $file
-     * 
      * @return string
+     * @since 1.0.9
      */
-    public function loadTemplate( $file ) {
-        if ( file_exists( $file ) ) {
-            ob_start();
-            include $file;
-            return ob_get_clean(); 
-        }
+    public function __toString() {
+        return $this->html;
     }
         
 }
