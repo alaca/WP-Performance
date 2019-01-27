@@ -23,7 +23,15 @@ $permalink =  get_permalink( $post );
         ?>
 
         
-        <?php if ( Option::boolval( 'cache' ) && wpp_in_array( $cache_url_exclude , $permalink ) ) : ?>
+        <?php 
+        
+            if ( 
+                Option::boolval( 'cache' ) 
+                && ! in_array( $post->ID, Option::get( 'cache_post_exclude', [] ) ) 
+                && wpp_is_url_excluded( $permalink, $cache_url_exclude ) 
+            ) : 
+            
+            ?>
 
             <input 
                 type="checkbox" 
@@ -81,7 +89,14 @@ $permalink =  get_permalink( $post );
         
         ?>
 
-        <?php if ( wpp_in_array( $css_url_exclude , $permalink ) ) : ?>
+        <?php 
+        
+            if ( 
+                ! in_array( $post->ID, Option::get( 'css_post_exclude', [] ) ) 
+                && wpp_is_url_excluded( $permalink, $css_url_exclude ) 
+            ) : 
+            
+            ?>
 
             <input 
                 type="checkbox" 
@@ -126,7 +141,14 @@ $permalink =  get_permalink( $post );
         
         ?>
 
-        <?php if ( wpp_in_array( $js_url_exclude , $permalink ) ) : ?>
+        <?php 
+        
+            if ( 
+                ! in_array( $post->ID, Option::get( 'js_post_exclude', [] ) ) 
+                && wpp_is_url_excluded( $permalink, $js_url_exclude ) 
+            ) : 
+            
+            ?>
 
             <input 
                 type="checkbox" 
@@ -170,7 +192,14 @@ $permalink =  get_permalink( $post );
         
         ?>
 
-        <?php if ( wpp_in_array( $image_url_exclude , $permalink ) ) : ?>
+        <?php 
+        
+            if ( 
+                ! in_array( $post->ID, Option::get( 'image_post_exclude', [] ) ) 
+                && wpp_is_url_excluded( $permalink, $image_url_exclude ) 
+            ) : 
+            
+            ?>
 
             <input 
                 type="checkbox" 
