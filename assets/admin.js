@@ -238,8 +238,7 @@ jQuery(document).ready(function ($) {
                         url: ajaxurl,
                         dataType: 'json',
                         data: {
-                            action: 'wpp_clear_cache',
-                            nonce: WPP.nonce
+                            action: 'wpp_clear_cache'
                         }
                     }).done(function () {
                         $('#wpp_overlay').remove();
