@@ -15,28 +15,34 @@
         }    
     }
 
-    var container = [];
+    /**
+     * All images
+     */
+    var images_container = [];
 
+    /**
+     * Show images in viewport
+     */
     function showImages() {
 
-        for (var i = 0; i < container.length; i++) {
+        for (var i = 0; i < images_container.length; i++) {
 
-            if (inView(container[i])) {
+            if (inViewport(images_container[i])) {
 
-                if (container[i].getAttribute('data-src')) {
+                if (images_container[i].getAttribute('data-src')) {
                     // swap src
-                    container[i].src = container[i].getAttribute('data-src');
-                    container[i].removeAttribute('data-src');
+                    images_container[i].src = images_container[i].getAttribute('data-src');
+                    images_container[i].removeAttribute('data-src');
 
                     // add scrcset
-                    if (container[i].getAttribute('data-srcset')) {
-                        container[i].srcset = container[i].getAttribute('data-srcset');
-                        container[i].removeAttribute('data-srcset');
+                    if (images_container[i].getAttribute('data-srcset')) {
+                        images_container[i].srcset = images_container[i].getAttribute('data-srcset');
+                        images_container[i].removeAttribute('data-srcset');
                     }
 
-                    // remove image from container
-                    if (container.indexOf(container[i]) !== -1) {
-                        container.splice(i, 1);
+                    // remove image from images_container
+                    if (images_container.indexOf(images_container[i]) !== -1) {
+                        images_container.splice(i, 1);
                     }
 
                 }
@@ -47,7 +53,11 @@
     }
 
 
-    var inView = function (image) {
+    /**
+     * Determine if image is in view
+     * @param {string} image 
+     */
+    function inViewport(image) {
 
         var rect = image.getBoundingClientRect();
 
@@ -56,25 +66,31 @@
     };
 
 
-    function getImages() {
+    /**
+     * Initialize LazyLoad
+     */
+    function initLazyLoad() {
+
+        document.addEventListener('scroll', showImages, false);
 
         var images = document.querySelectorAll('img[data-src]');
 
         for (var i = 0; i < images.length; i++) {
-            container.push(images[i]);
+            images_container.push(images[i]);
         }
 
-        showImages();
+        // Triger scroll to show images in viewport
+        document.dispatchEvent(new Event('scroll'));
 
     };
 
-    getImages()
-
-    document.addEventListener('scroll', showImages, false);
-
-
-    // Load CSS
-    var loadCSS = function(href, media){
+    /**
+     * Load CSS file
+     * 
+     * @param {string} href 
+     * @param {string} media 
+     */
+    function loadCSS(href, media){
 
         var link = document.createElement('link');
                                        
@@ -84,6 +100,9 @@
         document.head.appendChild(link);
     }
 
+    /**
+     * Check if browser supports preload
+     */
     function supportsPreload(){
         var list = document.createElement('link').relList;
         if (!list || !list.supports) {
@@ -92,7 +111,10 @@
         return list.supports('preload');
     };  
 
-    var load = function(){   
+    /**
+     * Load styles with rel=preload attribute
+     */
+    function preloadStyles(){   
         // get all link elements and load them with loadCSS 
         var links = document.getElementsByTagName('link');
 
@@ -104,17 +126,13 @@
 
     };
 
-    // check if browser supports preload
-    if (!supportsPreload()) {
-        load()
-    }
 
-    //window.loadCSS = loadCSS;
-
-
-    // Load Script
-
-    var get = function (scripts) {
+    /**
+     *  Load scripts asynchronously  
+     * 
+     * @param {array} scripts 
+     */
+    function getScripts(scripts) {
 
         var promises = [];
 
@@ -165,6 +183,9 @@
     }
 
 
+    /**
+     * Load JavaScript with type="text/localscript" attribute
+     */
     function loadJS() {
         
         var data = [],
@@ -180,8 +201,10 @@
             }
         }
 
-        // run
-        get(data).then(function (codes) {
+        /**
+         * Run scripts
+         */
+        getScripts(data).then(function (codes) {
             for (var i in codes) {
                 try {
                     (0, eval)(codes[i]);
@@ -193,6 +216,30 @@
 
     }
 
-    loadJS()
+    /**
+     * Initialize all WPP scripts
+     */
+    function WPPinit() {
+        initLazyLoad();
+        showImages();
+        loadJS();
+    }
+
+    /**
+     * check if browser supports preload
+     * we don't need to wait DOMContentLoaded as this is defered script and the DOM is almost loaded
+     */
+    if ( ! supportsPreload() ) {
+        preloadStyles();
+    }
+
+    /**
+     * Load everything on DOMContentLoaded
+     */
+    if (document.readyState === 'loading') { 
+        document.addEventListener('DOMContentLoaded', WPPinit );
+    } else {
+        WPPinit();
+    }
 
 })(window, document);
