@@ -47,7 +47,7 @@ class Cache
                         $apache_headers = apache_request_headers();
                         $modified_since = isset( $apache_headers[ 'If-Modified-Since' ] ) ? $apache_headers[ 'If-Modified-Since' ] : '';
                     } else {
-                        $modified_since = Input::server( 'HTTP_IF_MODIFIED_SINCE', '' );
+                        $modified_since = Input::server( 'HTTP_IF_MODIFIED_SINCE' );
                     }
 
                     // Check cache
