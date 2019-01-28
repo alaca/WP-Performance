@@ -26,7 +26,7 @@ class Cache
         if ( empty( $_POST ) && ! wpp_in_array( $excluded, Url::current() ) ) {
 
             $file = Cache::getFileName();
-            $gzip = false !== strpos( $_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip' );
+            $gzip = false !== strpos( Input::server( 'HTTP_ACCEPT_ENCODING' ), 'gzip' );
 
             // Check is mobile
             if ( Option::boolval( 'mobile_cache' ) && wp_is_mobile() ) {
@@ -47,7 +47,7 @@ class Cache
                         $apache_headers = apache_request_headers();
                         $modified_since = isset( $apache_headers[ 'If-Modified-Since' ] ) ? $apache_headers[ 'If-Modified-Since' ] : '';
                     } else {
-                        $modified_since = isset( $_SERVER[ 'HTTP_IF_MODIFIED_SINCE' ] )  ? $_SERVER[ 'HTTP_IF_MODIFIED_SINCE' ] : '';
+                        $modified_since = Input::server( 'HTTP_IF_MODIFIED_SINCE', '' );
                     }
 
                     // Check cache
@@ -56,7 +56,7 @@ class Cache
                         && ( strtotime( $modified_since ) === filemtime( $file ) ) 
                     ) {
                         // Client's cache is up to date
-                        header( $_SERVER['SERVER_PROTOCOL'] . ' 304 Not Modified', true, 304 );
+                        header( Input::server( 'SERVER_PROTOCOL' ) . ' 304 Not Modified', true, 304 );
                         exit;
                     }
 
@@ -208,7 +208,7 @@ class Cache
 
         if ( get_option( 'permalink_structure', true ) && empty( $_GET ) ) {
 
-            return WPP_CACHE_DIR . trailingslashit( $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ) . 'index.html';
+            return WPP_CACHE_DIR . trailingslashit( Input::server( 'HTTP_HOST' ) . Input::server( 'REQUEST_URI' ) ) . 'index.html';
 
         } else {
 
