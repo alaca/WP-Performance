@@ -151,7 +151,7 @@ function wpp_ajax_image_actions() {
 
         case 'regenerate_thumbnails':
 
-            if ( isset( $_POST[ 'remove_flag' ] ) && $_POST[ 'remove_flag' ] === 'true' ) {
+            if ( Input::post( 'remove_flag' ) === 'true' ) {
                 delete_post_meta_by_key( 'wpp_thumb_regenerated' );
                 wpp_log( 'Thumb regeneration start', 'event' );
             }

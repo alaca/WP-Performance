@@ -4,7 +4,7 @@
 
 ## Description ##
 
-WP Performance is a performance plugin that aims to make that "speed up" process a bit simpler by adding a variety of performance tweaks to your WordPress site.
+WP Performance is a cache & performance plugin that aims to make that "speed up" process a bit simpler by adding a variety of performance tweaks to your WordPress site.
 This plugin generates static html files from your dynamic content, and it uses mod_rewrite to load cache files which is the fastest method.
 
 ## Multisite Support ##
@@ -59,6 +59,14 @@ WP Performance does not support multisite yet.
 
 
 ## Changelog ##
+
+### 1.0.9 ###
+* [IMPROVE] JavaScript async loading
+* [IMPROVE] Security
+* [IMPROVE] Parser
+* [FIX] Exclude urls
+* [FIX] LazyLoad
+
 
 ### 1.0.8.1 ###
 * [FIX] Minor bug fixes

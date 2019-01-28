@@ -192,7 +192,7 @@ function wpp_update_htaccess( $action, $file ) {
  */
 function wpp_get_basedir() {
 
-    $root_dir = basename( $_SERVER[ 'DOCUMENT_ROOT' ] );
+    $root_dir = basename( WPP\Input::server( 'DOCUMENT_ROOT' ) );
     $base_dir = basename( ABSPATH );
 
     if ( $root_dir != $base_dir ) {

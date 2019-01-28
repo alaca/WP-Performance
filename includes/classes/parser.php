@@ -12,76 +12,16 @@ class Parser
     private $html;
     private $time;
     
-
     private function __construct( $template ) {
 
         $this->time = microtime( true ); 
 
         // load template
-        $this->html = new HtmlDOM( $this->loadTemplate( $template ), false, false );
+        $this->html = new HtmlDOM( $template, false, false );
         $this->body = $this->html->find( 'body', 0 );
         $this->head = $this->html->find( 'head', 0 );
-
-        // Check for head and body tag
-        if ( ! $this->head || ! $this->body ) {
-            
-            $error = sprintf( 
-                '%s <!-- %s %s: %s -->', 
-                $this->html, WPP_PLUGIN_NAME, 
-                __( 'error', 'wpp' ), 
-                __( 'both head and body tag should be present in template file', 'wpp' )
-            );
-
-            wpp_log( __( 'both head and body tag should be present in template file', 'wpp' ) ); 
-
-            exit( $error );
-        }
-
-        // CSS optimization
-
-        /**
-         * Exclude URL from CSS optimization filter
-         * @since 1.0.3
-         */
-        $css_url_exclude = apply_filters( 'wpp_css_url_exclude', Option::get( 'css_url_exclude', [] ) );
-
-        if ( 
-            ! wpp_is_optimization_disabled_for( 'css' ) 
-            && ! wpp_in_array( $css_url_exclude , Url::current() ) 
-        ) {
-            $this->parseCSS();
-        }
-
-        // JS optimization
-
-        /**
-         * Exclude URL from JavaScript optimization filter
-         * @since 1.0.3
-         */
-        $js_url_exclude = apply_filters( 'wpp_js_url_exclude', Option::get( 'js_url_exclude', [] ) );
-
-        if ( 
-            ! wpp_is_optimization_disabled_for( 'js' ) 
-            && ! wpp_in_array( $js_url_exclude, Url::current() ) 
-        ) {
-            $this->parseJS();
-        }
-
-        // Images optimization
-        
-        /**
-         * Exclude URL from Images optimization filter
-         * @since 1.0.4
-         */
-        $image_url_exclude = apply_filters( 'wpp_image_url_exclude', Option::get( 'image_url_exclude', [] ) );
-
-        if ( ! wpp_in_array( $image_url_exclude, Url::current() ) 
-        ) {
-            $this->parseImages();
-        }
-
-        // Rebuild the template
-        $this->buildTemplate();  
+           
+        $this->parseTemplate();
 
     }
     
@@ -100,14 +40,76 @@ class Parser
         return static::$instance;
     }
 
-
     /**
-     * Get Parser instance
+     * Parse template
      *
-     * @return Parser
+     * @return void
+     * @since 1.0.9
      */
-    public static function instance() {
-        return static::$instance;
+    private function parseTemplate() {
+
+        // Check for head and body tag
+        if ( ! $this->head || ! $this->body ) {
+    
+            $this->html .= sprintf( 
+                '<!-- %s %s: %s -->', 
+                WPP_PLUGIN_NAME, 
+                __( 'error', 'wpp' ), 
+                __( 'both head and body tag should be present in template file', 'wpp' )
+            );
+
+            wpp_log( __( 'both head and body tag should be present in template file', 'wpp' ) ); 
+
+            return $this->html;
+
+        }
+
+        // CSS optimization
+
+        /**
+         * Exclude URL from CSS optimization filter
+         * @since 1.0.3
+         */
+        $css_url_exclude = apply_filters( 'wpp_css_url_exclude', Option::get( 'css_url_exclude', [] ) );
+
+        if ( 
+            ! wpp_is_optimization_disabled_for( 'css' ) 
+            && ! wpp_is_url_excluded( Url::current(), $css_url_exclude ) 
+        ) {
+            $this->parseCSS();
+        }
+
+        // JS optimization
+
+        /**
+         * Exclude URL from JavaScript optimization filter
+         * @since 1.0.3
+         */
+        $js_url_exclude = apply_filters( 'wpp_js_url_exclude', Option::get( 'js_url_exclude', [] ) );
+
+        if ( 
+            ! wpp_is_optimization_disabled_for( 'js' ) 
+            && ! wpp_is_url_excluded( Url::current(), $js_url_exclude ) 
+        ) {
+            $this->parseJS();
+        }
+
+        // Images optimization
+        
+        /**
+         * Exclude URL from Images optimization filter
+         * @since 1.0.4
+         */
+        $image_url_exclude = apply_filters( 'wpp_image_url_exclude', Option::get( 'image_url_exclude', [] ) );
+
+        if ( ! wpp_is_url_excluded( Url::current(), $image_url_exclude ) 
+        ) {
+            $this->parseImages();
+        }
+
+        // Rebuild the template
+        $this->buildTemplate(); 
+
     }
     
     
@@ -853,15 +855,14 @@ class Parser
         if ( Option::boolval( 'cache' ) ) {
             $vars[ 'expire' ]   = time() + intval( Option::get( 'cache_time', 3600 ) * Option::get( 'cache_length', 24 ) );
             $vars[ 'ajax_url' ] = admin_url( 'admin-ajax.php');
-            $vars[ 'nonce' ]    = wp_create_nonce( 'wpp-ajax' );
         }
 
         // Preload WPP to set high priority loading
-        $this->head->innertext .= '<link rel="preload" as="script" href="' . WPP_ASSET_URL . 'load/wpp.min.js" />' . PHP_EOL;
+        $this->head->innertext .= '<link rel="preload" as="script" href="' . WPP_ASSET_URL . 'load/wpp.min.js?ver=' . WPP_VERSION . '" />' . PHP_EOL;
         // Script localization
         $this->head->innertext .= '<script>var WPP=' . json_encode( $vars ) . ';</script>' . PHP_EOL;
         // WPP JS
-        $this->head->innertext .= '<script defer src="' . WPP_ASSET_URL . 'load/wpp.min.js"></script>' . PHP_EOL;  
+        $this->head->innertext .= '<script defer src="' . WPP_ASSET_URL . 'load/wpp.min.js?ver=' . WPP_VERSION . '"></script>' . PHP_EOL;  
 
         // Minify html
         if ( apply_filters( 'wpp_minify_html', false ) ) {
@@ -881,7 +882,6 @@ class Parser
         if ( 
             Option::boolval( 'cache' ) 
             && empty( $_POST ) 
-            && ! isset( $_GET[ 'nocache' ] ) 
             && ! is_user_logged_in() 
         ) {
 
@@ -893,7 +893,7 @@ class Parser
             $excluded = apply_filters( 'wpp_exclude_urls', Option::get( 'cache_url_exclude', [] ) );
 
             // Check if page is excluded
-            if ( ! wpp_in_array( $excluded, Url::current() ) ) {
+            if ( ! wpp_is_url_excluded( Url::current(), $excluded ) ) {
         
                 $output .= sprintf( 
                     '<!-- ' . __( 'Cache file was created in %s seconds on %s at %s', 'wpp' ) . ' -->',  
@@ -908,24 +908,19 @@ class Parser
 
         }
         
-        exit( $output );
+        return $output;
         
     }
 
+
     /**
-     * Load template
+     * Return html content
      *
-     * @since 1.0.0
-     * @param string $file
-     * 
      * @return string
+     * @since 1.0.9
      */
-    public function loadTemplate( $file ) {
-        if ( file_exists( $file ) ) {
-            ob_start();
-            include $file;
-            return ob_get_clean(); 
-        }
+    public function __toString() {
+        return strval( $this->html );
     }
         
 }

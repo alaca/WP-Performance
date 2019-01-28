@@ -28,7 +28,7 @@ class Url
     * @return string
     */
     public static function current() {
-        return ( is_ssl() ? 'https' : 'http' ) . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; 
+        return ( is_ssl() ? 'https' : 'http' ) . '://' . Input::server( 'HTTP_HOST' ) . Input::server( 'REQUEST_URI' ); 
     }
 
         

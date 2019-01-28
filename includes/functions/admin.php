@@ -130,8 +130,7 @@ function wpp_add_top_menu_item() {
             wp_enqueue_script( 'wpp-cache-js', WPP_ASSET_URL . 'cache.js', [ 'jquery' ], null, true );
             wp_localize_script( 'wpp-cache-js', 'WPP', [
                 'path' => WPP_ASSET_URL,
-                'ajax_url' => admin_url( 'admin-ajax.php' ),
-                'nonce' => wp_create_nonce( 'wpp-ajax' )
+                'ajax_url' => admin_url( 'admin-ajax.php' )
             ] );
 
         }); 
@@ -364,7 +363,7 @@ function wpp_maybe_show_exclude_option( $type ) {
  */
 function wpp_is_plugin_page() {
 
-    if ( isset( $_GET[ 'page' ] ) && $_GET[ 'page' ] == WPP_PLUGIN_ADMIN_URL ) {
+    if ( Input::get( 'page' ) == WPP_PLUGIN_ADMIN_URL ) {
         return true;
     }
 
