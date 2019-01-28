@@ -11,7 +11,7 @@
             var xhr = new XMLHttpRequest();
             xhr.open('POST', WPP.ajax_url, true);
             xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-            xhr.send('action=wpp_clear_cache&nonce=' + WPP.nonce);
+            xhr.send('action=wpp_clear_cache');
         }    
     }
 
