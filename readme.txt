@@ -80,8 +80,10 @@ If you encounter any bug, please create an issue on [Github](https://github.com/
 == Changelog ==
 
 = 1.0.9 =
+[IMPROVE] JavaScript async loading
 [IMPROVE] Security
 [IMPROVE] Parser
+[FIX] LazyLoad
 [FIX] Exclude urls
 
 = 1.0.8.1 =

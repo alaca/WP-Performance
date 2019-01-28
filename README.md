@@ -61,9 +61,12 @@ WP Performance does not support multisite yet.
 ## Changelog ##
 
 ### 1.0.9 ###
+* [IMPROVE] JavaScript async loading
 * [IMPROVE] Security
 * [IMPROVE] Parser
 * [FIX] Exclude urls
+* [FIX] LazyLoad
+
 
 ### 1.0.8.1 ###
 * [FIX] Minor bug fixes
