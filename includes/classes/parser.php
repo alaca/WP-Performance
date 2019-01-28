@@ -855,15 +855,14 @@ class Parser
         if ( Option::boolval( 'cache' ) ) {
             $vars[ 'expire' ]   = time() + intval( Option::get( 'cache_time', 3600 ) * Option::get( 'cache_length', 24 ) );
             $vars[ 'ajax_url' ] = admin_url( 'admin-ajax.php');
-            $vars[ 'nonce' ]    = wp_create_nonce( 'wpp-ajax' );
         }
 
         // Preload WPP to set high priority loading
-        $this->head->innertext .= '<link rel="preload" as="script" href="' . WPP_ASSET_URL . 'load/wpp.min.js" />' . PHP_EOL;
+        $this->head->innertext .= '<link rel="preload" as="script" href="' . WPP_ASSET_URL . 'load/wpp.min.js?ver=' . WPP_VERSION . '" />' . PHP_EOL;
         // Script localization
         $this->head->innertext .= '<script>var WPP=' . json_encode( $vars ) . ';</script>' . PHP_EOL;
         // WPP JS
-        $this->head->innertext .= '<script defer src="' . WPP_ASSET_URL . 'load/wpp.min.js"></script>' . PHP_EOL;  
+        $this->head->innertext .= '<script defer src="' . WPP_ASSET_URL . 'load/wpp.min.js?ver=' . WPP_VERSION . '"></script>' . PHP_EOL;  
 
         // Minify html
         if ( apply_filters( 'wpp_minify_html', false ) ) {
