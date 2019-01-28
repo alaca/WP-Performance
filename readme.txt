@@ -11,7 +11,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
-WP Performance is a performance plugin that aims to make that "speed up" process a bit simpler by adding a variety of performance tweaks to your WordPress site.
+WP Performance is a cache & performance plugin that aims to make that "speed up" process a bit simpler by adding a variety of performance tweaks to your WordPress site.
 This plugin generates static html files from your dynamic content, and it uses mod_rewrite to load cache files which is the fastest method.
 
 ### Multisite Support ###
@@ -78,6 +78,11 @@ If you encounter any bug, please create an issue on [Github](https://github.com/
 7. Settings
 
 == Changelog ==
+
+= 1.0.9 =
+[IMPROVE] Security
+[IMPROVE] Parser
+[FIX] Exclude urls
 
 = 1.0.8.1 =
 [FIX] Minor bug fixes
