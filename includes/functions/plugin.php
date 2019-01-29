@@ -211,9 +211,28 @@ function wpp_compatibility_check() {
 function wpp_deactivate_incompatible_plugin() {
 
     if ( wp_verify_nonce( Input::get( '_wpnonce' ), 'deactivate' ) ) {
+
         deactivate_plugins( Input::get( 'plugin' ) );
-        wpp_log( sprintf( 'Incompatible plugin %s deactivated', Input::get( 'plugin' ) ), 'notice' );    
-        wp_safe_redirect( wp_get_referer() );
+        wpp_log( sprintf( 'Incompatible plugin %s deactivated', Input::get( 'plugin' ) ), 'notice' ); 
+        
+        $redirect_url = wp_get_referer();
+        $url_query    = parse_url( $redirect_url, PHP_URL_QUERY );
+
+        parse_str( $url_query, $args );
+
+        if ( isset( $args[ 'page' ] ) ) {
+            /**
+            *  Check if plugin name is in referrer URL so we don't redirect to the non-existent admin page after we deactivate the plugin.
+            *  This is not 100% accurate, but it will handle well most cases
+            */
+            if ( stristr( Input::get( 'plugin' ), $args[ 'page' ] ) ) {
+                $redirect_url = admin_url();
+            }
+
+        }
+
+        wp_safe_redirect( $redirect_url );
+
     }
 
 }
