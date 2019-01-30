@@ -1,3 +1,4 @@
 *.json
 *.backup
 log.txt
+vendor/
