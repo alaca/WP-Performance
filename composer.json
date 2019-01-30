@@ -1,0 +1,9 @@
+{
+    "autoload": {
+        "psr-4": {
+            "WPP\\": "includes/classes",
+            "WPP\\Addons\\": "includes/addons"
+        },
+        "files": ["includes/loader.php"]
+    }
+}
