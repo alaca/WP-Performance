@@ -310,7 +310,7 @@
 }
 
 
-#wp-admin-bar-wpp_clear_cache a, #wp-admin-bar-wpp_clear_cf_cache a {
+#wp-admin-bar-wpp_clear_cache a {
     color: #ff723a !important;
 }
 
@@ -467,6 +467,34 @@ table.wpp-file-list tr {
 
 .wpp_page h3 {
     color: rgb(22, 22, 22);
+}
+
+
+.wpp-addons {
+    display: block;
+    width: 100%;
+}
+
+.wpp-addon {
+    width: 40%;
+    padding: 20px;
+    border: 1px solid rgb(236, 236, 236);
+    border-radius: 4px;
+    margin: 0 10px 20px 10px;
+}
+
+.wpp-addon strong {
+    font-size: 18px;
+}
+
+.wpp-addon-settings-link {
+    float: right;
+    margin-top: -8px;
+    margin-right: -5px;
+}
+
+.wpp-addon-settings-link i {
+    font-size: 20px !important;
 }
 
 
