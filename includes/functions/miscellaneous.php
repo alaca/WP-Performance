@@ -360,7 +360,7 @@ function wpp_get_critical_css_path() {
             'data' => wp_remote_retrieve_body( $response )
         ];
 
-        wpp_log( 'Critical CSS generated', 'notice' ); 
+        wpp_log( 'Critical CSS generated' ); 
 
     }
 

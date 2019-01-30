@@ -218,27 +218,16 @@ function wpp_get_log_file() {
  * Write log
  *
  * @param string $action
- * @param string $type
  * @return void
  * @since 1.0.0
  */
-function wpp_log( $action, $type = 'error' ) {
+function wpp_log( $action ) {
 
     if ( ! Option::boolval( 'enable_log' ) ) return;
 
-    $types = [
-        'error'   => __( 'Error', 'wpp' ),
-        'warning' => __( 'Warning', 'wpp' ),
-        'notice'  => __( 'Notice', 'wpp' ),
-        'event'   => __( 'Event', 'wpp' )
-    ];
-
-    $name = ( array_key_exists( $type, $types ) ) ? $types[ $type ] : $type;
-
     File::append( wpp_get_log_file(), sprintf( 
-        '[%s] %s: %s', 
+        '[%s] %s', 
         date( 'Y-m-d H:i:s' ),
-        $name, 
         $action . PHP_EOL
     ) );
 

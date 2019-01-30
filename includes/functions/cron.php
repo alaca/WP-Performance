@@ -66,11 +66,11 @@ function wpp_cron_preload_cache() {
     $data = File::getJson( $file );
 
     if ( empty( $data ) ) {
-        wpp_log( 'Cache preloading stop - nothing to preload', 'notice' );
+        wpp_log( 'Cache preloading stop - nothing to preload' );
         exit;
     }
 
-    wpp_log( 'Cache preloading start', 'notice' );
+    wpp_log( 'Cache preloading start' );
 
     $max_url = defined( 'WPP_PRELOAD_URL_NUMBER' ) ? WPP_PRELOAD_URL_NUMBER : 5;
 
@@ -91,7 +91,7 @@ function wpp_cron_preload_cache() {
         ] );
 
         if ( is_wp_error( $request ) ) {
-            wpp_log( sprintf( 'Error while trying to preload cache for page %s %s', $url, $request->get_error_message() ), 'error' );
+            wpp_log( sprintf( 'Error while trying to preload cache for page %s %s', $url, $request->get_error_message() ) );
         } 
         
         unset( $data[ $j ] );
@@ -131,7 +131,7 @@ function wpp_cron_prepare_preload() {
         // Validate sitemap url
         if ( ! filter_var( $url, FILTER_VALIDATE_URL ) ) {
 
-            wpp_log( sprintf( 'Invalid sitemap url: %s', $url ), 'warning' );
+            wpp_log( sprintf( 'Invalid sitemap url: %s', $url ) );
 
             continue;
         }
@@ -142,7 +142,7 @@ function wpp_cron_prepare_preload() {
     
         if ( is_wp_error( $request ) ) {
 
-            wpp_log( sprintf( 'Error fetching sitemap url: %s %s', $url, $request->get_error_message() ), 'error' );
+            wpp_log( sprintf( 'Error fetching sitemap url: %s %s', $url, $request->get_error_message() ) );
 
             return false;
         } 
@@ -151,7 +151,7 @@ function wpp_cron_prepare_preload() {
 
         if ( empty( $data ) ) {
 
-            wpp_log( sprintf( 'Sitemap %s is empty', $url ), 'error' );
+            wpp_log( sprintf( 'Sitemap %s is empty', $url ) );
 
             return false;
         }
@@ -165,7 +165,7 @@ function wpp_cron_prepare_preload() {
 
             libxml_clear_errors();
 
-            wpp_log( sprintf( 'Invalid XML in sitemap %s', $url ), 'error' );
+            wpp_log( sprintf( 'Invalid XML in sitemap %s', $url ) );
 
             return false;
         }
@@ -187,11 +187,11 @@ function wpp_cron_prepare_preload() {
 
         File::saveJson( WPP_CACHE_DIR . 'preload.json', $urls );
 
-        wpp_log( sprintf( 'Collected %s URLs from %s sitemap(s) for cache preloading', count( $urls ), count( $sitemaps ) ), 'notice' );
+        wpp_log( sprintf( 'Collected %s URLs from %s sitemap(s) for cache preloading', count( $urls ), count( $sitemaps ) ) );
 
     } else {
 
-        wpp_log( 'URLs for cache preloading not found', 'notice' );
+        wpp_log( 'URLs for cache preloading not found' );
 
     }
 
@@ -208,7 +208,7 @@ function wpp_cron_prepare_preload() {
  */
 function wpp_cron_db_cleanup() {
 
-    wpp_log( 'Automatic database cleanup started', 'notice' );
+    wpp_log( 'Automatic database cleanup started' );
 
     // Clear trash
     if ( Option::boolval( 'db_cleanup_trash' ) ) {

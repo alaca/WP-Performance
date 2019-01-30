@@ -66,7 +66,7 @@ class Cache
                         include $file;
                     }
 
-                    wpp_log( sprintf( 'Loaded cache for page %s', Url::current() ), 'notice' );
+                    wpp_log( sprintf( 'Loaded cache for page %s', Url::current() ) );
 
                     exit;
 
@@ -131,7 +131,7 @@ class Cache
          */
         do_action( 'wpp_after_cache_save', $file, $content );
 
-        wpp_log( sprintf( 'Cache saved for URL %s', Url::current() ), 'notice' );
+        wpp_log( sprintf( 'Cache saved for URL %s', Url::current() ) );
 
     }
    
@@ -172,7 +172,7 @@ class Cache
 
         }
 
-        wpp_log( 'Cache deleted', 'notice' );
+        wpp_log( 'Cache deleted' );
 
         /**
          * Hook fired right after deleting the cache files

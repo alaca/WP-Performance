@@ -31,7 +31,7 @@ function wpp_export_settings_file() {
         $data[ $name ] = Option::get( $name );
     }
 
-    wpp_log( 'Settings exported', 'notice' ); 
+    wpp_log( 'Settings exported' ); 
         
     exit( json_encode( $data ) );
 
@@ -76,7 +76,7 @@ function wpp_import_settings( $file ) {
                     
                 }
 
-                wpp_log( 'Settings imported', 'notice' ); 
+                wpp_log( 'Settings imported' ); 
 
                 Cache::clear();
 
@@ -111,10 +111,6 @@ function wpp_save_settings( $notify = true ) {
     Option::update( 'browser_cache',         Input::post( 'browser_cache', 'boolean' ) );
     Option::update( 'gzip_compression',      Input::post( 'gzip_compression', 'boolean' ) );
     Option::update( 'sitemaps_list',         Input::post( 'sitemaps_list', 'string', FILTER_REQUIRE_ARRAY ) );
-    
-    // Varnish
-    Option::update( 'varnish_auto_purge',    Input::post( 'varnish_auto_purge', 'boolean' ) );
-    Option::update( 'varnish_custom_host',   Input::post( 'varnish_custom_host', 'url' ) );
 
     // CSS
     Option::update( 'css_minify',            Input::post( 'css_minify', 'string', FILTER_REQUIRE_ARRAY ) );
@@ -173,10 +169,6 @@ function wpp_save_settings( $notify = true ) {
     Option::update( 'db_cleanup_cron',       Input::post( 'db_cleanup_cron', 'boolean' ) );
     Option::update( 'db_cleanup_autodrafts', Input::post( 'db_cleanup_autodrafts', 'boolean' ) );
 
-    // Cloudflare
-    Option::update( 'cf_enabled',            Input::post( 'cf_enabled', 'boolean' ) );
-
-
     // Cleanup schedule
     $frequency = Input::post( 'automatic_cleanup_frequency' );
 
@@ -225,7 +217,13 @@ function wpp_save_settings( $notify = true ) {
 
     Option::update( 'current_settings', $timestamp );
     
-    wpp_log( 'Settings saved', 'notice' ); 
+    wpp_log( 'Settings saved' ); 
+
+    /**
+     * Save settings hook
+     * @since 1.1.0
+     */
+    do_action( 'wpp-save-settings' );
 
     // Clear cache
     if ( Input::post( 'save_clear', 'boolean' ) ) {
@@ -399,7 +397,7 @@ function wpp_delete_list_options() {
         Option::remove( $option );
     }
 
-    wpp_log( 'List options deleted', 'notice' ); 
+    wpp_log( 'List options deleted' ); 
     
 }
 
@@ -490,7 +488,7 @@ function wpp_delete_files_list( $type, $notify = true  ) {
         }
     }
 
-    wpp_log( sprintf( '%s list files cleared', $type ), 'notice' );
+    wpp_log( sprintf( '%s list files cleared', $type ) );
     
     Cache::clear();       
     

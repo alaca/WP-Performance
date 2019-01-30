@@ -28,7 +28,7 @@ function wpp_activate() {
     if ( file_exists( $htaccess ) ) {
         if( ! file_exists( $backup ) ) {
             copy( $htaccess, $backup );    
-            wpp_log( '.htaccess backup created', 'notice' );            
+            wpp_log( '.htaccess backup created' );            
         }
     } else {
         // Create htaccess file if it doesn't exist
@@ -56,7 +56,7 @@ function wpp_deactivate() {
         
         if ( file_exists( $htaccess ) ) {
             copy( $backup, $htaccess );
-            wpp_log( '.htaccess backup restored', 'notice' );   
+            wpp_log( '.htaccess backup restored' );   
         }
 
         unlink( $backup );
@@ -177,7 +177,7 @@ function wpp_compatibility_check() {
     foreach ( get_option( 'active_plugins' ) as $plugin ) {
         if ( in_array( $plugin, $plugins ) ) {
             $incompatible[] = $plugin;  
-            wpp_log( sprintf( 'Incompatible plugin %s', $plugin ), 'warning' );         
+            wpp_log( sprintf( 'Incompatible plugin %s', $plugin ) );         
         }
     }
     
@@ -213,7 +213,7 @@ function wpp_deactivate_incompatible_plugin() {
     if ( wp_verify_nonce( Input::get( '_wpnonce' ), 'deactivate' ) ) {
 
         deactivate_plugins( Input::get( 'plugin' ) );
-        wpp_log( sprintf( 'Incompatible plugin %s deactivated', Input::get( 'plugin' ) ), 'notice' ); 
+        wpp_log( sprintf( 'Incompatible plugin %s deactivated', Input::get( 'plugin' ) ) ); 
         
         $redirect_url = wp_get_referer();
         $url_query    = parse_url( $redirect_url, PHP_URL_QUERY );
