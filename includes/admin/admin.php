@@ -26,11 +26,9 @@ defined('ABSPATH') or exit;
             <li><a href="#" class="<?php wpp_active( 'image-optimization' ); ?>" data-wpp-page-id="image-optimization"><?php _e( 'Images', 'wpp' ); ?></a></li>
             <li><a href="#" class="<?php wpp_active( 'database' ); ?>" data-wpp-page-id="database"><?php _e( 'Database', 'wpp' ); ?></a></li>
             <li><a href="#" class="<?php wpp_active( 'cdn' ); ?>" data-wpp-page-id="cdn">CDN</a></li>
+            <li><a href="#" class="<?php wpp_active( 'addons' ); ?>" data-wpp-page-id="addons"><?php _e( 'Add-ons', 'wpp' ); ?></a></li>
             <li><a href="#" class="<?php wpp_active( 'settings' ); ?>" data-wpp-page-id="settings"><?php _e( 'Settings', 'wpp' ); ?></a></li>
-            <?php if ( Option::boolval( 'cf_enabled' ) ) : ?>
-                <li><a href="#" class="<?php wpp_active( 'cloudflare' ); ?>" data-wpp-page-id="cloudflare">Cloudflare</a></li>
-            <?php endif; ?>
-            <?php do_action('wpp-admin-menu'); ?>
+            <?php do_action( 'wpp-admin-menu' ); ?>
         </ul>
     </div>
 
@@ -43,10 +41,8 @@ defined('ABSPATH') or exit;
             <option value="image-optimization" <?php wpp_active( 'image-optimization', false, 'selected' ); ?>><?php _e( 'Images', 'wpp' ); ?></option>
             <option value="database" <?php wpp_active( 'database', false, 'selected' ); ?>><?php _e( 'Database', 'wpp' ); ?></option>
             <option value="cdn" <?php wpp_active( 'cdn', false, 'selected' ); ?>>CDN</option>
+            <option value="addons" <?php wpp_active( 'addons', false, 'selected' ); ?>><?php _e( 'Add-ons', 'wpp' ); ?></option>
             <option value="settings" <?php wpp_active( 'settings', false, 'selected' ); ?>><?php _e( 'Settings', 'wpp' ); ?></option>
-            <?php if ( Option::boolval( 'cf_enabled' ) ) : ?>
-                <option value="cloudflare" <?php wpp_active( 'cloudflare', false, 'selected' ); ?>>Cloudflare</option>
-            <?php endif; ?>
             <?php do_action( 'wpp-admin-menu-mobile' ); ?>
         </select>
 
@@ -75,16 +71,14 @@ defined('ABSPATH') or exit;
     <div class="wpp_page <?php wpp_active( 'cdn' ); ?>" data-wpp-page="cdn">
         <?php include WPP_ADMIN_DIR . 'cdn.php'; ?>
     </div>    
+
+    <div class="wpp_page <?php wpp_active( 'addons' ); ?>" data-wpp-page="addons">
+        <?php include WPP_ADMIN_DIR . 'addons.php'; ?>
+    </div>    
     
     <div class="wpp_page <?php wpp_active( 'settings' ); ?>" data-wpp-page="settings">
         <?php include WPP_ADMIN_DIR . 'settings.php'; ?>
     </div>
-
-    <?php if ( Option::boolval( 'cf_enabled' ) ) : ?>
-        <div class="wpp_page <?php wpp_active( 'cloudflare' ); ?>" data-wpp-page="cloudflare">
-            <?php include WPP_ADMIN_DIR . 'cloudflare.php'; ?>
-        </div>
-    <?php endif; ?>
           
     <?php do_action( 'wpp-admin-page-content' ); ?>
     
