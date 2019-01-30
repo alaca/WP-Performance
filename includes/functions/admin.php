@@ -149,6 +149,17 @@ function wpp_add_top_menu_item() {
                 'title' => WPP_PLUGIN_NAME
             ]   
         ] );
+
+        $admin_bar->add_node( [
+            'id'     => 'wpp_clear_cache',
+            'title'  => __( 'Clear cache', 'wpp' ), 
+            'href'   => '#',
+            'parent' => 'wpp', 
+            'meta'   => [
+                'class' => 'wpp_clear_cache', 
+                'title' => __( 'Clear cache', 'wpp' )
+            ]
+        ] );
         
         $admin_bar->add_node( [
             'id'     => 'wpp_cache_topbar_link',
@@ -190,7 +201,6 @@ function wpp_add_top_menu_item() {
             ]
         ] );
 
-
         $admin_bar->add_node( [
             'id'     => 'wpp_database_topbar_link',
             'title'  => __( 'Database', 'wpp' ), 
@@ -200,8 +210,6 @@ function wpp_add_top_menu_item() {
                 'title' => __( 'Database', 'wpp' )
             ]
         ] );
-
-
 
         $admin_bar->add_node( [
             'id'     => 'wpp_db_topbar_link',
@@ -214,6 +222,16 @@ function wpp_add_top_menu_item() {
         ] );
 
         $admin_bar->add_node( [
+            'id'     => 'wpp_addons_topbar_link',
+            'title'  => __( 'Add-ons', 'wpp' ), 
+            'href'   => admin_url( 'admin.php?page=' . WPP_PLUGIN_ADMIN_URL . '&wpp-tab=addons' ),
+            'parent' => 'wpp', 
+            'meta'   => [
+                'title' => __( 'Add-ons', 'wpp' )
+            ]
+        ] );
+
+        $admin_bar->add_node( [
             'id'     => 'wpp_settings_topbar_link',
             'title'  => __( 'Settings', 'wpp' ), 
             'href'   => admin_url( 'admin.php?page=' . WPP_PLUGIN_ADMIN_URL . '&wpp-tab=settings' ),
@@ -222,47 +240,13 @@ function wpp_add_top_menu_item() {
                 'title' => __( 'Settings', 'wpp' )
             ]
         ] );
-
-
-        // Cloudflare
-        if ( Option::boolval( 'cf_enabled' ) ) {
-
-            $admin_bar->add_node( [
-                'id'     => 'wpp_cloudflare_topbar_link',
-                'title'  => 'Cloudflare', 
-                'href'   => admin_url( 'admin.php?page=' . WPP_PLUGIN_ADMIN_URL . '&wpp-tab=cloudflare' ),
-                'parent' => 'wpp', 
-                'meta'   => [
-                    'title' => 'Cloudflare'
-                ]
-            ] );
-
-
-            $admin_bar->add_node( [
-                'id'     => 'wpp_clear_cf_cache',
-                'title'  => __( 'Clear Cloudflare cache', 'wpp' ), 
-                'href'   => '#',
-                'parent' => 'wpp', 
-                'meta'   => [
-                    'class' => 'wpp_clear_cf_cache', 
-                    'title' => __( 'Clear Cloudflare cache', 'wpp' )
-                ]
-            ] );
-
-        }
         
-        $admin_bar->add_node( [
-            'id'     => 'wpp_clear_cache',
-            'title'  => __( 'Clear cache', 'wpp' ), 
-            'href'   => '#',
-            'parent' => 'wpp', 
-            'meta'   => [
-                'class' => 'wpp_clear_cache', 
-                'title' => __( 'Clear cache', 'wpp' )
-            ]
-        ] );
+        /**
+         * Add WPP top bar items
+         * @since 1.1.0
+         */
+        do_action( 'wpp-admin-bar', $admin_bar );
 
-        
 
     }, 99 );
     
