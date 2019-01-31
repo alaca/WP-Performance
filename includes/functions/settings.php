@@ -214,7 +214,7 @@ function wpp_save_settings( $notify = true ) {
 
     $timestamp = time();
 
-    File::save( WPP_DATA_DIR . 'settings/' . $timestamp . '.json', json_encode( $settings ) );
+    File::save( WPP_CACHE_DIR . $timestamp . '.settings.json', json_encode( $settings ) );
 
     Option::update( 'current_settings', $timestamp );
     
@@ -246,7 +246,7 @@ function wpp_save_settings( $notify = true ) {
  */
 function wpp_load_settings( $filename, $notify = true ) {
 
-    if ( file_exists( $file = WPP_DATA_DIR . 'settings/' . basename( $filename ) . '.json' ) ) {
+    if ( file_exists( $file = WPP_CACHE_DIR . basename( $filename ) . '.settings.json' ) ) {
 
         $settings = File::getJson( $file );
 

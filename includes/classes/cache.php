@@ -164,7 +164,7 @@ class Cache
 
             } else {
 
-                if ( $file->getFilename() != 'index.php' ) {
+                if ( $file->getFilename() != 'index.php' &&  ! strstr( $file->getFilename(), 'settings.json' ) ) {
                     unlink( $file->getRealPath() );
                 }
                 

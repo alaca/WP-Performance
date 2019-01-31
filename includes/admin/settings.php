@@ -98,7 +98,7 @@ defined('ABSPATH') or exit; ?>
         
         <ul class="wpp-side-section-list">
             <?php 
-            foreach ( array_reverse( glob( WPP_DATA_DIR . 'settings/*.json' ) ) as $i => $settings ): 
+            foreach ( array_reverse( glob( WPP_CACHE_DIR . '*.settings.json' ) ) as $i => $settings ): 
 
                 if( $i >= 5 ) {
                     unlink( $settings );
