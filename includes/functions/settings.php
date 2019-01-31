@@ -112,6 +112,7 @@ function wpp_save_settings( $notify = true ) {
     Option::update( 'gzip_compression',      Input::post( 'gzip_compression', 'boolean' ) );
     Option::update( 'sitemaps_list',         Input::post( 'sitemaps_list', 'string', FILTER_REQUIRE_ARRAY ) );
     Option::update( 'user_agents_exclude',   Input::post( 'user_agents_exclude', 'string', FILTER_REQUIRE_ARRAY ) );
+    Option::update( 'search_bots_exclude',   Input::post( 'search_bots_exclude', 'boolean' ) );
 
     // CSS
     Option::update( 'css_minify',            Input::post( 'css_minify', 'string', FILTER_REQUIRE_ARRAY ) );
