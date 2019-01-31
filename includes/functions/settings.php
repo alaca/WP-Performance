@@ -111,6 +111,7 @@ function wpp_save_settings( $notify = true ) {
     Option::update( 'browser_cache',         Input::post( 'browser_cache', 'boolean' ) );
     Option::update( 'gzip_compression',      Input::post( 'gzip_compression', 'boolean' ) );
     Option::update( 'sitemaps_list',         Input::post( 'sitemaps_list', 'string', FILTER_REQUIRE_ARRAY ) );
+    Option::update( 'user_agents_exclude',   Input::post( 'user_agents_exclude', 'string', FILTER_REQUIRE_ARRAY ) );
 
     // CSS
     Option::update( 'css_minify',            Input::post( 'css_minify', 'string', FILTER_REQUIRE_ARRAY ) );

@@ -301,7 +301,55 @@ defined('ABSPATH') or exit; ?>
             </div>
 
         </div>  
-        
+
+        <br />
+
+        <div data-wpp-show-checked="cache">
+
+            <h3><?php _e( 'Exclude User Agent(s) from cache', 'wpp' ); ?></h3>
+
+            <hr />
+
+            <div>
+
+                <?php $excluded_urls = Option::get( 'user_agents_exclude', [] ); ?>
+
+                <div id="wpp-exclude-agent-container">
+
+                    <?php foreach( $excluded_urls as $url ): ?>
+                        <div data-dynamic-container="user_agents_exclude[]" class="wpp-dynamic-input-container">
+
+                            <input 
+                                name="user_agents_exclude[]" 
+                                value="<?php echo $url; ?>" 
+                                class="wpp-dynamic-input" 
+                                form="wpp-settings" 
+                                type="text" 
+                                required
+                            /> &nbsp; 
+
+                            <a href="#" data-name="user_agents_exclude[]" class="button wpp-remove-input"><?php _e('Remove', 'wpp'); ?></a>
+
+                        </div>
+                    <?php endforeach; ?>
+
+                </div>
+
+                <br />
+
+                <a href="#" 
+                    class="button" 
+                    data-add-input="user_agents_exclude[]" 
+                    data-container="#wpp-exclude-agent-container">
+                    
+                    <?php _e( 'Add User Agent', 'wpp' ); ?>
+
+                </a>
+
+            </div>
+
+        </div>  
+                
         
     </div>
 
