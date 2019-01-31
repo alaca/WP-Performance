@@ -5,4 +5,3 @@ location ~*  \.(css|js|ico|gif|jpeg|jpg|webp|png|svg|eot|otf|woff|woff2|ttf|ogg|
 }
 
 # WPP Expire end
-

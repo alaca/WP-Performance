@@ -1,4 +1,3 @@
-
 # WPP GZIP start
 
 <IfModule mod_deflate.c>
