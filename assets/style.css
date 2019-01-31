@@ -165,7 +165,7 @@
 .wpp-page-wrapper hr {
     border-bottom: 1px solid #fff;
     margin-bottom: 15px;
-    margin-top: 25px;
+    margin-top: 15px;
 }
 
 .wpp-content-section textarea, .wpp-side-section textarea {
@@ -467,6 +467,7 @@ table.wpp-file-list tr {
 
 .wpp_page h3 {
     color: rgb(22, 22, 22);
+    font-size: 16px;
 }
 
 
