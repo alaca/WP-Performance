@@ -285,8 +285,6 @@ defined('ABSPATH') or exit; ?>
                     </div>
                 <?php endif; ?>
 
-                <br />
-
                 <a href="#" 
                     class="button" 
                     data-add-input="cache_url_exclude[]" 
@@ -335,7 +333,6 @@ defined('ABSPATH') or exit; ?>
 
                 </div>
 
-                <br />
 
                 <a href="#" 
                     class="button" 
@@ -347,6 +344,17 @@ defined('ABSPATH') or exit; ?>
                 </a>
 
             </div>
+
+            <br /><br />
+
+            <label class="wpp-info">
+                <input type="checkbox" value="1" name="search_bots_exclude" form="wpp-settings" <?php wpp_checked( 'search_bots_exclude' ); ?> />
+                <?php _e( 'Exclude search engines', 'wpp' ); ?>
+            </label>
+
+            <br /><br />
+
+            <em><span class="dashicons dashicons-info"></span> Google, Bing, etc.</em> 
 
         </div>  
                 
