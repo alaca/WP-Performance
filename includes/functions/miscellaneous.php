@@ -172,6 +172,7 @@ function wpp_enqueue_backend_assets() {
         'lang' => [
             'confirm' => __( 'Are you sure?', 'wpp' ),
             'remove'  => __( 'Remove', 'wpp' ),
+            'yes' => __( 'Yes', 'wpp' ),
             'add_url'  => __( 'Add URL', 'wpp' ),
             'disable_everywhere'  => __( 'Disable everywhere', 'wpp' ),
             'disable_selected_url'  => __( 'Disable only on selected URL', 'wpp' ),

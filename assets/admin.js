@@ -651,7 +651,7 @@ jQuery(document).ready(function ($) {
                                     var row = '<tr><td>' + size.name + '</td>';
                                     row += '<td>' + size.width + ' px</td>';
                                     row += (size.height > 0) ? '<td>' + size.height + ' px</td>' : '<td></td>';
-                                    row += '<td>' + size.crop + '</td>';
+                                    row += '<td>' + ( ( size.crop > 0 ) ? WPP.lang.yes : '' ) + '</td>';
                                     row += '<td><a href="#" data-size-name="' + size.name + '" class="button wpp-remove-user-image-size">x</a></td></tr>';
 
                                     tableBody.append(row);
@@ -750,7 +750,7 @@ jQuery(document).ready(function ($) {
                         if (element.attr('name') == 'crop') {
 
                             if (element.is(':checked')) {
-                                element.replaceWith('1');
+                                element.replaceWith(WPP.lang.yes);
                             } else {
                                 element.replaceWith('');
                             }
