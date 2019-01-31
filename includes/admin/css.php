@@ -340,8 +340,6 @@ $external_list      = Option::get( 'external_css_list', [] );
                 </div>
             <?php endif; ?>
 
-            <br /> 
-
             <a href="#" 
                 class="button" 
                 data-add-input="css_url_exclude[]" 

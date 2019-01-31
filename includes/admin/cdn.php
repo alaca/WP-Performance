@@ -79,8 +79,6 @@ defined('ABSPATH') or exit; ?>
                     </div>
                 <?php endif; ?>
 
-                <br />
-                
                 <a href="#" 
                     class="button" 
                     data-add-input="cdn_exclude[]" 
