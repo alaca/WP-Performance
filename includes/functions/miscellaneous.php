@@ -370,3 +370,28 @@ function wpp_get_critical_css_path() {
     wp_send_json( $json );
 
 }
+
+
+/**
+ * Get search engines list
+ *
+ * @return array
+ * @since 1.1.0
+ */
+function wpp_get_search_engines() {
+
+    return [
+        'Googlebot',
+        'Bingbot',
+        'Slurp',
+        'DuckDuckBot',
+        'Baiduspider',
+        'YandexBot',
+        'Sogou',
+        'Exabot',
+        'facebookexternalhit',
+        'facebot',
+        'ia_archiver'
+    ];
+
+}
