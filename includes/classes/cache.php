@@ -23,6 +23,19 @@ class Cache
 
         $excluded = Option::get( 'cache_url_exclude', [] );
 
+        // Get excluded user agents 
+        $agents = Option::get( 'user_agents_exclude', [] );
+
+        // Check if exclude search engines option is on
+        if ( Option::boolval( 'search_bots_exclude' ) ) {
+            $agents = array_merge( $agents, wpp_get_search_engines() );
+        }
+
+        // Add curent URL to exclude list if user agent is excluded
+        if ( ! empty( $agents ) ) {
+            array_push( $excluded, Url::current() );
+        }
+        
         if ( empty( $_POST ) && ! wpp_in_array( $excluded, Url::current() ) ) {
 
             $file = Cache::getFileName();
