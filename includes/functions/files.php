@@ -158,8 +158,16 @@ function wpp_update_htaccess( $action, $file ) {
 
                     $definitions_content  = str_replace( '{BASEDIR}', wpp_get_basedir(), $definitions_content );
 
-                    // Get user agnets 
-                    if ( ! empty( $agents = Option::get( 'user_agents_exclude', [] ) ) ) {
+                    // Get excluded user agents 
+                    $agents = Option::get( 'user_agents_exclude', [] );
+
+                    // Check if exclude search engines option is on
+                    if ( Option::boolval( 'search_bots_exclude' ) ) {
+                        $agents = array_merge( $agents, wpp_get_search_engines() );
+                    }
+
+    
+                    if ( ! empty( $agents ) ) {
 
                         $agents = array_map( function( $agent ) {
 
