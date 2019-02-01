@@ -41,10 +41,10 @@ class Varnish {
         // Add Varnish admin options
         add_action( 'admin_init', function() {
 
-            if ( Option::boolval( 'varnish_auto_purge' ) ) {
-                // Display Varnish option in settings page
-                add_action( 'wpp-settings-page-addons', [ $this, 'displayOptions' ] );
-            }
+            // Display addon section
+            add_action( 'wpp-display-addons', function() {
+                include trailingslashit( __DIR__ ) . 'views/addon.php';
+            } );
 
         } );
 
@@ -62,15 +62,6 @@ class Varnish {
         Option::update( 'varnish_custom_host', Input::post( 'varnish_custom_host', 'url' ) );
     }
 
-    /**
-     * Display options view
-     *
-     * @return void
-     * @since 1.1.0
-     */
-    public function displayOptions() {
-        include __DIR__ . '/views/options.php';
-    }
 
     /**
      * Clear Varnish cache for entire domain
