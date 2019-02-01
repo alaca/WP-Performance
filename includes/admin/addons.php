@@ -12,8 +12,6 @@ defined('ABSPATH') or exit; ?>
             
         </div>
 
-
-
         <br /><br />
 
         <input type="submit" class="button-primary" value="<?php _e( 'Save changes', 'wpp' ); ?>" name="wpp-save-settings" form="wpp-settings" />
@@ -26,9 +24,11 @@ defined('ABSPATH') or exit; ?>
     
         <div>
 
-            <h3><?php printf( '%s %s', WPP_PLUGIN_NAME,  __( 'Add-ons', 'wpp' ) ); ?></h3>
+            <h3><?php _e( 'Add-ons', 'wpp' ); ?></h3>
 
             <hr />
+
+            <?php printf( __( 'Add more features to %s with add-ons.', 'wpp' ), WPP_PLUGIN_NAME ); ?>
 
         </div>  
         
