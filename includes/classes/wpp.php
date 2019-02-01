@@ -6,35 +6,49 @@
 * @package WPP
 */
 
-use WPP\Input;
-use WPP\Option;
-
-
-class WP_Performance
+final class WP_Performance
 {
+    /**
+     * @var WP_Performance class instance
+     * @since 1.0.0
+     */
     private static $instance; 
-    private $data = []; 
               
+    /**
+     * Instantiate the plugin
+     *
+     * @since 1.0.0
+     * @return void
+     */
     private function __construct() {  
-        
-        // Load language
-        load_plugin_textdomain( 'wpp', false, plugin_basename( WPP_DIR ) . '/languages' );
-
-        // Load functions
-        include WPP_DIR . 'includes/load.php';
-
-        // Define plugin name and plugin admin url
-        define( 'WPP_PLUGIN_NAME'     , 'WP Performance' );
-        define( 'WPP_PLUGIN_ADMIN_URL', sanitize_title( WPP_PLUGIN_NAME ) );
+    
+        // Autoloader   
+        require WPP_DIR . 'vendor/autoload.php';
              
-        // Register autoloader   
-        spl_autoload_register( [ $this, 'autoload' ] ); 
-
         $this->init();
 
     } 
 
-    private function __clone(){}
+    /**
+     * Throw error on object clone
+     *
+     * @since 1.0.0
+     * @return void
+     */
+    public function __clone() {
+        _doing_it_wrong( __FUNCTION__, 'Cloning instances of the class is forbidden', '1.0.0' );
+    }
+
+    /**
+     * Disable unserializing of the class
+     *
+     * @since 1.1.0
+     * @return void
+     */
+    public function __wakeup() {
+        _doing_it_wrong( __FUNCTION__, 'Unserializing instances of the class is forbidden', '1.0.0' );
+    }
+
 
     /**
      *  WP Performance initialize
@@ -49,30 +63,6 @@ class WP_Performance
         
         return static::$instance;
         
-    }
-
-
-    /**
-     * Class autoloader
-     *
-     * @param string $class
-     * @return void
-     * @since 1.0.0
-     */
-    private function autoload( $class ) {
-
-        // Check namespace
-        if ( false === strpos( $class, __NAMESPACE__ ) ) {
-            return;
-        }
-
-        $file = str_replace( '\\', DIRECTORY_SEPARATOR, $class );
-        $file = WPP_CLASSES_DIR . strtolower( basename( $file ) ) . '.php';
-
-        if ( file_exists( $file ) ) { 
-            include_once $file;
-        }
-
     }
     
     /**
@@ -91,12 +81,15 @@ class WP_Performance
 
 
     /**
-     * Init function
+     * Initialize the plugin
      *
      * @return void
      * @since 1.0.0
      */
     private function init() {
+
+        // Load language
+        load_plugin_textdomain( 'wpp', false, plugin_basename( WPP_DIR ) . '/languages' );
 
         // Schedule cron tasks
         
@@ -135,8 +128,8 @@ class WP_Performance
 
 
     /**
-    * WP Performance front-end
-    * 
+    * WP Performance front-end actions
+    * @since 1.0.0
     */
     private function frontend() {    
 
@@ -173,8 +166,8 @@ class WP_Performance
     }
 
     /**
-    * WP Performance back-end
-    * 
+    * WP Performance back-end actions
+    * @since 1.0.0
     */
     private function backend() {
 
@@ -221,11 +214,6 @@ class WP_Performance
             // Save settings
             if ( Input::post( 'wpp-save-settings' ) && wp_verify_nonce( Input::post( 'wpp-nonce' ), 'save-settings' ) ) {
                 wpp_save_settings();
-            }
-
-            // Cloudflare settings
-            if ( Input::post( 'wpp-cf-save-settings' ) && wp_verify_nonce( Input::post( 'wpp-nonce' ), 'save-settings' )) {
-                wpp_cloudflare_save_settings();
             }
 
             // Clear log file
@@ -304,6 +292,8 @@ class WP_Performance
             add_action( 'admin_init',                        'wpp_add_top_menu_item' );
             // Enqueue back-end scripts and styles
             add_action( 'admin_init',                        'wpp_enqueue_backend_assets' );
+            // Initialize UI elements registered by add-ons
+            add_action( 'admin_init',                        [ 'WPP\UI', 'register' ] );
             // WPP admin page
             add_action( 'admin_menu',                        'wpp_add_menu_item' );
             // Set position
@@ -312,17 +302,13 @@ class WP_Performance
             add_filter( 'intermediate_image_sizes_advanced', 'wpp_get_defined_image_sizes' );
             // Add page meta box
             add_action( 'add_meta_boxes',                    'wpp_add_metabox' );
+
                         
         } );
 
 
         // Clear cache from frontend ajax action   
         add_action( 'wp_ajax_nopriv_wpp_clear_cache', [ 'WPP\Cache', 'clear' ] );
-
-        // Varnish auto purge cache
-        if ( Option::boolval( 'varnish_auto_purge' ) ) {
-            add_action( 'wpp-after-cache-delete', 'wpp_varnish_clear_domain' );
-        }
 
         // Clear the cache after switching theme
         add_action( 'after_switch_theme', function(){

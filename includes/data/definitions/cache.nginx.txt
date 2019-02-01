@@ -27,6 +27,8 @@ if (!-f "{CACHEDIR}$http_host/$request_uri/index.html_mobile") {
 	set $wpp_mobile 0;
 }
 
+{USER_AGENTS}
+
 if ($http_user_agent ~* (Mobile|Android|Kindle|BlackBerry|Opera+Mini|Opera+Mobi)) {
       set $wpp_cache "{$wpp_cache}{$wpp_mobile}";
 }
@@ -40,4 +42,3 @@ if ($wpp_cache = 1){
 }
 
 # WPP Cache load end
-

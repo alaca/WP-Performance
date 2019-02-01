@@ -30,9 +30,9 @@ Header append Vary: Accept-Encoding
 	RewriteCond %{QUERY_STRING} =""
     RewriteCond %{REQUEST_URI} !^(/wp-json/(.*))$ [NC]
 	RewriteCond %{HTTP:Cookie} !(wordpress_logged_in_|wp-postpass_|wptouch_switch_toggle|comment_author_|comment_author_email_) [NC]
+    {USER_AGENTS}
     RewriteCond "%{DOCUMENT_ROOT}{BASEDIR}wp-content/cache/wpp-cache/%{HTTP_HOST}%{REQUEST_URI}/index.html%{ENV:WPP_MOBILE_EXT}%{ENV:WPP_GZIP_EXT}" -f
     RewriteRule .* "{BASEDIR}wp-content/cache/wpp-cache/%{HTTP_HOST}%{REQUEST_URI}/index.html%{ENV:WPP_MOBILE_EXT}%{ENV:WPP_GZIP_EXT}" [L]
 </IfModule>
 
 # WPP Cache load end
-

@@ -165,7 +165,7 @@
 .wpp-page-wrapper hr {
     border-bottom: 1px solid #fff;
     margin-bottom: 15px;
-    margin-top: 25px;
+    margin-top: 15px;
 }
 
 .wpp-content-section textarea, .wpp-side-section textarea {
@@ -310,7 +310,7 @@
 }
 
 
-#wp-admin-bar-wpp_clear_cache a, #wp-admin-bar-wpp_clear_cf_cache a {
+#wp-admin-bar-wpp_clear_cache a {
     color: #ff723a !important;
 }
 
@@ -423,6 +423,10 @@ table.wpp-file-list tr {
     border-bottom: none;
 }
 
+.wpp-db-action-title {
+    font-size: 15px !important;
+}
+
 
 .wpp-meta-option em {
     color: #808080;
@@ -442,16 +446,16 @@ table.wpp-file-list tr {
 }
 
 .wpp_page input[type="checkbox"] {
-    width: 18px !important;
-    height: 18px !important;
+    width: 16px !important;
+    height: 16px !important;
     border-radius: 3px !important;
-    margin-top: 2px !important;
+    margin-top: 3px !important;
 }
 
 .wpp_page input[type="checkbox"]:checked::before {
-    width: 18px !important;
-    margin-top: -1px !important;
-    margin-left: -3px !important;
+    width: 16px !important;
+    margin-top: -2px !important;
+    margin-left: -4px !important;
     font-size: 20px !important;
 }
 
@@ -467,6 +471,55 @@ table.wpp-file-list tr {
 
 .wpp_page h3 {
     color: rgb(22, 22, 22);
+    font-size: 16px;
+}
+
+
+.wpp-addons {
+    display: inline-block;
+    width: 100%;
+}
+
+.wpp-addon {
+    float: left;
+    width: 33%;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.wpp-addon-content {
+    border: 1px solid rgb(228, 228, 228);
+    box-shadow: 0px 0px 3px rgb(241, 241, 241);
+    padding: 20px;
+    background-color: rgb(253, 253, 253);
+}
+
+.wpp-addon-content img {
+    width: auto;
+    max-height: 40px;
+    margin-bottom: 20px;
+}
+
+.wpp-addon-content strong {
+    font-size: 18px;
+}
+
+.wpp-addon-settings-link {
+    float: right;
+    margin-top: -5px;
+    margin-right: -5px;
+}
+
+.wpp-addon-settings-link i {
+    font-size: 20px !important;
+}
+
+.wpp-addon-settings {
+    display: none;
+}
+
+.wpp-addon-input {
+    width: 100%;
 }
 
 
@@ -498,6 +551,9 @@ table.wpp-file-list tr {
         margin-bottom: 10px;
     }
 
+    .wpp-addon {
+        width: 100%;
+    }
 
 }
 
@@ -637,7 +693,7 @@ table.wpp-file-list tr {
     
     .wpp_page input[type="checkbox"]:checked::before {
         width: 22px !important;
-        font-size: 24px !important;
+        font-size: 25px !important;
     }
 
 

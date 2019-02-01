@@ -146,7 +146,7 @@ class DB
         DB::clearCronTasks();
         DB::clearAutoDrafts();
 
-        wpp_log( 'DB optimized', 'notice' );
+        wpp_log( 'DB optimized' );
     }
     
 
@@ -158,7 +158,7 @@ class DB
      */
     public static function clearRevisions() {
 
-        wpp_log( 'DB revisions deleted', 'notice' );
+        wpp_log( 'DB revisions deleted' );
 
         return $GLOBALS['wpdb']->query( 
             'DELETE FROM ' . $GLOBALS['wpdb']->posts .' WHERE post_type = "revision"' 
@@ -174,7 +174,7 @@ class DB
      */
     public static function clearSpam() {
 
-        wpp_log( 'DB spam deleted', 'notice' );
+        wpp_log( 'DB spam deleted' );
 
         return $GLOBALS['wpdb']->query( 
             'DELETE FROM ' . $GLOBALS['wpdb']->comments .' WHERE comment_approved = "spam" OR comment_approved = "trash"'
@@ -190,7 +190,7 @@ class DB
      */
     public static function clearTrash() {
 
-        wpp_log( 'DB trash deleted', 'notice' );
+        wpp_log( 'DB trash deleted' );
 
         return $GLOBALS['wpdb']->query( 
             'DELETE FROM ' . $GLOBALS['wpdb']->posts . ' WHERE post_status = "trash"' 
@@ -206,7 +206,7 @@ class DB
      */
     public static function clearTransients() {
 
-        wpp_log( 'DB transients deleted', 'notice' );
+        wpp_log( 'DB transients deleted' );
 
         return $GLOBALS['wpdb']->query( 
             'DELETE FROM ' . $GLOBALS['wpdb']->options . ' WHERE option_name LIKE "%_transient_%"' 
@@ -254,7 +254,7 @@ class DB
 
         update_option( 'cron', $tasks );
 
-        wpp_log( 'DB cron tasks deleted', 'notice' );
+        wpp_log( 'DB cron tasks deleted' );
 
     }
 
@@ -267,7 +267,7 @@ class DB
     public static function clearAutoDrafts() {
 
 
-        wpp_log( 'DB auto drafts deleted', 'notice' );
+        wpp_log( 'DB auto drafts deleted' );
 
         return $GLOBALS['wpdb']->query( 
             'DELETE FROM ' . $GLOBALS['wpdb']->posts .' WHERE post_status = "auto-draft"' 

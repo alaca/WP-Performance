@@ -285,8 +285,6 @@ defined('ABSPATH') or exit; ?>
                     </div>
                 <?php endif; ?>
 
-                <br />
-
                 <a href="#" 
                     class="button" 
                     data-add-input="cache_url_exclude[]" 
@@ -301,7 +299,65 @@ defined('ABSPATH') or exit; ?>
             </div>
 
         </div>  
-        
+
+        <br />
+
+        <div data-wpp-show-checked="cache">
+
+            <h3><?php _e( 'Exclude User Agent(s) from cache', 'wpp' ); ?></h3>
+
+            <hr />
+
+            <div>
+
+                <?php $excluded_urls = Option::get( 'user_agents_exclude', [] ); ?>
+
+                <div id="wpp-exclude-agent-container">
+
+                    <?php foreach( $excluded_urls as $url ): ?>
+                        <div data-dynamic-container="user_agents_exclude[]" class="wpp-dynamic-input-container">
+
+                            <input 
+                                name="user_agents_exclude[]" 
+                                value="<?php echo $url; ?>" 
+                                class="wpp-dynamic-input" 
+                                form="wpp-settings" 
+                                type="text" 
+                                required
+                            /> &nbsp; 
+
+                            <a href="#" data-name="user_agents_exclude[]" class="button wpp-remove-input"><?php _e('Remove', 'wpp'); ?></a>
+
+                        </div>
+                    <?php endforeach; ?>
+
+                </div>
+
+
+                <a href="#" 
+                    class="button" 
+                    data-add-input="user_agents_exclude[]" 
+                    data-container="#wpp-exclude-agent-container">
+                    
+                    <?php _e( 'Add User Agent', 'wpp' ); ?>
+
+                </a>
+
+            </div>
+
+            <br /><br />
+
+            <label class="wpp-info">
+                <input type="checkbox" value="1" name="search_bots_exclude" form="wpp-settings" <?php wpp_checked( 'search_bots_exclude' ); ?> />
+                <?php _e( 'Exclude search engines', 'wpp' ); ?>
+            </label>
+
+            <br /><br />
+
+            <em><span class="dashicons dashicons-info"></span> Google, Bing, etc.</em> 
+
+        </div>  
+                
         
     </div>
 

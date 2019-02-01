@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WP Performance\n"
-"POT-Creation-Date: 2019-01-24 11:39+0100\n"
-"PO-Revision-Date: 2019-01-24 11:56+0100\n"
+"POT-Creation-Date: 2019-02-01 13:42+0100\n"
+"PO-Revision-Date: 2019-02-01 13:47+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: hr\n"
@@ -22,24 +22,273 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: includes/admin/admin.php:23 includes/admin/admin.php:40
-#: includes/functions/admin.php:156
+#: includes/addons/cloudflare/cloudflare.php:53
+msgid "Clear Cloudflare cache"
+msgstr "Očisti Cloudflare predmemeoriju"
+
+#: includes/addons/cloudflare/cloudflare.php:91
+msgid "Cloudflare API credentials not set"
+msgstr "Cloudflare API podaci nisu postavljeni"
+
+#: includes/addons/cloudflare/cloudflare.php:107
+msgid " Cloudflare cannot get zone details. Check your Cloudflare credentials"
+msgstr ""
+"Cloudflare ne može dobiti detalje zone. Provjerite Cloudflare podatke računa"
+
+#: includes/addons/cloudflare/cloudflare.php:114
+#, php-format
+msgid ""
+" Cloudflare zone %s is not activated. Please go to your Cloudflare dashboard "
+"and activate it."
+msgstr ""
+"Cloudflare zona %s nije aktivirana. Idite u svoju Cloudflare nadzornu ploču "
+"i aktivirajte je."
+
+#: includes/addons/cloudflare/cloudflare.php:118
+#, php-format
+msgid ""
+" Cloudflare zone %s status is pending and these settings won't have any "
+"effect on your website."
+msgstr ""
+"Cloudflare zona %s je na čekanju i ove postavke neće imati nikakvog utjecaja "
+"na vašu web-lokaciju."
+
+#: includes/addons/cloudflare/cloudflare.php:133
+msgid " Cloudflare development mode not set"
+msgstr "Cloudflare razvojni mod nije postavljen"
+
+#: includes/addons/cloudflare/cloudflare.php:142
+msgid " Cloudflare cache level not set"
+msgstr "Cloudflare level predmemorije nije postavljen"
+
+#: includes/addons/cloudflare/cloudflare.php:152
+msgid " Cloudflare browser cache expiration not set"
+msgstr "Cloudflare istek predmemorije preglednika nije postavljen"
+
+#: includes/addons/cloudflare/cloudflare.php:166
+msgid " Cloudflare minify not set"
+msgstr "Cloudflare minifikacija nije postavljena"
+
+#: includes/addons/cloudflare/cloudflare.php:178
+msgid " Cloudflare Rocket loader mode not set"
+msgstr " Cloudflare Rocket loader mod nije postavljen"
+
+#: includes/addons/cloudflare/cloudflare.php:188
+msgid " Cloudflare Brotli mode not set"
+msgstr " Cloudflare Brotli mod nije postavljen"
+
+#: includes/addons/cloudflare/cloudflare.php:200
+msgid "Cloudflare settings saved"
+msgstr "Cloudflare postavke spremljene"
+
+#: includes/addons/cloudflare/cloudflare.php:222
+msgid "Something went wrong. Cannot purge Cloudflare cache"
+msgstr ""
+
+#: includes/addons/cloudflare/views/addon.php:20
+msgid "Integrate your Cloudflare account with this add-on."
+msgstr "S ovim dodatkom integrirajte svoj račun za Cloudflare."
+
+#: includes/addons/cloudflare/views/addon.php:27
+#: includes/addons/cloudflare/views/admin.php:32
+#: includes/addons/cloudflare/views/admin.php:125
+#: includes/addons/cloudflare/views/admin.php:137
+#: includes/addons/varnish/views/addon.php:27
+#: includes/addons/varnish/views/options.php:16 includes/classes/wpp.php:267
+#: includes/functions/admin.php:267
+msgid "Enable"
+msgstr "Omogući"
+
+#: includes/addons/cloudflare/views/admin.php:15
+msgid "Caching"
+msgstr "Predmemorija"
+
+#: includes/addons/cloudflare/views/admin.php:21
+msgid "Cloudflare cache"
+msgstr "Cloudflare predmemeorija"
+
+#: includes/addons/cloudflare/views/admin.php:23
+msgid "Clear all Cloudflare cache"
+msgstr "Očisti Cloudflare predmemoriju"
+
+#: includes/addons/cloudflare/views/admin.php:23 includes/admin/cache.php:188
+#: includes/functions/admin.php:155 includes/functions/admin.php:160
+msgid "Clear cache"
+msgstr "Očisti predmemeoriju"
+
+#: includes/addons/cloudflare/views/admin.php:28
+msgid "Development mode"
+msgstr "Uključi development mode"
+
+#: includes/addons/cloudflare/views/admin.php:35
+msgid "Temporarily activate development mode on your website."
+msgstr "Privremeno uključuje development mode na stranici"
+
+#: includes/addons/cloudflare/views/admin.php:36
+msgid "This setting will automatically turn off after 3 hours."
+msgstr "Ova opcija će se automatski isključiti nakon 3 sata"
+
+#: includes/addons/cloudflare/views/admin.php:41
+msgid "Cache level"
+msgstr "Level predmemorija"
+
+#: includes/addons/cloudflare/views/admin.php:44
+msgid "Aggressive - Standard"
+msgstr "Agresivno - Standardno"
+
+#: includes/addons/cloudflare/views/admin.php:45
+msgid "Simplified - Ignore query string"
+msgstr "Pojednostavljeno"
+
+#: includes/addons/cloudflare/views/admin.php:46
+msgid "Basic - No query string"
+msgstr "Osnovno"
+
+#: includes/addons/cloudflare/views/admin.php:51
+msgid ""
+"Aggressive: Delivers a different resource each time the query string changes."
+msgstr ""
+"Agresivno: isporučuje drugi resurs svaki put kad se niz upita promijeni."
+
+#: includes/addons/cloudflare/views/admin.php:52
+msgid ""
+"Simplified: Delivers the same resource to everyone independent of the query "
+"string."
+msgstr "Pojednostavljeno: donosi isti resurs svima neovisno o nizu upita."
+
+#: includes/addons/cloudflare/views/admin.php:53
+msgid ""
+"Basic: Only delivers resources from cache when there is no query string."
+msgstr "Osnovno: isporučuje samo resurse iz predmemorije kada nema niza upita."
+
+#: includes/addons/cloudflare/views/admin.php:68
+msgid "Browser Cache Expiration"
+msgstr "Istek predmemorije preglednika"
+
+#: includes/addons/cloudflare/views/admin.php:71
+msgid "Respect Existing Headers"
+msgstr "Poštuj postojeća zaglavlja"
+
+#: includes/addons/cloudflare/views/admin.php:81
+msgid ""
+"Browser cache TTL (in seconds) specifies how long CloudFlare-cached "
+"resources will remain on your visitors computers."
+msgstr ""
+"Predmemorija preglednika TTL (u sekundama) određuje koliko dugo će resursi "
+"spremljeni u CloudFlareu ostati na računalima posjetitelja."
+
+#: includes/addons/cloudflare/views/admin.php:82
+msgid "The minimum TTL available depends on the plan level of the zone."
+msgstr "Minimalna dostupnost TTL-a ovisi o planu zone koji koristite."
+
+#: includes/addons/cloudflare/views/admin.php:90
+msgid "Content"
+msgstr "Sadržaj"
+
+#: includes/addons/cloudflare/views/admin.php:96 includes/admin/css.php:27
+#: includes/admin/includes/local_files.php:153 includes/admin/javascript.php:27
+msgid "Minify"
+msgstr "Umanji"
+
+#: includes/addons/cloudflare/views/admin.php:121
+msgid "Rocket Loader"
+msgstr "Rocket Loader"
+
+#: includes/addons/cloudflare/views/admin.php:128
+msgid "Rocket Loader is a asynchronous JavaScript loader."
+msgstr "Rocket Loader je asinkroni JavaScript loader."
+
+#: includes/addons/cloudflare/views/admin.php:133
+msgid "Brotli"
+msgstr "Brotli"
+
+#: includes/addons/cloudflare/views/admin.php:140
+msgid ""
+"Speed up page load times for your visitor’s HTTPS traffic by applying Brotli "
+"compression."
+msgstr ""
+"Ubrzajte vrijeme učitavanja stranice za HTTPS promet posjetitelja primjenom "
+"Brotli kompresije."
+
+#: includes/addons/cloudflare/views/admin.php:148 includes/admin/addons.php:17
+#: includes/admin/cache.php:178 includes/admin/cdn.php:33
+#: includes/admin/css.php:119 includes/admin/database.php:183
+#: includes/admin/images.php:192 includes/admin/javascript.php:118
+#: includes/admin/settings.php:81
+msgid "Save changes"
+msgstr "Spremi izmjene"
+
+#: includes/addons/cloudflare/views/admin.php:157
+msgid "Cloudflare credentials"
+msgstr "Cloudflare podaci"
+
+#: includes/addons/cloudflare/views/admin.php:161
+msgid "API key"
+msgstr "API ključ"
+
+#: includes/addons/cloudflare/views/admin.php:168
+msgid "Account email"
+msgstr "E-pošta računa"
+
+#: includes/addons/cloudflare/views/admin.php:173
+msgid "Zone ID"
+msgstr "ID Zone"
+
+#: includes/addons/varnish/views/addon.php:20
+msgid "If Varnish runs on your server, you must activate this add-on."
+msgstr ""
+"Ako je Varnish instaliran na vašem poslužitelju, morate aktivirati ovu "
+"opciju."
+
+#: includes/addons/varnish/views/addon.php:35
+#: includes/addons/varnish/views/options.php:23
+msgid "Custom host"
+msgstr "Prilagođeni URL host"
+
+#: includes/addons/varnish/views/addon.php:48
+#: includes/addons/varnish/views/options.php:34
+msgid "If you are using proxy, you may need this option"
+msgstr "Ako koristite proxy, možda vam zatreba ova opcija"
+
+#: includes/addons/varnish/views/options.php:12
+msgid "Varnish"
+msgstr "Varnish"
+
+#: includes/addons/varnish/views/options.php:19
+msgid "If Varnish runs on your server, you need to activate this option."
+msgstr ""
+"Ako je Varnish instaliran na vašem poslužitelju, morate aktivirati ovu "
+"opciju."
+
+#: includes/admin/addons.php:27 includes/admin/admin.php:30
+#: includes/admin/admin.php:45 includes/functions/admin.php:236
+#: includes/functions/admin.php:240
+msgid "Add-ons"
+msgstr "Dodaci"
+
+#: includes/admin/addons.php:31
+#, php-format
+msgid "Add more features to %s with add-ons."
+msgstr "Dodajte više mogućnosti %s s dodacima"
+
+#: includes/admin/admin.php:23 includes/admin/admin.php:38
+#: includes/functions/admin.php:166
 msgid "Cache"
 msgstr "Predmemorija"
 
-#: includes/admin/admin.php:26 includes/admin/admin.php:43
-#: includes/functions/admin.php:186 includes/functions/admin.php:190
+#: includes/admin/admin.php:26 includes/admin/admin.php:41
+#: includes/functions/admin.php:196 includes/functions/admin.php:200
 msgid "Images"
 msgstr "Slike"
 
-#: includes/admin/admin.php:27 includes/admin/admin.php:44
-#: includes/functions/admin.php:197 includes/functions/admin.php:201
+#: includes/admin/admin.php:27 includes/admin/admin.php:42
+#: includes/functions/admin.php:206 includes/functions/admin.php:210
 msgid "Database"
 msgstr "Baza podataka"
 
-#: includes/admin/admin.php:29 includes/admin/admin.php:46
-#: includes/admin/settings.php:12 includes/functions/admin.php:160
-#: includes/functions/admin.php:219 includes/functions/admin.php:223
+#: includes/admin/admin.php:29 includes/admin/admin.php:44
+#: includes/admin/settings.php:12 includes/functions/admin.php:170
+#: includes/functions/admin.php:226 includes/functions/admin.php:230
 msgid "Settings"
 msgstr "Postavke"
 
@@ -107,11 +356,11 @@ msgid "Cache preloading"
 msgstr "Predučitavanje predmemorije"
 
 #: includes/admin/cache.php:98 includes/admin/cache.php:251
-#: includes/admin/cache.php:271 includes/admin/cdn.php:66
-#: includes/admin/css.php:317 includes/admin/css.php:327
-#: includes/admin/images.php:66 includes/admin/images.php:92
-#: includes/admin/images.php:136 includes/admin/images.php:156
-#: includes/admin/includes/external_files.php:66
+#: includes/admin/cache.php:271 includes/admin/cache.php:329
+#: includes/admin/cdn.php:66 includes/admin/css.php:317
+#: includes/admin/css.php:327 includes/admin/images.php:66
+#: includes/admin/images.php:92 includes/admin/images.php:136
+#: includes/admin/images.php:156 includes/admin/includes/external_files.php:66
 #: includes/admin/includes/external_files.php:94
 #: includes/admin/includes/local_files.php:65
 #: includes/admin/includes/local_files.php:92 includes/admin/javascript.php:243
@@ -159,21 +408,9 @@ msgstr ""
 "Komprimiranje resursa pomoću gzip-a smanjuje broj bajtova poslanih preko "
 "mreže"
 
-#: includes/admin/cache.php:178 includes/admin/cdn.php:33
-#: includes/admin/cloudflare.php:146 includes/admin/css.php:119
-#: includes/admin/database.php:183 includes/admin/images.php:192
-#: includes/admin/javascript.php:118 includes/admin/settings.php:127
-msgid "Save changes"
-msgstr "Spremi izmjene"
-
 #: includes/admin/cache.php:187
 msgid "Cache statistics"
 msgstr "Statistika predmemorije"
-
-#: includes/admin/cache.php:188 includes/admin/cloudflare.php:21
-#: includes/functions/admin.php:257 includes/functions/admin.php:262
-msgid "Clear cache"
-msgstr "Očisti predmemeoriju"
 
 #: includes/admin/cache.php:207
 msgid "HTML files"
@@ -201,45 +438,57 @@ msgstr "Izuzimanje URL-ova iz predmemorije"
 msgid "Remove %s from excluded URL(s)?"
 msgstr "Makni %s s liste izuzetih URL-ova"
 
-#: includes/admin/cache.php:280 includes/admin/cache.php:294
-#: includes/admin/css.php:335 includes/admin/css.php:349
+#: includes/admin/cache.php:280 includes/admin/cache.php:292
+#: includes/admin/css.php:335 includes/admin/css.php:347
 #: includes/admin/images.php:165 includes/admin/images.php:177
-#: includes/admin/javascript.php:261 includes/admin/javascript.php:275
+#: includes/admin/javascript.php:261 includes/admin/javascript.php:273
 msgid "Part of the URL will also work"
 msgstr "Dio URL-a će također funkcionirati"
 
-#: includes/admin/cache.php:281 includes/admin/cache.php:294
-#: includes/admin/cdn.php:75 includes/admin/cdn.php:88
-#: includes/admin/css.php:336 includes/admin/css.php:349
+#: includes/admin/cache.php:281 includes/admin/cache.php:292
+#: includes/admin/cdn.php:75 includes/admin/cdn.php:86
+#: includes/admin/css.php:336 includes/admin/css.php:347
 #: includes/admin/images.php:166 includes/admin/images.php:177
-#: includes/admin/javascript.php:262 includes/admin/javascript.php:275
+#: includes/admin/javascript.php:262 includes/admin/javascript.php:273
 msgid "Use {numbers} to match only numbers"
 msgstr "Koristite {numbers} za podudaranje samo brojeva"
 
-#: includes/admin/cache.php:282 includes/admin/cache.php:294
-#: includes/admin/cdn.php:76 includes/admin/cdn.php:88
-#: includes/admin/css.php:337 includes/admin/css.php:349
+#: includes/admin/cache.php:282 includes/admin/cache.php:292
+#: includes/admin/cdn.php:76 includes/admin/cdn.php:86
+#: includes/admin/css.php:337 includes/admin/css.php:347
 #: includes/admin/images.php:167 includes/admin/images.php:177
-#: includes/admin/javascript.php:263 includes/admin/javascript.php:275
+#: includes/admin/javascript.php:263 includes/admin/javascript.php:273
 msgid "Use {letters} to match only letters"
 msgstr "Koristite {letters} za podudaranje samo slova"
 
-#: includes/admin/cache.php:283 includes/admin/cache.php:294
-#: includes/admin/cdn.php:77 includes/admin/cdn.php:88
-#: includes/admin/css.php:338 includes/admin/css.php:349
+#: includes/admin/cache.php:283 includes/admin/cache.php:292
+#: includes/admin/cdn.php:77 includes/admin/cdn.php:86
+#: includes/admin/css.php:338 includes/admin/css.php:347
 #: includes/admin/images.php:168 includes/admin/images.php:177
-#: includes/admin/javascript.php:264 includes/admin/javascript.php:275
+#: includes/admin/javascript.php:264 includes/admin/javascript.php:273
 msgid "Use {any} to match any string"
 msgstr "Koristite {any} za podudaranje bilo kojeg niza"
 
-#: includes/admin/cache.php:297 includes/admin/css.php:352
+#: includes/admin/cache.php:295 includes/admin/css.php:350
 #: includes/admin/images.php:180 includes/admin/includes/external_files.php:113
 #: includes/admin/includes/external_files.php:124
 #: includes/admin/includes/local_files.php:109
 #: includes/admin/includes/local_files.php:120
-#: includes/admin/javascript.php:278 includes/functions/miscellaneous.php:175
+#: includes/admin/javascript.php:276 includes/functions/miscellaneous.php:176
 msgid "Add URL"
 msgstr "Dodaj URL"
+
+#: includes/admin/cache.php:307
+msgid "Exclude User Agent(s) from cache"
+msgstr "Izuzmite korisničke agente iz predmemorije"
+
+#: includes/admin/cache.php:342
+msgid "Add User Agent"
+msgstr "Dodaj korisničkog agenta"
+
+#: includes/admin/cache.php:352
+msgid "Exclude search engines"
+msgstr "Izuzmi tražilice"
 
 #: includes/admin/cdn.php:12
 msgid "Enable CDN"
@@ -261,138 +510,9 @@ msgstr "Naziv CDN poslužitelja"
 msgid "Exclude file(s) from CDN"
 msgstr "Izuzmi datoteke iz CDN-a"
 
-#: includes/admin/cdn.php:91
+#: includes/admin/cdn.php:89
 msgid "Add file"
 msgstr "Dodaj datoteku"
-
-#: includes/admin/cloudflare.php:13
-msgid "Caching"
-msgstr "Predmemorija"
-
-#: includes/admin/cloudflare.php:19
-msgid "Cloudflare cache"
-msgstr "Cloudflare predmemeorija"
-
-#: includes/admin/cloudflare.php:21
-msgid "Clear all Cloudflare cache"
-msgstr "Očisti Cloudflare predmemoriju"
-
-#: includes/admin/cloudflare.php:26
-msgid "Development mode"
-msgstr "Uključi development mode"
-
-#: includes/admin/cloudflare.php:30 includes/admin/cloudflare.php:123
-#: includes/admin/cloudflare.php:135 includes/admin/settings.php:41
-#: includes/admin/settings.php:51 includes/classes/wpp.php:279
-#: includes/functions/admin.php:284
-msgid "Enable"
-msgstr "Omogući"
-
-#: includes/admin/cloudflare.php:33
-msgid "Temporarily activate development mode on your website."
-msgstr "Privremeno uključuje development mode na stranici"
-
-#: includes/admin/cloudflare.php:34
-msgid "This setting will automatically turn off after 3 hours."
-msgstr "Ova opcija će se automatski isključiti nakon 3 sata"
-
-#: includes/admin/cloudflare.php:39
-msgid "Cache level"
-msgstr "Level predmemorija"
-
-#: includes/admin/cloudflare.php:42
-msgid "Aggressive - Standard"
-msgstr "Agresivno - Standardno"
-
-#: includes/admin/cloudflare.php:43
-msgid "Simplified - Ignore query string"
-msgstr "Pojednostavljeno"
-
-#: includes/admin/cloudflare.php:44
-msgid "Basic - No query string"
-msgstr "Osnovno"
-
-#: includes/admin/cloudflare.php:49
-msgid ""
-"Aggressive: Delivers a different resource each time the query string changes."
-msgstr ""
-"Agresivno: isporučuje drugi resurs svaki put kad se niz upita promijeni."
-
-#: includes/admin/cloudflare.php:50
-msgid ""
-"Simplified: Delivers the same resource to everyone independent of the query "
-"string."
-msgstr "Pojednostavljeno: donosi isti resurs svima neovisno o nizu upita."
-
-#: includes/admin/cloudflare.php:51
-msgid ""
-"Basic: Only delivers resources from cache when there is no query string."
-msgstr "Osnovno: isporučuje samo resurse iz predmemorije kada nema niza upita."
-
-#: includes/admin/cloudflare.php:66
-msgid "Browser Cache Expiration"
-msgstr "Istek predmemorije preglednika"
-
-#: includes/admin/cloudflare.php:69
-msgid "Respect Existing Headers"
-msgstr "Poštuj postojeća zaglavlja"
-
-#: includes/admin/cloudflare.php:79
-msgid ""
-"Browser cache TTL (in seconds) specifies how long CloudFlare-cached "
-"resources will remain on your visitors computers."
-msgstr ""
-"Predmemorija preglednika TTL (u sekundama) određuje koliko dugo će resursi "
-"spremljeni u CloudFlareu ostati na računalima posjetitelja."
-
-#: includes/admin/cloudflare.php:80
-msgid "The minimum TTL available depends on the plan level of the zone."
-msgstr "Minimalna dostupnost TTL-a ovisi o planu zone koji koristite."
-
-#: includes/admin/cloudflare.php:88
-msgid "Content"
-msgstr "Sadržaj"
-
-#: includes/admin/cloudflare.php:94 includes/admin/css.php:27
-#: includes/admin/includes/local_files.php:153 includes/admin/javascript.php:27
-msgid "Minify"
-msgstr "Umanji"
-
-#: includes/admin/cloudflare.php:119
-msgid "Rocket Loader"
-msgstr "Rocket Loader"
-
-#: includes/admin/cloudflare.php:126
-msgid "Rocket Loader is a asynchronous JavaScript loader."
-msgstr "Rocket Loader je asinkroni JavaScript loader."
-
-#: includes/admin/cloudflare.php:131
-msgid "Brotli"
-msgstr "Brotli"
-
-#: includes/admin/cloudflare.php:138
-msgid ""
-"Speed up page load times for your visitor’s HTTPS traffic by applying Brotli "
-"compression."
-msgstr ""
-"Ubrzajte vrijeme učitavanja stranice za HTTPS promet posjetitelja primjenom "
-"Brotli kompresije."
-
-#: includes/admin/cloudflare.php:155
-msgid "Cloudflare credentials"
-msgstr "Cloudflare podaci"
-
-#: includes/admin/cloudflare.php:159
-msgid "API key"
-msgstr "API ključ"
-
-#: includes/admin/cloudflare.php:166
-msgid "Account email"
-msgstr "E-pošta računa"
-
-#: includes/admin/cloudflare.php:171
-msgid "Zone ID"
-msgstr "ID Zone"
 
 #: includes/admin/css.php:26 includes/admin/javascript.php:26
 msgid "File"
@@ -745,7 +865,7 @@ msgstr "Izreži"
 msgid "Actions"
 msgstr "Akcije"
 
-#: includes/admin/images.php:240
+#: includes/admin/images.php:240 includes/functions/miscellaneous.php:175
 msgid "Yes"
 msgstr "Da"
 
@@ -774,19 +894,19 @@ msgstr "Regenerirajte umanjene slike"
 
 #: includes/admin/includes/external_files.php:31
 #: includes/admin/includes/local_files.php:31
-#: includes/functions/miscellaneous.php:176
+#: includes/functions/miscellaneous.php:177
 msgid "Disable everywhere"
 msgstr "Onemogućite svugdje"
 
 #: includes/admin/includes/external_files.php:35
 #: includes/admin/includes/local_files.php:35
-#: includes/functions/miscellaneous.php:177
+#: includes/functions/miscellaneous.php:178
 msgid "Disable only on selected URL"
 msgstr "Onemogućite samo na odabranom URL-u"
 
 #: includes/admin/includes/external_files.php:39
 #: includes/admin/includes/local_files.php:39
-#: includes/functions/miscellaneous.php:178
+#: includes/functions/miscellaneous.php:179
 msgid "Disable everywhere except on selected URL"
 msgstr "Onemogući svugdje osim na odabranom URL-u"
 
@@ -818,16 +938,16 @@ msgstr "Onemogućite JavaScript optimizaciju za prijavljene korisnike"
 msgid "Exclude URL(s) from JavaScript optimization"
 msgstr "Izuzimanje URL-ova iz JavaScript optimizacije"
 
-#: includes/admin/metabox.php:13 includes/admin/metabox.php:72
-#: includes/admin/metabox.php:116 includes/admin/metabox.php:161
+#: includes/admin/metabox.php:13 includes/admin/metabox.php:80
+#: includes/admin/metabox.php:131 includes/admin/metabox.php:183
 msgid "Page URL will be added to exclude list"
 msgstr "URL stranice će biti dodan na listu izuzetih URL-ova"
 
-#: includes/admin/metabox.php:33 includes/admin/metabox.php:60
+#: includes/admin/metabox.php:41 includes/admin/metabox.php:68
 msgid "Exclude from cache"
 msgstr "Izuzmi stranicu iz predmemorije"
 
-#: includes/admin/metabox.php:38
+#: includes/admin/metabox.php:46
 msgid ""
 "This page is your website home page and it is affected by Exclude URL(s) "
 "from cache option. Usually a home page is not excluded from cache. Please "
@@ -838,12 +958,12 @@ msgstr ""
 "Obično početna stranica nije isključena iz predmemorije. Provjerite postavke "
 "izuzimanja."
 
-#: includes/admin/metabox.php:41
+#: includes/admin/metabox.php:49
 msgid "This page is affected by URL(s) exclude options on Cache page"
 msgstr ""
 "Na izuzimanje ove stranice utječu URL-ovi dodani na stranici Predmemorija"
 
-#: includes/admin/metabox.php:55
+#: includes/admin/metabox.php:63
 msgid ""
 "This page is your website home page.<br />Do you want to exclude home page "
 "from cache?"
@@ -851,29 +971,29 @@ msgstr ""
 "Ova stranica je početna stranica vaše web stranice.<br />Da li želite "
 "izuzeti početnu stranicu iz predmemorije?"
 
-#: includes/admin/metabox.php:92 includes/admin/metabox.php:106
-#: includes/admin/metabox.php:136
+#: includes/admin/metabox.php:107 includes/admin/metabox.php:121
+#: includes/admin/metabox.php:158
 msgid "Exclude from CSS optimization"
 msgstr "Izuzmi stranicu iz CSS optimizacije"
 
-#: includes/admin/metabox.php:96
+#: includes/admin/metabox.php:111
 msgid "This page is affected by URL(s) exclude options on CSS page"
 msgstr "Na izuzimanje ove stranice utječu URL-ovi dodani na stranici CSS"
 
-#: includes/admin/metabox.php:140
+#: includes/admin/metabox.php:162
 msgid "This page is affected by URL(s) exclude options on JavaScript page"
 msgstr ""
 "Na izuzimanje ove stranice utječu URL-ovi dodani na stranici JavaScript"
 
-#: includes/admin/metabox.php:150
+#: includes/admin/metabox.php:172
 msgid "Exclude from JS optimization"
 msgstr "Izuzmi stranicu iz JS optimizacije"
 
-#: includes/admin/metabox.php:180 includes/admin/metabox.php:194
+#: includes/admin/metabox.php:209 includes/admin/metabox.php:223
 msgid "Exclude from Image optimization"
 msgstr "Izuzmi stranicu iz optimizacije slika"
 
-#: includes/admin/metabox.php:184
+#: includes/admin/metabox.php:213
 msgid "This page is affected by URL(s) exclude options on Images page"
 msgstr "Na izuzimanje ove stranice utječu URL-ovi dodani na stranici Slike"
 
@@ -889,41 +1009,15 @@ msgstr "Izvezi postavke"
 msgid "Export"
 msgstr "Izvezi"
 
-#: includes/admin/settings.php:32
-msgid "Add-ons"
-msgstr "Dodaci"
-
-#: includes/admin/settings.php:37
-msgid "Cloudflare"
-msgstr "Cloudflare"
-
-#: includes/admin/settings.php:47
-msgid "Varnish"
-msgstr "Varnish"
-
-#: includes/admin/settings.php:54
-msgid "If Varnish runs on your server, you need to activate this option."
-msgstr ""
-"Ako je Varnish instaliran na vašem poslužitelju, morate aktivirati ovu "
-"opciju."
-
-#: includes/admin/settings.php:58
-msgid "Custom host"
-msgstr "Prilagođeni URL host"
-
-#: includes/admin/settings.php:69
-msgid "If you are using proxy, you may need this option"
-msgstr "Ako koristite proxy, možda vam zatreba ova opcija"
-
-#: includes/admin/settings.php:80
+#: includes/admin/settings.php:34
 msgid "Server"
 msgstr "Poslužitelj"
 
-#: includes/admin/settings.php:85
+#: includes/admin/settings.php:39
 msgid "Nginx configuration"
 msgstr "Nginx postavke"
 
-#: includes/admin/settings.php:89
+#: includes/admin/settings.php:43
 #, php-format
 msgid ""
 "%s will work out of the box on Nginx servers, this rewrite rules are not "
@@ -934,51 +1028,51 @@ msgstr ""
 "nisu neophodne. Međutim, da biste dodatno optimizirali vašu web stranicu, "
 "dodajte ove definicije u Nginx konfiguracijsku datoteku."
 
-#: includes/admin/settings.php:91
+#: includes/admin/settings.php:45
 msgid "Select all"
 msgstr "Odabrati sve"
 
-#: includes/admin/settings.php:98
+#: includes/admin/settings.php:52
 msgid "Logs"
 msgstr "Zapisi"
 
-#: includes/admin/settings.php:102
+#: includes/admin/settings.php:56
 msgid "Troubleshooting logging"
 msgstr "Dnevnik"
 
-#: includes/admin/settings.php:106
+#: includes/admin/settings.php:60
 msgid "Enable troubleshooting logging"
 msgstr "Omogući dnevnik"
 
-#: includes/admin/settings.php:109
+#: includes/admin/settings.php:63
 msgid "These logs can be helpful for troubleshooting problems"
 msgstr "Ovi zapisi mogu biti korisni za rješavanje problema"
 
-#: includes/admin/settings.php:115
+#: includes/admin/settings.php:69
 msgid "Log file content"
 msgstr "Sadržaj datoteke dnevnika"
 
-#: includes/admin/settings.php:118
+#: includes/admin/settings.php:72
 msgid "Content is auto refreshed every 10 seconds"
 msgstr "Sadržaj se automatski osvježava svakih 10 sekundi"
 
-#: includes/admin/settings.php:130
+#: includes/admin/settings.php:84
 msgid "Clear log file"
 msgstr "Očisti datoteku dnevnika"
 
-#: includes/admin/settings.php:139
+#: includes/admin/settings.php:93
 msgid "Previous configuration settings"
 msgstr "Prethodne postavke konfiguracije"
 
-#: includes/admin/settings.php:155
+#: includes/admin/settings.php:111
 msgid "Saved"
 msgstr "Spremljeno"
 
-#: includes/admin/settings.php:158
+#: includes/admin/settings.php:114
 msgid "Load configuration settings saved on "
 msgstr "Učitajte postavke konfiguracije spremljene u "
 
-#: includes/admin/settings.php:161
+#: includes/admin/settings.php:117
 msgid "Load"
 msgstr "Učitaj"
 
@@ -1051,28 +1145,28 @@ msgstr "Pokrenuto čišćenje baze"
 msgid "Database cleanup complete"
 msgstr "Završeno čišćenje baze"
 
-#: includes/classes/parser.php:31
+#: includes/classes/parser.php:68
 msgid "error"
 msgstr "greška"
 
-#: includes/classes/parser.php:32 includes/classes/parser.php:35
+#: includes/classes/parser.php:69 includes/classes/parser.php:72
 msgid "both head and body tag should be present in template file"
 msgstr "oznaka head i body bi trebale biti prisutne u datoteci predloška"
 
-#: includes/classes/parser.php:871
+#: includes/classes/parser.php:883
 msgid "Optimized by"
 msgstr "Optimizirano sa"
 
-#: includes/classes/parser.php:899
+#: includes/classes/parser.php:910
 #, php-format
 msgid "Cache file was created in %s seconds on %s at %s"
 msgstr "Datoteka predmemorije stvorena je za %s sekundi na dan %s u %s"
 
-#: includes/classes/wpp.php:279
+#: includes/classes/wpp.php:267
 msgid "is temporarily disabled"
 msgstr "je privremeno onemogućen"
 
-#: includes/classes/wpp.php:284
+#: includes/classes/wpp.php:272
 #, php-format
 msgid ""
 "%s: Log file is getting large, either clear the log or disable "
@@ -1081,86 +1175,23 @@ msgstr ""
 "%s: Datoteka dnevnika postaje sve veća, očistite zapise dnevnika ili "
 "onemogućite zapisivanje u dnevnik"
 
-#: includes/classes/wpp.php:289
+#: includes/classes/wpp.php:277
 #, php-format
 msgid "%s: missing writing permissions for file <code>.htaccess</code>"
 msgstr "%s: nedostaju dozvole za pisanje u datoteku <code> .htaccess </code>"
 
-#: includes/classes/wpp.php:294
+#: includes/classes/wpp.php:282
 #, php-format
 msgid "%s: enter Cloudflare credentials"
 msgstr "%s: unesite Cloudflare podatke računa"
 
-#: includes/functions/admin.php:244 includes/functions/admin.php:249
-msgid "Clear Cloudflare cache"
-msgstr "Očisti Cloudflare predmemeoriju"
-
-#: includes/functions/admin.php:287
+#: includes/functions/admin.php:270
 msgid "Temporarily disable"
 msgstr "Privremeno onemogući"
 
-#: includes/functions/admin.php:307
+#: includes/functions/admin.php:290
 msgid "settings"
 msgstr "settings"
-
-#: includes/functions/cloudflare.php:28
-msgid "Cloudflare API credentials not set"
-msgstr "Cloudflare API podaci nisu postavljeni"
-
-#: includes/functions/cloudflare.php:44
-msgid " Cloudflare cannot get zone details. Check your Cloudflare credentials"
-msgstr ""
-"Cloudflare ne može dobiti detalje zone. Provjerite Cloudflare podatke računa"
-
-#: includes/functions/cloudflare.php:51
-#, php-format
-msgid ""
-" Cloudflare zone %s is not activated. Please go to your Cloudflare dashboard "
-"and activate it."
-msgstr ""
-"Cloudflare zona %s nije aktivirana. Idite u svoju Cloudflare nadzornu ploču "
-"i aktivirajte je."
-
-#: includes/functions/cloudflare.php:55
-#, php-format
-msgid ""
-" Cloudflare zone %s status is pending and these settings won't have any "
-"effect on your website."
-msgstr ""
-"Cloudflare zona %s je na čekanju i ove postavke neće imati nikakvog utjecaja "
-"na vašu web-lokaciju."
-
-#: includes/functions/cloudflare.php:70
-msgid " Cloudflare development mode not set"
-msgstr "Cloudflare razvojni mod nije postavljen"
-
-#: includes/functions/cloudflare.php:79
-msgid " Cloudflare cache level not set"
-msgstr "Cloudflare level predmemorije nije postavljen"
-
-#: includes/functions/cloudflare.php:89
-msgid " Cloudflare browser cache expiration not set"
-msgstr "Cloudflare istek predmemorije preglednika nije postavljen"
-
-#: includes/functions/cloudflare.php:103
-msgid " Cloudflare minify not set"
-msgstr "Cloudflare minifikacija nije postavljena"
-
-#: includes/functions/cloudflare.php:115
-msgid " Cloudflare Rocket loader mode not set"
-msgstr " Cloudflare Rocket loader mod nije postavljen"
-
-#: includes/functions/cloudflare.php:125
-msgid " Cloudflare Brotli mode not set"
-msgstr " Cloudflare Brotli mod nije postavljen"
-
-#: includes/functions/cloudflare.php:137
-msgid "Cloudflare settings saved"
-msgstr "Cloudflare postavke spremljene"
-
-#: includes/functions/cloudflare.php:160
-msgid "Something went wrong. Cannot purge Cloudflare cache"
-msgstr ""
 
 #: includes/functions/cron.php:41
 msgid "Every minute"
@@ -1174,23 +1205,7 @@ msgstr "Svakih 5 minuta"
 msgid "You are doing it wrong"
 msgstr "Vi to radite krivo"
 
-#: includes/functions/files.php:230
-msgid "Error"
-msgstr "Greška"
-
-#: includes/functions/files.php:231
-msgid "Warning"
-msgstr "Upozorenje"
-
-#: includes/functions/files.php:232
-msgid "Notice"
-msgstr "Obavijest"
-
-#: includes/functions/files.php:233
-msgid "Event"
-msgstr "Događaj"
-
-#: includes/functions/files.php:261
+#: includes/functions/files.php:334
 msgid "Log file cleared"
 msgstr "Dnevnik je izbrisan"
 
@@ -1214,15 +1229,15 @@ msgstr "Gotovo"
 msgid "Are you sure?"
 msgstr "Da li ste sigurni?"
 
-#: includes/functions/miscellaneous.php:179
+#: includes/functions/miscellaneous.php:180
 msgid "Something went wrong"
 msgstr "Nešto je pošlo krivo"
 
-#: includes/functions/miscellaneous.php:180
+#: includes/functions/miscellaneous.php:181
 msgid "Regenerating thumbs"
 msgstr "Regeneriranje umanjenih slika"
 
-#: includes/functions/miscellaneous.php:181
+#: includes/functions/miscellaneous.php:182
 msgid "Regenerate thumbnails may take a long time. Do not close your browser."
 msgstr ""
 "Regeneriranje umanjenih slika može potrajati dugo. Ne zatvarajte preglednik."
@@ -1270,6 +1285,21 @@ msgstr ""
 #. Author URI of the plugin/theme
 msgid "https://www.antelaca.xyz"
 msgstr ""
+
+#~ msgid "Cloudflare"
+#~ msgstr "Cloudflare"
+
+#~ msgid "Error"
+#~ msgstr "Greška"
+
+#~ msgid "Warning"
+#~ msgstr "Upozorenje"
+
+#~ msgid "Notice"
+#~ msgstr "Obavijest"
+
+#~ msgid "Event"
+#~ msgstr "Događaj"
 
 #~ msgid "Enable auto purge"
 #~ msgstr "Omogući automatsko čišćenje"

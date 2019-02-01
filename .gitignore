@@ -1,3 +1,4 @@
-*.json
+includes/data/settings/*.json
 *.backup
 log.txt
+vendor/

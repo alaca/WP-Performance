@@ -23,6 +23,19 @@ class Cache
 
         $excluded = Option::get( 'cache_url_exclude', [] );
 
+        // Get excluded user agents 
+        $agents = Option::get( 'user_agents_exclude', [] );
+
+        // Check if exclude search engines option is on
+        if ( Option::boolval( 'search_bots_exclude' ) ) {
+            $agents = array_merge( $agents, wpp_get_search_engines() );
+        }
+
+        // Add curent URL to exclude list if user agent is excluded
+        if ( ! empty( $agents ) ) {
+            array_push( $excluded, Url::current() );
+        }
+        
         if ( empty( $_POST ) && ! wpp_in_array( $excluded, Url::current() ) ) {
 
             $file = Cache::getFileName();
@@ -66,7 +79,7 @@ class Cache
                         include $file;
                     }
 
-                    wpp_log( sprintf( 'Loaded cache for page %s', Url::current() ), 'notice' );
+                    wpp_log( sprintf( 'Loaded cache for page %s', Url::current() ) );
 
                     exit;
 
@@ -131,7 +144,7 @@ class Cache
          */
         do_action( 'wpp_after_cache_save', $file, $content );
 
-        wpp_log( sprintf( 'Cache saved for URL %s', Url::current() ), 'notice' );
+        wpp_log( sprintf( 'Cache saved for URL %s', Url::current() ) );
 
     }
    
@@ -164,7 +177,7 @@ class Cache
 
             } else {
 
-                if ( $file->getFilename() != 'index.php' ) {
+                if ( $file->getFilename() != 'index.php' &&  ! strstr( $file->getFilename(), 'settings.json' ) ) {
                     unlink( $file->getRealPath() );
                 }
                 
@@ -172,7 +185,7 @@ class Cache
 
         }
 
-        wpp_log( 'Cache deleted', 'notice' );
+        wpp_log( 'Cache deleted' );
 
         /**
          * Hook fired right after deleting the cache files

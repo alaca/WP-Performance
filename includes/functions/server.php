@@ -60,6 +60,39 @@ function wpp_get_nginx_rewrite_rules() {
         $definitions = str_replace( '{CACHEDIR}', WPP_CACHE_DIR, $definitions );
         $definitions = str_replace( '{CACHEDIR_BASENAME}', basename( WPP_CACHE_DIR ), $definitions );
 
+        // Get excluded user agents 
+        $agents = Option::get( 'user_agents_exclude', [] );
+
+        // Check if exclude search engines option is on
+        if ( Option::boolval( 'search_bots_exclude' ) ) {
+            $agents = array_merge( $agents, wpp_get_search_engines() );
+        }
+
+        // Add curent URL to exclude list if user agent is excluded
+        if ( ! empty( $agents ) ) {
+
+            $agents = array_map( function( $agent ) {
+
+                $agent = trim( $agent );
+
+                if ( empty( $agent ) ) {
+                    return 'WPP';
+                }
+
+                return preg_quote( $agent );
+
+            }, $agents );
+
+            $condition = 'if ($http_user_agent ~* (' .  implode( '|', $agents ) . ')) {
+                 set $wpp_cache 0; 
+            }';
+
+        } else {
+            $condition  =  '';
+        }
+
+        $definitions = str_replace( '{USER_AGENTS}', $condition, $definitions );
+
         $output .= $definitions;
 
     }

@@ -128,6 +128,9 @@ function wpp_update_htaccess( $action, $file ) {
         return false;
     }
 
+    $htaccess_content    = File::get( $htaccess );
+    $definitions_content = File::get( $definitionsFile );
+
     switch ( $action ) {
 
         case 1:
@@ -147,19 +150,77 @@ function wpp_update_htaccess( $action, $file ) {
                 }
 
             }
-    
-            $original    = File::get( $htaccess );
-            $definitions = str_replace( '{BASEDIR}', wpp_get_basedir(), File::get( $definitionsFile ) );
-    
-            if ( ! strstr( $original, $definitions ) ) {
 
-                if ( $file == 'cache' ) {
-                    File::prepend( $htaccess, $definitions );
-                } else {
-                    File::append( $htaccess, $definitions );
-                }
+
+            switch( $file ) {
+
+                case 'cache':
+
+                    $definitions_content  = str_replace( '{BASEDIR}', wpp_get_basedir(), $definitions_content );
+
+                    // Get excluded user agents 
+                    $agents = Option::get( 'user_agents_exclude', [] );
+
+                    // Check if exclude search engines option is on
+                    if ( Option::boolval( 'search_bots_exclude' ) ) {
+                        $agents = array_merge( $agents, wpp_get_search_engines() );
+                    }
+
+    
+                    if ( ! empty( $agents ) ) {
+
+                        $agents = array_map( function( $agent ) {
+
+                            $agent = trim( $agent );
+
+                            // If user agent is empty we should return something to prevent 500 error
+                            if ( empty( $agent ) ) {
+                                return 'WPP';
+                            }
+
+                            return preg_quote( $agent );
+
+                        }, $agents );
+
+                        $condition = 'RewriteCond %{HTTP_USER_AGENT} !(' .  implode( '|', $agents ) . ') [NC]';
+
+                    } else {
+                        $condition = '';               
+                    }
+
+                    $definitions_content = str_replace( '{USER_AGENTS}', $condition, $definitions_content );
+
+                    preg_match( '/^# WPP Cache load start(.*?)# WPP Cache load end/s' , $htaccess_content, $match );
+
+                    if ( isset( $match[ 0 ] ) ) {
+                        
+                        $content = str_replace( $match[ 0 ], $definitions_content, $htaccess_content );
+                        File::save( $htaccess, $content );
+
+                    } else {
+                        File::prepend( $htaccess, $definitions_content );
+                    }
+
+
+                    break;
                 
+                case 'gzip':
+
+                    if ( ! preg_match( '/# WPP GZIP start(.*?)# WPP GZIP end/s', $htaccess_content ) ) {
+                        File::append( $htaccess, $definitions_content );  
+                    }
+
+                    break;
+
+                case 'expire':
+                
+                    if ( ! preg_match( '/# WPP Expire start(.*?)# WPP Expire end/s', $htaccess_content ) ) {
+                        File::append( $htaccess, $definitions_content );  
+                    }
+
+                    break;
             }
+    
 
 
             break;
@@ -169,12 +230,35 @@ function wpp_update_htaccess( $action, $file ) {
 
             if ( file_exists( $htaccess ) ) {
 
-                $original    = File::get( $htaccess );
-                $definitions = str_replace( '{BASEDIR}', wpp_get_basedir(), File::get( $definitionsFile ) );
-    
-                $content = str_replace( $definitions, '', $original );
+                switch( $file ) {
 
-                File::save( $htaccess, $content );
+                    case 'cache':
+    
+                        if ( preg_match( '/# WPP Cache load start(.*?)# WPP Cache load end/s', $htaccess_content, $match ) ) {
+                            $content = str_replace( $match[ 0 ], '', $htaccess_content );
+                            File::save( $htaccess, $content );
+                        }
+    
+                        break;
+                    
+                    case 'gzip':
+    
+                        if ( preg_match( '/# WPP GZIP start(.*?)# WPP GZIP end/s', $htaccess_content, $match ) ) {
+                            $content = str_replace( $match[ 0 ], '', $htaccess_content );
+                            File::save( $htaccess, $content ); 
+                        }
+    
+                        break;
+    
+                    case 'expire':
+                    
+                        if ( preg_match( '/# WPP Expire start(.*?)# WPP Expire end/s', $htaccess_content, $match ) ) {
+                            $content = str_replace( $match[ 0 ], '', $htaccess_content );
+                            File::save( $htaccess, $content ); 
+                        }
+    
+                        break;
+                }
     
             }
 
@@ -218,27 +302,16 @@ function wpp_get_log_file() {
  * Write log
  *
  * @param string $action
- * @param string $type
  * @return void
  * @since 1.0.0
  */
-function wpp_log( $action, $type = 'error' ) {
+function wpp_log( $action ) {
 
     if ( ! Option::boolval( 'enable_log' ) ) return;
 
-    $types = [
-        'error'   => __( 'Error', 'wpp' ),
-        'warning' => __( 'Warning', 'wpp' ),
-        'notice'  => __( 'Notice', 'wpp' ),
-        'event'   => __( 'Event', 'wpp' )
-    ];
-
-    $name = ( array_key_exists( $type, $types ) ) ? $types[ $type ] : $type;
-
     File::append( wpp_get_log_file(), sprintf( 
-        '[%s] %s: %s', 
+        '[%s] %s', 
         date( 'Y-m-d H:i:s' ),
-        $name, 
         $action . PHP_EOL
     ) );
 

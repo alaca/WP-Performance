@@ -172,6 +172,7 @@ function wpp_enqueue_backend_assets() {
         'lang' => [
             'confirm' => __( 'Are you sure?', 'wpp' ),
             'remove'  => __( 'Remove', 'wpp' ),
+            'yes' => __( 'Yes', 'wpp' ),
             'add_url'  => __( 'Add URL', 'wpp' ),
             'disable_everywhere'  => __( 'Disable everywhere', 'wpp' ),
             'disable_selected_url'  => __( 'Disable only on selected URL', 'wpp' ),
@@ -360,7 +361,7 @@ function wpp_get_critical_css_path() {
             'data' => wp_remote_retrieve_body( $response )
         ];
 
-        wpp_log( 'Critical CSS generated', 'notice' ); 
+        wpp_log( 'Critical CSS generated' ); 
 
     }
 
@@ -368,5 +369,30 @@ function wpp_get_critical_css_path() {
     Option::update( 'wpp_disable', false );
 
     wp_send_json( $json );
+
+}
+
+
+/**
+ * Get search engines list
+ *
+ * @return array
+ * @since 1.1.0
+ */
+function wpp_get_search_engines() {
+
+    return [
+        'Googlebot',
+        'Bingbot',
+        'Slurp',
+        'DuckDuckBot',
+        'Baiduspider',
+        'YandexBot',
+        'Sogou',
+        'Exabot',
+        'facebookexternalhit',
+        'facebot',
+        'ia_archiver'
+    ];
 
 }

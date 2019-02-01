@@ -266,8 +266,6 @@ $external_list      = Option::get( 'external_js_list', [] );
                 </div>
             <?php endif; ?>
 
-            <br /> 
-
             <a href="#" 
                 class="button" 
                 data-add-input="js_url_exclude[]" 

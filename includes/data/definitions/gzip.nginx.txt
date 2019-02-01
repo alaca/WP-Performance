@@ -9,4 +9,3 @@ gzip_http_version 1.1;
 gzip_types image/svg+xml text/plain text/html text/xml text/css text/javascript application/xml application/xhtml+xml application/rss+xml application/javascript application/x-javascript application/x-font-ttf application/vnd.ms-fontobject font/opentype font/ttf font/eot font/otf;
 
 # WPP GZIP end
-

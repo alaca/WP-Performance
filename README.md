@@ -60,6 +60,13 @@ WP Performance does not support multisite yet.
 
 ## Changelog ##
 
+### 1.1.0 ###
+* [NEW] Exclude user agents from cache
+* [NEW] Exclude search engines from cache
+* [NEW] Add-ons page
+* [IMPROVE] Admin UI
+* [FIX] XML files cache
+
 ### 1.0.9 ###
 * [IMPROVE] JavaScript async loading
 * [IMPROVE] Security

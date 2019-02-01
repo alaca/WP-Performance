@@ -1,4 +1,4 @@
-<?php namespace WPP;
+<?php namespace WPP\Addons\Cloudflare;
 /**
 * WP Performance Optimizer - Cloudflare API helper
 *
@@ -7,6 +7,8 @@
 */
 
 use WP_Error;
+use WPP\API;
+use WPP\Option;
 
 class Cloudflare_API extends API {
 

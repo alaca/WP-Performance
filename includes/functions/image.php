@@ -61,7 +61,7 @@ function wpp_ajax_image_actions() {
             // check size name
             if ( array_key_exists( $size[ 'name' ], $all_sizes ) ) {
 
-                wpp_log( sprintf( 'Image size %s already in use', $size[ 'name' ] ), 'event' );
+                wpp_log( sprintf( 'Image size %s already in use', $size[ 'name' ] ) );
 
                 wp_send_json( [ 
                     'status' => 0, 
@@ -82,7 +82,7 @@ function wpp_ajax_image_actions() {
 
             if ( Option::update( 'image_sizes', $sizes ) ) {
 
-                wpp_log( sprintf( 'Image size %s added', $size[ 'name' ] ), 'event' );
+                wpp_log( sprintf( 'Image size %s added', $size[ 'name' ] ) );
 
                 wp_send_json( [ 'status' => 1 ] );
             }
@@ -102,7 +102,7 @@ function wpp_ajax_image_actions() {
 
                 if ( Option::update( 'image_sizes', $wpp_sizes ) ) {
 
-                    wpp_log( sprintf( 'Image size %s removed', $name ), 'event' );
+                    wpp_log( sprintf( 'Image size %s removed', $name ) );
 
                     wp_send_json( [ 'status' => 1 ] );
                 }
@@ -120,7 +120,7 @@ function wpp_ajax_image_actions() {
                     
                     if ( Option::update( 'image_sizes_remove', $removed_sizes ) ) {
 
-                        wpp_log( sprintf( 'Image size %s removed', $name ), 'event' );
+                        wpp_log( sprintf( 'Image size %s removed', $name ) );
 
                         wp_send_json( [ 'status' => 1 ] );
                     }
@@ -136,7 +136,7 @@ function wpp_ajax_image_actions() {
             Option::update( 'image_sizes', [] );
             Option::update( 'image_sizes_remove', [] );
 
-            wpp_log( 'Image sizes restored', 'event' );
+            wpp_log( 'Image sizes restored' );
 
             wp_send_json( [ 'status' => 1 ] );
 
@@ -153,7 +153,7 @@ function wpp_ajax_image_actions() {
 
             if ( Input::post( 'remove_flag' ) === 'true' ) {
                 delete_post_meta_by_key( 'wpp_thumb_regenerated' );
-                wpp_log( 'Thumb regeneration start', 'event' );
+                wpp_log( 'Thumb regeneration start' );
             }
     
             if ( $image = Image::getNonRegenerated( 1 ) ) {
@@ -181,7 +181,7 @@ function wpp_ajax_image_actions() {
 
                 $filename = str_replace( wp_normalize_path( ABSPATH ), '', wp_normalize_path( $file ) );
         
-                wpp_log( sprintf( 'Thumbs regenerated for %s', $filename ), 'event' );
+                wpp_log( sprintf( 'Thumbs regenerated for %s', $filename ) );
 
                 wp_send_json( [
                     'process' => true,
@@ -193,7 +193,7 @@ function wpp_ajax_image_actions() {
 
             } else {
 
-                wpp_log( 'Thumb regeneration end', 'event' );
+                wpp_log( 'Thumb regeneration end' );
 
                 wp_send_json( [
                     'process' => false,
