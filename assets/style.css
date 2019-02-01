@@ -423,6 +423,10 @@ table.wpp-file-list tr {
     border-bottom: none;
 }
 
+.wpp-db-action-title {
+    font-size: 16px !important;
+}
+
 
 .wpp-meta-option em {
     color: #808080;
@@ -472,30 +476,51 @@ table.wpp-file-list tr {
 
 
 .wpp-addons {
-    display: block;
+    display: inline-block;
     width: 100%;
 }
 
 .wpp-addon {
-    width: 40%;
-    padding: 20px;
-    border: 1px solid rgb(236, 236, 236);
-    border-radius: 4px;
-    margin: 0 10px 20px 10px;
+    float: left;
+    width: 50%;
+    box-sizing: border-box;
+    padding: 10px;
 }
 
-.wpp-addon strong {
+.wpp-addon-content {
+    border: 1px solid rgb(212, 212, 212);
+    box-shadow: 0px 0px 3px rgb(226, 226, 226);
+    padding: 20px;
+    background-color: rgb(253, 253, 253);
+    border-radius: 2px;
+}
+
+.wpp-addon-content img {
+    width: auto;
+    max-height: 50px;
+    margin-bottom: 20px;
+}
+
+.wpp-addon-content strong {
     font-size: 18px;
 }
 
 .wpp-addon-settings-link {
     float: right;
-    margin-top: -8px;
+    margin-top: -5px;
     margin-right: -5px;
 }
 
 .wpp-addon-settings-link i {
     font-size: 20px !important;
+}
+
+.wpp-addon-settings {
+    display: none;
+}
+
+.wpp-addon-input {
+    width: 100%;
 }
 
 
@@ -527,6 +552,9 @@ table.wpp-file-list tr {
         margin-bottom: 10px;
     }
 
+    .wpp-addon {
+        width: 100%;
+    }
 
 }
 
@@ -666,7 +694,7 @@ table.wpp-file-list tr {
     
     .wpp_page input[type="checkbox"]:checked::before {
         width: 22px !important;
-        font-size: 24px !important;
+        font-size: 25px !important;
     }
 
 
