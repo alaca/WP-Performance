@@ -927,6 +927,19 @@ jQuery(document).ready(function ($) {
 
     });
 
+    /**
+     * Show hide add-on settings
+     */
+    $(document).on('click', '.wpp-addon-settings-toggle', function (e) {
+
+        e.preventDefault();
+
+        var container = $(this).data('addon-settings');
+
+        $('[data-addon-settings-content="' + container + '"]').slideToggle();
+
+    });
+
 
     /**
      * Add input element
