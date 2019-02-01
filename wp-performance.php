@@ -22,6 +22,7 @@ define( 'WPP_ASSET_DIR'     , trailingslashit( WPP_DIR )        . 'assets/' );
 define( 'WPP_ASSET_URL'     , trailingslashit( WPP_URI )        . 'assets/' );
 define( 'WPP_CLASSES_DIR'   , trailingslashit( WPP_DIR )        . 'includes/classes/' );
 define( 'WPP_ADDONS_DIR'    , trailingslashit( WPP_DIR )        . 'includes/addons/' );
+define( 'WPP_ADDONS_URL'    , trailingslashit( WPP_URI )        . 'includes/addons/' );
 define( 'WPP_FUNCTIONS_DIR' , trailingslashit( WPP_DIR )        . 'includes/functions/' );
 define( 'WPP_ADMIN_DIR'     , trailingslashit( WPP_DIR )        . 'includes/admin/' );
 define( 'WPP_DATA_DIR'      , trailingslashit( WPP_DIR )        . 'includes/data/' );
