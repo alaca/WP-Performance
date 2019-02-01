@@ -31,7 +31,7 @@ defined('ABSPATH') or exit; ?>
                             <?php _e( 'Delete', 'wpp' ); ?> 
                     </a>
 
-                    <strong><?php _e( 'Trash', 'wpp' ); ?> (<span class="wpp-db-count" id="wpp-trash-count"><?php echo $trash; ?></span>)</strong>
+                    <strong class="wpp-db-action-title"><?php _e( 'Trash', 'wpp' ); ?> (<span class="wpp-db-count" id="wpp-trash-count"><?php echo $trash; ?></span>)</strong>
                     <em><?php _e( 'Delete all pages, posts and comments from trash', 'wpp' ); ?></em>
 
                     <?php if ( Option::get( 'db_cleanup_frequency' ) !== 'none' ): ?>
@@ -55,7 +55,7 @@ defined('ABSPATH') or exit; ?>
                             <?php _e( 'Delete', 'wpp' ); ?> 
                     </a>
 
-                    <strong><?php _e( 'Spam', 'wpp' ); ?> (<span class="wpp-db-count" id="wpp-spam-count"><?php echo $spam; ?></span>)</strong>
+                    <strong class="wpp-db-action-title"><?php _e( 'Spam', 'wpp' ); ?> (<span class="wpp-db-count" id="wpp-spam-count"><?php echo $spam; ?></span>)</strong>
                     <em><?php _e( 'Delete all spam comments', 'wpp' ); ?></em>
 
                     <?php if ( Option::get( 'db_cleanup_frequency' ) !== 'none' ): ?>
@@ -82,7 +82,7 @@ defined('ABSPATH') or exit; ?>
                             <?php _e( 'Delete', 'wpp' ); ?> 
                     </a>
 
-                    <strong><?php _e( 'Revisions', 'wpp' ); ?> (<span class="wpp-db-count" id="wpp-revisions-count"><?php echo $revisions; ?></span>)</strong>
+                    <strong class="wpp-db-action-title"><?php _e( 'Revisions', 'wpp' ); ?> (<span class="wpp-db-count" id="wpp-revisions-count"><?php echo $revisions; ?></span>)</strong>
                     <em><?php _e( 'Delete all revisions', 'wpp' ); ?></em>
 
                     <?php if ( Option::get( 'db_cleanup_frequency' ) !== 'none' ): ?>
@@ -105,7 +105,7 @@ defined('ABSPATH') or exit; ?>
                             <?php _e( 'Delete', 'wpp' ); ?> 
                     </a>
 
-                    <strong><?php _e( 'Transients', 'wpp' ); ?> (<span class="wpp-db-count" id="wpp-transients-count"><?php echo $transients; ?></span>)</strong>
+                    <strong class="wpp-db-action-title"><?php _e( 'Transients', 'wpp' ); ?> (<span class="wpp-db-count" id="wpp-transients-count"><?php echo $transients; ?></span>)</strong>
                     <em><?php _e( 'Delete all expired transients', 'wpp' ); ?></em>
 
                     <?php if ( Option::get( 'db_cleanup_frequency' ) !== 'none' ): ?>
@@ -132,7 +132,7 @@ defined('ABSPATH') or exit; ?>
                             <?php _e( 'Delete', 'wpp' ); ?> 
                     </a>
 
-                    <strong><?php _e( 'Auto Drafts', 'wpp' ); ?> (<span class="wpp-db-count" id="wpp-drafts-count"><?php echo $drafts; ?></span>)</strong>
+                    <strong class="wpp-db-action-title"><?php _e( 'Auto Drafts', 'wpp' ); ?> (<span class="wpp-db-count" id="wpp-drafts-count"><?php echo $drafts; ?></span>)</strong>
                     <em><?php _e( 'Delete all auto drafts', 'wpp' ); ?></em>
 
                     <?php if ( Option::get( 'db_cleanup_frequency' ) !== 'none' ): ?>
@@ -157,7 +157,7 @@ defined('ABSPATH') or exit; ?>
                             <?php _e( 'Delete', 'wpp' ); ?> 
                     </a>
 
-                    <strong><?php _e( 'Scheduled tasks', 'wpp' ); ?> (<span class="wpp-db-count" id="wpp-cron-count"><?php echo $cron_tasks; ?></span>)</strong>
+                    <strong class="wpp-db-action-title"><?php _e( 'Scheduled tasks', 'wpp' ); ?> (<span class="wpp-db-count" id="wpp-cron-count"><?php echo $cron_tasks; ?></span>)</strong>
                     <em><?php _e( 'Delete all unused scheduled tasks', 'wpp' ); ?></em>
 
                     <?php if ( Option::get( 'db_cleanup_frequency' ) !== 'none' ): ?>
