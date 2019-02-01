@@ -222,22 +222,22 @@ function wpp_add_top_menu_item() {
         ] );
 
         $admin_bar->add_node( [
-            'id'     => 'wpp_addons_topbar_link',
-            'title'  => __( 'Add-ons', 'wpp' ), 
-            'href'   => admin_url( 'admin.php?page=' . WPP_PLUGIN_ADMIN_URL . '&wpp-tab=addons' ),
-            'parent' => 'wpp', 
-            'meta'   => [
-                'title' => __( 'Add-ons', 'wpp' )
-            ]
-        ] );
-
-        $admin_bar->add_node( [
             'id'     => 'wpp_settings_topbar_link',
             'title'  => __( 'Settings', 'wpp' ), 
             'href'   => admin_url( 'admin.php?page=' . WPP_PLUGIN_ADMIN_URL . '&wpp-tab=settings' ),
             'parent' => 'wpp', 
             'meta'   => [
                 'title' => __( 'Settings', 'wpp' )
+            ]
+        ] );
+
+        $admin_bar->add_node( [
+            'id'     => 'wpp_addons_topbar_link',
+            'title'  => __( 'Add-ons', 'wpp' ), 
+            'href'   => admin_url( 'admin.php?page=' . WPP_PLUGIN_ADMIN_URL . '&wpp-tab=addons' ),
+            'parent' => 'wpp', 
+            'meta'   => [
+                'title' => __( 'Add-ons', 'wpp' )
             ]
         ] );
         
