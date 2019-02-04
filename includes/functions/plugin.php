@@ -105,6 +105,9 @@ function wpp_uninstall() {
         ) 
     );
 
+    // Clear everything from the cache directory
+    Cache::clearEverything();
+
 }
 
 
