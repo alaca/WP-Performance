@@ -22,7 +22,6 @@ abstract class API {
      * @param string $url
      * @param string $method
      * @param array $options
-     * @param headers $options
      * @param integer $cache
      * @return array|WP_error
      * @since 1.0.8
@@ -186,7 +185,7 @@ abstract class API {
 
         }
 
-        return delete_transient( $this->cache_prefix . $key );
+        return delete_transient( wpp_get_prefix( $key ) );
     }
 
 
