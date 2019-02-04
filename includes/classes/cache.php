@@ -199,6 +199,35 @@ class Cache
 
 
     /**
+     * Delete everything in WPP cache directory and after that delete directory itself
+     *
+     * @return void
+     * @since 1.1.1
+     */
+    public static function clearEverything() {
+
+        $files = new RecursiveIteratorIterator(
+            new RecursiveDirectoryIterator( WPP_CACHE_DIR, RecursiveDirectoryIterator::SKIP_DOTS ),
+            RecursiveIteratorIterator::CHILD_FIRST
+        );
+        
+        foreach ( $files as $file ) {
+
+            if ( $file->isDir() ) {
+                rmdir( $file->getRealPath() );
+            } else {
+                unlink( $file->getRealPath() );
+            }
+
+        }
+
+        // Remove wpp cache dir
+        rmdir( WPP_CACHE_DIR );
+
+    }
+
+
+    /**
      * Check if cache file exists
      *
      * @param string $url
