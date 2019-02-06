@@ -295,7 +295,7 @@ function wpp_get_basedir() {
  * @since 1.0.0
  */
 function wpp_get_log_file() {
-    return WPP_DATA_DIR . 'logs/log.txt';
+    return WPP_CACHE_DIR . 'wpp.log';
 }
 
 /**
