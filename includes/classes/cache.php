@@ -177,7 +177,11 @@ class Cache
 
             } else {
 
-                if ( $file->getFilename() != 'index.php' &&  ! strstr( $file->getFilename(), 'settings.json' ) ) {
+                if ( 
+                    $file->getFilename() != 'index.php' 
+                    && $file->getFilename() != wpp_get_log_file()
+                    && ! strstr( $file->getFilename(), 'settings.json' ) 
+                ) {
                     unlink( $file->getRealPath() );
                 }
                 

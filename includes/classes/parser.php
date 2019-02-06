@@ -14,14 +14,25 @@ class Parser
     
     private function __construct( $template ) {
 
-        $this->time = microtime( true ); 
+        if ( ! empty( $template ) ) {
 
-        // load template
-        $this->html = new HtmlDOM( $template, false, false );
-        $this->body = $this->html->find( 'body', 0 );
-        $this->head = $this->html->find( 'head', 0 );
-           
-        $this->parseTemplate();
+            $this->time = microtime( true ); 
+
+            // load template
+            $this->html = new HtmlDOM( $template, false, false );
+
+            if ( $this->html ) {
+
+                $this->body = $this->html->find( 'body', 0 );
+                $this->head = $this->html->find( 'head', 0 );
+                
+                return $this->parseTemplate();
+
+            }
+
+        }
+
+        return $template;
 
     }
     
