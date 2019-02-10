@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WP Performance\n"
-"POT-Creation-Date: 2019-02-01 13:47+0100\n"
-"PO-Revision-Date: 2019-02-01 13:47+0100\n"
+"POT-Creation-Date: 2019-02-10 23:02+0800\n"
+"PO-Revision-Date: 2019-02-10 23:05+0800\n"
 "Last-Translator: WordPress大学 <support@wpdaxue.com>\n"
 "Language-Team: WordPress淘宝网 <support@wptaobao.com>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.3\n"
+"X-Generator: Poedit 2.2.1\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
@@ -23,65 +23,65 @@ msgstr ""
 
 #: includes/addons/cloudflare/cloudflare.php:53
 msgid "Clear Cloudflare cache"
-msgstr ""
+msgstr "清除Cloudflare缓存"
 
 #: includes/addons/cloudflare/cloudflare.php:91
 msgid "Cloudflare API credentials not set"
-msgstr ""
+msgstr "未设置Cloudflare API凭据"
 
 #: includes/addons/cloudflare/cloudflare.php:107
 msgid " Cloudflare cannot get zone details. Check your Cloudflare credentials"
-msgstr ""
+msgstr " Cloudflare无法获取区域详细信息。检查您的Cloudflare凭据"
 
 #: includes/addons/cloudflare/cloudflare.php:114
 #, php-format
 msgid ""
 " Cloudflare zone %s is not activated. Please go to your Cloudflare dashboard "
 "and activate it."
-msgstr ""
+msgstr " Cloudflare区域%s未激活。请转到Cloudflare仪表板并激活它。"
 
 #: includes/addons/cloudflare/cloudflare.php:118
 #, php-format
 msgid ""
 " Cloudflare zone %s status is pending and these settings won't have any "
 "effect on your website."
-msgstr ""
+msgstr " Cloudflare 区域%s状态为待审，这些设置对您的网站没有任何影响。"
 
 #: includes/addons/cloudflare/cloudflare.php:133
 msgid " Cloudflare development mode not set"
-msgstr ""
+msgstr " 未设置Cloudflare开发模式"
 
 #: includes/addons/cloudflare/cloudflare.php:142
 msgid " Cloudflare cache level not set"
-msgstr ""
+msgstr " 未设置Cloudflare缓存级别"
 
 #: includes/addons/cloudflare/cloudflare.php:152
 msgid " Cloudflare browser cache expiration not set"
-msgstr ""
+msgstr " 未设置Cloudflare浏览器缓存过期"
 
 #: includes/addons/cloudflare/cloudflare.php:166
 msgid " Cloudflare minify not set"
-msgstr ""
+msgstr " 未设置Cloudflare压缩"
 
 #: includes/addons/cloudflare/cloudflare.php:178
 msgid " Cloudflare Rocket loader mode not set"
-msgstr ""
+msgstr " 未设置Cloudflare Rocket加载器模式"
 
 #: includes/addons/cloudflare/cloudflare.php:188
 msgid " Cloudflare Brotli mode not set"
-msgstr ""
+msgstr " 未设置Cloudflare Brotli模式"
 
 #: includes/addons/cloudflare/cloudflare.php:200
 msgid "Cloudflare settings saved"
-msgstr ""
+msgstr "Cloudflare设置已保存"
 
 #: includes/addons/cloudflare/cloudflare.php:222
 msgid "Something went wrong. Cannot purge Cloudflare cache"
-msgstr ""
+msgstr "有些不对劲。无法清除Cloudflare缓存"
 
 #: includes/addons/cloudflare/views/addon.php:20
 msgid "Integrate your Cloudflare account with this add-on."
-msgstr ""
+msgstr "使用此扩展程序将Cloudflare账户集成。"
 
 #: includes/addons/cloudflare/views/addon.php:27
 #: includes/addons/cloudflare/views/admin.php:32
@@ -95,15 +95,15 @@ msgstr "启用"
 
 #: includes/addons/cloudflare/views/admin.php:15
 msgid "Caching"
-msgstr ""
+msgstr "缓存"
 
 #: includes/addons/cloudflare/views/admin.php:21
 msgid "Cloudflare cache"
-msgstr ""
+msgstr "Cloudflare缓存"
 
 #: includes/addons/cloudflare/views/admin.php:23
 msgid "Clear all Cloudflare cache"
-msgstr ""
+msgstr "清除所有Cloudflare缓存"
 
 #: includes/addons/cloudflare/views/admin.php:23 includes/admin/cache.php:188
 #: includes/functions/admin.php:155 includes/functions/admin.php:160
@@ -112,69 +112,70 @@ msgstr "清除缓存"
 
 #: includes/addons/cloudflare/views/admin.php:28
 msgid "Development mode"
-msgstr ""
+msgstr "开发模式"
 
 #: includes/addons/cloudflare/views/admin.php:35
 msgid "Temporarily activate development mode on your website."
-msgstr ""
+msgstr "暂时激活您网站上的开发模式。"
 
 #: includes/addons/cloudflare/views/admin.php:36
 msgid "This setting will automatically turn off after 3 hours."
-msgstr ""
+msgstr "此设置将在3小时后自动关闭。"
 
 #: includes/addons/cloudflare/views/admin.php:41
 msgid "Cache level"
-msgstr ""
+msgstr "缓存级别"
 
 #: includes/addons/cloudflare/views/admin.php:44
 msgid "Aggressive - Standard"
-msgstr ""
+msgstr "积极 - 标准"
 
 #: includes/addons/cloudflare/views/admin.php:45
 msgid "Simplified - Ignore query string"
-msgstr ""
+msgstr "简化 - 忽略查询字符串"
 
 #: includes/addons/cloudflare/views/admin.php:46
 msgid "Basic - No query string"
-msgstr ""
+msgstr "基本 - 没有查询字符串"
 
 #: includes/addons/cloudflare/views/admin.php:51
 msgid ""
 "Aggressive: Delivers a different resource each time the query string changes."
-msgstr ""
+msgstr "积极：每次查询字符串更改时提供不同的资源。"
 
 #: includes/addons/cloudflare/views/admin.php:52
 msgid ""
 "Simplified: Delivers the same resource to everyone independent of the query "
 "string."
-msgstr ""
+msgstr "简化：向所有人提供与查询字符串无关的相同资源。"
 
 #: includes/addons/cloudflare/views/admin.php:53
 msgid ""
 "Basic: Only delivers resources from cache when there is no query string."
-msgstr ""
+msgstr "基本：只有在没有查询字符串时才从缓存中提供资源。"
 
 #: includes/addons/cloudflare/views/admin.php:68
 msgid "Browser Cache Expiration"
-msgstr ""
+msgstr "浏览器缓存过期"
 
 #: includes/addons/cloudflare/views/admin.php:71
 msgid "Respect Existing Headers"
-msgstr ""
+msgstr "尊重现有标题"
 
 #: includes/addons/cloudflare/views/admin.php:81
 msgid ""
 "Browser cache TTL (in seconds) specifies how long CloudFlare-cached "
 "resources will remain on your visitors computers."
 msgstr ""
+"浏览器缓存TTL（以秒为单位）指定CloudFlare缓存资源在访问者计算机上保留的时间。"
 
 #: includes/addons/cloudflare/views/admin.php:82
 msgid "The minimum TTL available depends on the plan level of the zone."
-msgstr ""
+msgstr "可用的最小TTL取决于区域的计划级别。"
 
 #: includes/addons/cloudflare/views/admin.php:90
 msgid "Content"
-msgstr ""
+msgstr "内容"
 
 #: includes/addons/cloudflare/views/admin.php:96 includes/admin/css.php:27
 #: includes/admin/includes/local_files.php:153 includes/admin/javascript.php:27
@@ -183,21 +184,21 @@ msgstr "压缩"
 
 #: includes/addons/cloudflare/views/admin.php:121
 msgid "Rocket Loader"
-msgstr ""
+msgstr "Rocket 加载器"
 
 #: includes/addons/cloudflare/views/admin.php:128
 msgid "Rocket Loader is a asynchronous JavaScript loader."
-msgstr ""
+msgstr "Rocket 加载器是一个异步JavaScript加载器。"
 
 #: includes/addons/cloudflare/views/admin.php:133
 msgid "Brotli"
-msgstr ""
+msgstr "Brotli"
 
 #: includes/addons/cloudflare/views/admin.php:140
 msgid ""
 "Speed up page load times for your visitor’s HTTPS traffic by applying Brotli "
 "compression."
-msgstr ""
+msgstr "通过应用Brotli压缩，加快访问者HTTPS流量的页面加载时间。"
 
 #: includes/addons/cloudflare/views/admin.php:148 includes/admin/addons.php:17
 #: includes/admin/cache.php:178 includes/admin/cdn.php:33
@@ -209,23 +210,23 @@ msgstr "保存更改"
 
 #: includes/addons/cloudflare/views/admin.php:157
 msgid "Cloudflare credentials"
-msgstr ""
+msgstr "Cloudflare凭据"
 
 #: includes/addons/cloudflare/views/admin.php:161
 msgid "API key"
-msgstr ""
+msgstr "API密钥"
 
 #: includes/addons/cloudflare/views/admin.php:168
 msgid "Account email"
-msgstr ""
+msgstr "账户邮箱"
 
 #: includes/addons/cloudflare/views/admin.php:173
 msgid "Zone ID"
-msgstr ""
+msgstr "区域ID"
 
 #: includes/addons/varnish/views/addon.php:20
 msgid "If Varnish runs on your server, you must activate this add-on."
-msgstr ""
+msgstr "如果Varnish在您的服务器上运行，则必须激活此加载项。"
 
 #: includes/addons/varnish/views/addon.php:35
 #: includes/addons/varnish/views/options.php:23
@@ -243,18 +244,18 @@ msgstr "Varnish 缓存"
 
 #: includes/addons/varnish/views/options.php:19
 msgid "If Varnish runs on your server, you need to activate this option."
-msgstr ""
+msgstr "如果Varnish在您的服务器上运行，则需要激活此选项。"
 
 #: includes/admin/addons.php:27 includes/admin/admin.php:30
 #: includes/admin/admin.php:45 includes/functions/admin.php:236
 #: includes/functions/admin.php:240
 msgid "Add-ons"
-msgstr ""
+msgstr "扩展"
 
 #: includes/admin/addons.php:31
 #, php-format
 msgid "Add more features to %s with add-ons."
-msgstr ""
+msgstr "使用扩展程序向%s添加更多功能。"
 
 #: includes/admin/admin.php:23 includes/admin/admin.php:38
 #: includes/functions/admin.php:166
@@ -456,15 +457,15 @@ msgstr "添加网址"
 
 #: includes/admin/cache.php:307
 msgid "Exclude User Agent(s) from cache"
-msgstr ""
+msgstr "从缓存中排除用户代理"
 
 #: includes/admin/cache.php:342
 msgid "Add User Agent"
-msgstr ""
+msgstr "添加用户代理"
 
 #: includes/admin/cache.php:352
 msgid "Exclude search engines"
-msgstr ""
+msgstr "排除搜索引擎"
 
 #: includes/admin/cdn.php:12
 msgid "Enable CDN"
@@ -515,11 +516,11 @@ msgstr "更新下面列表中的所有文件"
 
 #: includes/admin/css.php:47 includes/admin/javascript.php:47
 msgid "Theme"
-msgstr ""
+msgstr "主题"
 
 #: includes/admin/css.php:69 includes/admin/javascript.php:69
 msgid "Plugins"
-msgstr ""
+msgstr "插件"
 
 #: includes/admin/css.php:92 includes/admin/javascript.php:92
 msgid "External resources"
@@ -562,15 +563,15 @@ msgstr "异步加载 CSS"
 
 #: includes/admin/css.php:176 includes/admin/css.php:178
 msgid "Show critical CSS"
-msgstr ""
+msgstr "显示关键CSS"
 
 #: includes/admin/css.php:177 includes/admin/css.php:178
 msgid "Hide critical CSS"
-msgstr ""
+msgstr "隐藏关键CSS"
 
 #: includes/admin/css.php:188
 msgid "Eliminates render-blocking CSS"
-msgstr ""
+msgstr "消除了渲染阻止CSS"
 
 #: includes/admin/css.php:194
 msgid ""
@@ -606,11 +607,11 @@ msgstr "对已登录用户不启用CSS优化"
 
 #: includes/admin/css.php:252 includes/admin/javascript.php:178
 msgid "Resource Hints"
-msgstr ""
+msgstr "资源提示"
 
 #: includes/admin/css.php:259 includes/admin/javascript.php:185
 msgid "Origins"
-msgstr ""
+msgstr "来源"
 
 #: includes/admin/css.php:286 includes/admin/javascript.php:212
 msgid "DNS prefetching can make external resources load faster"
@@ -618,7 +619,7 @@ msgstr "DNS 预加载可以使外部资源加载速度更快"
 
 #: includes/admin/css.php:287 includes/admin/javascript.php:213
 msgid "Preconnect can remove additional roundtrips and reduce request latency"
-msgstr ""
+msgstr "预连接可以删除其他往返并减少请求延迟"
 
 #: includes/admin/css.php:295
 msgid "Exclude URL(s) from CSS optimization"
@@ -670,19 +671,19 @@ msgstr "瞬态缓存（Transients）"
 
 #: includes/admin/database.php:131 includes/admin/database.php:136
 msgid "Delete all auto drafts"
-msgstr ""
+msgstr "删除所有自动草稿"
 
 #: includes/admin/database.php:135
 msgid "Auto Drafts"
-msgstr ""
+msgstr "自动草稿"
 
 #: includes/admin/database.php:156 includes/admin/database.php:161
 msgid "Delete all unused scheduled tasks"
-msgstr ""
+msgstr "删除所有未使用的计划任务"
 
 #: includes/admin/database.php:160
 msgid "Scheduled tasks"
-msgstr ""
+msgstr "计划任务"
 
 #: includes/admin/database.php:179
 msgid ""
@@ -760,15 +761,15 @@ msgstr "根据用户屏幕大小和图片大小设置加载最佳优化的图片
 
 #: includes/admin/images.php:48
 msgid "Exclude"
-msgstr ""
+msgstr "排除"
 
 #: includes/admin/images.php:52
 msgid "Exclude image"
-msgstr ""
+msgstr "排除图片"
 
 #: includes/admin/images.php:55
 msgid "Exclude image by name"
-msgstr ""
+msgstr "按名称排除图片"
 
 #: includes/admin/images.php:72
 msgid "Add Image"
@@ -793,11 +794,11 @@ msgstr "添加容器"
 
 #: includes/admin/images.php:113
 msgid "Exclude URL(s)"
-msgstr ""
+msgstr "排除网址"
 
 #: includes/admin/images.php:116
 msgid "Exclude URL(s) from image optimization"
-msgstr ""
+msgstr "从图片优化中排除网址"
 
 #: includes/admin/images.php:201
 msgid "Image sizes"
@@ -833,7 +834,7 @@ msgstr "操作"
 
 #: includes/admin/images.php:240 includes/functions/miscellaneous.php:175
 msgid "Yes"
-msgstr ""
+msgstr "是"
 
 #: includes/admin/images.php:245
 #, php-format
@@ -842,7 +843,7 @@ msgstr "删除图片大小 %s"
 
 #: includes/admin/images.php:247
 msgid "Remove size"
-msgstr ""
+msgstr "删除大小"
 
 #: includes/admin/images.php:257
 msgid "Add size"
@@ -917,16 +918,18 @@ msgid ""
 "from cache option. Usually a home page is not excluded from cache. Please "
 "check your exclude settings."
 msgstr ""
+"此页面是您的网站主页，它受缓存选项中的排除网址影响。通常，主页不会从缓存中排"
+"除。请检查您的排除设置。"
 
 #: includes/admin/metabox.php:49
 msgid "This page is affected by URL(s) exclude options on Cache page"
-msgstr ""
+msgstr "此页面受缓存页面上的网址排除选项的影响"
 
 #: includes/admin/metabox.php:63
 msgid ""
 "This page is your website home page.<br />Do you want to exclude home page "
 "from cache?"
-msgstr ""
+msgstr "此页面是您的网站主页。 <br />要从缓存中排除主页吗？"
 
 #: includes/admin/metabox.php:107 includes/admin/metabox.php:121
 #: includes/admin/metabox.php:158
@@ -935,11 +938,11 @@ msgstr "从CSS优化中排除"
 
 #: includes/admin/metabox.php:111
 msgid "This page is affected by URL(s) exclude options on CSS page"
-msgstr ""
+msgstr "此页面受CSS页面上网址排除选项的影响"
 
 #: includes/admin/metabox.php:162
 msgid "This page is affected by URL(s) exclude options on JavaScript page"
-msgstr ""
+msgstr "此页面受JavaScript页面上的网址排除选项的影响"
 
 #: includes/admin/metabox.php:172
 msgid "Exclude from JS optimization"
@@ -947,11 +950,11 @@ msgstr "从JS优化中排除"
 
 #: includes/admin/metabox.php:209 includes/admin/metabox.php:223
 msgid "Exclude from Image optimization"
-msgstr ""
+msgstr "从图片优化中排除"
 
 #: includes/admin/metabox.php:213
 msgid "This page is affected by URL(s) exclude options on Images page"
-msgstr ""
+msgstr "此页面受图片页面上网址排除选项的影响"
 
 #: includes/admin/settings.php:16
 msgid "Import settings"
@@ -1031,10 +1034,10 @@ msgstr "加载配置设置保存于 "
 msgid "Load"
 msgstr "加载"
 
-#: includes/classes/api.php:131
+#: includes/classes/api.php:130
 #, php-format
 msgid "Call to undefined method %s"
-msgstr ""
+msgstr "调用未定义的方法%s"
 
 #: includes/classes/cli.php:23
 msgid "Flushing the cache..."
@@ -1046,73 +1049,73 @@ msgstr "缓存已刷新。"
 
 #: includes/classes/cli.php:71
 msgid "Running tranisent cleanup"
-msgstr ""
+msgstr "运行tranisent清理"
 
 #: includes/classes/cli.php:73
 msgid "Transient cleanup complete"
-msgstr ""
+msgstr "Transient清理完成"
 
 #: includes/classes/cli.php:79
 msgid "Running revisions cleanup"
-msgstr ""
+msgstr "运行修订清理"
 
 #: includes/classes/cli.php:81
 msgid "Revisions cleanup complete"
-msgstr ""
+msgstr "修订清理完成"
 
 #: includes/classes/cli.php:87
 msgid "Running drafts cleanup"
-msgstr ""
+msgstr "运行草稿清理"
 
 #: includes/classes/cli.php:89
 msgid "Drafts cleanup complete"
-msgstr ""
+msgstr "草稿清理完成"
 
 #: includes/classes/cli.php:95
 msgid "Running trash cleanup"
-msgstr ""
+msgstr "运行垃圾清理"
 
 #: includes/classes/cli.php:97
 msgid "Trash cleanup complete"
-msgstr ""
+msgstr "垃圾清理完成"
 
 #: includes/classes/cli.php:103
 msgid "Running spam cleanup"
-msgstr ""
+msgstr "运行垃圾评论清理"
 
 #: includes/classes/cli.php:105
 msgid "Spam cleanup complete"
-msgstr ""
+msgstr "垃圾评论清理完成"
 
 #: includes/classes/cli.php:111
 msgid "Running cron tasks cleanup"
-msgstr ""
+msgstr "运行计划任务清理"
 
 #: includes/classes/cli.php:113
 msgid "Cron tasks cleanup complete"
-msgstr ""
+msgstr "计划任务清理完成"
 
 #: includes/classes/cli.php:124
 msgid "Running database cleanup"
-msgstr ""
+msgstr "运行数据库清理"
 
 #: includes/classes/cli.php:126
 msgid "Database cleanup complete"
-msgstr ""
+msgstr "数据库清理完成"
 
-#: includes/classes/parser.php:68
+#: includes/classes/parser.php:79
 msgid "error"
 msgstr "错误"
 
-#: includes/classes/parser.php:69 includes/classes/parser.php:72
+#: includes/classes/parser.php:80 includes/classes/parser.php:83
 msgid "both head and body tag should be present in template file"
 msgstr "head 和 body 标记都应存在模板文件中"
 
-#: includes/classes/parser.php:883
+#: includes/classes/parser.php:894
 msgid "Optimized by"
 msgstr "已优化来自"
 
-#: includes/classes/parser.php:910
+#: includes/classes/parser.php:921
 #, php-format
 msgid "Cache file was created in %s seconds on %s at %s"
 msgstr "缓存文件创建于 %s 秒，%s 于 %s"
@@ -1136,7 +1139,7 @@ msgstr "%s: 缺少 <code>. htaccess 文件的写入权限 </code>"
 #: includes/classes/wpp.php:282
 #, php-format
 msgid "%s: enter Cloudflare credentials"
-msgstr ""
+msgstr "%s：输入Cloudflare凭据"
 
 #: includes/functions/admin.php:270
 msgid "Temporarily disable"
@@ -1189,11 +1192,11 @@ msgstr "重新生成缩略图"
 msgid "Regenerate thumbnails may take a long time. Do not close your browser."
 msgstr "重新生成缩略图可能需要很长时间。不要关闭浏览器。"
 
-#: includes/functions/plugin.php:187
+#: includes/functions/plugin.php:190
 msgid "The following plugins are not compatible with"
 msgstr "以下插件不兼容"
 
-#: includes/functions/plugin.php:194
+#: includes/functions/plugin.php:197
 msgid "Deactivate"
 msgstr "停用"
 
@@ -1218,18 +1221,6 @@ msgstr "Ante Laca"
 msgid "https://www.antelaca.xyz"
 msgstr "https://www.antelaca.xyz"
 
-#~ msgid "Error"
-#~ msgstr "错误"
-
-#~ msgid "Warning"
-#~ msgstr "警告"
-
-#~ msgid "Notice"
-#~ msgstr "通知"
-
-#~ msgid "Event"
-#~ msgstr "活动"
-
 #~ msgid "Enable auto purge"
 #~ msgstr "启用自动清除"
 
@@ -1241,3 +1232,15 @@ msgstr "https://www.antelaca.xyz"
 
 #~ msgid "Prefetch external JS resources"
 #~ msgstr "预加载外部 JS 资源"
+
+#~ msgid "Error"
+#~ msgstr "错误"
+
+#~ msgid "Warning"
+#~ msgstr "警告"
+
+#~ msgid "Notice"
+#~ msgstr "通知"
+
+#~ msgid "Event"
+#~ msgstr "活动"
