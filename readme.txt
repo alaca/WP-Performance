@@ -3,7 +3,7 @@ Contributors: alaca
 Donate link: https://profiles.wordpress.org/alaca
 Tags: wp performance, cache, performance, speed optimization, wpp
 Requires at least: 4.5
-Tested up to: 5.0.3
+Tested up to: 5.1
 Requires PHP: 5.6
 Stable tag: 1.0
 License: GPLv2 or later
@@ -78,6 +78,9 @@ If you encounter any bug, please create an issue on [Github](https://github.com/
 7. Settings
 
 == Changelog ==
+
+= 1.1.2 =
+[UPDATE] Chinese language file
 
 = 1.1.1 =
 [NEW] Remove cache directory after uninstall

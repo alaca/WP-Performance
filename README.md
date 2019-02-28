@@ -60,6 +60,9 @@ WP Performance does not support multisite yet.
 
 ## Changelog ##
 
+### 1.1.2 ###
+* [UPDATE] Chinese language file
+
 ### 1.1.1 ###
 * [NEW] Remove cache directory after uninstall
 * [IMPROVE] Move log file into cache dir
