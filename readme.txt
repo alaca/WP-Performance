@@ -1,4 +1,4 @@
-=== WP Performance ===
+﻿=== WP Performance ===
 Contributors: alaca
 Donate link: https://profiles.wordpress.org/alaca
 Tags: wp performance, cache, performance, speed optimization, wpp
@@ -78,6 +78,10 @@ If you encounter any bug, please create an issue on [Github](https://github.com/
 7. Settings
 
 == Changelog ==
+
+= 1.1.3 =
+[NEW] Dynamic page preload
+[NEW] Minify HTML
 
 = 1.1.2 =
 [UPDATE] Chinese language file
