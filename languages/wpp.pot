@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: WP Performance\n"
-"POT-Creation-Date: 2019-02-01 13:42+0100\n"
+"POT-Creation-Date: 2019-04-01 19:01+0200\n"
 "PO-Revision-Date: 2018-12-26 17:50+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -87,6 +87,7 @@ msgstr ""
 #: includes/addons/cloudflare/views/admin.php:32
 #: includes/addons/cloudflare/views/admin.php:125
 #: includes/addons/cloudflare/views/admin.php:137
+#: includes/addons/prefetch/views/addon.php:18
 #: includes/addons/varnish/views/addon.php:27
 #: includes/addons/varnish/views/options.php:16 includes/classes/wpp.php:267
 #: includes/functions/admin.php:267
@@ -221,6 +222,15 @@ msgstr ""
 
 #: includes/addons/cloudflare/views/admin.php:173
 msgid "Zone ID"
+msgstr ""
+
+#: includes/addons/prefetch/views/addon.php:9
+#: includes/addons/prefetch/views/addon.php:18
+msgid "Dynamic page preload"
+msgstr ""
+
+#: includes/addons/prefetch/views/addon.php:12
+msgid "Preloads a page right before a user clicks on link"
 msgstr ""
 
 #: includes/addons/varnish/views/addon.php:20
@@ -1021,7 +1031,7 @@ msgstr ""
 msgid "Load"
 msgstr ""
 
-#: includes/classes/api.php:131
+#: includes/classes/api.php:130
 #, php-format
 msgid "Call to undefined method %s"
 msgstr ""
@@ -1090,19 +1100,19 @@ msgstr ""
 msgid "Database cleanup complete"
 msgstr ""
 
-#: includes/classes/parser.php:68
+#: includes/classes/parser.php:79
 msgid "error"
 msgstr ""
 
-#: includes/classes/parser.php:69 includes/classes/parser.php:72
+#: includes/classes/parser.php:80 includes/classes/parser.php:83
 msgid "both head and body tag should be present in template file"
 msgstr ""
 
-#: includes/classes/parser.php:883
+#: includes/classes/parser.php:904
 msgid "Optimized by"
 msgstr ""
 
-#: includes/classes/parser.php:910
+#: includes/classes/parser.php:924
 #, php-format
 msgid "Cache file was created in %s seconds on %s at %s"
 msgstr ""
@@ -1183,11 +1193,11 @@ msgstr ""
 msgid "Regenerate thumbnails may take a long time. Do not close your browser."
 msgstr ""
 
-#: includes/functions/plugin.php:187
+#: includes/functions/plugin.php:190
 msgid "The following plugins are not compatible with"
 msgstr ""
 
-#: includes/functions/plugin.php:194
+#: includes/functions/plugin.php:197
 msgid "Deactivate"
 msgstr ""
 
