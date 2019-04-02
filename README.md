@@ -60,9 +60,12 @@ WP Performance does not support multisite yet.
 
 ## Changelog ##
 
+### 1.1.3.1 ###
+* [FIX] Autoloader errors
+
 ### 1.1.3 ###
-[NEW] Dynamic page preload
-[NEW] Minify HTML
+* [NEW] Dynamic page preload addon
+* [NEW] Minify HTML
 
 ### 1.1.2 ###
 * [UPDATE] Chinese language file

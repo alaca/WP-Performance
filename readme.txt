@@ -79,8 +79,11 @@ If you encounter any bug, please create an issue on [Github](https://github.com/
 
 == Changelog ==
 
+= 1.1.3.1 =
+[FIX] Autoloader errors
+
 = 1.1.3 =
-[NEW] Dynamic page preload
+[NEW] Dynamic page preload addon
 [NEW] Minify HTML
 
 = 1.1.2 =
