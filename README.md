@@ -65,6 +65,9 @@ WP Performance does not support multisite yet.
 
 ## Changelog ##
 
+### 1.1.3.2 ###
+* [FIX] Parser minify error
+
 ### 1.1.3.1 ###
 * [FIX] Autoloader errors
 

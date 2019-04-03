@@ -84,6 +84,9 @@ If you encounter any bug, please create an issue on [Github](https://github.com/
 
 == Changelog ==
 
+= 1.1.3.2 =
+[FIX] Parser minify error
+
 = 1.1.3.1 =
 [FIX] Autoloader errors
 
