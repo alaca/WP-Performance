@@ -36,7 +36,12 @@ WP Performance does not support multisite yet.
 * Regenerate thumbs
 * CDN
 * WP-CLI Support
+
+### Add-ons ###
+
 * Cloudflare integration
+* Varnish cache
+* Dynamic page preload
 
 ### Supported languages ### 
 
