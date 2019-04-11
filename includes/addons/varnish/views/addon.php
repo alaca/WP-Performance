@@ -22,7 +22,7 @@ defined('ABSPATH') or exit; ?>
 
         <br />
 
-        <label class="wpp-info">
+        <label class="wpp-addon-info">
             <input type="checkbox" value="1" data-wpp-checkbox="varnish_auto_purge" value="1" name="varnish_auto_purge" form="wpp-settings" <?php wpp_checked( 'varnish_auto_purge' ); ?> />
             <?php _e( 'Enable', 'wpp' ); ?> Varnish
         </label>

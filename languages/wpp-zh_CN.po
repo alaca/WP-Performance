@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WP Performance\n"
-"POT-Creation-Date: 2019-02-10 23:02+0800\n"
-"PO-Revision-Date: 2019-02-10 23:05+0800\n"
+"POT-Creation-Date: 2019-04-01 19:04+0200\n"
+"PO-Revision-Date: 2019-04-01 19:04+0200\n"
 "Last-Translator: WordPress大学 <support@wpdaxue.com>\n"
 "Language-Team: WordPress淘宝网 <support@wptaobao.com>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.1\n"
+"X-Generator: Poedit 2.0.3\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
@@ -87,6 +87,7 @@ msgstr "使用此扩展程序将Cloudflare账户集成。"
 #: includes/addons/cloudflare/views/admin.php:32
 #: includes/addons/cloudflare/views/admin.php:125
 #: includes/addons/cloudflare/views/admin.php:137
+#: includes/addons/prefetch/views/addon.php:18
 #: includes/addons/varnish/views/addon.php:27
 #: includes/addons/varnish/views/options.php:16 includes/classes/wpp.php:267
 #: includes/functions/admin.php:267
@@ -223,6 +224,15 @@ msgstr "账户邮箱"
 #: includes/addons/cloudflare/views/admin.php:173
 msgid "Zone ID"
 msgstr "区域ID"
+
+#: includes/addons/prefetch/views/addon.php:9
+#: includes/addons/prefetch/views/addon.php:18
+msgid "Dynamic page preload"
+msgstr ""
+
+#: includes/addons/prefetch/views/addon.php:12
+msgid "Preloads a page right before a user clicks on link"
+msgstr ""
 
 #: includes/addons/varnish/views/addon.php:20
 msgid "If Varnish runs on your server, you must activate this add-on."
@@ -1111,11 +1121,11 @@ msgstr "错误"
 msgid "both head and body tag should be present in template file"
 msgstr "head 和 body 标记都应存在模板文件中"
 
-#: includes/classes/parser.php:894
+#: includes/classes/parser.php:904
 msgid "Optimized by"
 msgstr "已优化来自"
 
-#: includes/classes/parser.php:921
+#: includes/classes/parser.php:924
 #, php-format
 msgid "Cache file was created in %s seconds on %s at %s"
 msgstr "缓存文件创建于 %s 秒，%s 于 %s"

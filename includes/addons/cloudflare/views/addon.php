@@ -22,7 +22,7 @@ defined('ABSPATH') or exit; ?>
 
         <br />
 
-        <label class="wpp-info">
+        <label class="wpp-addon-info">
             <input type="checkbox" value="1" name="cf_enabled" form="wpp-settings" <?php wpp_checked( 'cf_enabled' ); ?> />
             <?php _e( 'Enable', 'wpp' ); ?> Cloudflare
         </label>

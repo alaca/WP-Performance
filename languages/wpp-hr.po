@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WP Performance\n"
-"POT-Creation-Date: 2019-02-01 13:42+0100\n"
-"PO-Revision-Date: 2019-02-01 13:47+0100\n"
+"POT-Creation-Date: 2019-04-01 19:01+0200\n"
+"PO-Revision-Date: 2019-04-01 19:04+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: hr\n"
@@ -93,6 +93,7 @@ msgstr "S ovim dodatkom integrirajte svoj račun za Cloudflare."
 #: includes/addons/cloudflare/views/admin.php:32
 #: includes/addons/cloudflare/views/admin.php:125
 #: includes/addons/cloudflare/views/admin.php:137
+#: includes/addons/prefetch/views/addon.php:18
 #: includes/addons/varnish/views/addon.php:27
 #: includes/addons/varnish/views/options.php:16 includes/classes/wpp.php:267
 #: includes/functions/admin.php:267
@@ -233,6 +234,15 @@ msgstr "E-pošta računa"
 #: includes/addons/cloudflare/views/admin.php:173
 msgid "Zone ID"
 msgstr "ID Zone"
+
+#: includes/addons/prefetch/views/addon.php:9
+#: includes/addons/prefetch/views/addon.php:18
+msgid "Dynamic page preload"
+msgstr "Dinamičko pred učitavanje stranice"
+
+#: includes/addons/prefetch/views/addon.php:12
+msgid "Preloads a page right before a user clicks on link"
+msgstr "Dinamički pred učitava stranice prije nego ih korisnik posjeti"
 
 #: includes/addons/varnish/views/addon.php:20
 msgid "If Varnish runs on your server, you must activate this add-on."
@@ -1076,7 +1086,7 @@ msgstr "Učitajte postavke konfiguracije spremljene u "
 msgid "Load"
 msgstr "Učitaj"
 
-#: includes/classes/api.php:131
+#: includes/classes/api.php:130
 #, php-format
 msgid "Call to undefined method %s"
 msgstr ""
@@ -1145,19 +1155,19 @@ msgstr "Pokrenuto čišćenje baze"
 msgid "Database cleanup complete"
 msgstr "Završeno čišćenje baze"
 
-#: includes/classes/parser.php:68
+#: includes/classes/parser.php:79
 msgid "error"
 msgstr "greška"
 
-#: includes/classes/parser.php:69 includes/classes/parser.php:72
+#: includes/classes/parser.php:80 includes/classes/parser.php:83
 msgid "both head and body tag should be present in template file"
 msgstr "oznaka head i body bi trebale biti prisutne u datoteci predloška"
 
-#: includes/classes/parser.php:883
+#: includes/classes/parser.php:904
 msgid "Optimized by"
 msgstr "Optimizirano sa"
 
-#: includes/classes/parser.php:910
+#: includes/classes/parser.php:924
 #, php-format
 msgid "Cache file was created in %s seconds on %s at %s"
 msgstr "Datoteka predmemorije stvorena je za %s sekundi na dan %s u %s"
@@ -1242,11 +1252,11 @@ msgid "Regenerate thumbnails may take a long time. Do not close your browser."
 msgstr ""
 "Regeneriranje umanjenih slika može potrajati dugo. Ne zatvarajte preglednik."
 
-#: includes/functions/plugin.php:187
+#: includes/functions/plugin.php:190
 msgid "The following plugins are not compatible with"
 msgstr "Slijedeći dodaci nisu kompatibilni sa"
 
-#: includes/functions/plugin.php:194
+#: includes/functions/plugin.php:197
 msgid "Deactivate"
 msgstr "Deaktiviraj"
 

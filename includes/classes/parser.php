@@ -162,6 +162,7 @@ class Parser
             if (
                 $link->{'data-skip'} == 'true' 
                 || strstr( $link->href, WPP_ASSET_URL )
+                || strstr( $link->href, WPP_ADDONS_URL )
                 || ( is_user_logged_in() && strstr( $link->href, 'wp-includes' ) )
             ) {
                 continue;
@@ -355,6 +356,7 @@ class Parser
                 $script->type == 'application/ld+json' 
                 || $script->{'data-skip'} == 'true' 
                 || strstr( $script->src, WPP_ASSET_URL )
+                || strstr( $script->src, WPP_ADDONS_URL )
                 || ( is_user_logged_in() && strstr( $script->src, 'wp-includes' ) )
             ) {
                 continue;
@@ -886,20 +888,21 @@ class Parser
         // WPP JS
         $this->head->innertext .= '<script defer src="' . WPP_ASSET_URL . 'load/wpp.min.js?ver=' . WPP_VERSION . '"></script>' . PHP_EOL;  
 
-        // Minify html
-        if ( apply_filters( 'wpp_minify_html', false ) ) {
-              $this->html = preg_replace('/\>\s+\</m', '><', $this->html);
-        }
-
-        $this->html .= PHP_EOL . sprintf( '<!-- %s %s %s -->', __( 'Optimized by', 'wpp' ), WPP_PLUGIN_NAME, WPP_VERSION ) . PHP_EOL;
-
         /**
          * Filter parsed content
          * 
          * @since 1.0.8
          */
-        $output = apply_filters( 'wpp_parsed_content', $this->html );
+        $this->html = apply_filters( 'wpp_parsed_content', $this->html );
 
+        // Minify html
+        if ( apply_filters( 'wpp_minify_html', true ) ) {
+            $this->html = preg_replace('/\>\s+\</m', '><', $this->html );
+        }
+
+        // Footprint
+        $this->html .= PHP_EOL . sprintf( '<!-- %s %s %s -->', __( 'Optimized by', 'wpp' ), WPP_PLUGIN_NAME, WPP_VERSION ) . PHP_EOL;
+        
         // Should we cache this page ?
         if ( 
             Option::boolval( 'cache' ) 
@@ -917,20 +920,20 @@ class Parser
             // Check if page is excluded
             if ( ! wpp_is_url_excluded( Url::current(), $excluded ) ) {
         
-                $output .= sprintf( 
+                $this->html .= sprintf( 
                     '<!-- ' . __( 'Cache file was created in %s seconds on %s at %s', 'wpp' ) . ' -->',  
                     number_format( ( microtime( true ) - $this->time ), 2 ), 
                     date( get_option( 'date_format' ) ),
                     date( get_option( 'time_format' ) ) 
                 );
                 
-                Cache::save( $output );
+                Cache::save( $this->html );
                 
             }
 
         }
         
-        return $output;
+        return $this->html;
         
     }
 

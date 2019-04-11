@@ -492,6 +492,8 @@ table.wpp-file-list tr {
     box-shadow: 0px 0px 3px rgb(241, 241, 241);
     padding: 20px;
     background-color: rgb(253, 253, 253);
+    min-height: 150px;
+    position: relative;
 }
 
 .wpp-addon-content img {
@@ -503,6 +505,22 @@ table.wpp-file-list tr {
 .wpp-addon-content strong {
     font-size: 18px;
 }
+
+.wpp-addon-content h2 {
+    position: relative;
+    top: -10px;
+}
+
+.wpp-addon-info {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+}
+
+.wpp-addon-content label input {
+    margin-right: 15px;
+}
+
 
 .wpp-addon-settings-link {
     float: right;
