@@ -1,7 +1,7 @@
 ﻿=== WP Performance ===
 Contributors: alaca
 Donate link: https://profiles.wordpress.org/alaca
-Tags: wp performance, cache, performance, speed optimization, wpp
+Tags: wp performance, cache, performance, speed optimization, seo
 Requires at least: 4.5
 Tested up to: 5.1
 Requires PHP: 5.6
