@@ -8,7 +8,7 @@
 * Author URI: https://www.antelaca.xyz
 * Licence: GPLv2
 * Text Domain: wpp
-* Domain Path: languages  
+* Domain Path: /languages  
 */
 
 defined( 'ABSPATH' ) or exit;
