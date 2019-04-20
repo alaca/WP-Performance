@@ -65,6 +65,10 @@ WP Performance does not support multisite yet.
 
 ## Changelog ##
 
+### 1.1.3.3 ###
+[FIX] Disable resources on selected URL
+[UPDATE] Chinese language file
+
 ### 1.1.3.2 ###
 * [FIX] Parser minify error
 
