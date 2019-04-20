@@ -248,9 +248,11 @@ function wpp_is_resource_disabled( $type, $resource ) {
                         return true;
                     }
 
+                    /*
                     if ( stristr( Url::current(), $url ) ) {
                         return true;
                     }
+                    */
 
                     preg_match( '#^' . $url . '$#', Url::current(), $match );
 
@@ -288,9 +290,11 @@ function wpp_is_resource_disabled( $type, $resource ) {
                         return false;
                     }
 
+                    /*
                     if ( stristr( Url::current(), $url ) ) {
                         return false;
                     }
+                    */
 
                     preg_match( '#^' . $url . '$#', trailingslashit( Url::current() ), $match );
 
