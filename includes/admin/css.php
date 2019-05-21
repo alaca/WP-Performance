@@ -122,7 +122,7 @@ $external_list      = Option::get( 'external_css_list', [] );
                 data-description="<?php printf( __( 'Clear collected %s files list.%s This option will also clear the cache.', 'wpp' ), 'CSS', '<br />' ); ?>" 
                 href="<?php echo wp_nonce_url( admin_url( 'admin.php?page=' . WPP_PLUGIN_ADMIN_URL . '&clear=css'), 'clear-list', 'nonce' ); ?>" 
                 class="button wpp-load-settings">
-                <?php _e( 'Clear files list', 'wpp' ); ?>
+                <?php _e( 'Update files list', 'wpp' ); ?>
             </a> 
 
         <?php else: ?>
@@ -332,10 +332,11 @@ $external_list      = Option::get( 'external_css_list', [] );
 
             <?php if( ! empty( $excluded_urls ) ) : ?>
                 <div data-info-name="css_url_exclude[]">
-                    <em><span class="dashicons dashicons-info"></span> <?php _e('Part of the URL will also work', 'wpp'); ?></em>
+                    <?php /*<em><span class="dashicons dashicons-info"></span> <?php _e('Part of the URL will also work', 'wpp'); ?></em>*/ ?>
                     <em><span class="dashicons dashicons-info"></span> <?php _e('Use {numbers} to match only numbers', 'wpp'); ?></em>
                     <em><span class="dashicons dashicons-info"></span> <?php _e('Use {letters} to match only letters', 'wpp'); ?></em>
                     <em><span class="dashicons dashicons-info"></span> <?php _e('Use {any} to match any string', 'wpp'); ?></em>
+                    <em><span class="dashicons dashicons-info"></span> <?php _e('Use {all} to match all', 'wpp'); ?></em>
                     <br>
                 </div>
             <?php endif; ?>
@@ -344,7 +345,7 @@ $external_list      = Option::get( 'external_css_list', [] );
                 class="button" 
                 data-add-input="css_url_exclude[]" 
                 data-placeholder="<?php echo trailingslashit( site_url() ); ?>" 
-                data-info="<?php _e('Part of the URL will also work', 'wpp'); ?>|<?php _e('Use {numbers} to match only numbers', 'wpp'); ?>|<?php _e('Use {letters} to match only letters', 'wpp'); ?>|<?php _e('Use {any} to match any string', 'wpp'); ?>" 
+                data-info="<?php /*_e('Part of the URL will also work', 'wpp');*/ ?><?php _e('Use {numbers} to match only numbers', 'wpp'); ?>|<?php _e('Use {letters} to match only letters', 'wpp'); ?>|<?php _e('Use {any} to match any string', 'wpp'); ?>|<?php _e('Use {all} to match all', 'wpp'); ?>" 
                 data-container="#wpp-exclude-url-css-container">
 
                 <?php _e('Add URL', 'wpp'); ?>

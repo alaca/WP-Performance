@@ -277,10 +277,11 @@ defined('ABSPATH') or exit; ?>
 
                 <?php if( ! empty( $excluded_urls ) ) : ?>
                     <div data-info-name="cache_url_exclude[]">
-                        <em><span class="dashicons dashicons-info"></span> <?php _e( 'Part of the URL will also work', 'wpp' ); ?></em>
+                        <?php /*<em><span class="dashicons dashicons-info"></span> <?php _e( 'Part of the URL will also work', 'wpp' ); ?></em>*/ ?>
                         <em><span class="dashicons dashicons-info"></span> <?php _e( 'Use {numbers} to match only numbers', 'wpp' ); ?></em>
                         <em><span class="dashicons dashicons-info"></span> <?php _e( 'Use {letters} to match only letters', 'wpp' ); ?></em>
                         <em><span class="dashicons dashicons-info"></span> <?php _e( 'Use {any} to match any string', 'wpp' ); ?></em>
+                        <em><span class="dashicons dashicons-info"></span> <?php _e( 'Use {all} to match all', 'wpp' ); ?></em>
                         <br />
                     </div>
                 <?php endif; ?>
@@ -289,7 +290,7 @@ defined('ABSPATH') or exit; ?>
                     class="button" 
                     data-add-input="cache_url_exclude[]" 
                     data-placeholder="<?php echo site_url(); ?>" 
-                    data-info="<?php _e( 'Part of the URL will also work', 'wpp' ); ?>|<?php _e( 'Use {numbers} to match only numbers', 'wpp' ); ?>|<?php _e( 'Use {letters} to match only letters', 'wpp' ); ?>|<?php _e( 'Use {any} to match any string', 'wpp' ); ?>" 
+                    data-info="<?php /*_e( 'Part of the URL will also work', 'wpp' );*/ ?><?php _e( 'Use {numbers} to match only numbers', 'wpp' ); ?>|<?php _e( 'Use {letters} to match only letters', 'wpp' ); ?>|<?php _e( 'Use {any} to match any string', 'wpp' ); ?>|<?php _e( 'Use {all} to match all', 'wpp' ); ?>" 
                     data-container="#wpp-exclude-url-container">
                     
                     <?php _e( 'Add URL', 'wpp' ); ?>
