@@ -20,13 +20,6 @@ defined('ABSPATH') or exit; ?>
             <?php _e( 'If Varnish runs on your server, you must activate this add-on.', 'wpp' ); ?>
         </div>
 
-        <br />
-
-        <label class="wpp-addon-info">
-            <input type="checkbox" value="1" data-wpp-checkbox="varnish_auto_purge" value="1" name="varnish_auto_purge" form="wpp-settings" <?php wpp_checked( 'varnish_auto_purge' ); ?> />
-            <?php _e( 'Enable', 'wpp' ); ?> Varnish
-        </label>
-
         <div class="wpp-addon-settings" data-addon-settings-content="varnish">
 
             <hr />
@@ -43,11 +36,18 @@ defined('ABSPATH') or exit; ?>
                 form="wpp-settings"
                 class="wpp-addon-input" />  
                     
-                <br /><br />
+            <br /><br />
 
             <em><span class="dashicons dashicons-info"></span> <?php _e( 'If you are using proxy, you may need this option', 'wpp' ); ?></em>
 
+            <br /><br />
+
         </div>
+
+        <label class="wpp-addon-info">
+            <input type="checkbox" value="1" data-wpp-checkbox="varnish_auto_purge" value="1" name="varnish_auto_purge" form="wpp-settings" <?php wpp_checked( 'varnish_auto_purge' ); ?> />
+            <?php _e( 'Enable', 'wpp' ); ?> Varnish
+        </label>
 
     </div>
 
