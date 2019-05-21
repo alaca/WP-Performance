@@ -52,6 +52,9 @@ class Cloudflare {
                 UI::addLink( 'cloudflare', 'Cloudflare' );
                 UI::addLink( 'cloudflare_clear_cache', __( 'Clear Cloudflare cache', 'wpp' ), 'wpp_clear_cf_cache' );
 
+                // Enqueue JS
+                wp_enqueue_script( 'wpp-cloudflare', WPP_ADDONS_URL . 'cloudflare/assets/cloudflare.js', [ 'wpp-settings' ], WPP_VERSION );
+
             }
 
         } );
