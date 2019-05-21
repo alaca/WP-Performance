@@ -16,6 +16,14 @@ jQuery(document).ready(function ($) {
         $('#wpp_tab').val(tab);
         $('#wpp_tabs_menu a, .wpp_page').removeClass('active');
         $('[data-wpp-page="' + tab + '"]').add(this).addClass('active');
+
+        // Remove empty required fields on change tab
+        $('.wpp-dynamic-input').each(function(){
+            if( $(this).attr('required') && ! $(this).val() ) {
+                $(this).parent('.wpp-dynamic-input-container').remove();
+            }
+        });
+
     });
 
     $(document).on('click', '[data-wpp-show-page]', function (e) {
