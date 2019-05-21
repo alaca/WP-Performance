@@ -84,9 +84,9 @@ function wpp_is_url_excluded( $url, $excluded_urls ) {
             return true;
         }
 
-        if ( stristr( $url, $excluded_url ) ) {
-            return true;
-        }
+        // if ( stristr( $url, $excluded_url ) ) {
+        //    return true;
+        // }
 
         preg_match( '#^' . $excluded_url . '$#', trailingslashit( $url ), $match );
 
