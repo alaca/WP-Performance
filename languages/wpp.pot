@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: WP Performance\n"
-"POT-Creation-Date: 2019-04-01 19:01+0200\n"
+"POT-Creation-Date: 2019-04-30 10:13+0200\n"
 "PO-Revision-Date: 2018-12-26 17:50+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -19,63 +19,66 @@ msgstr ""
 "esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
 "_nx_noop:3c,1,2;__ngettext_noop:1,2;wpp_notify\n"
 "X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: vendor\n"
+"X-Poedit-SearchPath-2: .git\n"
+"X-Poedit-SearchPath-3: assets\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
 #: includes/addons/cloudflare/cloudflare.php:53
 msgid "Clear Cloudflare cache"
 msgstr ""
 
-#: includes/addons/cloudflare/cloudflare.php:91
+#: includes/addons/cloudflare/cloudflare.php:94
 msgid "Cloudflare API credentials not set"
 msgstr ""
 
-#: includes/addons/cloudflare/cloudflare.php:107
+#: includes/addons/cloudflare/cloudflare.php:110
 msgid " Cloudflare cannot get zone details. Check your Cloudflare credentials"
 msgstr ""
 
-#: includes/addons/cloudflare/cloudflare.php:114
+#: includes/addons/cloudflare/cloudflare.php:117
 #, php-format
 msgid ""
 " Cloudflare zone %s is not activated. Please go to your Cloudflare dashboard "
 "and activate it."
 msgstr ""
 
-#: includes/addons/cloudflare/cloudflare.php:118
+#: includes/addons/cloudflare/cloudflare.php:121
 #, php-format
 msgid ""
 " Cloudflare zone %s status is pending and these settings won't have any "
 "effect on your website."
 msgstr ""
 
-#: includes/addons/cloudflare/cloudflare.php:133
+#: includes/addons/cloudflare/cloudflare.php:136
 msgid " Cloudflare development mode not set"
 msgstr ""
 
-#: includes/addons/cloudflare/cloudflare.php:142
+#: includes/addons/cloudflare/cloudflare.php:145
 msgid " Cloudflare cache level not set"
 msgstr ""
 
-#: includes/addons/cloudflare/cloudflare.php:152
+#: includes/addons/cloudflare/cloudflare.php:155
 msgid " Cloudflare browser cache expiration not set"
 msgstr ""
 
-#: includes/addons/cloudflare/cloudflare.php:166
+#: includes/addons/cloudflare/cloudflare.php:169
 msgid " Cloudflare minify not set"
 msgstr ""
 
-#: includes/addons/cloudflare/cloudflare.php:178
+#: includes/addons/cloudflare/cloudflare.php:181
 msgid " Cloudflare Rocket loader mode not set"
 msgstr ""
 
-#: includes/addons/cloudflare/cloudflare.php:188
+#: includes/addons/cloudflare/cloudflare.php:191
 msgid " Cloudflare Brotli mode not set"
 msgstr ""
 
-#: includes/addons/cloudflare/cloudflare.php:200
+#: includes/addons/cloudflare/cloudflare.php:203
 msgid "Cloudflare settings saved"
 msgstr ""
 
-#: includes/addons/cloudflare/cloudflare.php:222
+#: includes/addons/cloudflare/cloudflare.php:225
 msgid "Something went wrong. Cannot purge Cloudflare cache"
 msgstr ""
 
@@ -423,42 +426,42 @@ msgid "Remove %s from excluded URL(s)?"
 msgstr ""
 
 #: includes/admin/cache.php:280 includes/admin/cache.php:292
-#: includes/admin/css.php:335 includes/admin/css.php:347
+#: includes/admin/css.php:335 includes/admin/css.php:348
 #: includes/admin/images.php:165 includes/admin/images.php:177
-#: includes/admin/javascript.php:261 includes/admin/javascript.php:273
+#: includes/admin/javascript.php:261 includes/admin/javascript.php:274
 msgid "Part of the URL will also work"
 msgstr ""
 
 #: includes/admin/cache.php:281 includes/admin/cache.php:292
 #: includes/admin/cdn.php:75 includes/admin/cdn.php:86
-#: includes/admin/css.php:336 includes/admin/css.php:347
+#: includes/admin/css.php:336 includes/admin/css.php:348
 #: includes/admin/images.php:166 includes/admin/images.php:177
-#: includes/admin/javascript.php:262 includes/admin/javascript.php:273
+#: includes/admin/javascript.php:262 includes/admin/javascript.php:274
 msgid "Use {numbers} to match only numbers"
 msgstr ""
 
 #: includes/admin/cache.php:282 includes/admin/cache.php:292
 #: includes/admin/cdn.php:76 includes/admin/cdn.php:86
-#: includes/admin/css.php:337 includes/admin/css.php:347
+#: includes/admin/css.php:337 includes/admin/css.php:348
 #: includes/admin/images.php:167 includes/admin/images.php:177
-#: includes/admin/javascript.php:263 includes/admin/javascript.php:273
+#: includes/admin/javascript.php:263 includes/admin/javascript.php:274
 msgid "Use {letters} to match only letters"
 msgstr ""
 
 #: includes/admin/cache.php:283 includes/admin/cache.php:292
 #: includes/admin/cdn.php:77 includes/admin/cdn.php:86
-#: includes/admin/css.php:338 includes/admin/css.php:347
+#: includes/admin/css.php:338 includes/admin/css.php:348
 #: includes/admin/images.php:168 includes/admin/images.php:177
-#: includes/admin/javascript.php:264 includes/admin/javascript.php:273
+#: includes/admin/javascript.php:264 includes/admin/javascript.php:274
 msgid "Use {any} to match any string"
 msgstr ""
 
-#: includes/admin/cache.php:295 includes/admin/css.php:350
+#: includes/admin/cache.php:295 includes/admin/css.php:351
 #: includes/admin/images.php:180 includes/admin/includes/external_files.php:113
 #: includes/admin/includes/external_files.php:124
 #: includes/admin/includes/local_files.php:109
 #: includes/admin/includes/local_files.php:120
-#: includes/admin/javascript.php:276 includes/functions/miscellaneous.php:176
+#: includes/admin/javascript.php:277 includes/functions/miscellaneous.php:176
 msgid "Add URL"
 msgstr ""
 
@@ -543,7 +546,7 @@ msgid "Clear collected %s files list.%s This option will also clear the cache."
 msgstr ""
 
 #: includes/admin/css.php:125 includes/admin/javascript.php:124
-msgid "Clear files list"
+msgid "Update files list"
 msgstr ""
 
 #: includes/admin/css.php:130
@@ -626,6 +629,11 @@ msgstr ""
 
 #: includes/admin/css.php:295
 msgid "Exclude URL(s) from CSS optimization"
+msgstr ""
+
+#: includes/admin/css.php:339 includes/admin/css.php:348
+#: includes/admin/javascript.php:265 includes/admin/javascript.php:274
+msgid "Use {all} to match all"
 msgstr ""
 
 #: includes/admin/database.php:30 includes/admin/database.php:35

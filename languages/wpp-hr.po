@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WP Performance\n"
-"POT-Creation-Date: 2019-04-01 19:01+0200\n"
-"PO-Revision-Date: 2019-04-01 19:04+0200\n"
+"POT-Creation-Date: 2019-04-30 10:13+0200\n"
+"PO-Revision-Date: 2019-04-30 10:14+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: hr\n"
@@ -26,16 +26,16 @@ msgstr ""
 msgid "Clear Cloudflare cache"
 msgstr "Očisti Cloudflare predmemeoriju"
 
-#: includes/addons/cloudflare/cloudflare.php:91
+#: includes/addons/cloudflare/cloudflare.php:94
 msgid "Cloudflare API credentials not set"
 msgstr "Cloudflare API podaci nisu postavljeni"
 
-#: includes/addons/cloudflare/cloudflare.php:107
+#: includes/addons/cloudflare/cloudflare.php:110
 msgid " Cloudflare cannot get zone details. Check your Cloudflare credentials"
 msgstr ""
 "Cloudflare ne može dobiti detalje zone. Provjerite Cloudflare podatke računa"
 
-#: includes/addons/cloudflare/cloudflare.php:114
+#: includes/addons/cloudflare/cloudflare.php:117
 #, php-format
 msgid ""
 " Cloudflare zone %s is not activated. Please go to your Cloudflare dashboard "
@@ -44,7 +44,7 @@ msgstr ""
 "Cloudflare zona %s nije aktivirana. Idite u svoju Cloudflare nadzornu ploču "
 "i aktivirajte je."
 
-#: includes/addons/cloudflare/cloudflare.php:118
+#: includes/addons/cloudflare/cloudflare.php:121
 #, php-format
 msgid ""
 " Cloudflare zone %s status is pending and these settings won't have any "
@@ -53,35 +53,35 @@ msgstr ""
 "Cloudflare zona %s je na čekanju i ove postavke neće imati nikakvog utjecaja "
 "na vašu web-lokaciju."
 
-#: includes/addons/cloudflare/cloudflare.php:133
+#: includes/addons/cloudflare/cloudflare.php:136
 msgid " Cloudflare development mode not set"
 msgstr "Cloudflare razvojni mod nije postavljen"
 
-#: includes/addons/cloudflare/cloudflare.php:142
+#: includes/addons/cloudflare/cloudflare.php:145
 msgid " Cloudflare cache level not set"
 msgstr "Cloudflare level predmemorije nije postavljen"
 
-#: includes/addons/cloudflare/cloudflare.php:152
+#: includes/addons/cloudflare/cloudflare.php:155
 msgid " Cloudflare browser cache expiration not set"
 msgstr "Cloudflare istek predmemorije preglednika nije postavljen"
 
-#: includes/addons/cloudflare/cloudflare.php:166
+#: includes/addons/cloudflare/cloudflare.php:169
 msgid " Cloudflare minify not set"
 msgstr "Cloudflare minifikacija nije postavljena"
 
-#: includes/addons/cloudflare/cloudflare.php:178
+#: includes/addons/cloudflare/cloudflare.php:181
 msgid " Cloudflare Rocket loader mode not set"
 msgstr " Cloudflare Rocket loader mod nije postavljen"
 
-#: includes/addons/cloudflare/cloudflare.php:188
+#: includes/addons/cloudflare/cloudflare.php:191
 msgid " Cloudflare Brotli mode not set"
 msgstr " Cloudflare Brotli mod nije postavljen"
 
-#: includes/addons/cloudflare/cloudflare.php:200
+#: includes/addons/cloudflare/cloudflare.php:203
 msgid "Cloudflare settings saved"
 msgstr "Cloudflare postavke spremljene"
 
-#: includes/addons/cloudflare/cloudflare.php:222
+#: includes/addons/cloudflare/cloudflare.php:225
 msgid "Something went wrong. Cannot purge Cloudflare cache"
 msgstr ""
 
@@ -449,42 +449,42 @@ msgid "Remove %s from excluded URL(s)?"
 msgstr "Makni %s s liste izuzetih URL-ova"
 
 #: includes/admin/cache.php:280 includes/admin/cache.php:292
-#: includes/admin/css.php:335 includes/admin/css.php:347
+#: includes/admin/css.php:335 includes/admin/css.php:348
 #: includes/admin/images.php:165 includes/admin/images.php:177
-#: includes/admin/javascript.php:261 includes/admin/javascript.php:273
+#: includes/admin/javascript.php:261 includes/admin/javascript.php:274
 msgid "Part of the URL will also work"
 msgstr "Dio URL-a će također funkcionirati"
 
 #: includes/admin/cache.php:281 includes/admin/cache.php:292
 #: includes/admin/cdn.php:75 includes/admin/cdn.php:86
-#: includes/admin/css.php:336 includes/admin/css.php:347
+#: includes/admin/css.php:336 includes/admin/css.php:348
 #: includes/admin/images.php:166 includes/admin/images.php:177
-#: includes/admin/javascript.php:262 includes/admin/javascript.php:273
+#: includes/admin/javascript.php:262 includes/admin/javascript.php:274
 msgid "Use {numbers} to match only numbers"
 msgstr "Koristite {numbers} za podudaranje samo brojeva"
 
 #: includes/admin/cache.php:282 includes/admin/cache.php:292
 #: includes/admin/cdn.php:76 includes/admin/cdn.php:86
-#: includes/admin/css.php:337 includes/admin/css.php:347
+#: includes/admin/css.php:337 includes/admin/css.php:348
 #: includes/admin/images.php:167 includes/admin/images.php:177
-#: includes/admin/javascript.php:263 includes/admin/javascript.php:273
+#: includes/admin/javascript.php:263 includes/admin/javascript.php:274
 msgid "Use {letters} to match only letters"
 msgstr "Koristite {letters} za podudaranje samo slova"
 
 #: includes/admin/cache.php:283 includes/admin/cache.php:292
 #: includes/admin/cdn.php:77 includes/admin/cdn.php:86
-#: includes/admin/css.php:338 includes/admin/css.php:347
+#: includes/admin/css.php:338 includes/admin/css.php:348
 #: includes/admin/images.php:168 includes/admin/images.php:177
-#: includes/admin/javascript.php:264 includes/admin/javascript.php:273
+#: includes/admin/javascript.php:264 includes/admin/javascript.php:274
 msgid "Use {any} to match any string"
 msgstr "Koristite {any} za podudaranje bilo kojeg niza"
 
-#: includes/admin/cache.php:295 includes/admin/css.php:350
+#: includes/admin/cache.php:295 includes/admin/css.php:351
 #: includes/admin/images.php:180 includes/admin/includes/external_files.php:113
 #: includes/admin/includes/external_files.php:124
 #: includes/admin/includes/local_files.php:109
 #: includes/admin/includes/local_files.php:120
-#: includes/admin/javascript.php:276 includes/functions/miscellaneous.php:176
+#: includes/admin/javascript.php:277 includes/functions/miscellaneous.php:176
 msgid "Add URL"
 msgstr "Dodaj URL"
 
@@ -575,8 +575,8 @@ msgstr ""
 "predmemoriju."
 
 #: includes/admin/css.php:125 includes/admin/javascript.php:124
-msgid "Clear files list"
-msgstr "Izbriši popis datoteka"
+msgid "Update files list"
+msgstr "Ažuriraj popis datoteka"
 
 #: includes/admin/css.php:130
 msgid "CSS files not found"
@@ -663,6 +663,11 @@ msgstr ""
 #: includes/admin/css.php:295
 msgid "Exclude URL(s) from CSS optimization"
 msgstr "Izuzimanje URL-ova iz CSS optimizacije"
+
+#: includes/admin/css.php:339 includes/admin/css.php:348
+#: includes/admin/javascript.php:265 includes/admin/javascript.php:274
+msgid "Use {all} to match all"
+msgstr "Koristite {all} za podudaranje bilo kojeg niza"
 
 #: includes/admin/database.php:30 includes/admin/database.php:35
 msgid "Delete all pages, posts and comments from trash"
