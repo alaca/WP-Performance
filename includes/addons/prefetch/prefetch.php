@@ -30,8 +30,8 @@ class Prefetch {
         if ( Option::boolval( 'prefetch_pages' ) ) {
             // Parse links
             add_action( 'wpp_parsed_content', [ $this, 'parseLinks' ] );
-            // Enqueue scripts
-            add_action( 'wp_enqueue_scripts', [ $this, 'enqueueScripts' ]);
+            // Load add-on scripts in footer
+            add_action( 'wp_footer', [ $this, 'loadScript' ] );
         }
 
         // Update options
@@ -91,25 +91,17 @@ class Prefetch {
 
 
     /**
-     * Enqueue script
+     * Load add-on script
      *
-     * @return void
+     * @return string
      * @since 1.1.3
      */
-    public function enqueueScripts() {
+    public function loadScript() {
 
-        wp_enqueue_script( 'wpp-prefetch', WPP_ADDONS_URL . 'prefetch/assets/prefetch.js', [], WPP_VERSION, true );
+        if ( file_exists( $script = WPP_ADDONS_DIR . 'prefetch/assets/prefetch.js' ) ) {
+            printf('<script data-wpp-addon="prefetch">%s</script>', file_get_contents( $script ) );
+        }
 
-        // Defer
-        add_filter( 'script_loader_tag', function( $tag, $handle, $src ){
-
-            if ( $handle != 'wpp-prefetch' ) {
-                return $tag;
-            }
-        
-            return str_replace( '<script', '<script defer', $tag );
-
-        }, 10, 3 );
     }
 
 
