@@ -4,8 +4,8 @@
 
 ## Description ##
 
-WP Performance is a cache & performance plugin.
-This plugin generates static html files from your dynamic content, and it uses mod_rewrite to load cache files which is the fastest method.
+WP Performance is a cache & performance plugin which makes optimizing your site really easy.
+This plugin generates static html files from your dynamic content and it uses mod_rewrite to load the cache files which is the fastest method.
 
 ## Multisite Support ##
 WP Performance does not support multisite yet.
