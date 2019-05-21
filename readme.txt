@@ -86,6 +86,7 @@ If you encounter any bug, please create an issue on [Github](https://github.com/
 
 = 1.1.3.4 =
 [FIX] Clear log file after clearing the cache
+[FIX] Wrong optimization status message in WPP metabox on edit page screen
 [IMPROVE] Cloudflare add-on
 [IMPROVE] Dynamic page preload add-on
 [UPDATE] languages
