@@ -3,7 +3,7 @@ Contributors: alaca
 Donate link: https://profiles.wordpress.org/alaca
 Tags: wp performance, cache, performance, speed optimization, seo
 Requires at least: 4.5
-Tested up to: 5.1
+Tested up to: 5.2
 Requires PHP: 5.6
 Stable tag: 1.0
 License: GPLv2 or later
@@ -11,8 +11,8 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
-WP Performance is a cache & performance plugin.
-This plugin generates static html files from your dynamic content, and it uses mod_rewrite to load cache files which is the fastest method.
+WP Performance is a cache & performance plugin which makes optimizing your site really easy.
+This plugin generates static html files from your dynamic content and it uses mod_rewrite to load the cache files which is the fastest method.
 
 ### Multisite Support ###
 WP Performance does not support multisite yet.
@@ -83,6 +83,12 @@ If you encounter any bug, please create an issue on [Github](https://github.com/
 7. Settings
 
 == Changelog ==
+
+= 1.1.3.4 =
+[FIX] Clear log file after clearing the cache
+[IMPROVE] Cloudflare add-on
+[IMPROVE] Dynamic page preload add-on
+[UPDATE] languages
 
 = 1.1.3.3 =
 [FIX] Disable resources on selected URL
@@ -183,3 +189,19 @@ If you encounter any bug, please create an issue on [Github](https://github.com/
 [FIX] PCRE2 parser issues
 [FIX] Clear cache JS error
 [NEW] Chinese translation
+
+
+
+
+== Frequently Asked Questions ==
+
+
+= Does WP Performance work with Nginx? =
+WP Performance works with Nginx properly.
+
+= Does WP Performance support WordPress Multisite? =
+WP Performance does not support WordPress Multisite yet.
+
+= Where can I get help? =
+You can get help on the <a href="https://wordpress.org/support/plugin/wp-performance">wordpress.org support forum</a>. 
+If you encounter any bug, please create an issue on [Github](https://github.com/alaca/WP-Performance).  
