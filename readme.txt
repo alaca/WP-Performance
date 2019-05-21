@@ -87,6 +87,7 @@ If you encounter any bug, please create an issue on [Github](https://github.com/
 = 1.1.3.4 =
 [FIX] Clear log file after clearing the cache
 [FIX] Wrong optimization status message in WPP metabox on edit page screen
+[IMPROVE] Admin UI
 [IMPROVE] Cloudflare add-on
 [IMPROVE] Dynamic page preload add-on
 [UPDATE] languages
@@ -198,7 +199,8 @@ If you encounter any bug, please create an issue on [Github](https://github.com/
 
 
 = Does WP Performance work with Nginx? =
-WP Performance works with Nginx properly.
+WP Performance has support for Nginx servers, but an extra step is required to make it working properly.
+Depending on your WP Performance configuration, rewrite rules will be generated and listed under the “Settings” tab. You have to copy and paste generated rules manually into the Nginx config file.
 
 = Does WP Performance support WordPress Multisite? =
 WP Performance does not support WordPress Multisite yet.

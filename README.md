@@ -67,6 +67,8 @@ WP Performance does not support multisite yet.
 
 ### 1.1.3.4 ###
 * [FIX] Clear log file after clearing the cache
+* [FIX] Wrong optimization status message in WPP metabox on edit page screen
+* [IMPROVE] Admin UI
 * [IMPROVE] Cloudflare add-on
 * [IMPROVE] Dynamic page preload add-on
 * [UPDATE] languages
