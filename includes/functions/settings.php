@@ -218,8 +218,25 @@ function wpp_save_settings( $notify = true ) {
     File::save( WPP_CACHE_DIR . $timestamp . '.settings.json', json_encode( $settings ) );
 
     Option::update( 'current_settings', $timestamp );
+
+    // Site settings
+    $exclude_urls = Input::post( 'cache_url_exclude', 'string', FILTER_REQUIRE_ARRAY );
+
+    if ( Input::post( 'search_bots_exclude' ) ) {
+        $exclude_urls = array_merge( $exclude_urls, wpp_get_search_engines() );
+    }
+
+    $settings = [
+        'cache'        => boolval( Input::post( 'cache' ) ),
+        'disable'      => Option::boolval( 'wpp_disable' ),
+        'mobile_cache' => boolval( Input::post( 'mobile_cache' ) ),
+        'expire'       => time() + intval( Input::post( 'cache_time', 'number_int' ) * Input::post( 'cache_length', 'number_int' )  ),
+        'exclude'      => apply_filters( 'wpp_exclude_urls', $exclude_urls ),
+        'permalinks'   => boolval( get_option( 'permalink_structure' ) )
+    ];
+
+    File::saveSiteSettings( $settings );
     
-    wpp_log( 'Settings saved' ); 
 
     /**
      * Save settings hook
