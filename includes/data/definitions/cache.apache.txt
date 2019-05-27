@@ -5,12 +5,12 @@ Header append Vary: Accept-Encoding
 </IfModule>
 
 <IfModule mod_mime.c>
-    AddType text/html .html_gzip .html_mobile_gzip
-    AddEncoding gzip .html_gzip .html_mobile_gzip
+    AddType text/html .html.gz .html_mobile.gz
+    AddEncoding gzip .html.gz .html_mobile.gz
 </IfModule>
 <IfModule mod_setenvif.c>
-    SetEnvIfNoCase Request_URI \.html_gzip$ no-gzip
-    SetEnvIfNoCase Request_URI \.html_mobile_gzip$ no-gzip
+    SetEnvIfNoCase Request_URI \.html.gz$ no-gzip
+    SetEnvIfNoCase Request_URI \.html_mobile.gz$ no-gzip
 </IfModule>
 
 
@@ -25,7 +25,7 @@ Header append Vary: Accept-Encoding
     RewriteCond %{HTTP_USER_AGENT} Opera\sMobi [NC]
     RewriteRule .* - [E=WPP_MOBILE_EXT:_mobile]
     RewriteCond %{HTTP:Accept-Encoding} gzip
-    RewriteRule .* - [E=WPP_GZIP_EXT:_gzip]
+    RewriteRule .* - [E=WPP_GZIP_EXT:.gz]
     RewriteCond %{REQUEST_METHOD} GET
 	RewriteCond %{QUERY_STRING} =""
     RewriteCond %{REQUEST_URI} !^(/wp-json/(.*))$ [NC]
