@@ -14,8 +14,6 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 WP Performance is a cache & performance plugin which makes optimizing your site really easy.
 This plugin generates static html files from your dynamic content and it uses mod_rewrite to load the cache files which is the fastest method.
 
-### Multisite Support ###
-WP Performance does not support multisite yet.
 
 ### Features ###
 
@@ -36,6 +34,7 @@ WP Performance does not support multisite yet.
 * Regenerate thumbs
 * CDN
 * WP-CLI Support
+* WordPress Multisite
 
 ### Add-ons ###
 
@@ -83,6 +82,9 @@ If you encounter any bug, please create an issue on [Github](https://github.com/
 7. Settings
 
 == Changelog ==
+
+= 1.1.4 =
+[NEW] Multisite support
 
 = 1.1.3.4 =
 [FIX] Clear log file after clearing the cache
@@ -203,7 +205,7 @@ WP Performance has support for Nginx servers, but an extra step is required to m
 Depending on your WP Performance configuration, rewrite rules will be generated and listed under the “Settings” tab. You have to copy and paste generated rules manually into the Nginx config file.
 
 = Does WP Performance support WordPress Multisite? =
-WP Performance does not support WordPress Multisite yet.
+WP Performance supports WordPress Multisite.
 
 = Where can I get help? =
 You can get help on the <a href="https://wordpress.org/support/plugin/wp-performance">wordpress.org support forum</a>. 
