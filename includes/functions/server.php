@@ -54,7 +54,11 @@ function wpp_get_nginx_rewrite_rules() {
     }
 
     // Cache
-    if ( Option::boolval( 'cache' ) && get_option( 'permalink_structure', false ) ) {
+    if ( 
+        Option::boolval( 'cache' )
+         && get_option( 'permalink_structure' )
+         && ! is_multisite() 
+    ) {
 
         $definitions = File::get( WPP_DATA_DIR . 'definitions/cache.nginx.txt' );
         $definitions = str_replace( '{CACHEDIR}', WPP_CACHE_DIR, $definitions );
