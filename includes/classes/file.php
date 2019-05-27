@@ -164,4 +164,41 @@ class File
 
     }
 
+
+    /**
+     * Save site settings used by advanced-cache.php file
+     *
+     * @since 1.1.4
+     * @param array $settings
+     * @return void
+     */
+    public static function saveSiteSettings( array $settings ) {
+
+        $settings_file = WPP_CACHE_DIR . Input::server( 'HTTP_HOST' ) . '.settings.json';
+
+        // Create default settings if settings file doesn't exists
+        if ( ! file_exists( $settings_file ) ) {
+
+            $current_settings = [
+                'cache'        => false,
+                'disable'      => false,
+                'mobile_cache' => false,
+                'expire'       => 3600,
+                'exclude'      => [],
+                'permalinks'   => false
+            ];
+
+            File::saveJson( $settings_file,  $current_settings );
+
+        } else {
+            $current_settings = File::getJson( $settings_file, true );
+        }
+
+       
+        $updated_settings = wp_parse_args( $settings, $current_settings );
+
+        File::saveJson( $settings_file, $updated_settings );
+
+    }
+
 }
