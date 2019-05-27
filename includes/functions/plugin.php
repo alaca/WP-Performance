@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
 * WP Performance Optimizer - Plugin helpers
 *
@@ -10,7 +10,6 @@ use WPP\Cache;
 use WPP\Input;
 use WPP\Option;
 
-
 /**
  * WPP activate
  *
@@ -19,6 +18,17 @@ use WPP\Option;
  */
 function wpp_activate() {
 
+    // Define WP_CACHE
+    wpp_define_wp_cache();
+
+    // Copy advanced-cache.php file
+    if ( ! copy( 
+        WPP_DIR . 'includes/advanced-cache.php', 
+        trailingslashit( WP_CONTENT_DIR ) . 'advanced-cache.php' 
+    ) ) {
+        wpp_log( sprintf( 'Error: cannot copy advanced-cache.php to %s directory. Check writing permissions', WP_CONTENT_DIR ) );
+    }
+
     if ( 'apache' !== wpp_get_server_software() ) return;
 
     $backup   = trailingslashit( ABSPATH ) . '.htaccess_wpp_backup';
@@ -26,15 +36,19 @@ function wpp_activate() {
     
     // Backup htaccess file
     if ( file_exists( $htaccess ) ) {
+
         if( ! file_exists( $backup ) ) {
-            copy( $htaccess, $backup );    
-            wpp_log( '.htaccess backup created' );            
+            // Create htaccess backup
+            if ( copy( $htaccess, $backup ) )
+                wpp_log( '.htaccess backup created' );  
+                     
         }
+
     } else {
         // Create htaccess file if it doesn't exist
-        if ( ! touch( $htaccess ) ) {
+        if ( ! touch( $htaccess ) ) 
             wpp_log( 'Error while trying to create .htaccess file. You will need to create it manually' );
-        }
+        
     }
                   
 }
@@ -48,8 +62,17 @@ function wpp_activate() {
  */
 function wpp_deactivate() {   
 
-    $backup   = trailingslashit( ABSPATH ) . '.htaccess_wpp_backup';
+    // Remove WP_CACHE constant
+    wpp_define_wp_cache( false );
+
+    $backup = trailingslashit( ABSPATH ) . '.htaccess_wpp_backup';
     $htaccess = trailingslashit( ABSPATH ) . '.htaccess'; 
+    $advanced_cache = trailingslashit( WP_CONTENT_DIR ) . 'advanced-cache.php';
+
+    // Delete advanced-cache.php file
+    if ( file_exists( $advanced_cache ) )
+        unlink( $advanced_cache );
+
         
     // Restore htaccess backup
     if ( file_exists( $backup ) ) {
@@ -131,7 +154,6 @@ function wpp_compatibility_check() {
         'breeze/breeze.php',
         'super-static-cache/super-static-cache.php',
         'simple-cache/simple-cache.php',
-        'autoptimize/autoptimize.php',
         'gator-cache/gator-cache.php',
         'hyper-cache/plugin.php',
         'hyper-cache-extended/plugin.php',
@@ -152,6 +174,7 @@ function wpp_compatibility_check() {
     ) {
     
         $incompatiblePlugins = array_merge( $incompatiblePlugins, [
+            'autoptimize/autoptimize.php',
             'bwp-minify/bwp-minify.php',
             'wp-minify-fix/wp-minify.php',
             'minqueue/plugin.php',
@@ -242,20 +265,58 @@ function wpp_deactivate_incompatible_plugin() {
 
 
 /**
- * Set plugin position
+ * Define WP_CACHE constant
  *
+ * @param boolean $cache
  * @return void
- * @since 1.0.0
+ * @since 1.1.4
  */
-function wpp_set_plugin_position() {
+function wpp_define_wp_cache( $cache = true ) {
 
-    $wpp  = plugin_basename( WPP_SELF );
-    $list = get_option( 'active_plugins' );
+    $wp_config = trailingslashit( ABSPATH ) . 'wp-config.php';
 
-    if ( $key = array_search( $wpp, $list ) ) {
-        array_splice( $list, $key, 1 );
-        array_unshift( $list, $wpp );
-        update_option( 'active_plugins', $list );
+    if ( file_exists( $wp_config ) && is_readable( $wp_config ) ) {
+
+        $found = false;
+        $code  = file( $wp_config );
+
+        foreach( $code as $i => $line ) {
+
+            if ( strstr( $line, 'WP_CACHE' ) ) {
+
+                $found = true;
+
+                $expression =  ( $cache ) 
+                    ? 'define( "WP_CACHE", true ); // WP Performance'
+                    : '';
+
+                // Defined on the same line as opening PHP tag?
+                if ( strstr( $line, '<?php' ) ) {
+                    $expression = '<?php ' . $expression;
+                }
+
+                $code[ $i ] = $expression . PHP_EOL;
+
+                break;
+            }
+
+        }
+
+
+        if ( ! $found ) {
+
+            $expression =  ( $cache ) 
+                ? 'define( "WP_CACHE", true ); // WP Performance'
+                : '';
+
+            $code[ 0 ] = '<?php' . PHP_EOL . $expression . PHP_EOL;
+
+        }
+
+        file_put_contents( $wp_config, $code );
+
     }
+
+
 
 }
