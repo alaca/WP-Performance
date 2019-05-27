@@ -14,86 +14,6 @@ class Cache
 {
 
     /**
-    * Load cache
-    * 
-    * @since 1.0.0
-    * @return void
-    */
-    public static function load() {
-
-        $excluded = Option::get( 'cache_url_exclude', [] );
-
-        // Get excluded user agents 
-        $agents = Option::get( 'user_agents_exclude', [] );
-
-        // Check if exclude search engines option is on
-        if ( Option::boolval( 'search_bots_exclude' ) ) {
-            $agents = array_merge( $agents, wpp_get_search_engines() );
-        }
-
-        // Add curent URL to exclude list if user agent is excluded
-        if ( ! empty( $agents ) ) {
-            array_push( $excluded, Url::current() );
-        }
-        
-        if ( empty( $_POST ) && ! wpp_in_array( $excluded, Url::current() ) ) {
-
-            $file = Cache::getFileName();
-            $gzip = false !== strpos( Input::server( 'HTTP_ACCEPT_ENCODING' ), 'gzip' );
-
-            // Check is mobile
-            if ( Option::boolval( 'mobile_cache' ) && wp_is_mobile() ) {
-                $file .= '_mobile';
-            }
-
-            // GZIP enabled ?
-            if ( $gzip ) $file .= '_gzip';
-
-            if ( file_exists( $file ) && is_readable( $file ) ) {
-
-                if ( time() - intval( Option::get( 'cache_time', 3600 ) * Option::get( 'cache_length', 24 ) ) < filemtime( $file ) ) { 
-
-                    header( 'Last-Modified: ' . gmdate( 'D, d M Y H:i:s', filemtime( $file ) ) . ' GMT' );
-
-                    // Getting If-Modified-Since headers
-                    if ( function_exists( 'apache_request_headers' ) ) {
-                        $apache_headers = apache_request_headers();
-                        $modified_since = isset( $apache_headers[ 'If-Modified-Since' ] ) ? $apache_headers[ 'If-Modified-Since' ] : '';
-                    } else {
-                        $modified_since = Input::server( 'HTTP_IF_MODIFIED_SINCE' );
-                    }
-
-                    // Check cache
-                    if ( 
-                        ! empty( $modified_since ) 
-                        && ( strtotime( $modified_since ) === filemtime( $file ) ) 
-                    ) {
-                        // Client's cache is up to date
-                        header( Input::server( 'SERVER_PROTOCOL' ) . ' 304 Not Modified', true, 304 );
-                        exit;
-                    }
-
-                    if ( $gzip && function_exists( 'readgzfile' ) ) {
-                        readgzfile( $file );
-                    } else {
-                        include $file;
-                    }
-
-                    wpp_log( sprintf( 'Loaded cache for page %s', Url::current() ) );
-
-                    exit;
-
-                }
-
-            }
-
-        }
-
-    }
-
-
-
-    /**
      * Save cache
      *
      * @param string $html
@@ -104,16 +24,12 @@ class Cache
 
         $file = Cache::getFileName();
 
-        if ( 
-            get_option( 'permalink_structure', false ) 
-            && empty( $_GET ) 
-            && ! file_exists( $file ) 
-        ) {
+        if ( ! file_exists( $file ) ) {
 
             $cache_dir = dirname( $file );
 
             if ( ! is_dir( $cache_dir ) ) {
-                mkdir( $cache_dir, 0775, true );
+                mkdir( $cache_dir, 0755, true );
             }
 
         }
@@ -135,7 +51,7 @@ class Cache
         File::save( $file, $content );
 
         if ( function_exists( 'gzencode' ) ) {
-            File::save( $file . '_gzip', gzencode( $content, apply_filters( 'wpp_gzencode_compression_level', 3 ) ) );
+            File::save( $file . '.gz', gzencode( $content, apply_filters( 'wpp_gzencode_compression_level', 3 ) ) );
         }
 
         /**
@@ -170,6 +86,13 @@ class Cache
         );
         
         foreach ( $files as $file ) {
+
+            if ( is_multisite() ) {
+
+                if ( ! strstr( $file->getRealPath(), Input::server( 'HTTP_HOST' ) ) ) 
+                    continue;
+ 
+            } 
 
             if ( $file->isDir() ) {
                     
@@ -260,7 +183,7 @@ class Cache
 
             $name = is_null( $url ) ? Url::current() : $url;
 
-            return WPP_CACHE_DIR . md5( $name ) . '.html';
+            return WPP_CACHE_DIR . trailingslashit( Input::server( 'HTTP_HOST' ) ) . md5( $name ) . '.html';
 
         }
 
