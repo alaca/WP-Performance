@@ -36,6 +36,7 @@ class CLI extends WP_CLI_Command
 
 		WP_CLI::line( esc_html__( sprintf( 'Disabling %s...', WPP_PLUGIN_NAME ), 'wpp' ) );
 		Option::update( 'wpp_disable', true );
+		File::saveSiteSettings( [ 'disable' => true ] );
         WP_CLI::line( esc_html__( sprintf( '%s disabled', WPP_PLUGIN_NAME ), 'wpp' ) );
         
 	}
@@ -50,6 +51,7 @@ class CLI extends WP_CLI_Command
 
 		WP_CLI::line( esc_html__( sprintf( 'Enabling %s...', WPP_PLUGIN_NAME ), 'wpp' ) );
 		Option::update( 'wpp_disable', false );
+		File::saveSiteSettings( [ 'disable' => false ] );
         WP_CLI::line( esc_html__( sprintf( '%s enabled', WPP_PLUGIN_NAME ), 'wpp' ) );
         
 	}
