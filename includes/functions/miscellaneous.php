@@ -336,6 +336,7 @@ function wpp_get_critical_css_path() {
 
     // Disable plugin
     Option::update( 'wpp_disable', true );
+    File::saveSiteSettings( [ 'disable' => true ] );
 
     // Clear the cache
     Cache::clear( false );
@@ -371,6 +372,7 @@ function wpp_get_critical_css_path() {
 
     // Re-enable the plugin
     Option::update( 'wpp_disable', false );
+    File::saveSiteSettings( [ 'disable' => false ] );
 
     wp_send_json( $json );
 
