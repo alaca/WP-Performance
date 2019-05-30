@@ -27,7 +27,7 @@ defined('ABSPATH') or exit; ?>
                 </td>
             </tr>
 
-            <?php if ( wpp_get_server_software() == 'nginx' || defined( 'WPP_SHOW_NGINX_REWRITE_RULES' ) && WPP_SHOW_NGINX_REWRITE_RULES ) : ?>
+            <?php if ( wpp_get_server_software( 'nginx' ) || defined( 'WPP_SHOW_NGINX_REWRITE_RULES' ) && WPP_SHOW_NGINX_REWRITE_RULES ) : ?>
 
                 <tr data-wpp-show-checked="nginx_rules">
                     <td colspan="2">
