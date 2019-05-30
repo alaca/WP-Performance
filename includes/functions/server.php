@@ -13,24 +13,32 @@ use WPP\Option;
 
 /**
  * Get the server software
- *
- * @return string (apache|nginx|unknown)
+ * 
+ * @param mixed $test
+ * @return string(apache|nginx|unknown)|boolean 
  * @since 1.0.2
  */
-function wpp_get_server_software() {
+function wpp_get_server_software( $test = null ) {
 
     // Apache
     if ( preg_match( '#(apache|litespeed|shellrent)#i', Input::server( 'SERVER_SOFTWARE' ) ) ) {
-        return 'apache';
+
+        return ( $test === 'apache' ) 
+            ? true 
+            : 'apache';
     }
 
     // Nginx
     if ( preg_match( '#(nginx|flywheel)#i', Input::server( 'SERVER_SOFTWARE' ) ) ) {
-        return 'nginx';
-    }
-    
-    return 'unknown';
 
+        return ( $test === 'nginx' ) 
+            ? true 
+            : 'nginx';
+    }
+
+    return ( ! is_null( $test ) ) 
+        ? false 
+        : 'unknown';
 }
 
 /**
