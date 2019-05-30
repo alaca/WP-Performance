@@ -402,3 +402,19 @@ function wpp_get_search_engines() {
     ];
 
 }
+
+/**
+ * Get constant value if constant is defined, otherwise return fallback
+ *
+ * @param string $constant
+ * @param mixed $fallback
+ * @return mixed
+ * @since 1.1.4
+ */
+function wpp_get_constant( $constant, $fallback = false ) {
+
+    return defined( $constant ) 
+        ? constant( $constant ) 
+        : $fallback;
+
+}
