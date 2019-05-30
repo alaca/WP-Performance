@@ -192,10 +192,18 @@ function wpp_save_settings( $notify = true ) {
     if ( wpp_get_server_software( 'apache' ) ) {
 
         // Browser cache
-        wpp_update_htaccess( Input::post( 'browser_cache', 'boolean'  ), 'expire' );
+        wpp_update_htaccess( 
+            is_multisite() 
+                ? true 
+                : Input::post( 'browser_cache', 'boolean'  ), 'expire' 
+        );
 
         // Gzip compression
-        wpp_update_htaccess( Input::post( 'gzip_compression', 'boolean' ), 'gzip' );
+        wpp_update_htaccess( 
+            is_multisite() 
+                ? true 
+                : Input::post( 'gzip_compression', 'boolean' ), 'gzip' 
+        );
 
         // Htaccess load cache
         if ( ! is_multisite() ) {
