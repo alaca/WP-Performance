@@ -23,17 +23,22 @@ function wpp_get_server_software( $test = null ) {
     // Apache
     if ( preg_match( '#(apache|litespeed|shellrent)#i', Input::server( 'SERVER_SOFTWARE' ) ) ) {
 
-        return ( $test === 'apache' ) 
-            ? true 
-            : 'apache';
+        if ( ! is_null( $test ) ) {
+            return ( $test === 'apache' );
+        }
+
+        return 'apache';
     }
 
     // Nginx
     if ( preg_match( '#(nginx|flywheel)#i', Input::server( 'SERVER_SOFTWARE' ) ) ) {
 
-        return ( $test === 'nginx' ) 
-            ? true 
-            : 'nginx';
+        if ( ! is_null( $test ) ) {
+            return ( $test === 'nginx' );
+        }
+
+        return 'nginx';
+        
     }
 
     return ( ! is_null( $test ) ) 
@@ -71,6 +76,7 @@ function wpp_get_nginx_rewrite_rules() {
         $definitions = File::get( WPP_DATA_DIR . 'definitions/cache.nginx.txt' );
         $definitions = str_replace( '{CACHEDIR}', WPP_CACHE_DIR, $definitions );
         $definitions = str_replace( '{CACHEDIR_BASENAME}', basename( WPP_CACHE_DIR ), $definitions );
+        $definitions = str_replace( '{AMP_TAG}', wpp_get_constant( 'WPP_AMP_TAG', 'amp' ), $definitions );
 
         // Get excluded user agents 
         $agents = Option::get( 'user_agents_exclude', [] );
@@ -96,7 +102,7 @@ function wpp_get_nginx_rewrite_rules() {
             }, $agents );
 
             $condition = 'if ($http_user_agent ~* (' .  implode( '|', $agents ) . ')) {
-                 set $wpp_cache 0; 
+                set $wpp_cache 0; 
             }';
 
         } else {
@@ -111,4 +117,26 @@ function wpp_get_nginx_rewrite_rules() {
 
     return $output;
     
+}
+
+
+/**
+ * Check if current site is a multisite installation on specific server
+ *
+ * @param string $server apache|nginx
+ * @return bool
+ * @since 1.1.4
+ */
+function wpp_is_multisite_on( $server ) {
+
+    $servers = [
+        'apache',
+        'nginx'
+    ];
+
+    if ( ! in_array( $server, $servers ) )
+        return false;
+
+    return wpp_get_server_software( $server ) && is_multisite();
+
 }
