@@ -131,7 +131,17 @@ function _wpp_get_cache_file( $settings ) {
 
     // Is mobile device and mobile cache is ON
     if ( $settings[ 'mobile_cache' ] && _wpp_is_mobile() ) {
-        $file .= '_mobile';
+        $file .= '.mobile';
+    }
+
+    // Is AMP? Why not save this as mobile?
+    $amp_tag = defined( 'WPP_AMP_TAG' ) ? WPP_AMP_TAG : 'amp';
+
+    if ( 
+        isset( $_GET[ $amp_tag ] ) 
+        || preg_match( '/' . $amp_tag . '$', _wpp_get_current_url() ) 
+    ) {
+        $file .= '.amp';
     }
 
     return $file;
