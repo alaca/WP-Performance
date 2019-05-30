@@ -967,8 +967,8 @@ class Parser
 
         static::$amp = ( 
             $this->htmltag 
-            && boolval( $this->htmltag->{'⚡'} ) 
-            || boolval( $this->htmltag->amp ) 
+            && isset( $this->htmltag->{'⚡'} )
+            || isset( $this->htmltag->amp )
         ) ? true : false;
             
         return static::$amp;
