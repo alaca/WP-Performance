@@ -17,10 +17,11 @@ class Cache
      * Save cache
      *
      * @param string $html
+     * @param bool $amp
      * @since 1.0.0
      * @return void
      */
-    public static function save( $html ) {
+    public static function save( $html, $amp = false ) {
 
         $file = Cache::getFileName();
 
@@ -28,16 +29,14 @@ class Cache
 
             $cache_dir = dirname( $file );
 
-            if ( ! is_dir( $cache_dir ) ) {
+            if ( ! is_dir( $cache_dir ) ) 
                 mkdir( $cache_dir, 0755, true );
-            }
 
         }
 
         // Check mobile cache
-        if ( Option::boolval( 'mobile_cache' ) && wp_is_mobile() ) {
-            $file .= '_mobile';
-        }
+        if ( Option::boolval( 'mobile_cache' ) && wp_is_mobile() ) 
+            $file .= '.mobile';
 
         // Allow others to use this
         $content = apply_filters( 'wpp_save_cache', $html );
@@ -50,8 +49,18 @@ class Cache
 
         File::save( $file, $content );
 
+        if ( $amp )
+            File::save( $file . '.amp', $content );
+
         if ( function_exists( 'gzencode' ) ) {
-            File::save( $file . '.gz', gzencode( $content, apply_filters( 'wpp_gzencode_compression_level', 3 ) ) );
+
+            $content = gzencode( $content, apply_filters( 'wpp_gzencode_compression_level', 3 ) );
+
+            File::save( $file . '.gz', $content );
+
+            if ( $amp )
+                File::save( $file . '.amp.gz', $content );
+
         }
 
         /**
