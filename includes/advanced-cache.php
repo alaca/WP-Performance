@@ -15,7 +15,7 @@ if ( ! empty( $_POST ) ) {
 $settings = _wpp_get_site_settings();
 
 // Check if cache option is ON and cache is not disabled
-if ( empty( $settings) || ! $settings[ 'cache' ] || ! $settings[ 'disable' ] )
+if ( empty( $settings) || ! $settings[ 'cache' ] || $settings[ 'disable' ] )
     return false;
 
 // Get cache file and check if is readble
@@ -124,7 +124,8 @@ function _wpp_get_cache_file( $settings ) {
 
     // Check if site is using permalinks
     if ( $settings[ 'permalinks' ] ) {
-        $file .= $_SERVER[ 'REQUEST_URI' ] . 'index.html';
+        // Remove query string just in case
+        $file .= strtok( $_SERVER[ 'REQUEST_URI' ], '?' ) . 'index.html';
     } else {
         $file .= '/' . md5( _wpp_get_current_url() ) . '.html';
     }
@@ -139,7 +140,7 @@ function _wpp_get_cache_file( $settings ) {
 
     if ( 
         isset( $_GET[ $amp_tag ] ) 
-        || preg_match( '/' . $amp_tag . '$', _wpp_get_current_url() ) 
+        || preg_match( '/' . $amp_tag . '$/', _wpp_get_current_url() ) 
     ) {
         $file .= '.amp';
     }
