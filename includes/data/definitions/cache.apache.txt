@@ -5,12 +5,14 @@ Header append Vary: Accept-Encoding
 </IfModule>
 
 <IfModule mod_mime.c>
-    AddType text/html .html.gz .html_mobile.gz
-    AddEncoding gzip .html.gz .html_mobile.gz
+    AddType text/html .html.gz .html.mobile.gz .html.amp.gz .html.mobile.amp.gz
+    AddEncoding gzip .html.gz .html.mobile.gz .html.amp.gz .html.mobile.amp.gz
 </IfModule>
 <IfModule mod_setenvif.c>
     SetEnvIfNoCase Request_URI \.html.gz$ no-gzip
-    SetEnvIfNoCase Request_URI \.html_mobile.gz$ no-gzip
+    SetEnvIfNoCase Request_URI \.html.amp.gz$ no-gzip
+    SetEnvIfNoCase Request_URI \.html.mobile.gz$ no-gzip
+    SetEnvIfNoCase Request_URI \.html.mobile.amp.gz$ no-gzip
 </IfModule>
 
 
@@ -23,7 +25,9 @@ Header append Vary: Accept-Encoding
     RewriteCond %{HTTP_USER_AGENT} BlackBerry [NC]
     RewriteCond %{HTTP_USER_AGENT} Opera\sMini [NC]
     RewriteCond %{HTTP_USER_AGENT} Opera\sMobi [NC]
-    RewriteRule .* - [E=WPP_MOBILE_EXT:_mobile]
+    RewriteRule .* - [E=WPP_MOBILE_EXT:.mobile]
+    RewriteCond %{REQUEST_URI} /{AMP_TAG}$ [NC]
+    RewriteRule .* - [E=WPP_AMP_EXT:.amp]
     RewriteCond %{HTTP:Accept-Encoding} gzip
     RewriteRule .* - [E=WPP_GZIP_EXT:.gz]
     RewriteCond %{REQUEST_METHOD} GET
@@ -31,8 +35,8 @@ Header append Vary: Accept-Encoding
     RewriteCond %{REQUEST_URI} !^(/wp-json/(.*))$ [NC]
 	RewriteCond %{HTTP:Cookie} !(wordpress_logged_in_|wp-postpass_|wptouch_switch_toggle|comment_author_|comment_author_email_) [NC]
     {USER_AGENTS}
-    RewriteCond "%{DOCUMENT_ROOT}{BASEDIR}wp-content/cache/wpp-cache/%{HTTP_HOST}%{REQUEST_URI}/index.html%{ENV:WPP_MOBILE_EXT}%{ENV:WPP_GZIP_EXT}" -f
-    RewriteRule .* "{BASEDIR}wp-content/cache/wpp-cache/%{HTTP_HOST}%{REQUEST_URI}/index.html%{ENV:WPP_MOBILE_EXT}%{ENV:WPP_GZIP_EXT}" [L]
+    RewriteCond "%{DOCUMENT_ROOT}{BASEDIR}wp-content/cache/wpp-cache/%{HTTP_HOST}%{REQUEST_URI}/index.html%{ENV:WPP_MOBILE_EXT}%{ENV:WPP_AMP_EXT}%{ENV:WPP_GZIP_EXT}" -f
+    RewriteRule .* "{BASEDIR}wp-content/cache/wpp-cache/%{HTTP_HOST}%{REQUEST_URI}/index.html%{ENV:WPP_MOBILE_EXT}%{ENV:WPP_AMP_EXT}%{ENV:WPP_GZIP_EXT}" [L]
 </IfModule>
 
 # WPP Cache load end

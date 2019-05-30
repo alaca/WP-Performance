@@ -2,6 +2,7 @@
 
 set $wpp_cache 1;
 set $wpp_mobile 1;
+set $wpp_amp 1;
 
 if ($request_method = POST){
 	set $wpp_cache 0;
@@ -23,7 +24,7 @@ if (!-f "{CACHEDIR}$http_host/$request_uri/index.html") {
 	set $wpp_cache 0;
 }
 
-if (!-f "{CACHEDIR}$http_host/$request_uri/index.html_mobile") {
+if (!-f "{CACHEDIR}$http_host/$request_uri/index.html.mobile") {
 	set $wpp_mobile 0;
 }
 
@@ -33,8 +34,20 @@ if ($http_user_agent ~* (Mobile|Android|Kindle|BlackBerry|Opera+Mini|Opera+Mobi)
       set $wpp_cache "{$wpp_cache}{$wpp_mobile}";
 }
 
+if ($request_uri ~* /{AMP_TAG}$) {
+	set $wpp_cache "{$wpp_cache}{$wpp_mobile}{$wpp_amp}";
+}
+
+if ($wpp_cache = 111){
+    rewrite .* /wp-content/cache/{CACHEDIR_BASENAME}/$http_host/$request_uri/index.html.mobile.amp last;
+}
+
+if ($wpp_cache = 101){
+    rewrite .* /wp-content/cache/{CACHEDIR_BASENAME}/$http_host/$request_uri/index.html.amp last;
+}
+
 if ($wpp_cache = 11){
-    rewrite .* /wp-content/cache/{CACHEDIR_BASENAME}/$http_host/$request_uri/index.html_mobile last;
+    rewrite .* /wp-content/cache/{CACHEDIR_BASENAME}/$http_host/$request_uri/index.html.mobile last;
 }
 
 if ($wpp_cache = 1){
