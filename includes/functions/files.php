@@ -189,6 +189,7 @@ function wpp_update_htaccess( $action, $file ) {
                     }
 
                     $definitions_content = str_replace( '{USER_AGENTS}', $condition, $definitions_content );
+                    $definitions_content = str_replace( '{AMP_TAG}', defined( 'WPP_AMP_TAG' ) ? WPP_AMP_TAG : 'amp', $definitions_content );
 
                     preg_match( '/^# WPP Cache load start(.*?)# WPP Cache load end/s' , $htaccess_content, $match );
 
