@@ -392,7 +392,7 @@ final class WP_Performance
 
                 // Check if htaccess is writable and server is apache
                 if ( 
-                    'apache' === wpp_get_server_software() 
+                    wpp_get_server_software( 'apache' ) 
                     && ! wpp_is_htaccess_writable() 
                 ) {
                     wpp_notify( 

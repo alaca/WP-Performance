@@ -189,7 +189,7 @@ function wpp_save_settings( $notify = true ) {
     }
 
     // Update htaccess
-    if ( 'apache' === wpp_get_server_software() ) {
+    if ( wpp_get_server_software( 'apache' ) ) {
 
         // Browser cache
         wpp_update_htaccess( Input::post( 'browser_cache', 'boolean'  ), 'expire' );
@@ -300,7 +300,7 @@ function wpp_load_settings( $filename, $notify = true ) {
                     break;
                 case 'browser_cache':
 
-                    if ( 'apache' === wpp_get_server_software() ) {
+                    if ( wpp_get_server_software( 'apache' ) ) {
                         wpp_update_htaccess( $action, 'expire' );
                     }
 
@@ -308,7 +308,7 @@ function wpp_load_settings( $filename, $notify = true ) {
                 
                 case 'gzip_compression':
 
-                    if ( 'apache' === wpp_get_server_software() ) {
+                    if ( wpp_get_server_software( 'apache' ) ) {
                         wpp_update_htaccess( $action, 'gzip' );
                     }
 
