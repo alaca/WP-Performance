@@ -85,6 +85,7 @@ If you encounter any bug, please create an issue on [Github](https://github.com/
 
 = 1.1.4 =
 [NEW] Multisite support
+[NEW] AMP support
 
 = 1.1.3.4 =
 [FIX] Clear log file after clearing the cache

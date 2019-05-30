@@ -64,6 +64,7 @@ This plugin generates static html files from your dynamic content and it uses mo
 
 ### 1.1.4 ###
 * [NEW] Multisite support
+* [NEW] AMP support
 
 ### 1.1.3.4 ###
 * [FIX] Clear log file after clearing the cache
