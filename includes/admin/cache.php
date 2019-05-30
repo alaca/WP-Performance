@@ -17,7 +17,7 @@ defined('ABSPATH') or exit; ?>
 
                     <div data-wpp-show-checked="cache">
 
-                        <?php if ( wpp_get_server_software() == 'nginx' && get_option( 'permalink_structure', false ) ) : ?>
+                        <?php if ( wpp_get_server_software( 'nginx' ) && get_option( 'permalink_structure', false ) ) : ?>
                             <br />
                             <em><span class="dashicons dashicons-info"></span> 
                                 <?php _e( 'Your web site is running on a Nginx server and some additional steps may be required in order to use this option.', 'wpp' ); ?>
@@ -132,12 +132,34 @@ defined('ABSPATH') or exit; ?>
             <tr>
                 <td><strong><?php _e( 'Leverage browser caching', 'wpp' ); ?></strong></td>
                 <td>
-                    <label class="wpp-info">
-                        <input type="checkbox" data-wpp-checkbox="browser_additional|nginx_rules" value="1" name="browser_cache" form="wpp-settings" <?php wpp_checked( 'browser_cache' ); ?> />
-                        <?php _e( 'Setting an expiry date in the HTTP headers for static resources instructs the browser to load previously downloaded resources from local disk rather than over the network', 'wpp' ); ?>
-                    </label>
 
-                    <?php if ( wpp_get_server_software() == 'nginx' ) : ?>
+                    <label class="wpp-info">
+                        
+                        <?php if ( wpp_get_server_software( 'apache' ) && is_multisite() ) : ?>
+
+                            <input 
+                                type="checkbox" 
+                                disabled="disabled" 
+                                <?php checked( defined( 'WPP_BROWSER_CACHE' ) ? WPP_BROWSER_CACHE : true ); ?> 
+                            />
+
+                        <?php else: ?>
+
+                            <input 
+                                type="checkbox" 
+                                    data-wpp-checkbox="browser_additional|nginx_rules" 
+                                    value="1" 
+                                    name="browser_cache" 
+                                    form="wpp-settings" 
+                                    <?php wpp_checked( 'browser_cache' ); ?> />
+
+                        <?php endif; ?>
+
+                        <?php _e( 'Setting an expiry date in the HTTP headers for static resources instructs the browser to load previously downloaded resources from local disk rather than over the network', 'wpp' ); ?>
+                    
+                    </label>
+                
+                    <?php if ( wpp_get_server_software( 'nginx' ) ) : ?>
                         <div data-wpp-show-checked="browser_additional">
                             <br />
                             <em><span class="dashicons dashicons-info"></span> 
@@ -158,7 +180,7 @@ defined('ABSPATH') or exit; ?>
                         <?php _e( 'Compressing resources with gzip reduce the number of bytes sent over the network', 'wpp' ); ?>  
                     </label>
 
-                    <?php if ( wpp_get_server_software() == 'nginx' ) : ?>
+                    <?php if ( wpp_get_server_software( 'nginx' ) ) : ?>
                         <div data-wpp-show-checked="gzip_additional">
                             <br />
                             <em><span class="dashicons dashicons-info"></span> 
