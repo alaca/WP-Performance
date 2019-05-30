@@ -11,6 +11,7 @@ class Parser
     private static $instance;
     private $html;
     private $time;
+    private static $amp = null;
     
     private function __construct( $template ) {
 
@@ -23,10 +24,24 @@ class Parser
 
             if ( $this->html ) {
 
+                $this->htmltag = $this->html->find( 'html', 0 );
                 $this->body = $this->html->find( 'body', 0 );
                 $this->head = $this->html->find( 'head', 0 );
                 
-                return $this->parseTemplate();
+                // Do not parse amp templates
+                if ( ! $this->is_amp() )
+                    $this->parseTemplate();
+
+                // Should we cache this page ?
+                if ( 
+                    Option::boolval( 'cache' ) 
+                    && empty( $_POST ) 
+                    && ! is_user_logged_in() 
+                ) {
+                    $this->saveCache();
+                }
+
+                return $this->html;
 
             }
 
@@ -903,38 +918,61 @@ class Parser
         // Footprint
         $this->html .= PHP_EOL . sprintf( '<!-- %s %s %s -->', __( 'Optimized by', 'wpp' ), WPP_PLUGIN_NAME, WPP_VERSION ) . PHP_EOL;
         
-        // Should we cache this page ?
-        if ( 
-            Option::boolval( 'cache' ) 
-            && empty( $_POST ) 
-            && ! is_user_logged_in() 
-        ) {
+    }
 
-            /**
-             * Filter excluded urls
-             * 
-             * @since 1.0.0
-             */
-            $excluded = apply_filters( 'wpp_exclude_urls', Option::get( 'cache_url_exclude', [] ) );
+    /**
+     * Save cache file
+     *
+     * @return void
+     */
+    private function saveCache() {
 
-            // Check if page is excluded
-            if ( ! wpp_is_url_excluded( Url::current(), $excluded ) ) {
-        
+        /**
+         * Filter excluded urls
+         * 
+         * @since 1.0.0
+         */
+        $excluded = apply_filters( 'wpp_exclude_urls', Option::get( 'cache_url_exclude', [] ) );
+
+        // Check if page is excluded
+        if ( ! wpp_is_url_excluded( Url::current(), $excluded ) ) {
+
+            if ( ! $this->is_amp() ) {
+
                 $this->html .= sprintf( 
                     '<!-- ' . __( 'Cache file was created in %s seconds on %s at %s', 'wpp' ) . ' -->',  
                     number_format( ( microtime( true ) - $this->time ), 2 ), 
                     date( get_option( 'date_format' ) ),
                     date( get_option( 'time_format' ) ) 
                 );
-                
-                Cache::save( $this->html );
-                
-            }
 
+            }
+            
+            Cache::save( $this->html, $this->is_amp() );
+            
         }
-        
-        return $this->html;
-        
+
+    }
+
+
+    /**
+     * Check if current template is an AMP template
+     *
+     * @return boolean
+     */
+    private function is_amp() {
+
+        if ( ! is_null( static::$amp ) ) 
+            return static::$amp;
+
+        static::$amp = ( 
+            $this->htmltag 
+            && boolval( $this->htmltag->{'⚡'} ) 
+            || boolval( $this->htmltag->amp ) 
+        ) ? true : false;
+            
+        return static::$amp;
+
     }
 
 
