@@ -47,20 +47,14 @@ class Cache
          */
         do_action( 'wpp_before_cache_save', $file, $content );
 
-        File::save( $file, $content );
-
-        if ( $amp )
-            File::save( $file . '.amp', $content );
+        File::save( ( $amp ) ? $file . '.amp' : $file , $content );   
 
         if ( function_exists( 'gzencode' ) ) {
 
             $content = gzencode( $content, apply_filters( 'wpp_gzencode_compression_level', 3 ) );
 
-            File::save( $file . '.gz', $content );
-
-            if ( $amp )
-                File::save( $file . '.amp.gz', $content );
-
+            File::save( ( $amp ) ? $file . '.amp.gz' : $file . '.gz' , $content );
+  
         }
 
         /**
@@ -184,9 +178,9 @@ class Cache
      */
     private static function getFileName( $url = null ) {
 
-        if ( get_option( 'permalink_structure', true ) && empty( $_GET ) ) {
+        if ( get_option( 'permalink_structure', true ) ) {
 
-            return WPP_CACHE_DIR . trailingslashit( Input::server( 'HTTP_HOST' ) . Input::server( 'REQUEST_URI' ) ) . 'index.html';
+            return WPP_CACHE_DIR . trailingslashit( Input::server( 'HTTP_HOST' ) . strtok( Input::server( 'REQUEST_URI' ), '?' ) ) . 'index.html';
 
         } else {
 
