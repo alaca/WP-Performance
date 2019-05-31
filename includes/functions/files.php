@@ -296,6 +296,10 @@ function wpp_get_basedir() {
  * @since 1.0.0
  */
 function wpp_get_log_file() {
+
+    if ( is_multisite() ) 
+        return WPP_CACHE_DIR . get_current_blog_id() . '_wpp.log';
+
     return WPP_CACHE_DIR . 'wpp.log';
 }
 
