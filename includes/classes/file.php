@@ -176,26 +176,17 @@ class File
 
         $settings_file = WPP_CACHE_DIR . Input::server( 'HTTP_HOST' ) . '.settings.json';
 
-        // Create default settings if settings file doesn't exists
-        if ( ! file_exists( $settings_file ) ) {
-
-            $current_settings = [
-                'cache'        => false,
-                'disable'      => false,
-                'mobile_cache' => false,
-                'expire'       => 3600,
-                'exclude'      => [],
-                'permalinks'   => false
-            ];
-
-            File::saveJson( $settings_file,  $current_settings );
-
-        } else {
-            $current_settings = File::getJson( $settings_file, true );
-        }
+        $defaults = [
+            'cache'        => false,
+            'disable'      => false,
+            'mobile_cache' => false,
+            'expire'       => 3600,
+            'exclude'      => [],
+            'permalinks'   => false
+        ];
 
        
-        $updated_settings = wp_parse_args( $settings, $current_settings );
+        $updated_settings = wp_parse_args( $settings, $defaults );
 
         File::saveJson( $settings_file, $updated_settings );
 
