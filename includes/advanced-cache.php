@@ -124,12 +124,18 @@ function _wpp_get_cache_file( $settings ) {
 
     // Check if site is using permalinks
     if ( $settings[ 'permalinks' ] ) {
-        // Remove query string just in case
-        $file .= strtok( $_SERVER[ 'REQUEST_URI' ], '?' ) . 'index.html';
+
+        if ( ! empty( $_GET ) ) {
+            $uri = parse_url( $_SERVER[ 'REQUEST_URI' ] );
+            $file .= $uri[ 'path' ] . md5( $uri[ 'query' ] ) . '.html';
+        } else {
+            $file .=  $_SERVER[ 'REQUEST_URI' ] . 'index.html';
+        }
+        
     } else {
         $file .= '/' . md5( _wpp_get_current_url() ) . '.html';
     }
-
+    
     // Is mobile device and mobile cache is ON
     if ( $settings[ 'mobile_cache' ] && _wpp_is_mobile() ) {
         $file .= '.mobile';
