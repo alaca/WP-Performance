@@ -8,6 +8,7 @@
 
 use RecursiveIteratorIterator;
 use RecursiveDirectoryIterator;
+use DirectoryIterator;
 
 
 class Cache
@@ -83,19 +84,39 @@ class Cache
          */
         do_action( 'wpp-before-cache-delete' );
 
+        $cache_dir = WPP_CACHE_DIR;
+
+        if ( is_multisite() ) {
+
+            $uri = parse_url( get_bloginfo( 'url' ) );
+
+            $cache_dir = WPP_CACHE_DIR . $uri[ 'host' ] . $uri[ 'path' ];
+
+            // Delete minified CSS and JS files in root cache directory
+            $files = new DirectoryIterator( WPP_CACHE_DIR );
+    
+            foreach ( $files as $file ) {
+    
+                if ( $file->isFile() ) {
+
+                    if ( 
+                        ! in_array( $file->getExtension(), [ 'log', 'json' ] ) 
+                        && $file->getFilename() != 'index.php' 
+                    ) 
+                        unlink( $file->getPathname() );
+                    
+                }
+    
+            }
+
+        } 
+
         $files = new RecursiveIteratorIterator(
-            new RecursiveDirectoryIterator( WPP_CACHE_DIR, RecursiveDirectoryIterator::SKIP_DOTS ),
+            new RecursiveDirectoryIterator( $cache_dir, RecursiveDirectoryIterator::SKIP_DOTS ),
             RecursiveIteratorIterator::CHILD_FIRST
         );
-        
+
         foreach ( $files as $file ) {
-
-            if ( is_multisite() ) {
-
-                if ( ! strstr( $file->getRealPath(), Input::server( 'HTTP_HOST' ) ) ) 
-                    continue;
- 
-            } 
 
             if ( $file->isDir() ) {
                     
@@ -180,12 +201,16 @@ class Cache
 
         if ( get_option( 'permalink_structure', true ) ) {
 
-            return WPP_CACHE_DIR . trailingslashit( Input::server( 'HTTP_HOST' ) . strtok( Input::server( 'REQUEST_URI' ), '?' ) ) . 'index.html';
+            if ( ! empty( $_GET ) ) {
+                $uri = parse_url( Input::server( 'REQUEST_URI' ) );
+                return WPP_CACHE_DIR . Input::server( 'HTTP_HOST' ) . $uri[ 'path' ] . md5( $uri[ 'query' ] ) . '.html';
+            }
+
+            return WPP_CACHE_DIR . trailingslashit( Input::server( 'HTTP_HOST' ) .  Input::server( 'REQUEST_URI' ) ) . 'index.html';
 
         } else {
-
+            
             $name = is_null( $url ) ? Url::current() : $url;
-
             return WPP_CACHE_DIR . trailingslashit( Input::server( 'HTTP_HOST' ) ) . md5( $name ) . '.html';
 
         }
