@@ -62,18 +62,21 @@ function wpp_activate() {
  */
 function wpp_deactivate() {   
 
-    // Remove WP_CACHE constant
-    wpp_define_wp_cache( false );
-
     $backup = trailingslashit( ABSPATH ) . '.htaccess_wpp_backup';
     $htaccess = trailingslashit( ABSPATH ) . '.htaccess'; 
-    $advanced_cache = trailingslashit( WP_CONTENT_DIR ) . 'advanced-cache.php';
 
-    // Delete advanced-cache.php file
-    if ( file_exists( $advanced_cache ) )
-        unlink( $advanced_cache );
+    // Don't remove advanced-cache.php on multisite 
+    if ( ! is_multisite() ) {
 
-        
+        // Delete advanced-cache.php file
+        if ( file_exists( $advanced_cache = trailingslashit( WP_CONTENT_DIR ) . 'advanced-cache.php' ) )
+            unlink( $advanced_cache );
+
+        // Remove WP_CACHE constant
+        wpp_define_wp_cache( false );
+
+    }
+
     // Restore htaccess backup
     if ( file_exists( $backup ) ) {
         
@@ -120,6 +123,13 @@ function wpp_deactivate() {
  */
 function wpp_uninstall() {   
 
+    // Delete advanced-cache.php file
+    if ( file_exists( $advanced_cache = trailingslashit( WP_CONTENT_DIR ) . 'advanced-cache.php' ) ) {
+        unlink( $advanced_cache );
+        // Remove WP_CACHE constant
+        wpp_define_wp_cache( false );
+    }
+            
     $GLOBALS['wpdb']->query( 
         sprintf( 
             'DELETE FROM %s WHERE option_name LIKE "%s%%"', 
