@@ -264,8 +264,11 @@ defined('ABSPATH') or exit; ?>
         <?php 
 
             $html  = wpp_cache_files_size( 'html' ) 
-                   + wpp_cache_files_size( 'html_gzip' ) 
-                   + wpp_cache_files_size( 'html_mobile_gzip' );
+                   + wpp_cache_files_size( 'html_amp' ) 
+                   + wpp_cache_files_size( 'html_gz' ) 
+                   + wpp_cache_files_size( 'html_amp_gz' ) 
+                   + wpp_cache_files_size( 'html_mobile_gz' );
+                   + wpp_cache_files_size( 'html_mobile_amp_gz' );
 
             $css   = wpp_cache_files_size( 'css' );
             $js    = wpp_cache_files_size( 'js' );
