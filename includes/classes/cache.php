@@ -37,7 +37,7 @@ class Cache
 
         // Check mobile cache
         if ( Option::boolval( 'mobile_cache' ) && wp_is_mobile() ) 
-            $file .= '.mobile';
+            $file .= '_mobile';
 
         // Allow others to use this
         $content = apply_filters( 'wpp_save_cache', $html );
@@ -48,13 +48,13 @@ class Cache
          */
         do_action( 'wpp_before_cache_save', $file, $content );
 
-        File::save( ( $amp ) ? $file . '.amp' : $file , $content );   
+        File::save( ( $amp ) ? $file . '_amp' : $file , $content );   
 
         if ( function_exists( 'gzencode' ) ) {
 
             $content = gzencode( $content, apply_filters( 'wpp_gzencode_compression_level', 3 ) );
 
-            File::save( ( $amp ) ? $file . '.amp.gz' : $file . '.gz' , $content );
+            File::save( ( $amp ) ? $file . '_amp_gz' : $file . '_gz' , $content );
   
         }
 
@@ -93,9 +93,9 @@ class Cache
             $cache_dir = WPP_CACHE_DIR . $uri[ 'host' ] . $uri[ 'path' ];
 
             // Delete minified CSS and JS files in root cache directory
-            $files = new DirectoryIterator( WPP_CACHE_DIR );
+            $root_files = new DirectoryIterator( WPP_CACHE_DIR );
     
-            foreach ( $files as $file ) {
+            foreach ( $root_files as $file ) {
     
                 if ( $file->isFile() ) {
 
@@ -126,7 +126,7 @@ class Cache
 
                 if ( 
                     $file->getFilename() != 'index.php' 
-                    && $file->getFilename() != 'wpp.log'
+                    && ! strstr( $file->getFilename(), 'wpp.json' ) 
                     && ! strstr( $file->getFilename(), 'settings.json' ) 
                 ) {
                     unlink( $file->getRealPath() );

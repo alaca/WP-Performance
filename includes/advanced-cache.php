@@ -101,9 +101,9 @@ if ( time() - intval( $settings[ 'expire' ] ) < filemtime( $cache_file ) ) {
     if ( 
         false !== strpos( $accept_encoding, 'gzip' ) 
         && function_exists( 'readgzfile' ) 
-        && file_exists( $cache_file . '.gz' )
+        && file_exists( $cache_file . '_gz' )
     ) {
-        readgzfile( $cache_file . '.gz' );
+        readgzfile( $cache_file . '_gz' );
     } else {
         include $cache_file;
     }
@@ -138,7 +138,7 @@ function _wpp_get_cache_file( $settings ) {
     
     // Is mobile device and mobile cache is ON
     if ( $settings[ 'mobile_cache' ] && _wpp_is_mobile() ) {
-        $file .= '.mobile';
+        $file .= '_mobile';
     }
 
     // Is AMP? Why not save this as mobile?
@@ -148,7 +148,7 @@ function _wpp_get_cache_file( $settings ) {
         isset( $_GET[ $amp_tag ] ) 
         || preg_match( '/' . $amp_tag . '$/', _wpp_get_current_url() ) 
     ) {
-        $file .= '.amp';
+        $file .= '_amp';
     }
 
     return $file;
