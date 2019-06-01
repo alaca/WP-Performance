@@ -38,6 +38,9 @@ function wpp_cache_files_size( $type ) {
         $cache_dir = WPP_CACHE_DIR . $uri[ 'host' ] . $uri[ 'path' ];
     } 
 
+    if ( ! is_dir( $cache_dir ) )
+        return $size;
+
     $files = new \RecursiveIteratorIterator(
         new \RecursiveDirectoryIterator( $cache_dir, \RecursiveDirectoryIterator::SKIP_DOTS ),
         \RecursiveIteratorIterator::CHILD_FIRST

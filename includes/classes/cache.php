@@ -111,6 +111,9 @@ class Cache
 
         } 
 
+        if ( ! is_dir( $cache_dir ) )
+            return false;
+
         $files = new RecursiveIteratorIterator(
             new RecursiveDirectoryIterator( $cache_dir, RecursiveDirectoryIterator::SKIP_DOTS ),
             RecursiveIteratorIterator::CHILD_FIRST
