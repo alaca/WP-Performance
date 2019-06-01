@@ -206,7 +206,7 @@ WP Performance has support for Nginx servers, but an extra step is required to m
 Depending on your WP Performance configuration, rewrite rules will be generated and listed under the “Settings” tab. You have to copy and paste generated rules manually into the Nginx config file.
 
 = Does WP Performance support WordPress Multisite? =
-WP Performance supports WordPress Multisite.
+WP Performance supports WordPress Multisite with subdomains.
 
 = Where can I get help? =
 You can get help on the <a href="https://wordpress.org/support/plugin/wp-performance">wordpress.org support forum</a>. 
