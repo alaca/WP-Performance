@@ -146,7 +146,7 @@ function _wpp_get_cache_file( $settings ) {
 
     if ( 
         isset( $_GET[ $amp_tag ] ) 
-        || preg_match( '/' . $amp_tag . '$/', _wpp_get_current_url() ) 
+        || preg_match( "/$amp_tag\/?$/", _wpp_get_current_url() ) 
     ) {
         $file .= '_amp';
     }

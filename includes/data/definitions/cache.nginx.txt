@@ -34,7 +34,7 @@ if ($http_user_agent ~* (Mobile|Android|Kindle|BlackBerry|Opera+Mini|Opera+Mobi)
       set $wpp_cache "{$wpp_cache}{$wpp_mobile}";
 }
 
-if ($request_uri ~* /{AMP_TAG}$) {
+if ($request_uri ~* /{AMP_TAG}/$) {
 	set $wpp_cache "{$wpp_cache}{$wpp_mobile}{$wpp_amp}";
 }
 

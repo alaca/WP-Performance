@@ -26,7 +26,7 @@ Header append Vary: Accept-Encoding
     RewriteCond %{HTTP_USER_AGENT} Opera\sMini [NC]
     RewriteCond %{HTTP_USER_AGENT} Opera\sMobi [NC]
     RewriteRule .* - [E=WPP_MOBILE_EXT:_mobile]
-    RewriteCond %{REQUEST_URI} /{AMP_TAG}$ [NC]
+    RewriteCond %{REQUEST_URI} /{AMP_TAG}/$ [NC]
     RewriteRule .* - [E=WPP_AMP_EXT:_amp]
     RewriteCond %{HTTP:Accept-Encoding} gzip
     RewriteRule .* - [E=WPP_GZIP_EXT:_gz]
