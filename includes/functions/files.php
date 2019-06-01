@@ -31,8 +31,15 @@ function wpp_cache_files_size( $type ) {
 
     $size = 0;
 
+    $cache_dir = WPP_CACHE_DIR;
+
+    if ( is_multisite() ) {
+        $uri = parse_url( get_bloginfo( 'url' ) );
+        $cache_dir = WPP_CACHE_DIR . $uri[ 'host' ] . $uri[ 'path' ];
+    } 
+
     $files = new \RecursiveIteratorIterator(
-        new \RecursiveDirectoryIterator( WPP_CACHE_DIR, \RecursiveDirectoryIterator::SKIP_DOTS ),
+        new \RecursiveDirectoryIterator( $cache_dir, \RecursiveDirectoryIterator::SKIP_DOTS ),
         \RecursiveIteratorIterator::CHILD_FIRST
     );
     
