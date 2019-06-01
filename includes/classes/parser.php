@@ -31,6 +31,9 @@ class Parser
                 // Do not parse amp templates
                 if ( ! $this->is_amp() )
                     $this->parseTemplate();
+                // Add footprint
+                else 
+                    $this->htmltag->{'wpp-cache-amp'} = 'true';
 
                 // Should we cache this page ?
                 if ( 
