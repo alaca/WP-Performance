@@ -223,7 +223,7 @@ function wpp_save_settings( $notify = true ) {
 
     $timestamp = time();
 
-    File::save( WPP_CACHE_DIR . $timestamp . '.settings.json', json_encode( $settings ) );
+    File::save( WPP_CACHE_DIR . $timestamp . '.' . md5( site_url() ) . '.settings.json', json_encode( $settings ) );
 
     Option::update( 'current_settings', $timestamp );
 
