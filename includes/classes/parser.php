@@ -912,7 +912,7 @@ class Parser
 
         // Minify html
         if ( apply_filters( 'wpp_minify_html', true ) ) {
-            $this->html = preg_replace('/\>\s+\</m', '><', $this->html );
+            $this->html = preg_replace('/\>\s+\</m', '> <', $this->html );
         }
 
         // Footprint
