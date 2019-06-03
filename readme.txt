@@ -5,7 +5,7 @@ Tags: wp performance, cache, performance, speed optimization, seo
 Requires at least: 4.5
 Tested up to: 5.2
 Requires PHP: 5.6
-Stable tag: 1.1.4
+Stable tag: 1.1.4.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -82,6 +82,9 @@ If you encounter any bug, please create an issue on [Github](https://github.com/
 7. Settings
 
 == Changelog ==
+
+= 1.1.4.1 =
+[FIX] Minify HTML
 
 = 1.1.4 =
 [NEW] Multisite support

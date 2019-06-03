@@ -62,6 +62,9 @@ This plugin generates static html files from your dynamic content and it uses mo
 
 ## Changelog ##
 
+### 1.1.4.1 ###
+* [FIX] Minify HTML
+
 ### 1.1.4 ###
 * [NEW] Multisite support
 * [NEW] AMP support
