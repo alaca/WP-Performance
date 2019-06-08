@@ -49,7 +49,7 @@ class Minify
             // Remove multiline comments
             $code = preg_replace('~//?\s*\*[\s\S]*?\*\s*//?~', '', $code);
             // Removes single line '//' comments, treats blank characters
-            $code = preg_replace('![ \t]*//.*[ \t]*[\r\n]!', '', $code);
+            //$code = preg_replace('![ \t]*//.*[ \t]*[\r\n]!', '', $code);
             //  Strip blank lines
             $code = preg_replace("/(^[\r\n]*|[\r\n]+)[\s\t]*[\r\n]+/", "\n", $code);
             // Remove space before and after , ; : * < > = && + { } ( ) 
@@ -123,9 +123,23 @@ class Minify
      */
     public static function replacePaths( $code, $context ) {
 
+        // Process images
         preg_match_all( "/url\((\"|\')?(.*?)(\"|\')?\)/i", $code, $matches, PREG_PATTERN_ORDER );  
 
         foreach( $matches[2] as $i => $match) { 
+
+            $url = str_replace( basename( $context ), '', $context ) . $match;
+            $url = Url::path( File::path( $url ) ); 
+            
+            if ( ! empty( $url ) ) {
+                $code = str_replace( $match, $url, $code );    
+            }
+        }
+
+        // Process imports
+        preg_match_all("/@import[ ]*['\"]*(?:url\()*['\"]*([^;'\"\)]*)['\"\)]*/ui", $code, $matches );
+
+        foreach( $matches[1] as $i => $match) { 
 
             $url = str_replace( basename( $context ), '', $context ) . $match;
             $url = Url::path( File::path( $url ) ); 
