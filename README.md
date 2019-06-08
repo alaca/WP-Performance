@@ -62,6 +62,10 @@ This plugin generates static html files from your dynamic content and it uses mo
 
 ## Changelog ##
 
+### 1.1.4.2 ###
+* [IMPROVE] Minify JS
+* [IMPROVE] Process CSS import rules
+
 ### 1.1.4.1 ###
 * [FIX] Minify HTML
 

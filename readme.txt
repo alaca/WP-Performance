@@ -83,6 +83,10 @@ If you encounter any bug, please create an issue on [Github](https://github.com/
 
 == Changelog ==
 
+= 1.1.4.2 =
+[IMPROVE] Minify JS
+[IMPROVE] Process CSS import rules
+
 = 1.1.4.1 =
 [FIX] Minify HTML
 
