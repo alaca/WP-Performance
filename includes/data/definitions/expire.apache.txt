@@ -9,7 +9,7 @@ FileETag None
 <IfModule mod_setenvif.c>
 
     <IfModule mod_headers.c>
-        <FilesMatch "\.(cur|gif|png|jpe?g|svgz?|ico|webp)$">
+        <FilesMatch "\.(cur|gif|png|jpe?g|svgz?|ico|webp|css|js)$">
             SetEnvIf Origin ":" IS_CORS
             Header set Access-Control-Allow-Origin "*" env=IS_CORS
         </FilesMatch>
