@@ -26,8 +26,8 @@ class Prefetch {
      */
     private function __construct() {
 
-        // If add-on is turned on
-        if ( Option::boolval( 'prefetch_pages' ) ) {
+        // If add-on is turned on and the cache is on
+        if ( Option::boolval( 'prefetch_pages' ) && Option::boolval( 'cache' ) ) {
             // Parse links
             add_action( 'wpp_parsed_content', [ $this, 'parseLinks' ] );
             // Load add-on scripts in footer
@@ -65,11 +65,13 @@ class Prefetch {
      * Parse links
      * Add data-prefetch attribute to inbound links
      *
-     * @param HtmlDOM $html
+     * @param HtmlDOM $parsed
      * @return string
      * @since 1.1.3
      */
-    public function parseLinks( $html ) {
+    public function parseLinks( HtmlDOM $parsed ) {
+
+        $html = new HtmlDOM( $parsed->innertext, false, false );
 
         $links = $html->find( 'a' );
 
@@ -99,7 +101,7 @@ class Prefetch {
     public function loadScript() {
 
         if ( file_exists( $script = WPP_ADDONS_DIR . 'prefetch/assets/prefetch.js' ) ) {
-            printf('<script data-wpp-addon="prefetch">%s</script>', file_get_contents( $script ) );
+            printf( '<script data-wpp-addon="prefetch">%s</script>' . PHP_EOL, file_get_contents( $script ) );
         }
 
     }
