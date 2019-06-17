@@ -154,7 +154,6 @@ function wpp_compatibility_check() {
 
     // Cache plugins
     $incompatiblePlugins = [
-        'abovethefold.php',
         'w3-total-cache/w3-total-cache.php',
         'wp-super-cache/wp-cache.php',
         'wp-fastest-cache/wpFastestCache.php',
@@ -168,19 +167,21 @@ function wpp_compatibility_check() {
         'hyper-cache/plugin.php',
         'hyper-cache-extended/plugin.php',
         'cache-enabler/cache-enabler.php',
-        'vendi-cache/vendi-cache.php',
         'cachify/cachify.php',
         'wp-speed-of-light/wp-speed-of-light.php',
         'wp-ffpc/wp-ffpc.php',
         'swift-performance-lite/performance.php',
         'swift-performance-pro/performance.php',
+        'hummingbird-performance/wp-hummingbird.php',
     ];
 
     // Minify plugins
     if ( 
         Option::boolval( 'css_minify' ) 
         || Option::boolval( 'js_minify' ) 
-        || apply_filters( 'wpp_minify_html', false )
+        || Option::boolval( 'css_combine' ) 
+        || Option::boolval( 'js_combine' ) 
+        || apply_filters( 'wpp_minify_html', true )
     ) {
     
         $incompatiblePlugins = array_merge( $incompatiblePlugins, [
@@ -200,7 +201,8 @@ function wpp_compatibility_check() {
             'merge-minify-refresh/merge-minify-refresh.php',
             'async-js-and-css/asyncJSandCSS.php',
             'wp-js/wp-js.php',
-            'fast-velocity-minify/fvm.php'
+            'fast-velocity-minify/fvm.php',
+            'wp-asset-clean-up/wpacu.php'
         ] );
         
     }
