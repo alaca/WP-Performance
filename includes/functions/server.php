@@ -76,6 +76,7 @@ function wpp_get_nginx_rewrite_rules() {
         $definitions = File::get( WPP_DATA_DIR . 'definitions/cache.nginx.txt' );
         $definitions = str_replace( '{CACHEDIR}', WPP_CACHE_DIR, $definitions );
         $definitions = str_replace( '{CACHEDIR_BASENAME}', basename( WPP_CACHE_DIR ), $definitions );
+        $definitions = str_replace( '{CONTENT_DIR}', basename( WP_CONTENT_DIR ), $definitions );
         $definitions = str_replace( '{AMP_TAG}', wpp_get_constant( 'WPP_AMP_TAG', 'amp' ), $definitions );
 
         // Get excluded user agents 

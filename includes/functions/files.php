@@ -167,6 +167,7 @@ function wpp_update_htaccess( $action, $file ) {
                 case 'cache':
 
                     $definitions_content  = str_replace( '{BASEDIR}', wpp_get_basedir(), $definitions_content );
+                    $definitions_content  = str_replace( '{CONTENT_DIR}', basename( WP_CONTENT_DIR ), $definitions_content );
 
                     // Get excluded user agents 
                     $agents = Option::get( 'user_agents_exclude', [] );

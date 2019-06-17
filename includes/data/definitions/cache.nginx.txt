@@ -39,19 +39,19 @@ if ($request_uri ~* /{AMP_TAG}/$) {
 }
 
 if ($wpp_cache = 111){
-    rewrite .* /wp-content/cache/{CACHEDIR_BASENAME}/$http_host/$request_uri/index.html_mobile_amp last;
+    rewrite .* /{CONTENT_DIR}/cache/{CACHEDIR_BASENAME}/$http_host/$request_uri/index.html_mobile_amp last;
 }
 
 if ($wpp_cache = 101){
-    rewrite .* /wp-content/cache/{CACHEDIR_BASENAME}/$http_host/$request_uri/index.html_amp last;
+    rewrite .* /{CONTENT_DIR}/cache/{CACHEDIR_BASENAME}/$http_host/$request_uri/index.html_amp last;
 }
 
 if ($wpp_cache = 11){
-    rewrite .* /wp-content/cache/{CACHEDIR_BASENAME}/$http_host/$request_uri/index.html_mobile last;
+    rewrite .* /{CONTENT_DIR}/cache/{CACHEDIR_BASENAME}/$http_host/$request_uri/index.html_mobile last;
 }
 
 if ($wpp_cache = 1){
-    rewrite .* /wp-content/cache/{CACHEDIR_BASENAME}/$http_host/$request_uri/index.html last;
+    rewrite .* /{CONTENT_DIR}/cache/{CACHEDIR_BASENAME}/$http_host/$request_uri/index.html last;
 }
 
 # WPP Cache load end
