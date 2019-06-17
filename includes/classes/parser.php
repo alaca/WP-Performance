@@ -431,7 +431,7 @@ class Parser
                     }
 
                     // Defer ?
-                    $type = Option::boolval( 'js_defer' ) ? 'localscript' : 'javascript';
+                    $type = Option::boolval( 'js_defer' ) ? 'wppscript' : 'javascript';
 
                     $script->outertext = '<script type="text/' . $type . '" data-wpp-inline="' . $src . '">' . $code . '</script>';   
 
@@ -496,7 +496,7 @@ class Parser
             // Defer JS
             if ( Option::boolval( 'js_defer' ) ) {
                 // set type
-                $script->type = 'text/localscript';
+                $script->type = 'text/wppscript';
                 // change src
                 if ($script->src) {
                     $script->{'data-src'} = $script->src;  
@@ -665,11 +665,6 @@ class Parser
                 $img->removeAttribute( 'srcset' );
 
                 $img->src = WPP_ASSET_URL . 'placeholder.png';
-
-                /*
-                $img->src = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQyIDc5LjE2MDkyNCwgMjAxNy8wNy8xMy0wMTowNjozOSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpCNTJFNjE2RjIzNzkxMUU4OURDNkEyRERBNjVBNTRCNyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpCNTJFNjE3MDIzNzkxMUU4OURDNkEyRERBNjVBNTRCNyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkI1MkU2MTZEMjM3OTExRTg5REM2QTJEREE2NUE1NEI3IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkI1MkU2MTZFMjM3OTExRTg5REM2QTJEREE2NUE1NEI3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+7MoDwwAAABBJREFUeNpi+P//PwNAgAEACPwC/tuiTRYAAAAASUVORK5CYII=';
-
-                */
 
             }
 
@@ -874,7 +869,7 @@ class Parser
 
             // Defer js
             if ( Option::boolval( 'js_defer' ) ) {
-                $this->body->innertext .= '<script type="text/localscript" data-src="' . $url . $filename . '"></script>' . PHP_EOL;
+                $this->body->innertext .= '<script type="text/wppscript" data-src="' . $url . $filename . '"></script>' . PHP_EOL;
             } else {
                 $this->body->innertext .= '<script src="' . $url . $filename . '"></script>' . PHP_EOL;
             }
@@ -887,7 +882,9 @@ class Parser
         }
 
         $vars = [
-            'path' => WPP_ASSET_URL
+            'css'      => Option::boolval( 'css_defer' ),
+            'js'       => Option::boolval( 'js_defer' ),
+            'lazyload' => Option::boolval( 'images_lazy' )
         ];
 
         // Clear cache
@@ -896,13 +893,13 @@ class Parser
             $vars[ 'ajax_url' ] = admin_url( 'admin-ajax.php');
         }
 
-        // Preload WPP to set high priority loading
-        $this->head->innertext .= '<link rel="preload" as="script" href="' . WPP_ASSET_URL . 'load/wpp.min.js?ver=' . WPP_VERSION . '" />' . PHP_EOL;
-        // Script localization
-        $this->head->innertext .= '<script>var WPP=' . json_encode( $vars ) . ';</script>' . PHP_EOL;
-        // WPP JS
-        $this->head->innertext .= '<script defer src="' . WPP_ASSET_URL . 'load/wpp.min.js?ver=' . WPP_VERSION . '"></script>' . PHP_EOL;  
+        if ( is_user_logged_in() ) {
+            $vars[ 'path' ] = WPP_ASSET_URL;
+        }
 
+        // WPP JS
+        $this->body->innertext .= '<script>var WPP=' . json_encode( $vars ) . ';' . File::get( WPP_ASSET_DIR . 'load/wpp.min.js' ) . '</script>' . PHP_EOL;  
+        
         /**
          * Filter parsed content
          * 
@@ -912,7 +909,13 @@ class Parser
 
         // Minify html
         if ( apply_filters( 'wpp_minify_html', true ) ) {
-            $this->html = preg_replace('/\>\s+\</m', '> <', $this->html );
+
+            $this->html = preg_replace( 
+                [ '/<!--(?!\[|\<).*-->/', '/[[:blank:]]+/' ], 
+                [ '',' ' ], 
+                str_replace( "\t", '', $this->html )
+            );
+
         }
 
         // Footprint
