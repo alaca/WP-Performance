@@ -4,8 +4,6 @@
  */
 (function(window, document) {
 
-    'use strict';
-
     if ( typeof WPP.expire != 'undefined' ) {
         if ( Math.floor(new Date().getTime() / 1000) > WPP.expire) {
             var xhr = new XMLHttpRequest();
@@ -15,72 +13,93 @@
         }    
     }
 
-    /**
-     * All images
-     */
-    var images_container = [];
-
-    /**
-     * Show images in viewport
-     */
-    function showImages() {
-
-        for (var i = 0; i < images_container.length; i++) {
-
-            if (inViewport(images_container[i])) {
-
-                if (images_container[i].getAttribute('data-src')) {
-                    // swap src
-                    images_container[i].src = images_container[i].getAttribute('data-src');
-                    images_container[i].removeAttribute('data-src');
-
-                    // add scrcset
-                    if (images_container[i].getAttribute('data-srcset')) {
-                        images_container[i].srcset = images_container[i].getAttribute('data-srcset');
-                        images_container[i].removeAttribute('data-srcset');
-                    }
-
-                    // remove image from images_container
-                    if (images_container.indexOf(images_container[i]) !== -1) {
-                        images_container.splice(i, 1);
-                    }
-
-                }
-
-            }
-        }
-
-    }
-
-
-    /**
-     * Determine if image is in view
-     * @param {string} image 
-     */
-    function inViewport(image) {
-
-        var rect = image.getBoundingClientRect();
-
-        return ((rect.top >= 0 && rect.left >= 0 && rect.top) <= (window.innerHeight || document.documentElement.clientHeight));
-
-    };
-
+    var lazyloadThrottleTimeout;
 
     /**
      * Initialize LazyLoad
      */
     function initLazyLoad() {
 
-        document.addEventListener('scroll', showImages, false);
+        var lazyloadImages;    
 
-        var images = document.querySelectorAll('img[data-src]');
+        if ( 'IntersectionObserver' in window) {
 
-        for (var i = 0; i < images.length; i++) {
-            images_container.push(images[i]);
+            lazyloadImages = document.querySelectorAll('img[data-src]');
+
+            var imageObserver = new IntersectionObserver(function(entries, observer) {
+
+                entries.forEach(function(entry) {
+
+                    if (entry.isIntersecting) {
+
+                    var image = entry.target;
+
+                    image.src = image.getAttribute('data-src');
+                    image.removeAttribute('data-src');
+
+                    // add scrcset
+                    if (image.getAttribute('data-srcset')) {
+                        image.srcset = image.getAttribute('data-srcset');
+                        image.removeAttribute('data-srcset');
+                    }
+
+                    imageObserver.unobserve(image);
+                    }
+
+                });
+
+            });
+
+            lazyloadImages.forEach(function(image) {
+            imageObserver.observe(image);
+            });
+
+        } else {  
+
+            lazyloadImages = document.querySelectorAll('img[data-src]');
+
+            function lazyload () {
+
+                if(lazyloadThrottleTimeout) {
+                    clearTimeout(lazyloadThrottleTimeout);
+                }    
+
+                lazyloadThrottleTimeout = setTimeout(function() {
+
+                    var scrollTop = window.pageYOffset;
+
+                    lazyloadImages.forEach(function(img) {
+
+                        if(img.offsetTop < (window.innerHeight + scrollTop)) {
+
+                            img.src = img.getAttribute('data-src');
+                            image.removeAttribute('data-src');
+
+                            // add scrcset
+                            if (img.getAttribute('data-srcset')) {
+                                img.srcset = img.getAttribute('data-srcset');
+                                img.removeAttribute('data-srcset');
+                            }
+
+                        }
+
+                    });
+
+                    if(lazyloadImages.length == 0) { 
+                        document.removeEventListener('scroll', lazyload);
+                        window.removeEventListener('resize', lazyload);
+                        window.removeEventListener('orientationChange', lazyload);
+                    }
+
+                }, 20);
+
+            }
+          
+          document.addEventListener('scroll', lazyload);
+          window.addEventListener('resize', lazyload);
+          window.addEventListener('orientationChange', lazyload);
+
         }
-
-        // Triger scroll to show images in viewport
-        document.dispatchEvent(new Event('scroll'));
 
     };
 
@@ -126,6 +145,7 @@
 
     };
 
+    var wppEvent = 'WPPContentLoaded';
 
     /**
      *  Load scripts asynchronously  
@@ -148,7 +168,10 @@
                     xhr.onload = function () {
                         // check status
                         if (xhr.status == 200) {
-                            resolve(xhr.response);
+                            resolve({
+                                file: script.url,
+                                code: xhr.response.split('DOMContentLoaded').join(wppEvent)
+                            });
 
                         } else {
                             reject(Error(xhr.statusText));
@@ -167,7 +190,10 @@
                     xhr.send();
 
                 } else {
-                    resolve(script.code);
+                    resolve({
+                        file: null,
+                        code: script.code.split('DOMContentLoaded').join(wppEvent)
+                    });
                 }
 
             });
@@ -184,7 +210,7 @@
 
 
     /**
-     * Load JavaScript with type="text/localscript" attribute
+     * Load JavaScript with type="text/wppscript" attribute
      */
     function loadJS() {
         
@@ -193,7 +219,7 @@
 
         // process all script tags
         for (var i in scripts) {
-            if (scripts[i].type == 'text/localscript') {
+            if (scripts[i].type == 'text/wppscript') {
                 data.push({
                     url: scripts[i].getAttribute('data-src') || null,
                     code: scripts[i].innerHTML || null
@@ -207,39 +233,22 @@
         getScripts(data).then(function (codes) {
             for (var i in codes) {
                 try {
-                    (0, eval)(codes[i]);
+                    (1, eval)(codes[i].code);
                 } catch (e) {
-                    console.log(e.name, e.message);
+                    console.error(e.name, e.message, codes[i].file || 'WPP script index: ' + i);
                 }
             }
+
+            // WPP loaded
+            document.dispatchEvent(new Event(wppEvent));
+
         });
 
     }
 
-    /**
-     * Initialize all WPP scripts
-     */
-    function WPPinit() {
-        initLazyLoad();
-        showImages();
-        loadJS();
-    }
+    if ( WPP.css && ! supportsPreload() ) preloadStyles();
+    if ( WPP.lazyload ) initLazyLoad();
+    if ( WPP.js ) loadJS();
 
-    /**
-     * check if browser supports preload
-     * we don't need to wait DOMContentLoaded as this is defered script and the DOM is almost loaded
-     */
-    if ( ! supportsPreload() ) {
-        preloadStyles();
-    }
-
-    /**
-     * Load everything on DOMContentLoaded
-     */
-    if (document.readyState === 'loading') { 
-        document.addEventListener('DOMContentLoaded', WPPinit );
-    } else {
-        WPPinit();
-    }
 
 })(window, document);
