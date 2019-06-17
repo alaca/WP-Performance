@@ -6,8 +6,9 @@
 * @package WPP
 */
 
-class Minify
-{
+use MatthiasMullie\Minify as Minifier;
+
+class Minify {
 
     /**
     * Minify code
@@ -21,49 +22,11 @@ class Minify
     */
     public static function code( $code, $context = null ) {
 
-        // Only CSS should be context aware
-        if ( $context ) {
-            // Replace relative paths with absoulte paths
-            $code = Minify::replacePaths( $code, $context );
-            // Strips leading 0 on decimal values (converts 0.5px into .5px)
-            $code = preg_replace( '/(:| )0\.([0-9]+)(%|em|ex|px|in|cm|mm|pt|pc)/i', '${1}.${2}${3}', $code );
-            // Strips units if value is 0 (converts 0px to 0)
-            $code = preg_replace( '/(:| )(\.?)0(%|em|ex|px|in|cm|mm|pt|pc)/i', '${1}0', $code );
-            // Shortern 6-character hex color codes to 3-character where possible
-            $code = preg_replace( '/#([a-f0-9])\\1([a-f0-9])\\2([a-f0-9])\\3/i', '#\1\2\3', $code );
-            // Cleanup
-            $code = preg_replace( '/(\/\*(.|\s)*?\*\/|(\n|\t|\r|\v|\f|\a){1,}|\s(?=\s)|(?<=})\s|(?<={)\s|\s(?={)|\s(?=})|(?<=;)\s|[[:blank:]](?=;)|(?<=:)[[:blank:]]|(?<=,)[[:blank:]])/', '', $code );
+        $minifier = is_null( $context ) 
+            ? new Minifier\JS( $code ) 
+            : new Minifier\CSS( Minify::replacePaths( $code, $context ) );
 
-        } else {
-
-            // Try to remove single line comments
-            $code = preg_replace( '/^\/\/(?!http).*/', '', $code );
-            // Replace true with !0
-            $code = preg_replace( '#\btrue\b#', '!0', $code );
-            // Replace false with !1
-            $code = preg_replace( '#\bfalse\b#', '!1', $code );
-            // Minify object attributes except JSON attributes from {'foo':'bar'} to {foo:'bar'}
-            $code = preg_replace( '#([\{,])([\'])(\d+|[a-z_][a-z0-9_]*)\2(?=\:)#i', '$1$3', $code );
-            // Replace foo['bar'] with foo.bar
-            $code = preg_replace( '#([a-z0-9_\)\]])\[([\'"])([a-z_][a-z0-9_]*)\2\]#i', '$1.$3', $code );
-            // Remove multiline comments
-            $code = preg_replace('~//?\s*\*[\s\S]*?\*\s*//?~', '', $code);
-            // Removes single line '//' comments, treats blank characters
-            //$code = preg_replace('![ \t]*//.*[ \t]*[\r\n]!', '', $code);
-            //  Strip blank lines
-            $code = preg_replace("/(^[\r\n]*|[\r\n]+)[\s\t]*[\r\n]+/", "\n", $code);
-            // Remove space before and after , ; : * < > = && + { } ( ) 
-            $code = preg_replace( '/ (\.|,|;|:|\*|<|>|=|&&|\+|\{|}|\(|\)) /', '$1', $code );
-
-        }
-
-        // Remove multiple new lines caharacters
-        // $code = preg_replace("/[\r\n]+/" , "\n", $code);
-        // Remove ; before }
-        $code = preg_replace( '/;(?=\s*})/', '', $code );
-        $code = preg_replace( '/[\t]+/', ' ', $code );
-
-        return $code;
+        return $minifier->minify();
 
     }
 
