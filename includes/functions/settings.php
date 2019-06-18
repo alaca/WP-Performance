@@ -272,7 +272,7 @@ function wpp_save_settings( $notify = true ) {
  */
 function wpp_load_settings( $filename, $notify = true ) {
 
-    if ( file_exists( $file = WPP_CACHE_DIR . basename( $filename ) . '.settings.json' ) ) {
+    if ( file_exists( $file = WPP_CACHE_DIR . basename( $filename ) . '.' . md5( site_url() ) . '.settings.json' ) ) {
 
         $settings = File::getJson( $file );
 
