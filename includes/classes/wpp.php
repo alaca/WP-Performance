@@ -164,24 +164,25 @@ final class WP_Performance
             return false;
         }
 
-        // Include pluggable because we need is_user_logged_in() function  
-        include_once( trailingslashit( ABSPATH ) . 'wp-includes/pluggable.php' ); 
-                
-        // Check if user is logged in
-        if ( is_user_logged_in() && current_user_can( 'manage_options' ) ) {
-            wpp_add_top_menu_item();
-        } 
+        add_action( 'init', function(){
 
-        /**
-         * Frontend actions hook
-         * 
-         * @since 1.0.8
-         */
-        do_action( 'wpp_frontend_actions' );
+            // Check if user is logged in
+            if ( is_user_logged_in() && current_user_can( 'manage_options' ) ) {
+                wpp_add_top_menu_item();
+            } 
 
+            /**
+             * Frontend actions hook
+             * 
+             * @since 1.0.8
+             */
+            do_action( 'wpp_frontend_actions' );
+
+        });
+              
         // Hook up
         add_action( 'wp', function() {
-            if ( ! is_404() ) ob_start( [ 'WPP\Parser', 'init' ] );
+            is_404() || ob_start( [ 'WPP\Parser', 'init' ] );
         } );
         
     }
