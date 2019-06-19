@@ -200,7 +200,7 @@ class Cache
      * @return string
      * @since 1.0.0
      */
-    private static function getFileName( $url = null ) {
+    static function getFileName( $url = null ) {
 
         if ( get_option( 'permalink_structure', true ) ) {
 
