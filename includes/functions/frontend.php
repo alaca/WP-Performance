@@ -36,7 +36,11 @@ add_action( 'wpp_frontend_init', function(){
           
     // Hook up
     add_action( 'wp', function() {
-        is_404() || ob_start( [ 'WPP\Parser', 'init' ] );
+
+        if ( apply_filters( 'wpp_parse_template', true ) ) {
+            is_404() || ob_start( [ 'WPP\Parser', 'init' ] );
+        }
+                
     } );
 
 } );
