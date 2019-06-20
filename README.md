@@ -62,6 +62,9 @@ This plugin generates static html files from your dynamic content and it uses mo
 
 ## Changelog ##
 
+### 1.1.5.1 ###
+* [FIX] Fix WooCommerce Add to cart error
+
 ### 1.1.5 ###
 * [IMPROVE] Minify JS
 * [IMPROVE] Minify CSS
