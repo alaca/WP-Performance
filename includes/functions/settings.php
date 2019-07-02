@@ -132,19 +132,19 @@ function wpp_save_settings( $notify = true ) {
     Option::update( 'css_disable_loggedin',  Input::post( 'css_disable_loggedin', 'boolean' ) );  
 
     // JavaScript
-    Option::update( 'js_minify',              Input::post( 'js_minify', 'string', FILTER_REQUIRE_ARRAY ) );
-    Option::update( 'js_minify_inline',       Input::post( 'js_minify_inline', 'boolean' ) );
-    Option::update( 'js_combine',             Input::post( 'js_combine', 'string', FILTER_REQUIRE_ARRAY ) );
-    Option::update( 'js_inline',              Input::post( 'js_inline', 'string', FILTER_REQUIRE_ARRAY ) );
-    Option::update( 'js_defer',               Input::post( 'js_defer', 'boolean' ) );   
-    Option::update( 'js_prefetch',            Input::post( 'js_prefetch', 'string', FILTER_REQUIRE_ARRAY ) );
-    Option::update( 'js_preconnect',          Input::post( 'js_preconnect', 'string', FILTER_REQUIRE_ARRAY ) );            
-    Option::update( 'js_url_exclude',         Input::post( 'js_url_exclude', 'string', FILTER_REQUIRE_ARRAY ) );
-    Option::update( 'js_disable',             Input::post( 'js_disable', 'string', FILTER_REQUIRE_ARRAY ) );
-    Option::update( 'js_disable_position',    Input::post( 'js_disable_position', 'string', FILTER_REQUIRE_ARRAY ) );
-    Option::update( 'js_disable_selected',    Input::post( 'js_disable_selected', 'string', FILTER_REQUIRE_ARRAY ) );
-    Option::update( 'js_disable_except',      Input::post( 'js_disable_except', 'string', FILTER_REQUIRE_ARRAY ) );
-    Option::update( 'js_disable_loggedin',    Input::post( 'js_disable_loggedin', 'boolean' ) );  
+    Option::update( 'js_minify',             Input::post( 'js_minify', 'string', FILTER_REQUIRE_ARRAY ) );
+    Option::update( 'js_minify_inline',      Input::post( 'js_minify_inline', 'boolean' ) );
+    Option::update( 'js_combine',            Input::post( 'js_combine', 'string', FILTER_REQUIRE_ARRAY ) );
+    Option::update( 'js_inline',             Input::post( 'js_inline', 'string', FILTER_REQUIRE_ARRAY ) );
+    Option::update( 'js_defer',              Input::post( 'js_defer', 'boolean' ) );   
+    Option::update( 'js_prefetch',           Input::post( 'js_prefetch', 'string', FILTER_REQUIRE_ARRAY ) );
+    Option::update( 'js_preconnect',         Input::post( 'js_preconnect', 'string', FILTER_REQUIRE_ARRAY ) );            
+    Option::update( 'js_url_exclude',        Input::post( 'js_url_exclude', 'string', FILTER_REQUIRE_ARRAY ) );
+    Option::update( 'js_disable',            Input::post( 'js_disable', 'string', FILTER_REQUIRE_ARRAY ) );
+    Option::update( 'js_disable_position',   Input::post( 'js_disable_position', 'string', FILTER_REQUIRE_ARRAY ) );
+    Option::update( 'js_disable_selected',   Input::post( 'js_disable_selected', 'string', FILTER_REQUIRE_ARRAY ) );
+    Option::update( 'js_disable_except',     Input::post( 'js_disable_except', 'string', FILTER_REQUIRE_ARRAY ) );
+    Option::update( 'js_disable_loggedin',   Input::post( 'js_disable_loggedin', 'boolean' ) );  
 
     // Images
     Option::update( 'images_resp',           Input::post( 'images_resp', 'boolean' ) );
@@ -154,6 +154,15 @@ function wpp_save_settings( $notify = true ) {
     Option::update( 'images_containers_ids', Input::post( 'images_containers_ids', 'string', FILTER_REQUIRE_ARRAY  ) );
     Option::update( 'images_exclude',        Input::post( 'images_exclude', 'string', FILTER_REQUIRE_ARRAY ) );
     Option::update( 'image_url_exclude',     Input::post( 'image_url_exclude', 'string', FILTER_REQUIRE_ARRAY ) );
+
+    // Videos
+    Option::update( 'videos_lazy',           Input::post( 'videos_lazy', 'boolean' ) );
+    Option::update( 'youtube_preview_image', Input::post( 'youtube_preview_image', 'boolean' ) );
+    Option::update( 'video_url_exclude',     Input::post( 'video_url_exclude', 'string', FILTER_REQUIRE_ARRAY ) );
+
+    // Media
+    Option::update( 'disable_emoji',         Input::post( 'disable_emoji', 'boolean' ) );
+    Option::update( 'disable_embeds',        Input::post( 'disable_embeds', 'boolean' ) );
 
     // Settings
     Option::update( 'enable_log',            Input::post( 'enable_log', 'boolean' ) );
@@ -274,58 +283,46 @@ function wpp_load_settings( $filename, $notify = true ) {
 
     if ( file_exists( $file = WPP_CACHE_DIR . basename( $filename ) . '.' . md5( site_url() ) . '.settings.json' ) ) {
 
+        $options  = Option::getAll();
         $settings = File::getJson( $file );
 
-        $special = [
-            'css_minify',
-            'css_combine',
-            'css_inline',
-            'css_disable',
-            'css_disable_position',
-            'js_minify',
-            'js_combine',
-            'js_inline',
-            'js_disable',
-            'js_disable_position'
-        ];
+        foreach( $options as $option => $value ) {
 
-        foreach( $special as $name ) {
-            if ( ! array_key_exists( $name, $settings ) ) {
-                Option::remove( $name );
-            }
-        }
+            $action = ! empty( $value ) 
+                ? 'add' 
+                : 'remove';
 
-        foreach ( $settings as $setting => $value ) {
+            $option = str_replace( wpp_get_prefix(), '', $option );
 
-            $action = ! empty( $value ) ? 'add' : 'remove';
+            $value = isset( $settings[ $option ] ) 
+                ? $settings[ $option ] 
+                : null;
 
-            switch ( $setting ) {
+            switch ( $option ) {
 
                 case 'automatic_cleanup_frequency':
 
-                     Option::update( 'db_cleanup_frequency', $value );
-
+                    Option::update( 'db_cleanup_frequency', $value );
+                    
                     break;
+
                 case 'browser_cache':
 
-                    if ( wpp_get_server_software( 'apache' ) ) {
+                    if ( wpp_get_server_software( 'apache' ) ) 
                         wpp_update_htaccess( $action, 'expire' );
-                    }
 
                     break;
                 
                 case 'gzip_compression':
 
-                    if ( wpp_get_server_software( 'apache' ) ) {
+                    if ( wpp_get_server_software( 'apache' ) ) 
                         wpp_update_htaccess( $action, 'gzip' );
-                    }
 
                     break;
-
-                default: 
-                    Option::update( $setting, $value );
             }
 
+            Option::update( $option, $value );
+ 
         }
 
         Option::update( 'current_settings', $filename ); 
@@ -346,7 +343,7 @@ function wpp_load_settings( $filename, $notify = true ) {
  */
 function wpp_save_post_options( $post_id ) {
 
-    foreach( [ 'cache_post_exclude', 'css_post_exclude', 'js_post_exclude', 'image_post_exclude' ] as $option ) {
+    foreach( [ 'cache_post_exclude', 'css_post_exclude', 'js_post_exclude', 'image_post_exclude', 'video_post_exclude' ] as $option ) {
 
         $options = Option::get( $option, [] ); 
 
@@ -380,7 +377,8 @@ function wpp_ajax_remove_post_options() {
         'js'    => 'js_post_exclude',
         'css'   => 'css_post_exclude',
         'cache' => 'cache_post_exclude',
-        'image' => 'image_post_exclude'
+        'image' => 'image_post_exclude',
+        'video' => 'video_post_exclude'
     ];
 
     if ( array_key_exists( Input::post( 'type' ), $options ) ) {
