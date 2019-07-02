@@ -23,7 +23,7 @@ defined('ABSPATH') or exit;
             <li><a href="#" class="<?php wpp_active( 'cache', true ); ?>" data-wpp-page-id="cache"><?php _e( 'Cache', 'wpp' ); ?></a></li>
             <li><a href="#" class="<?php wpp_active( 'css' ); ?>" data-wpp-page-id="css">CSS</a></li>
             <li><a href="#" class="<?php wpp_active( 'javascript' ); ?>" data-wpp-page-id="javascript">JavaScript</a></li>
-            <li><a href="#" class="<?php wpp_active( 'image-optimization' ); ?>" data-wpp-page-id="image-optimization"><?php _e( 'Images', 'wpp' ); ?></a></li>
+            <li><a href="#" class="<?php wpp_active( 'media' ); ?>" data-wpp-page-id="media"><?php _e( 'Media', 'wpp' ); ?></a></li>
             <li><a href="#" class="<?php wpp_active( 'database' ); ?>" data-wpp-page-id="database"><?php _e( 'Database', 'wpp' ); ?></a></li>
             <li><a href="#" class="<?php wpp_active( 'cdn' ); ?>" data-wpp-page-id="cdn">CDN</a></li>
             <li><a href="#" class="<?php wpp_active( 'settings' ); ?>" data-wpp-page-id="settings"><?php _e( 'Settings', 'wpp' ); ?></a></li>
@@ -38,7 +38,7 @@ defined('ABSPATH') or exit;
             <option value="cache" <?php wpp_active( 'cache', true, 'selected' ); ?>><?php _e( 'Cache', 'wpp' ); ?></option>
             <option value="css" <?php wpp_active( 'css', false, 'selected' ); ?>>CSS</option>
             <option value="javascript" <?php wpp_active( 'javascript', false, 'selected' ); ?>>JavaScript</option>
-            <option value="image-optimization" <?php wpp_active( 'image-optimization', false, 'selected' ); ?>><?php _e( 'Images', 'wpp' ); ?></option>
+            <option value="media" <?php wpp_active( 'media', false, 'selected' ); ?>><?php _e( 'Media', 'wpp' ); ?></option>
             <option value="database" <?php wpp_active( 'database', false, 'selected' ); ?>><?php _e( 'Database', 'wpp' ); ?></option>
             <option value="cdn" <?php wpp_active( 'cdn', false, 'selected' ); ?>>CDN</option>
             <option value="settings" <?php wpp_active( 'settings', false, 'selected' ); ?>><?php _e( 'Settings', 'wpp' ); ?></option>
@@ -60,8 +60,8 @@ defined('ABSPATH') or exit;
         <?php include WPP_ADMIN_DIR . 'javascript.php'; ?>
     </div>  
     
-    <div class="wpp_page <?php wpp_active( 'image-optimization' ); ?>" data-wpp-page="image-optimization">
-        <?php include WPP_ADMIN_DIR . 'images.php'; ?>
+    <div class="wpp_page <?php wpp_active( 'media' ); ?>" data-wpp-page="media">
+        <?php include WPP_ADMIN_DIR . 'media.php'; ?>
     </div>      
       
     <div class="wpp_page <?php wpp_active( 'database' ); ?>" data-wpp-page="database">
