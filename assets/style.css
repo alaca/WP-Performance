@@ -541,6 +541,10 @@ table.wpp-file-list tr {
 }
 
 
+.wpp-pb20 {
+    padding-bottom: 20px; 
+}
+
 @media only screen and (max-width: 979px) { 
 
     .wpp-content-section, .wpp-side-section {
