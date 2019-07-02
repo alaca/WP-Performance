@@ -63,14 +63,6 @@ add_action( 'wpp_backend_init', function(){
             wpp_preload_homepage();
         }   
 
-        // load settings file
-        if ( 
-            Input::get( 'load' ) 
-            && wp_verify_nonce( Input::get( 'nonce' ), 'load-config' ) 
-        ) {
-            wpp_load_settings( Input::get( 'load' ) );
-        }
-
         // Clear files list
         if ( 
             Input::get( 'clear' ) 
@@ -284,6 +276,14 @@ add_action( 'wpp_backend_init', function(){
                 'warning', 
                 false 
             );
+        }
+
+        // load settings file
+        if ( 
+            Input::get( 'load' ) 
+            && wp_verify_nonce( Input::get( 'nonce' ), 'load-config' ) 
+        ) {
+            wpp_load_settings( Input::get( 'load' ) );
         }
 
     } );

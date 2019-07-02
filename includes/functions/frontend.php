@@ -7,40 +7,36 @@
 */
 
 use WPP\Cache;
+use WPP\Input;
+use WPP\Option;
 
-add_action( 'wpp_frontend_init', function(){
+add_action( 'wpp_frontend_init', function() {
 
-    add_action( 'init', function(){
-
+    add_action( 'init', function() {
         // Check if user is logged in
-        if ( is_user_logged_in() && current_user_can( 'manage_options' ) ) {
+        if ( is_user_logged_in() && current_user_can( 'manage_options' ) )
             wpp_add_top_menu_item();
-        } 
-
-        // Cleanup header
-        if ( apply_filters( 'wpp_cleanup_header', true ) ) {
-            wpp_cleanup_header();
-        }
-
-        // Referesh page cache on POST request
-        if ( isset( $_POST ) ) {
-
-            $page = Cache::getFileName();
-
-            if ( file_exists( $page ) ) {
-                unlink( $page );
-            }
-        }
-
     });
+
+    // Disable emoji
+    if ( Option::boolval( 'disable_emoji' ) ) 
+        add_action( 'init', 'wpp_disable_emoji' );
+
+    // Disable embeds
+    if ( Option::boolval( 'disable_embeds' ) ) 
+        add_action( 'init', 'wpp_disable_embeds', 99999 );
           
     // Hook up
     add_action( 'wp', function() {
-
-        if ( apply_filters( 'wpp_parse_template', true ) ) {
-            is_404() || ob_start( [ 'WPP\Parser', 'init' ] );
-        }
-                
+        // Do not parse template if it's an ajax request
+        if ( ! wpp_is_ajax() )
+            is_404() || ob_start( [ 'WPP\Parser', 'init' ] ); 
     } );
+
+    // Referesh page cache on POST request
+    if ( Input::post() ) {
+        if ( file_exists( $page = Cache::getFileName() ) )
+            unlink( $page );
+    }    
 
 } );

@@ -7,8 +7,6 @@
 */
 
 use WPP\Url;
-use WPP\Input;
-
 
 /**
  * Exclude WooCommerce pages
@@ -33,14 +31,6 @@ function wpp_exclude_woocommerce_pages( $exclude ) {
     return $exclude;
 
 }
-
-/**
- * Do not parse the template if wc-ajax get parameter is set
- */
-if ( Input::get( 'wc-ajax' ) ) {
-    add_filter( 'wpp_parse_template', '__return_false' );
-}
-
 
 // Exclude WooCommerce pages
 add_filter( 'wpp_exclude_urls', 'wpp_exclude_woocommerce_pages' );

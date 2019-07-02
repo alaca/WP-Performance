@@ -882,9 +882,10 @@ class Parser
         }
 
         $vars = [
-            'css'      => Option::boolval( 'css_defer' ),
-            'js'       => Option::boolval( 'js_defer' ),
-            'lazyload' => Option::boolval( 'images_lazy' )
+            'css'    => Option::boolval( 'css_defer' ),
+            'js'     => Option::boolval( 'js_defer' ),
+            'images' => Option::boolval( 'images_lazy' ),
+            'videos' => Option::boolval( 'videos_lazy' )
         ];
 
         // Clear cache
@@ -893,12 +894,8 @@ class Parser
             $vars[ 'ajax_url' ] = admin_url( 'admin-ajax.php');
         }
 
-        if ( is_user_logged_in() ) {
-            $vars[ 'path' ] = WPP_ASSET_URL;
-        }
-
         // WPP JS
-        $this->body->innertext .= '<script>var WPP=' . json_encode( $vars ) . ';' . File::get( WPP_ASSET_DIR . 'load/wpp.min.js' ) . '</script>' . PHP_EOL;  
+        $this->body->innertext .= '<script>' . str_replace( '{}', json_encode( $vars ),  File::get( WPP_ASSET_DIR . 'load/wpp.min.js' ) ) . '</script>' . PHP_EOL;  
         
         /**
          * Filter parsed content

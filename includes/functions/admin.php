@@ -192,12 +192,12 @@ function wpp_add_top_menu_item() {
         ] );
 
         $admin_bar->add_node( [
-            'id'     => 'wpp_images_topbar_link',
-            'title'  => __( 'Images', 'wpp' ), 
-            'href'   => admin_url( 'admin.php?page=' . WPP_PLUGIN_ADMIN_URL . '&wpp-tab=image-optimization' ),
+            'id'     => 'wpp_media_topbar_link',
+            'title'  => __( 'Media', 'wpp' ), 
+            'href'   => admin_url( 'admin.php?page=' . WPP_PLUGIN_ADMIN_URL . '&wpp-tab=media' ),
             'parent' => 'wpp', 
             'meta'   => [
-                'title' => __( 'Images', 'wpp' )
+                'title' => __( 'Media', 'wpp' )
             ]
         ] );
 
@@ -287,7 +287,7 @@ function wpp_add_metabox() {
 
     add_meta_box(
         'wpp_page_cache_metabox',         
-        sprintf( '%s %s', WPP_PLUGIN_NAME, __( 'settings', 'wpp' ) ),  
+        sprintf( '%s %s', WPP_PLUGIN_NAME, __( 'Settings', 'wpp' ) ),  
         'wpp_display_cache_metabox',  
         null,
         'side',

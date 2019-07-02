@@ -85,13 +85,12 @@ final class WP_Performance
     public function run() {  
         
         // Don't run in CLI
-        if ( defined( 'WP_CLI' ) ) {
-            return null;
+        if ( ! defined( 'WP_CLI' ) ) {
+            return is_admin() 
+                ? $this->backend() 
+                : $this->frontend();   
         }
-        
-        return is_admin() 
-            ? $this->backend() 
-            : $this->frontend();   
+    
     }
 
     /**
@@ -101,9 +100,8 @@ final class WP_Performance
     private function frontend() {    
 
         // Is plugin disabled
-        if ( Option::boolval( 'wpp_disable' ) ) {
+        if ( Option::boolval( 'wpp_disable' ) ) 
             return false;
-        }
 
         /**
          * Frontend actions hook
@@ -111,7 +109,7 @@ final class WP_Performance
          * @since 1.0.8
          */
         do_action( 'wpp_frontend_init' );
-        
+
     }
 
     /**

@@ -130,13 +130,8 @@ function wpp_uninstall() {
         wpp_define_wp_cache( false );
     }
             
-    $GLOBALS['wpdb']->query( 
-        sprintf( 
-            'DELETE FROM %s WHERE option_name LIKE "%s%%"', 
-            $GLOBALS['wpdb']->options,
-            wpp_get_prefix()
-        ) 
-    );
+    // Remove all options from database
+    Option::removeAll();
 
     // Clear everything from the cache directory
     Cache::clearEverything();
@@ -171,7 +166,7 @@ function wpp_compatibility_check() {
         'wp-speed-of-light/wp-speed-of-light.php',
         'wp-ffpc/wp-ffpc.php',
         'swift-performance-lite/performance.php',
-        'swift-performance-pro/performance.php',
+        'swift-performance/performance.php',
         'hummingbird-performance/wp-hummingbird.php',
     ];
 
@@ -299,7 +294,7 @@ function wpp_define_wp_cache( $cache = true ) {
                 $found = true;
 
                 $expression =  ( $cache ) 
-                    ? 'define( "WP_CACHE", true ); // WP Performance'
+                    ? 'define( "WP_CACHE", true ); // WP Performance' . PHP_EOL
                     : '';
 
                 // Defined on the same line as opening PHP tag?
@@ -307,7 +302,7 @@ function wpp_define_wp_cache( $cache = true ) {
                     $expression = '<?php ' . $expression;
                 }
 
-                $code[ $i ] = $expression . PHP_EOL;
+                $code[ $i ] = $expression;
 
                 break;
             }
@@ -318,10 +313,10 @@ function wpp_define_wp_cache( $cache = true ) {
         if ( ! $found ) {
 
             $expression =  ( $cache ) 
-                ? 'define( "WP_CACHE", true ); // WP Performance'
+                ? 'define( "WP_CACHE", true ); // WP Performance' . PHP_EOL
                 : '';
 
-            $code[ 0 ] = '<?php' . PHP_EOL . $expression . PHP_EOL;
+            $code[ 0 ] = '<?php' . PHP_EOL . $expression;
 
         }
 
