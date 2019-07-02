@@ -185,7 +185,7 @@ $permalink =  get_permalink( $post );
         <?php 
         
         /**
-         * Exclude URL from JavaScript optimization filter
+         * Exclude URL from Image optimization filter
          * @since 1.0.3
          */
         $image_url_exclude = apply_filters( 'wpp_image_url_exclude', Option::get( 'image_url_exclude', [] ) );
@@ -210,7 +210,7 @@ $permalink =  get_permalink( $post );
 
             <br />
             
-            <em><?php _e( 'This page is affected by URL(s) exclude options on Images page', 'wpp' ); ?></em>
+            <em><?php _e( 'This page is affected by URL(s) exclude options on Media page', 'wpp' ); ?></em>
 
         <?php else: ?>
 
@@ -221,6 +221,57 @@ $permalink =  get_permalink( $post );
                 <?php if ( in_array( $post->ID, Option::get( 'image_post_exclude', [] ) ) ) echo 'checked'; ?> />
 
             <?php _e( 'Exclude from Image optimization', 'wpp' ); ?>
+
+        <?php endif; ?>
+
+    </label>
+
+</div>
+
+
+<div class="wpp-meta-option">
+
+    <label title="<?php _e( 'Page URL will be added to exclude list', 'wpp' ); ?>">
+
+        <?php 
+        
+        /**
+         * Exclude URL from video/iframe lazyload filter
+         * @since 1.1.6
+         */
+        $video_url_exclude = apply_filters( 'wpp_video_url_exclude', Option::get( 'video_url_exclude', [] ) );
+        
+        ?>
+
+        <?php 
+        
+            if ( 
+                ! in_array( $post->ID, Option::get( 'video_post_exclude', [] ) ) 
+                && wpp_is_url_excluded( $permalink, $video_url_exclude ) 
+            ) : 
+            
+            ?>
+
+            <input 
+                type="checkbox" 
+                checked="checked"
+                disabled="disabled" />
+
+            <?php _e( 'Exclude from Video lazyload', 'wpp' ); ?>
+
+            <br />
+            
+            <em><?php _e( 'This page is affected by URL(s) exclude options on Media page', 'wpp' ); ?></em>
+
+        <?php else: ?>
+
+            <input 
+                type="checkbox" 
+                name="video_post_exclude" 
+                value="<?php echo $post->ID; ?>" 
+                <?php if ( in_array( $post->ID, Option::get( 'video_post_exclude', [] ) ) ) echo 'checked'; ?> />
+
+            <?php _e( 'Exclude from Video lazyload', 'wpp' ); ?>
 
         <?php endif; ?>
 
