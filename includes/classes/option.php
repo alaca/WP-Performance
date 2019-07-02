@@ -95,4 +95,48 @@ class Option
     }
 
 
+    /**
+     * Remove all options
+     * 
+     * @since 1.1.6
+     * @return void
+     */
+    public static function removeAll() {
+
+        $GLOBALS['wpdb']->query( 
+            sprintf( 
+                'DELETE FROM %s WHERE option_name LIKE "%s%%"', 
+                $GLOBALS['wpdb']->options,
+                wpp_get_prefix()
+            ) 
+        );
+
+    }
+
+    /**
+     * Get all options
+     * 
+     * @since 1.1.6
+     * @return void
+     */
+    public static function getAll() {
+
+        $options = [];
+
+        $result = $GLOBALS['wpdb']->get_results( 
+            sprintf( 
+                'SELECT option_name, option_value FROM %s WHERE option_name LIKE "%s%%"', 
+                $GLOBALS['wpdb']->options,
+                wpp_get_prefix()
+            ) 
+        );
+
+        foreach( $result as $option ) 
+            $options[ $option->option_name ] = maybe_unserialize( $option->option_value );
+
+        return $options;
+
+    }
+
+
 }
