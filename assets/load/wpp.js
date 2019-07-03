@@ -5,39 +5,51 @@
 (function(window, document) {
 
     var wppEvent = 'WPPContentLoaded';
-    var lazyloadImageTimeout;
+    var lazyloadTimeout;
     var lazyloadVideoTimeout;
-    var imageElements;    
+    var elements;    
     var videoElements;    
     var WPP = {};
 
     /**
-     * Initialize Images LazyLoad
+     * Initialize LazyLoad
      */
-    function initLazyLoadImages() {
+    function initLazyLoad() {
 
-        imageElements = document.querySelectorAll('img[data-src]');
+        elements = document.querySelectorAll('[data-lazy]');
 
         if ( 'IntersectionObserver' in window) {
 
-            var imageObserver = new IntersectionObserver(function(entries, observer) {
+            var elementsObserver = new IntersectionObserver(function(entries, observer) {
 
                 entries.forEach(function(entry) {
 
                     if (entry.isIntersecting) {
 
-                        var image = entry.target;
+                        var element = entry.target;
 
-                        image.src = image.getAttribute('data-src');
-                        image.removeAttribute('data-src');
+                        switch( element.tagName  ) {
 
-                        // add scrcset
-                        if (image.getAttribute('data-srcset')) {
-                            image.srcset = image.getAttribute('data-srcset');
-                            image.removeAttribute('data-srcset');
+                            case 'IMG':
+   
+                                element.src = element.getAttribute('data-src');
+                                element.removeAttribute('data-src');
+            
+                                // add scrcset
+                                if (element.getAttribute('data-srcset')) {
+                                    element.srcset = element.getAttribute('data-srcset');
+                                    element.removeAttribute('data-srcset');
+                                }
+
+                                break;
+        
+                            case 'IFRAME':
+
+                                break;
+        
                         }
 
-                        imageObserver.unobserve(image);
+                        elementsObserver.unobserve(element);
                         
                     }
 
@@ -45,136 +57,75 @@
 
             });
 
-            imageElements.forEach(function(image) {
-                imageObserver.observe(image);
+            elements.forEach(function(element) {
+                elementsObserver.observe(element);
             });
 
         } else {  
 
-            document.addEventListener('scroll', lazyLoadImage);
-            window.addEventListener('resize', lazyLoadImage);
-            window.addEventListener('orientationChange', lazyLoadImage);
+            document.addEventListener('scroll', lazyLoad);
+            window.addEventListener('resize', lazyLoad);
+            window.addEventListener('orientationChange', lazyLoad);
 
         }
 
     };
 
     /**
-     * Image LazyLoad fallback
+     * LazyLoad fallback
      */
-    function lazyLoadImage () {
+    function lazyLoad () {
 
-        if(lazyloadImageTimeout) {
-            clearTimeout(lazyloadImageTimeout);
+        if(lazyloadTimeout) {
+            clearTimeout(lazyloadTimeout);
         }    
 
-        lazyloadImageTimeout = setTimeout(function() {
+        lazyloadTimeout = setTimeout(function() {
 
             var scrollTop = window.pageYOffset;
 
-            imageElements.forEach(function(img) {
+            elements.forEach(function(element) {
 
-                if(img.offsetTop < (window.innerHeight + scrollTop)) {
+                if ( element.offsetTop < ( window.innerHeight + scrollTop ) ) {
 
-                    img.src = img.getAttribute('data-src');
-                    img.removeAttribute('data-src');
+                    switch( element.tagName  ) {
 
-                    // add scrcset
-                    if (img.getAttribute('data-srcset')) {
-                        img.srcset = img.getAttribute('data-srcset');
-                        img.removeAttribute('data-srcset');
+                        case 'IMG':
+
+                            element.src = element.getAttribute('data-src');
+                            element.removeAttribute('data-src');
+        
+                            // add scrcset
+                            if (element.getAttribute('data-srcset')) {
+                                element.srcset = element.getAttribute('data-srcset');
+                                element.removeAttribute('data-srcset');
+                            }
+        
+
+                            break;
+
+                        case 'IFRAME':
+
+                            break;
+
                     }
 
                 }
 
+
             });
 
-            if(imageElements.length == 0) { 
-                document.removeEventListener('scroll', lazyLoadImage);
-                window.removeEventListener('resize', lazyLoadImage);
-                window.removeEventListener('orientationChange', lazyLoadImage);
+            if (elements.length == 0) { 
+                document.removeEventListener('scroll', lazyLoad);
+                window.removeEventListener('resize', lazyLoad);
+                window.removeEventListener('orientationChange', lazyLoad);
             }
 
         }, 20);
 
     }
 
-    /**
-     * Initialize Videos LazyLoad
-     */
-    function initLazyLoadVideos() {
-
-        videoElements = document.querySelectorAll('.wpp-video');
-
-        if ( 'IntersectionObserver' in window) {
-
-            var videoObserver = new IntersectionObserver(function(entries, observer) {
-
-                entries.forEach(function(entry) {
-
-                    if (entry.isIntersecting) {
-
-                        var video = entry.target;
-
-                        // lazy load video
-
-
-                        videoObserver.unobserve(video);
-                        
-                    }
-
-                });
-
-            });
-
-            videoElements.forEach(function(video) {
-                videoObserver.observe(video);
-            });
-
-        } else {  
-
-            document.addEventListener('scroll', lazyLoadVideo);
-            window.addEventListener('resize', lazyLoadVideo);
-            window.addEventListener('orientationChange', lazyLoadVideo);
-
-        }
-
-    };
-
-    
-    /**
-     * Image LazyLoad fallback
-     */
-    function lazyLoadVideo () {
-
-        if(lazyloadVideoTimeout) {
-            clearTimeout(lazyloadVideoTimeout);
-        }    
-
-        lazyloadVideoTimeout = setTimeout(function() {
-
-            var scrollTop = window.pageYOffset;
-
-            videoElements.forEach(function(video) {
-
-                if(video.offsetTop < (window.innerHeight + scrollTop)) {
-
-                    // lazy load video 
-
-                }
-
-            });
-
-            if(videoElements.length == 0) { 
-                document.removeEventListener('scroll', lazyLoadVideo);
-                window.removeEventListener('resize', lazyLoadVideo);
-                window.removeEventListener('orientationChange', lazyLoadVideo);
-            }
-
-        }, 20);
-
-    }
-
+ 
     /**
      * Load CSS file
      * 
@@ -317,8 +268,7 @@
     }
 
     if ( WPP.css && ! supportsPreload() ) preloadStyles();
-    if ( WPP.images ) initLazyLoadImages();
-    if ( WPP.videos ) initLazyLoadVideos();
+    if ( WPP.images || WPP.videos ) initLazyLoad();
     if ( WPP.js ) loadJS();
 
     if ( typeof WPP.expire != 'undefined' ) {
