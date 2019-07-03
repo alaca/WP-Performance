@@ -14,6 +14,7 @@ use WPP\Option;
  * CSS optimization
  * JavaScript optimization
  * Image optimization
+ * Iframe lazyload
  *
  * @param array $exclude
  * @return array
@@ -26,6 +27,7 @@ add_action( 'init', function() {
         'wpp_js_url_exclude'    => 'js_post_exclude',
         'wpp_exclude_urls'      => 'cache_post_exclude',
         'wpp_image_url_exclude' => 'image_url_exclude',
+        'wpp_video_url_exclude' => 'video_url_exclude',
     ];
 
     foreach( $hooks as $filter => $option ) {
