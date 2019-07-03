@@ -83,6 +83,13 @@ If you encounter any bug, please create an issue on [Github](https://github.com/
 
 == Changelog ==
 
+= 1.1.6 =
+[NEW] Lazy load videos
+[NEW] Disable Emojis
+[NEW] Disable Embeds
+[UPDATE] Translations
+[FIX] Load/Save settings
+
 = 1.1.5.1 =
 [FIX] Fix WooCommerce Add to cart error
 
