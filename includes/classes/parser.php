@@ -668,7 +668,7 @@ class Parser
   
             foreach( $images as $img ) {
 
-                $img->{'data-lazy'} = 'true';
+                $img->loading = 'lazy';
                 $img->{'data-srcset'} = $img->srcset;
                 $img->{'data-src'} = $img->src;
 
@@ -736,17 +736,9 @@ class Parser
                 continue;
             }
 
-            $iframe->{'data-lazy'} = 'true';
+            $iframe->loading = 'lazy';
             $iframe->{'data-src'} = $iframe->src;
-
-            if ( 
-                Option::boolval( 'youtube_preview_image' ) 
-                && strstr( $iframe->src, 'youtube' )
-            ) {
-
-            }
-
-            $iframe->removeAttribute( 'src' );
+            $iframe->src = 'about:blank';
 
         }
 
