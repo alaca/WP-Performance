@@ -1,4 +1,5 @@
 includes/data/settings/*.json
 *.backup
 log.txt
+wpp.js
 vendor/
