@@ -157,7 +157,6 @@ function wpp_save_settings( $notify = true ) {
 
     // Videos
     Option::update( 'videos_lazy',           Input::post( 'videos_lazy', 'boolean' ) );
-    Option::update( 'youtube_preview_image', Input::post( 'youtube_preview_image', 'boolean' ) );
     Option::update( 'video_url_exclude',     Input::post( 'video_url_exclude', 'string', FILTER_REQUIRE_ARRAY ) );
 
     // Media

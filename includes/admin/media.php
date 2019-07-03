@@ -211,18 +211,6 @@ defined('ABSPATH') or exit; ?>
             </td>
         </tr>
 
-        <tr data-wpp-show-checked="youtube_preview_image">
-            <td></td>
-            <td>
-                <label class="wpp-info">
-                    <input type="checkbox" value="1" name="youtube_preview_image" form="wpp-settings" <?php wpp_checked( 'youtube_preview_image' ); ?> />
-                    <?php _e( 'Replace YouTube iframe with preview image', 'wpp' ); ?>
-                </label>
-                <br /><br />
-                <em><span class="dashicons dashicons-info"></span> <?php _e( 'This can improve your loading time if you have a lot of YouTube videos on a page', 'wpp' ); ?></em>
-            </td>
-        </tr> 
-
         <tr data-wpp-show-checked="videos_exclude">
             <td></td>
             <td>
