@@ -7,7 +7,6 @@
 */
 
 use WPP\Cache;
-use WPP\Input;
 use WPP\Option;
 
 add_action( 'wpp_frontend_init', function() {
