@@ -139,9 +139,20 @@ class Parser
          */
         $image_url_exclude = apply_filters( 'wpp_image_url_exclude', Option::get( 'image_url_exclude', [] ) );
 
-        if ( ! wpp_is_url_excluded( Url::current(), $image_url_exclude ) 
-        ) {
+        if ( ! wpp_is_url_excluded( Url::current(), $image_url_exclude ) ) 
             $this->parseImages();
+
+        /**
+         * Exclude URL from iframe lazyload filter
+         * @since 1.1.6
+         */
+        $video_url_exclude = apply_filters( 'wpp_video_url_exclude', Option::get( 'video_url_exclude', [] ) );
+
+        if ( 
+            ! wpp_is_url_excluded( Url::current(), $video_url_exclude ) 
+            && Option::boolval( 'videos_lazy' ) 
+        ) {
+            $this->parseIframes();
         }
 
         // Rebuild the template
@@ -560,7 +571,6 @@ class Parser
     private function parseImages() {
 
         $upload = wp_upload_dir();
-        $theme = get_template();
 
         // Check if images in specific containers are excluded
         if ( ! empty( $containers = Option::get( 'images_containers_ids', [] ) ) ) {
@@ -645,7 +655,6 @@ class Parser
 
         }
 
-
         // lazy load images
         if ( 
             Option::boolval( 'images_lazy' ) 
@@ -659,6 +668,7 @@ class Parser
   
             foreach( $images as $img ) {
 
+                $img->{'data-lazy'} = 'true';
                 $img->{'data-srcset'} = $img->srcset;
                 $img->{'data-src'} = $img->src;
 
@@ -706,14 +716,49 @@ class Parser
 
 
     }
+
+
+    /**
+     * Parse iframes
+     *
+     * @return void
+     */
+    private function parseIframes() {
+
+        // lazy load iframes
+        foreach( $this->html->find( 'iframe' ) as $iframe ) {
+
+            // skip iframe if it has skip attribute or src is empty
+            if ( 
+                $iframe->{'data-skip'} === 'true' 
+                || ! $iframe->src 
+            ) {
+                continue;
+            }
+
+            $iframe->{'data-lazy'} = 'true';
+            $iframe->{'data-src'} = $iframe->src;
+
+            if ( 
+                Option::boolval( 'youtube_preview_image' ) 
+                && strstr( $iframe->src, 'youtube' )
+            ) {
+
+            }
+
+            $iframe->removeAttribute( 'src' );
+
+        }
+
+    }
     
     /**
      * Rebuild the template
      *
      * @return void
      */
-    private function buildTemplate()
-    {
+    private function buildTemplate() {
+
         // Build lists
         foreach( [ 'theme', 'plugin', 'external', 'prefetch' ]  as $list ) {
 
