@@ -34,9 +34,19 @@ add_action( 'wpp_frontend_init', function() {
     } );
 
     // Referesh page cache on POST request
-    if ( Input::post() ) {
-        if ( file_exists( $page = Cache::getFileName() ) )
+    if ( ! empty( $_POST ) ) {
+
+        if ( file_exists( $page = Cache::getFileName() ) ) {
+
             unlink( $page );
+
+            foreach( [ '_gz', '_amp' ] as $extension ) {
+                if ( file_exists( $page . $extension ) ) 
+                    unlink( $page . $extension );
+            }
+
+        }
+            
     }    
 
 } );
