@@ -198,6 +198,9 @@ class Parser
             
             if ( File::isLocal( $href ) ) {
 
+                if ( $link->media !== 'print' ) 
+                    Collection::add( 'critical', 'css', $href );
+                
                 // Is this a plugin file ?
                 if ( strstr( $link->href, plugins_url() ) ) {
                     Collection::add( 'plugin', 'css', $href );
@@ -324,44 +327,6 @@ class Parser
                 && ! wpp_in_array( Option::get( 'cdn_exclude', [] ), $href )
             ) {
                 $link->href = str_replace( site_url(), Option::get( 'cdn_hostname'), $link->href ); 
-            }
-
-        }
-        
-        // Prefetch
-        if ( ! empty( $prefetch = Option::get( 'css_prefetch', [] ) ) ) {
-
-            $included = [];
-            
-            foreach( $this->html->find( 'link[rel=dns-prefetch]' ) as $link ) {
-                $included[] = $link->href;
-            }
-
-            foreach( array_keys( $prefetch ) as $dns  ) {
-
-                if ( ! wpp_in_array( $dns, $included ) ) {
-                    $this->head->innertext = '<link rel="dns-prefetch" href="//' . $dns . '" />' . PHP_EOL . $this->head->innertext;
-                }
-
-            }
-
-        }
-
-        // Preconnect
-        if ( ! empty( $preconnect = Option::get( 'css_preconnect', [] ) ) ) {
-
-            $included = [];
-            
-            foreach( $this->html->find( 'link[rel=preconnect]' ) as $link ) {
-                $included[] = $link->href;
-            }
-
-            foreach( array_keys( $preconnect ) as $dns  ) {
-
-                if ( ! wpp_in_array( $dns, $included ) ) {
-                    $this->head->innertext = '<link rel="preconnect" href="//' . $dns . '" />' . PHP_EOL . $this->head->innertext;
-                }
-
             }
 
         }
@@ -515,50 +480,6 @@ class Parser
                 }
                                
             }
-        }
-
-        // Preconnect
-        if ( ! empty( $preconnect = Option::get( 'js_preconnect', [] ) ) ) {
-
-            $included = [];
-            
-            foreach( $this->html->find( 'link[rel=preconnect]' ) as $link ) {
-                $included[] = $link->href;
-            }
-
-            foreach( array_keys( $preconnect ) as $dns  ) {
-
-                if ( 
-                    ! wpp_in_array( $dns, $included ) 
-                    && ! array_key_exists( $dns, Option::get( 'css_preconnect', [] ) ) // prevent including it twice
-                ) {
-                    $this->head->innertext = '<link rel="preconnect" href="//' . $dns . '" />' . PHP_EOL . $this->head->innertext;
-                }
-
-            }
-
-        }
-
-        // Prefetch
-        if ( ! empty( $prefetch = Option::get( 'js_prefetch', [] ) ) ) {
-
-            $included = [];
-            
-            foreach( $this->html->find( 'link[rel=dns-prefetch]' ) as $link ) {
-                $included[] = $link->href;
-            }
-
-            foreach( array_keys( $prefetch ) as $dns  ) {
-
-                if ( 
-                    ! wpp_in_array( $dns, $included ) 
-                    && ! array_key_exists( $dns, Option::get( 'css_prefetch', [] ) ) // prevent including it twice
-                ) {
-                    $this->head->innertext = '<link rel="dns-prefetch" href="//' . $dns . '" />' . PHP_EOL . $this->head->innertext;
-                }
-
-            }
-
         }
         
     }
@@ -752,7 +673,7 @@ class Parser
     private function buildTemplate() {
 
         // Build lists
-        foreach( [ 'theme', 'plugin', 'external', 'prefetch' ]  as $list ) {
+        foreach( [ 'theme', 'plugin', 'external', 'prefetch', 'critical' ]  as $list ) {
 
             foreach( Collection::get( $list ) as $type => $items ) {
 
@@ -916,6 +837,54 @@ class Parser
         // Insert noscript fallback
         if ( ! empty( $defered_css = Collection::get( 'defer', 'css' ) ) ) {
             $this->head->innertext .= '<noscript>' . implode( PHP_EOL, $defered_css ) . '</noscript>' . PHP_EOL;
+        }
+
+        // Prefetch
+        $prefetch = array_unique( 
+            array_merge( 
+                Option::get( 'js_prefetch', [] ), 
+                Option::get( 'css_prefetch', [] ) 
+            ) 
+        );
+
+        if ( ! empty( $prefetch ) ) {
+
+            $included = [];
+            
+            foreach( $this->html->find( 'link[rel=dns-prefetch]' ) as $link ) {
+                $included[] = $link->href;
+            }
+
+            foreach( array_keys( $prefetch ) as $dns  ) {
+                if ( ! wpp_in_array( $dns, $included ) ) {
+                    $this->head->innertext = '<link rel="dns-prefetch" href="//' . $dns . '" />' . PHP_EOL . $this->head->innertext;
+                }
+            }
+
+        }
+
+        // Preconnect
+        $preconnect = array_unique( 
+            array_merge( 
+                Option::get( 'js_preconnect', [] ), 
+                Option::get( 'css_preconnect', [] ) 
+            ) 
+        );
+
+        if ( ! empty( $preconnect ) ) {
+
+            $included = [];
+            
+            foreach( $this->html->find( 'link[rel=preconnect]' ) as $link ) {
+                $included[] = $link->href;
+            }
+
+            foreach( array_keys( $preconnect ) as $dns  ) {
+                if ( ! wpp_in_array( $dns, $included ) ) {
+                    $this->head->innertext = '<link rel="preconnect" href="//' . $dns . '" />' . PHP_EOL . $this->head->innertext;
+                }
+            }
+
         }
 
         $vars = [
