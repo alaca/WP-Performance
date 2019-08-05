@@ -62,6 +62,9 @@ This plugin generates static html files from your dynamic content and it uses mo
 
 ## Changelog ##
 
+### 1.1.6.1 ###
+[FIX] Lazyload issues
+
 ### 1.1.6 ###
 * [NEW] Lazy load videos
 * [NEW] Disable Emojis

@@ -83,6 +83,9 @@ If you encounter any bug, please create an issue on [Github](https://github.com/
 
 == Changelog ==
 
+= 1.1.6.1 =
+[FIX] Lazyload issues
+
 = 1.1.6 =
 [NEW] Lazy load videos
 [NEW] Disable Emojis
