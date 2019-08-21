@@ -29,7 +29,8 @@ This plugin generates static html files from your dynamic content and it uses mo
 * Critical CSS path generator
 * Database Cleaner
 * Export/import settings
-* Lazy Load images
+* Lazy Load images ( supports native lazy load )
+* Lazy Load videos ( supports native lazy load )
 * Responsive images
 * Regenerate thumbs
 * CDN
@@ -82,6 +83,9 @@ If you encounter any bug, please create an issue on [Github](https://github.com/
 7. Settings
 
 == Changelog ==
+
+= 1.1.6.2 =
+[FIX] HTML minify
 
 = 1.1.6.1 =
 [FIX] Lazyload issues
