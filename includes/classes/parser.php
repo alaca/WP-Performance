@@ -914,7 +914,7 @@ class Parser
         if ( apply_filters( 'wpp_minify_html', true ) ) {
 
             $this->html = preg_replace( 
-                [ '/<!--(?!\[|\<).*-->/', '/[[:blank:]]+/' ], 
+                [ '/<!--(?!\[|\<|\>).*-->/', '/[[:blank:]]+/' ], 
                 [ '',' ' ], 
                 str_replace( "\t", '', $this->html )
             );
