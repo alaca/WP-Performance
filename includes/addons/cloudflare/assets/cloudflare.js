@@ -3,9 +3,11 @@ jQuery(document).ready(function ($) {
     /**
      * Clear Cloudflare cache
      */
-    $(document).on('click', '#wpp-clear-cf-cache, #wp-admin-bar-cloudflare_clear_cache a', function (e) {
+    $(document).on('click', '#wpp-clear-cf-cache, #wpp-clear-cf-custom, #wp-admin-bar-cloudflare_clear_cache a, #wp-admin-bar-cloudflare_clear_custom a', function (e) {
 
         e.preventDefault();
+
+        var action = $(this).attr('href').replace( '#', '');
 
         $.confirm({
             content: $(this).data('description') || $(this).attr('title'),
@@ -19,7 +21,7 @@ jQuery(document).ready(function ($) {
                         url: ajaxurl,
                         dataType: 'json',
                         data: {
-                            action: 'wpp_clear_cf_cache',
+                            action: action,
                             nonce: WPP.nonce
                         }
                     }).done(function ( response ) {

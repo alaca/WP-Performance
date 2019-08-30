@@ -18,9 +18,59 @@ defined('ABSPATH') or exit; ?>
                 </tr>
 
                 <tr>
-                    <td><strong><?php _e( 'Cloudflare cache', 'wpp' ); ?></strong></td>
+                    <td><strong><?php _e( 'Purge Cache', 'wpp' ); ?></strong></td>
                     <td>
-                        <a href="#" id="wpp-clear-cf-cache" data-description="<?php _e( 'Clear all Cloudflare cache', 'wpp' ); ?>" class="button"><?php _e( 'Clear cache', 'wpp' ); ?></a> 
+                        <a href="wpp_clear_cf_cache" id="wpp-clear-cf-cache" data-description="<?php _e( 'Clear all Cloudflare cache', 'wpp' ); ?>" class="button"><?php _e( 'Purge everything', 'wpp' ); ?></a> 
+                        <a href="wpp_clear_cf_custom" id="wpp-clear-cf-cache" data-description="<?php _e( 'Clear custom URL(s) from Cloudflare cache', 'wpp' ); ?>" class="button"><?php _e( 'Purge custom URL(s)', 'wpp' ); ?></a> 
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><strong><?php _e( 'Purge custom URL(s)', 'wpp' ); ?></strong></td>
+                    <td>
+
+                        <?php $cf_custom_purge_urls = Option::get( 'cf_custom_purge_urls', [] ); ?>
+
+                        <div id="wpp-cf-custom-purge-urls">
+
+                            <?php foreach( $cf_custom_purge_urls as $url ): ?>
+                                <div data-dynamic-container="cf_custom_purge_urls[]" class="wpp-dynamic-input-container">
+
+                                    <input 
+                                        name="cf_custom_purge_urls[]" 
+                                        value="<?php echo $url; ?>" 
+                                        placeholder="<?php echo site_url(); ?>" 
+                                        class="wpp-dynamic-input" 
+                                        form="wpp-settings" 
+                                        type="text" 
+                                        required
+                                    /> &nbsp; 
+
+                                    <a href="#" data-name="cf_custom_purge_urls[]" class="button wpp-remove-input"><?php _e('Remove', 'wpp'); ?></a>
+
+                                </div>
+                            <?php endforeach; ?>
+
+                        </div>
+
+                        <?php if( ! empty( $cf_custom_purge_urls ) ) : ?>
+                            <div data-info-name="cf_custom_purge_urls[]">
+                                <em><span class="dashicons dashicons-info"></span> <?php _e( 'Any assets in the Cloudflare cache that match the URL(s) exactly will be purged from the cache.', 'wpp' ); ?></em>
+                                <br />
+                            </div>
+                        <?php endif; ?>
+
+                        <a href="#" 
+                            class="button" 
+                            data-add-input="cf_custom_purge_urls[]" 
+                            data-placeholder="<?php echo site_url(); ?>" 
+                            data-info="<?php _e( 'Any assets in the Cloudflare cache that match the URL(s) exactly will be purged from the cache.', 'wpp' ); ?>" 
+                            data-container="#wpp-cf-custom-purge-urls">
+                            
+                            <?php _e( 'Add URL', 'wpp' ); ?>
+
+                        </a>
+
                     </td>
                 </tr>
 

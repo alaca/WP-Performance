@@ -27,11 +27,13 @@ class Cloudflare {
     private function __construct() {
 
         // Save Cloudflare settings
-        add_action( 'init',                       [ $this, 'saveCloudflareSettings' ] );
+        add_action( 'init',                         [ $this, 'saveCloudflareSettings' ] );
         // Update settings option
-        add_action( 'wpp-save-settings',          [ $this, 'saveSettings' ] );
+        add_action( 'wpp-save-settings',            [ $this, 'saveSettings' ] );
         // Add ajax purge cache action
-        add_action( 'wp_ajax_wpp_clear_cf_cache', [ $this, 'ajaxPurgeCache' ] );
+        add_action( 'wp_ajax_wpp_clear_cf_cache',   [ $this, 'ajaxPurgeCache' ] );
+        // Add ajax purge custom URL cache action
+        add_action( 'wp_ajax_wpp_clear_cf_custom',  [ $this, 'ajaxPurgeCacheCustomUrl' ] );
 
         // Display menu items and option in add-on section
         add_action( 'admin_init', function() {
@@ -50,7 +52,8 @@ class Cloudflare {
 
                 // Add topbar links
                 UI::addLink( 'cloudflare', 'Cloudflare' );
-                UI::addLink( 'cloudflare_clear_cache', __( 'Clear Cloudflare cache', 'wpp' ), 'wpp_clear_cf_cache' );
+                UI::addLink( 'cloudflare_clear_cache', __( 'Cloudflare - purge everything', 'wpp' ), '#wpp_clear_cf_cache' );
+                UI::addLink( 'cloudflare_clear_custom', __( 'Cloudflare - purge custom URL(s)', 'wpp' ), '#wpp_clear_cf_custom' );
 
                 // Enqueue JS
                 wp_enqueue_script( 'wpp-cloudflare', WPP_ADDONS_URL . 'cloudflare/assets/cloudflare.js', [ 'wpp-settings' ], WPP_VERSION );
@@ -98,6 +101,9 @@ class Cloudflare {
         Option::update( 'cf_api_key',   Input::post( 'cf_api_key' ) );
         Option::update( 'cf_email',     Input::post( 'cf_email' ) );
         Option::update( 'cf_zone_id',   Input::post( 'cf_zone_id' ) );
+
+        // Save purge URLs
+        Option::update( 'cf_custom_purge_urls', Input::post( 'cf_custom_purge_urls', 'string', FILTER_REQUIRE_ARRAY ) );
 
         // Cloudflare API instance
         $API = Cloudflare_API::instance();
@@ -223,6 +229,36 @@ class Cloudflare {
             $data = [
                 'status'  => 0,
                 'message' => __( 'Something went wrong. Cannot purge Cloudflare cache', 'wpp' )
+            ];
+    
+        } else {
+            $data = [ 'status'  => 1 ];
+        }
+    
+        wp_send_json( $data );
+
+    }
+
+
+    /**
+     * Purge Cloudflare custom URL cache - ajax action
+     *
+     * @return array
+     * @since 1.1.7
+     */
+    public function ajaxPurgeCacheCustomUrl() {
+
+        check_ajax_referer( 'wpp-ajax', 'nonce' );
+
+        $files = Option::get( 'cf_custom_purge_urls', [] );
+
+        $response = Cloudflare_API::instance()->purgeCacheCustomUrl( $files ); 
+    
+        if ( is_wp_error( $response ) ) {
+    
+            $data = [
+                'status'  => 0,
+                'message' => __( 'Something went wrong. Cannot purge Cloudflare custom URL(s) cache', 'wpp' )
             ];
     
         } else {

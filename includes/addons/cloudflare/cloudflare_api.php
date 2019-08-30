@@ -291,4 +291,24 @@ class Cloudflare_API extends API {
 
     }
 
+    /**
+     * Purge custom URL cache
+     *
+     * @see https://api.cloudflare.com/#zone-purge-individual-files-by-url-and-cache-tags
+     * 
+     * @param array $files
+     * 
+     * @return WP_error|array
+     * @since 1.1.7
+     */
+    public function purgeCacheCustomUrl( $files ) {
+
+        return $this->POST( 'purge_cache', json_encode( 
+            [ 
+                'files' => array_values( $files ) 
+            ] 
+        ) );
+
+    }
+
 }
