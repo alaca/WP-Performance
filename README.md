@@ -63,11 +63,16 @@ This plugin generates static html files from your dynamic content and it uses mo
 
 ## Changelog ##
 
+### 1.1.7 ###
+* [NEW] Cloudflare Add-on - purge individual cache
+* [NEW] Option to keep generated JS/CSS files when flushing the cache
+* [FIX] Lazy Load issues in MSIE
+
 ### 1.1.6.2 ###
-[FIX] HTML minify
+* [FIX] HTML minify
 
 ### 1.1.6.1 ###
-[FIX] Lazyload issues
+* [FIX] Lazyload issues
 
 ### 1.1.6 ###
 * [NEW] Lazy load videos

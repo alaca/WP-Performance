@@ -9,80 +9,12 @@ Stable tag: 1.1.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-== Description ==
-
-WP Performance is a cache & performance plugin which makes optimizing your site really easy.
-This plugin generates static html files from your dynamic content and it uses mod_rewrite to load the cache files which is the fastest method.
-
-
-### Features ###
-
-* Page cache
-* Cache preloading
-* Browser cache
-* GZIP Compression
-* Minify CSS, JavaScript, and HTML
-* Asynchronously load CSS/JavaScript
-* Combine CSS/JavaScript
-* Disable CSS/JavaScript
-* Resource hints
-* Critical CSS path generator
-* Database Cleaner
-* Export/import settings
-* Lazy Load images ( supports native lazy load )
-* Lazy Load videos ( supports native lazy load )
-* Responsive images
-* Regenerate thumbs
-* CDN
-* WP-CLI Support
-* WordPress Multisite
-
-### Add-ons ###
-
-* Cloudflare integration
-* Varnish cache
-* Dynamic page preload
-
-### Supported languages ### 
-
-* English
-* Hrvatski
-* 中文 (by @cmhello)
-
-
-### WP-CLI Support ###
-
-* **wp wpp flush** - Clear the cache
-* **wp wpp disable** - Temporarily disable WP Performance
-* **wp wpp enable** - Enable WP Performance
-* **wp wpp cleanup** - Run all database cleanups
-* **wp wpp cleanup trash** - Run trash cleanup
-* **wp wpp cleanup spam** - Run spam cleanup
-* **wp wpp cleanup revisions** - Run revisions cleanup
-* **wp wpp cleanup drafts** - Run drafts cleanup
-* **wp wpp cleanup transients** - Run transients cleanup
-* **wp wpp cleanup cron** - Run cron tasks cleanup
-
-### Report bugs ### 
-If you encounter any bug, please create an issue on [Github](https://github.com/alaca/WP-Performance). 
-
-== Installation ==
-
-1. Upload "wp-performance" to the "/wp-content/plugins/" directory
-2. Activate the plugin through the Plugins menu in WordPress
-
-
-== Screenshots ==
-
-1. Cache page
-2. CSS optimization page
-3. JavaScript optimization page
-4. Images
-5. DB Optimizer
-6. CDN
-7. Settings
-
 == Changelog ==
+
+= 1.1.7 =
+[NEW] Cloudflare Add-on - purge individual cache
+[NEW] Option to keep generated JS/CSS files when flushing the cache
+[FIX] Lazy Load issues in MSIE
 
 = 1.1.6.2 =
 [FIX] HTML minify
@@ -228,7 +160,78 @@ If you encounter any bug, please create an issue on [Github](https://github.com/
 [FIX] Clear cache JS error
 [NEW] Chinese translation
 
+== Description ==
 
+WP Performance is a cache & performance plugin which makes optimizing your site really easy.
+This plugin generates static html files from your dynamic content and it uses mod_rewrite to load the cache files which is the fastest method.
+
+
+### Features ###
+
+* Page cache
+* Cache preloading
+* Browser cache
+* GZIP Compression
+* Minify CSS, JavaScript, and HTML
+* Asynchronously load CSS/JavaScript
+* Combine CSS/JavaScript
+* Disable CSS/JavaScript
+* Resource hints
+* Critical CSS path generator
+* Database Cleaner
+* Export/import settings
+* Lazy Load images ( supports native lazy load )
+* Lazy Load videos ( supports native lazy load )
+* Responsive images
+* Regenerate thumbs
+* CDN
+* WP-CLI Support
+* WordPress Multisite
+
+### Add-ons ###
+
+* Cloudflare integration
+* Varnish cache
+* Dynamic page preload
+
+### Supported languages ### 
+
+* English
+* Hrvatski
+* 中文 (by @cmhello)
+
+
+### WP-CLI Support ###
+
+* **wp wpp flush** - Clear the cache
+* **wp wpp disable** - Temporarily disable WP Performance
+* **wp wpp enable** - Enable WP Performance
+* **wp wpp cleanup** - Run all database cleanups
+* **wp wpp cleanup trash** - Run trash cleanup
+* **wp wpp cleanup spam** - Run spam cleanup
+* **wp wpp cleanup revisions** - Run revisions cleanup
+* **wp wpp cleanup drafts** - Run drafts cleanup
+* **wp wpp cleanup transients** - Run transients cleanup
+* **wp wpp cleanup cron** - Run cron tasks cleanup
+
+### Report bugs ### 
+If you encounter any bug, please create an issue on [Github](https://github.com/alaca/WP-Performance). 
+
+== Installation ==
+
+1. Upload "wp-performance" to the "/wp-content/plugins/" directory
+2. Activate the plugin through the Plugins menu in WordPress
+
+
+== Screenshots ==
+
+1. Cache page
+2. CSS optimization page
+3. JavaScript optimization page
+4. Images
+5. DB Optimizer
+6. CDN
+7. Settings
 
 
 == Frequently Asked Questions ==
