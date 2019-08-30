@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WP Performance\n"
-"POT-Creation-Date: 2019-07-03 14:21+0200\n"
-"PO-Revision-Date: 2019-07-03 14:21+0200\n"
+"POT-Creation-Date: 2019-08-30 15:10+0200\n"
+"PO-Revision-Date: 2019-08-30 15:11+0200\n"
 "Last-Translator: WordPress大学 <support@wpdaxue.com>\n"
 "Language-Team: WordPress淘宝网 <support@wptaobao.com>\n"
 "Language: zh_CN\n"
@@ -21,72 +21,82 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: includes/addons/cloudflare/cloudflare.php:53
-msgid "Clear Cloudflare cache"
-msgstr "清除Cloudflare缓存"
+#: includes/addons/cloudflare/cloudflare.php:55
+#, fuzzy
+#| msgid "Cloudflare credentials"
+msgid "Cloudflare - purge everything"
+msgstr "Cloudflare凭据"
 
-#: includes/addons/cloudflare/cloudflare.php:94
+#: includes/addons/cloudflare/cloudflare.php:56
+msgid "Cloudflare - purge custom URL(s)"
+msgstr ""
+
+#: includes/addons/cloudflare/cloudflare.php:97
 msgid "Cloudflare API credentials not set"
 msgstr "未设置Cloudflare API凭据"
 
-#: includes/addons/cloudflare/cloudflare.php:110
+#: includes/addons/cloudflare/cloudflare.php:116
 msgid " Cloudflare cannot get zone details. Check your Cloudflare credentials"
 msgstr " Cloudflare无法获取区域详细信息。检查您的Cloudflare凭据"
 
-#: includes/addons/cloudflare/cloudflare.php:117
+#: includes/addons/cloudflare/cloudflare.php:123
 #, php-format
 msgid ""
 " Cloudflare zone %s is not activated. Please go to your Cloudflare dashboard "
 "and activate it."
 msgstr " Cloudflare区域%s未激活。请转到Cloudflare仪表板并激活它。"
 
-#: includes/addons/cloudflare/cloudflare.php:121
+#: includes/addons/cloudflare/cloudflare.php:127
 #, php-format
 msgid ""
 " Cloudflare zone %s status is pending and these settings won't have any "
 "effect on your website."
 msgstr " Cloudflare 区域%s状态为待审，这些设置对您的网站没有任何影响。"
 
-#: includes/addons/cloudflare/cloudflare.php:136
+#: includes/addons/cloudflare/cloudflare.php:142
 msgid " Cloudflare development mode not set"
 msgstr " 未设置Cloudflare开发模式"
 
-#: includes/addons/cloudflare/cloudflare.php:145
+#: includes/addons/cloudflare/cloudflare.php:151
 msgid " Cloudflare cache level not set"
 msgstr " 未设置Cloudflare缓存级别"
 
-#: includes/addons/cloudflare/cloudflare.php:155
+#: includes/addons/cloudflare/cloudflare.php:161
 msgid " Cloudflare browser cache expiration not set"
 msgstr " 未设置Cloudflare浏览器缓存过期"
 
-#: includes/addons/cloudflare/cloudflare.php:169
+#: includes/addons/cloudflare/cloudflare.php:175
 msgid " Cloudflare minify not set"
 msgstr " 未设置Cloudflare压缩"
 
-#: includes/addons/cloudflare/cloudflare.php:181
+#: includes/addons/cloudflare/cloudflare.php:187
 msgid " Cloudflare Rocket loader mode not set"
 msgstr " 未设置Cloudflare Rocket加载器模式"
 
-#: includes/addons/cloudflare/cloudflare.php:191
+#: includes/addons/cloudflare/cloudflare.php:197
 msgid " Cloudflare Brotli mode not set"
 msgstr " 未设置Cloudflare Brotli模式"
 
-#: includes/addons/cloudflare/cloudflare.php:203
+#: includes/addons/cloudflare/cloudflare.php:209
 msgid "Cloudflare settings saved"
 msgstr "Cloudflare设置已保存"
 
-#: includes/addons/cloudflare/cloudflare.php:225
+#: includes/addons/cloudflare/cloudflare.php:231
 msgid "Something went wrong. Cannot purge Cloudflare cache"
 msgstr "有些不对劲。无法清除Cloudflare缓存"
+
+#: includes/addons/cloudflare/cloudflare.php:261
+msgid "Something went wrong. Cannot purge Cloudflare custom URL(s) cache"
+msgstr ""
 
 #: includes/addons/cloudflare/views/addon.php:20
 msgid "Integrate your Cloudflare account with this add-on."
 msgstr "使用此扩展程序将Cloudflare账户集成。"
 
 #: includes/addons/cloudflare/views/addon.php:27
-#: includes/addons/cloudflare/views/admin.php:32
-#: includes/addons/cloudflare/views/admin.php:125
-#: includes/addons/cloudflare/views/admin.php:137
+#: includes/addons/cloudflare/views/admin.php:82
+#: includes/addons/cloudflare/views/admin.php:175
+#: includes/addons/cloudflare/views/admin.php:187
 #: includes/addons/prefetch/views/addon.php:18
 #: includes/addons/varnish/views/addon.php:49 includes/functions/admin.php:267
 #: includes/functions/backend.php:238
@@ -98,129 +108,169 @@ msgid "Caching"
 msgstr "缓存"
 
 #: includes/addons/cloudflare/views/admin.php:21
-msgid "Cloudflare cache"
-msgstr "Cloudflare缓存"
+msgid "Purge Cache"
+msgstr ""
 
 #: includes/addons/cloudflare/views/admin.php:23
 msgid "Clear all Cloudflare cache"
 msgstr "清除所有Cloudflare缓存"
 
-#: includes/addons/cloudflare/views/admin.php:23 includes/admin/cache.php:259
-#: includes/functions/admin.php:155 includes/functions/admin.php:160
-msgid "Clear cache"
-msgstr "清除缓存"
+#: includes/addons/cloudflare/views/admin.php:23
+msgid "Purge everything"
+msgstr ""
 
-#: includes/addons/cloudflare/views/admin.php:28
+#: includes/addons/cloudflare/views/admin.php:24
+msgid "Clear custom URL(s) from Cloudflare cache"
+msgstr ""
+
+#: includes/addons/cloudflare/views/admin.php:24
+#: includes/addons/cloudflare/views/admin.php:29
+msgid "Purge custom URL(s)"
+msgstr ""
+
+#: includes/addons/cloudflare/views/admin.php:49 includes/admin/cache.php:116
+#: includes/admin/cache.php:335 includes/admin/cache.php:355
+#: includes/admin/cache.php:414 includes/admin/cdn.php:66
+#: includes/admin/css.php:317 includes/admin/css.php:327
+#: includes/admin/includes/external_files.php:66
+#: includes/admin/includes/external_files.php:94
+#: includes/admin/includes/local_files.php:65
+#: includes/admin/includes/local_files.php:92 includes/admin/javascript.php:243
+#: includes/admin/javascript.php:253 includes/admin/media.php:66
+#: includes/admin/media.php:92 includes/admin/media.php:136
+#: includes/admin/media.php:156 includes/admin/media.php:238
+#: includes/admin/media.php:258 includes/functions/miscellaneous.php:258
+msgid "Remove"
+msgstr "删除"
+
+#: includes/addons/cloudflare/views/admin.php:58
+#: includes/addons/cloudflare/views/admin.php:67
+msgid ""
+"Any assets in the Cloudflare cache that match the URL(s) exactly will be "
+"purged from the cache."
+msgstr ""
+
+#: includes/addons/cloudflare/views/admin.php:70 includes/admin/cache.php:380
+#: includes/admin/css.php:351 includes/admin/includes/external_files.php:113
+#: includes/admin/includes/external_files.php:124
+#: includes/admin/includes/local_files.php:109
+#: includes/admin/includes/local_files.php:120
+#: includes/admin/javascript.php:277 includes/admin/media.php:180
+#: includes/admin/media.php:282 includes/functions/miscellaneous.php:260
+msgid "Add URL"
+msgstr "添加网址"
+
+#: includes/addons/cloudflare/views/admin.php:78
 msgid "Development mode"
 msgstr "开发模式"
 
-#: includes/addons/cloudflare/views/admin.php:35
+#: includes/addons/cloudflare/views/admin.php:85
 msgid "Temporarily activate development mode on your website."
 msgstr "暂时激活您网站上的开发模式。"
 
-#: includes/addons/cloudflare/views/admin.php:36
+#: includes/addons/cloudflare/views/admin.php:86
 msgid "This setting will automatically turn off after 3 hours."
 msgstr "此设置将在3小时后自动关闭。"
 
-#: includes/addons/cloudflare/views/admin.php:41
+#: includes/addons/cloudflare/views/admin.php:91
 msgid "Cache level"
 msgstr "缓存级别"
 
-#: includes/addons/cloudflare/views/admin.php:44
+#: includes/addons/cloudflare/views/admin.php:94
 msgid "Aggressive - Standard"
 msgstr "积极 - 标准"
 
-#: includes/addons/cloudflare/views/admin.php:45
+#: includes/addons/cloudflare/views/admin.php:95
 msgid "Simplified - Ignore query string"
 msgstr "简化 - 忽略查询字符串"
 
-#: includes/addons/cloudflare/views/admin.php:46
+#: includes/addons/cloudflare/views/admin.php:96
 msgid "Basic - No query string"
 msgstr "基本 - 没有查询字符串"
 
-#: includes/addons/cloudflare/views/admin.php:51
+#: includes/addons/cloudflare/views/admin.php:101
 msgid ""
 "Aggressive: Delivers a different resource each time the query string changes."
 msgstr "积极：每次查询字符串更改时提供不同的资源。"
 
-#: includes/addons/cloudflare/views/admin.php:52
+#: includes/addons/cloudflare/views/admin.php:102
 msgid ""
 "Simplified: Delivers the same resource to everyone independent of the query "
 "string."
 msgstr "简化：向所有人提供与查询字符串无关的相同资源。"
 
-#: includes/addons/cloudflare/views/admin.php:53
+#: includes/addons/cloudflare/views/admin.php:103
 msgid ""
 "Basic: Only delivers resources from cache when there is no query string."
 msgstr "基本：只有在没有查询字符串时才从缓存中提供资源。"
 
-#: includes/addons/cloudflare/views/admin.php:68
+#: includes/addons/cloudflare/views/admin.php:118
 msgid "Browser Cache Expiration"
 msgstr "浏览器缓存过期"
 
-#: includes/addons/cloudflare/views/admin.php:71
+#: includes/addons/cloudflare/views/admin.php:121
 msgid "Respect Existing Headers"
 msgstr "尊重现有标题"
 
-#: includes/addons/cloudflare/views/admin.php:81
+#: includes/addons/cloudflare/views/admin.php:131
 msgid ""
 "Browser cache TTL (in seconds) specifies how long CloudFlare-cached "
 "resources will remain on your visitors computers."
 msgstr ""
 "浏览器缓存TTL（以秒为单位）指定CloudFlare缓存资源在访问者计算机上保留的时间。"
 
-#: includes/addons/cloudflare/views/admin.php:82
+#: includes/addons/cloudflare/views/admin.php:132
 msgid "The minimum TTL available depends on the plan level of the zone."
 msgstr "可用的最小TTL取决于区域的计划级别。"
 
-#: includes/addons/cloudflare/views/admin.php:90
+#: includes/addons/cloudflare/views/admin.php:140
 msgid "Content"
 msgstr "内容"
 
-#: includes/addons/cloudflare/views/admin.php:96 includes/admin/css.php:27
+#: includes/addons/cloudflare/views/admin.php:146 includes/admin/css.php:27
 #: includes/admin/includes/local_files.php:153 includes/admin/javascript.php:27
 msgid "Minify"
 msgstr "压缩"
 
-#: includes/addons/cloudflare/views/admin.php:121
+#: includes/addons/cloudflare/views/admin.php:171
 msgid "Rocket Loader"
 msgstr "Rocket 加载器"
 
-#: includes/addons/cloudflare/views/admin.php:128
+#: includes/addons/cloudflare/views/admin.php:178
 msgid "Rocket Loader is a asynchronous JavaScript loader."
 msgstr "Rocket 加载器是一个异步JavaScript加载器。"
 
-#: includes/addons/cloudflare/views/admin.php:133
+#: includes/addons/cloudflare/views/admin.php:183
 msgid "Brotli"
 msgstr "Brotli"
 
-#: includes/addons/cloudflare/views/admin.php:140
+#: includes/addons/cloudflare/views/admin.php:190
 msgid ""
 "Speed up page load times for your visitor’s HTTPS traffic by applying Brotli "
 "compression."
 msgstr "通过应用Brotli压缩，加快访问者HTTPS流量的页面加载时间。"
 
-#: includes/addons/cloudflare/views/admin.php:148 includes/admin/addons.php:17
-#: includes/admin/cache.php:249 includes/admin/cdn.php:33
+#: includes/addons/cloudflare/views/admin.php:198 includes/admin/addons.php:17
+#: includes/admin/cache.php:259 includes/admin/cdn.php:33
 #: includes/admin/css.php:119 includes/admin/database.php:183
 #: includes/admin/javascript.php:118 includes/admin/media.php:292
 #: includes/admin/settings.php:81
 msgid "Save changes"
 msgstr "保存更改"
 
-#: includes/addons/cloudflare/views/admin.php:157
+#: includes/addons/cloudflare/views/admin.php:207
 msgid "Cloudflare credentials"
 msgstr "Cloudflare凭据"
 
-#: includes/addons/cloudflare/views/admin.php:161
+#: includes/addons/cloudflare/views/admin.php:211
 msgid "API key"
 msgstr "API密钥"
 
-#: includes/addons/cloudflare/views/admin.php:168
+#: includes/addons/cloudflare/views/admin.php:218
 msgid "Account email"
 msgstr "账户邮箱"
 
-#: includes/addons/cloudflare/views/admin.php:173
+#: includes/addons/cloudflare/views/admin.php:223
 msgid "Zone ID"
 msgstr "区域ID"
 
@@ -286,8 +336,8 @@ msgstr "启用缓存"
 msgid "Reduces your server response time by serving static files to users"
 msgstr "通过向用户提供静态文件，缩短服务器响应时间"
 
-#: includes/admin/cache.php:30 includes/admin/cache.php:184
-#: includes/admin/cache.php:236
+#: includes/admin/cache.php:30 includes/admin/cache.php:194
+#: includes/admin/cache.php:246
 msgid ""
 "Your web site is running on a Nginx server and some additional steps may be "
 "required in order to use this option."
@@ -334,40 +384,34 @@ msgid "settings are saved"
 msgstr "设置保存时"
 
 #: includes/admin/cache.php:86
+msgid "Clear cache options"
+msgstr ""
+
+#: includes/admin/cache.php:90
+msgid "Keep generated CSS/JS files"
+msgstr ""
+
+#: includes/admin/cache.php:96
 msgid "Cache preloading"
 msgstr "高速缓存预加载"
 
-#: includes/admin/cache.php:106 includes/admin/cache.php:325
-#: includes/admin/cache.php:345 includes/admin/cache.php:404
-#: includes/admin/cdn.php:66 includes/admin/css.php:317
-#: includes/admin/css.php:327 includes/admin/includes/external_files.php:66
-#: includes/admin/includes/external_files.php:94
-#: includes/admin/includes/local_files.php:65
-#: includes/admin/includes/local_files.php:92 includes/admin/javascript.php:243
-#: includes/admin/javascript.php:253 includes/admin/media.php:66
-#: includes/admin/media.php:92 includes/admin/media.php:136
-#: includes/admin/media.php:156 includes/admin/media.php:238
-#: includes/admin/media.php:258 includes/functions/miscellaneous.php:258
-msgid "Remove"
-msgstr "删除"
-
-#: includes/admin/cache.php:116 includes/admin/cache.php:126
+#: includes/admin/cache.php:126 includes/admin/cache.php:136
 msgid "Enter path to XML sitemap which will be used for cache preloading"
 msgstr "输入将用于缓存预加载的 xml 站点地图的路径"
 
-#: includes/admin/cache.php:129
+#: includes/admin/cache.php:139
 msgid "Add Sitemap"
 msgstr "添加网站地图"
 
-#: includes/admin/cache.php:137
+#: includes/admin/cache.php:147
 msgid "Browser caching"
 msgstr "浏览器缓存"
 
-#: includes/admin/cache.php:141
+#: includes/admin/cache.php:151
 msgid "Leverage browser caching"
 msgstr "启用浏览器缓存"
 
-#: includes/admin/cache.php:166
+#: includes/admin/cache.php:176
 msgid ""
 "Setting an expiry date in the HTTP headers for static resources instructs "
 "the browser to load previously downloaded resources from local disk rather "
@@ -376,53 +420,58 @@ msgstr ""
 "在静态资源的 HTTP 标头中设置到期日期指示浏览器从本地磁盘而不是通过网络加载以"
 "前下载的资源"
 
-#: includes/admin/cache.php:173 includes/admin/cache.php:225
+#: includes/admin/cache.php:183 includes/admin/cache.php:235
 msgid ""
 "This option is turned ON automatically for all sites in Wordpress multisite"
 msgstr ""
 
-#: includes/admin/cache.php:194
+#: includes/admin/cache.php:204
 msgid "Enable gzip compression"
 msgstr "启用 gzip 压缩"
 
-#: includes/admin/cache.php:218
+#: includes/admin/cache.php:228
 msgid ""
 "Compressing resources with gzip reduce the number of bytes sent over the "
 "network"
 msgstr "使用 gzip 压缩资源可减少通过网络发送的字节数"
 
-#: includes/admin/cache.php:258
+#: includes/admin/cache.php:268
 msgid "Cache statistics"
 msgstr "缓存统计信息"
 
-#: includes/admin/cache.php:281
+#: includes/admin/cache.php:269 includes/functions/admin.php:155
+#: includes/functions/admin.php:160
+msgid "Clear cache"
+msgstr "清除缓存"
+
+#: includes/admin/cache.php:291
 msgid "HTML files"
 msgstr "HTML文件"
 
-#: includes/admin/cache.php:284
+#: includes/admin/cache.php:294
 msgid "CSS files"
 msgstr "CSS文件"
 
-#: includes/admin/cache.php:287
+#: includes/admin/cache.php:297
 msgid "JavaScript files"
 msgstr "JavaScript文件"
 
-#: includes/admin/cache.php:292
+#: includes/admin/cache.php:302
 msgid "Total cache size"
 msgstr "缓存总大小"
 
-#: includes/admin/cache.php:303
+#: includes/admin/cache.php:313
 msgid "Exclude URL(s) from cache"
 msgstr "从缓存中排除网址"
 
-#: includes/admin/cache.php:324 includes/admin/css.php:316
+#: includes/admin/cache.php:334 includes/admin/css.php:316
 #: includes/admin/javascript.php:242 includes/admin/media.php:135
 #: includes/admin/media.php:237
 #, php-format
 msgid "Remove %s from excluded URL(s)?"
 msgstr "从已排除的网址中删除%s？"
 
-#: includes/admin/cache.php:355 includes/admin/cache.php:367
+#: includes/admin/cache.php:365 includes/admin/cache.php:377
 #: includes/admin/cdn.php:75 includes/admin/cdn.php:86
 #: includes/admin/css.php:336 includes/admin/css.php:348
 #: includes/admin/javascript.php:262 includes/admin/javascript.php:274
@@ -431,7 +480,7 @@ msgstr "从已排除的网址中删除%s？"
 msgid "Use {numbers} to match only numbers"
 msgstr "使用 {numbers} 来匹配数字"
 
-#: includes/admin/cache.php:356 includes/admin/cache.php:367
+#: includes/admin/cache.php:366 includes/admin/cache.php:377
 #: includes/admin/cdn.php:76 includes/admin/cdn.php:86
 #: includes/admin/css.php:337 includes/admin/css.php:348
 #: includes/admin/javascript.php:263 includes/admin/javascript.php:274
@@ -440,7 +489,7 @@ msgstr "使用 {numbers} 来匹配数字"
 msgid "Use {letters} to match only letters"
 msgstr "使用 {letters} 来匹配字母"
 
-#: includes/admin/cache.php:357 includes/admin/cache.php:367
+#: includes/admin/cache.php:367 includes/admin/cache.php:377
 #: includes/admin/cdn.php:77 includes/admin/cdn.php:86
 #: includes/admin/css.php:338 includes/admin/css.php:348
 #: includes/admin/javascript.php:264 includes/admin/javascript.php:274
@@ -449,7 +498,7 @@ msgstr "使用 {letters} 来匹配字母"
 msgid "Use {any} to match any string"
 msgstr "使用 {any} 来匹配任何字符串"
 
-#: includes/admin/cache.php:358 includes/admin/cache.php:367
+#: includes/admin/cache.php:368 includes/admin/cache.php:377
 #: includes/admin/css.php:339 includes/admin/css.php:348
 #: includes/admin/javascript.php:265 includes/admin/javascript.php:274
 #: includes/admin/media.php:168 includes/admin/media.php:177
@@ -457,25 +506,15 @@ msgstr "使用 {any} 来匹配任何字符串"
 msgid "Use {all} to match all"
 msgstr "使用 {all} 来匹配任何字符串"
 
-#: includes/admin/cache.php:370 includes/admin/css.php:351
-#: includes/admin/includes/external_files.php:113
-#: includes/admin/includes/external_files.php:124
-#: includes/admin/includes/local_files.php:109
-#: includes/admin/includes/local_files.php:120
-#: includes/admin/javascript.php:277 includes/admin/media.php:180
-#: includes/admin/media.php:282 includes/functions/miscellaneous.php:260
-msgid "Add URL"
-msgstr "添加网址"
-
-#: includes/admin/cache.php:382
+#: includes/admin/cache.php:392
 msgid "Exclude User Agent(s) from cache"
 msgstr "从缓存中排除用户代理"
 
-#: includes/admin/cache.php:417
+#: includes/admin/cache.php:427
 msgid "Add User Agent"
 msgstr "添加用户代理"
 
-#: includes/admin/cache.php:427
+#: includes/admin/cache.php:437
 msgid "Exclude search engines"
 msgstr "排除搜索引擎"
 
@@ -1162,11 +1201,11 @@ msgstr "错误"
 msgid "both head and body tag should be present in template file"
 msgstr "head 和 body 标记都应存在模板文件中"
 
-#: includes/classes/parser.php:956
+#: includes/classes/parser.php:932
 msgid "Optimized by"
 msgstr "已优化来自"
 
-#: includes/classes/parser.php:980
+#: includes/classes/parser.php:956
 #, php-format
 msgid "Cache file was created in %s seconds on %s at %s"
 msgstr "缓存文件创建于 %s 秒，%s 于 %s"
@@ -1275,6 +1314,9 @@ msgstr "Ante Laca"
 #. Author URI of the plugin/theme
 msgid "https://www.antelaca.xyz"
 msgstr "https://www.antelaca.xyz"
+
+#~ msgid "Cloudflare cache"
+#~ msgstr "Cloudflare缓存"
 
 #~ msgid "Varnish"
 #~ msgstr "Varnish 缓存"

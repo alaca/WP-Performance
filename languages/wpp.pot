@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: WP Performance\n"
-"POT-Creation-Date: 2019-07-03 14:16+0200\n"
+"POT-Creation-Date: 2019-08-30 14:57+0200\n"
 "PO-Revision-Date: 2018-12-26 17:50+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -24,62 +24,70 @@ msgstr ""
 "X-Poedit-SearchPath-3: assets\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: includes/addons/cloudflare/cloudflare.php:53
-msgid "Clear Cloudflare cache"
+#: includes/addons/cloudflare/cloudflare.php:55
+msgid "Cloudflare - purge everything"
 msgstr ""
 
-#: includes/addons/cloudflare/cloudflare.php:94
+#: includes/addons/cloudflare/cloudflare.php:56
+msgid "Cloudflare - purge custom URL(s)"
+msgstr ""
+
+#: includes/addons/cloudflare/cloudflare.php:97
 msgid "Cloudflare API credentials not set"
 msgstr ""
 
-#: includes/addons/cloudflare/cloudflare.php:110
+#: includes/addons/cloudflare/cloudflare.php:116
 msgid " Cloudflare cannot get zone details. Check your Cloudflare credentials"
 msgstr ""
 
-#: includes/addons/cloudflare/cloudflare.php:117
+#: includes/addons/cloudflare/cloudflare.php:123
 #, php-format
 msgid ""
 " Cloudflare zone %s is not activated. Please go to your Cloudflare dashboard "
 "and activate it."
 msgstr ""
 
-#: includes/addons/cloudflare/cloudflare.php:121
+#: includes/addons/cloudflare/cloudflare.php:127
 #, php-format
 msgid ""
 " Cloudflare zone %s status is pending and these settings won't have any "
 "effect on your website."
 msgstr ""
 
-#: includes/addons/cloudflare/cloudflare.php:136
+#: includes/addons/cloudflare/cloudflare.php:142
 msgid " Cloudflare development mode not set"
 msgstr ""
 
-#: includes/addons/cloudflare/cloudflare.php:145
+#: includes/addons/cloudflare/cloudflare.php:151
 msgid " Cloudflare cache level not set"
 msgstr ""
 
-#: includes/addons/cloudflare/cloudflare.php:155
+#: includes/addons/cloudflare/cloudflare.php:161
 msgid " Cloudflare browser cache expiration not set"
 msgstr ""
 
-#: includes/addons/cloudflare/cloudflare.php:169
+#: includes/addons/cloudflare/cloudflare.php:175
 msgid " Cloudflare minify not set"
 msgstr ""
 
-#: includes/addons/cloudflare/cloudflare.php:181
+#: includes/addons/cloudflare/cloudflare.php:187
 msgid " Cloudflare Rocket loader mode not set"
 msgstr ""
 
-#: includes/addons/cloudflare/cloudflare.php:191
+#: includes/addons/cloudflare/cloudflare.php:197
 msgid " Cloudflare Brotli mode not set"
 msgstr ""
 
-#: includes/addons/cloudflare/cloudflare.php:203
+#: includes/addons/cloudflare/cloudflare.php:209
 msgid "Cloudflare settings saved"
 msgstr ""
 
-#: includes/addons/cloudflare/cloudflare.php:225
+#: includes/addons/cloudflare/cloudflare.php:231
 msgid "Something went wrong. Cannot purge Cloudflare cache"
+msgstr ""
+
+#: includes/addons/cloudflare/cloudflare.php:261
+msgid "Something went wrong. Cannot purge Cloudflare custom URL(s) cache"
 msgstr ""
 
 #: includes/addons/cloudflare/views/addon.php:20
@@ -87,9 +95,9 @@ msgid "Integrate your Cloudflare account with this add-on."
 msgstr ""
 
 #: includes/addons/cloudflare/views/addon.php:27
-#: includes/addons/cloudflare/views/admin.php:32
-#: includes/addons/cloudflare/views/admin.php:125
-#: includes/addons/cloudflare/views/admin.php:137
+#: includes/addons/cloudflare/views/admin.php:82
+#: includes/addons/cloudflare/views/admin.php:175
+#: includes/addons/cloudflare/views/admin.php:187
 #: includes/addons/prefetch/views/addon.php:18
 #: includes/addons/varnish/views/addon.php:49 includes/functions/admin.php:267
 #: includes/functions/backend.php:238
@@ -101,128 +109,168 @@ msgid "Caching"
 msgstr ""
 
 #: includes/addons/cloudflare/views/admin.php:21
-msgid "Cloudflare cache"
+msgid "Purge Cache"
 msgstr ""
 
 #: includes/addons/cloudflare/views/admin.php:23
 msgid "Clear all Cloudflare cache"
 msgstr ""
 
-#: includes/addons/cloudflare/views/admin.php:23 includes/admin/cache.php:259
-#: includes/functions/admin.php:155 includes/functions/admin.php:160
-msgid "Clear cache"
+#: includes/addons/cloudflare/views/admin.php:23
+msgid "Purge everything"
 msgstr ""
 
-#: includes/addons/cloudflare/views/admin.php:28
+#: includes/addons/cloudflare/views/admin.php:24
+msgid "Clear custom URL(s) from Cloudflare cache"
+msgstr ""
+
+#: includes/addons/cloudflare/views/admin.php:24
+#: includes/addons/cloudflare/views/admin.php:29
+msgid "Purge custom URL(s)"
+msgstr ""
+
+#: includes/addons/cloudflare/views/admin.php:49 includes/admin/cache.php:116
+#: includes/admin/cache.php:335 includes/admin/cache.php:355
+#: includes/admin/cache.php:414 includes/admin/cdn.php:66
+#: includes/admin/css.php:317 includes/admin/css.php:327
+#: includes/admin/includes/external_files.php:66
+#: includes/admin/includes/external_files.php:94
+#: includes/admin/includes/local_files.php:65
+#: includes/admin/includes/local_files.php:92 includes/admin/javascript.php:243
+#: includes/admin/javascript.php:253 includes/admin/media.php:66
+#: includes/admin/media.php:92 includes/admin/media.php:136
+#: includes/admin/media.php:156 includes/admin/media.php:238
+#: includes/admin/media.php:258 includes/functions/miscellaneous.php:258
+msgid "Remove"
+msgstr ""
+
+#: includes/addons/cloudflare/views/admin.php:58
+#: includes/addons/cloudflare/views/admin.php:67
+msgid ""
+"Any assets in the Cloudflare cache that match the URL(s) exactly will be "
+"purged from the cache."
+msgstr ""
+
+#: includes/addons/cloudflare/views/admin.php:70 includes/admin/cache.php:380
+#: includes/admin/css.php:351 includes/admin/includes/external_files.php:113
+#: includes/admin/includes/external_files.php:124
+#: includes/admin/includes/local_files.php:109
+#: includes/admin/includes/local_files.php:120
+#: includes/admin/javascript.php:277 includes/admin/media.php:180
+#: includes/admin/media.php:282 includes/functions/miscellaneous.php:260
+msgid "Add URL"
+msgstr ""
+
+#: includes/addons/cloudflare/views/admin.php:78
 msgid "Development mode"
 msgstr ""
 
-#: includes/addons/cloudflare/views/admin.php:35
+#: includes/addons/cloudflare/views/admin.php:85
 msgid "Temporarily activate development mode on your website."
 msgstr ""
 
-#: includes/addons/cloudflare/views/admin.php:36
+#: includes/addons/cloudflare/views/admin.php:86
 msgid "This setting will automatically turn off after 3 hours."
 msgstr ""
 
-#: includes/addons/cloudflare/views/admin.php:41
+#: includes/addons/cloudflare/views/admin.php:91
 msgid "Cache level"
 msgstr ""
 
-#: includes/addons/cloudflare/views/admin.php:44
+#: includes/addons/cloudflare/views/admin.php:94
 msgid "Aggressive - Standard"
 msgstr ""
 
-#: includes/addons/cloudflare/views/admin.php:45
+#: includes/addons/cloudflare/views/admin.php:95
 msgid "Simplified - Ignore query string"
 msgstr ""
 
-#: includes/addons/cloudflare/views/admin.php:46
+#: includes/addons/cloudflare/views/admin.php:96
 msgid "Basic - No query string"
 msgstr ""
 
-#: includes/addons/cloudflare/views/admin.php:51
+#: includes/addons/cloudflare/views/admin.php:101
 msgid ""
 "Aggressive: Delivers a different resource each time the query string changes."
 msgstr ""
 
-#: includes/addons/cloudflare/views/admin.php:52
+#: includes/addons/cloudflare/views/admin.php:102
 msgid ""
 "Simplified: Delivers the same resource to everyone independent of the query "
 "string."
 msgstr ""
 
-#: includes/addons/cloudflare/views/admin.php:53
+#: includes/addons/cloudflare/views/admin.php:103
 msgid ""
 "Basic: Only delivers resources from cache when there is no query string."
 msgstr ""
 
-#: includes/addons/cloudflare/views/admin.php:68
+#: includes/addons/cloudflare/views/admin.php:118
 msgid "Browser Cache Expiration"
 msgstr ""
 
-#: includes/addons/cloudflare/views/admin.php:71
+#: includes/addons/cloudflare/views/admin.php:121
 msgid "Respect Existing Headers"
 msgstr ""
 
-#: includes/addons/cloudflare/views/admin.php:81
+#: includes/addons/cloudflare/views/admin.php:131
 msgid ""
 "Browser cache TTL (in seconds) specifies how long CloudFlare-cached "
 "resources will remain on your visitors computers."
 msgstr ""
 
-#: includes/addons/cloudflare/views/admin.php:82
+#: includes/addons/cloudflare/views/admin.php:132
 msgid "The minimum TTL available depends on the plan level of the zone."
 msgstr ""
 
-#: includes/addons/cloudflare/views/admin.php:90
+#: includes/addons/cloudflare/views/admin.php:140
 msgid "Content"
 msgstr ""
 
-#: includes/addons/cloudflare/views/admin.php:96 includes/admin/css.php:27
+#: includes/addons/cloudflare/views/admin.php:146 includes/admin/css.php:27
 #: includes/admin/includes/local_files.php:153 includes/admin/javascript.php:27
 msgid "Minify"
 msgstr ""
 
-#: includes/addons/cloudflare/views/admin.php:121
+#: includes/addons/cloudflare/views/admin.php:171
 msgid "Rocket Loader"
 msgstr ""
 
-#: includes/addons/cloudflare/views/admin.php:128
+#: includes/addons/cloudflare/views/admin.php:178
 msgid "Rocket Loader is a asynchronous JavaScript loader."
 msgstr ""
 
-#: includes/addons/cloudflare/views/admin.php:133
+#: includes/addons/cloudflare/views/admin.php:183
 msgid "Brotli"
 msgstr ""
 
-#: includes/addons/cloudflare/views/admin.php:140
+#: includes/addons/cloudflare/views/admin.php:190
 msgid ""
 "Speed up page load times for your visitor’s HTTPS traffic by applying Brotli "
 "compression."
 msgstr ""
 
-#: includes/addons/cloudflare/views/admin.php:148 includes/admin/addons.php:17
-#: includes/admin/cache.php:249 includes/admin/cdn.php:33
+#: includes/addons/cloudflare/views/admin.php:198 includes/admin/addons.php:17
+#: includes/admin/cache.php:259 includes/admin/cdn.php:33
 #: includes/admin/css.php:119 includes/admin/database.php:183
 #: includes/admin/javascript.php:118 includes/admin/media.php:292
 #: includes/admin/settings.php:81
 msgid "Save changes"
 msgstr ""
 
-#: includes/addons/cloudflare/views/admin.php:157
+#: includes/addons/cloudflare/views/admin.php:207
 msgid "Cloudflare credentials"
 msgstr ""
 
-#: includes/addons/cloudflare/views/admin.php:161
+#: includes/addons/cloudflare/views/admin.php:211
 msgid "API key"
 msgstr ""
 
-#: includes/addons/cloudflare/views/admin.php:168
+#: includes/addons/cloudflare/views/admin.php:218
 msgid "Account email"
 msgstr ""
 
-#: includes/addons/cloudflare/views/admin.php:173
+#: includes/addons/cloudflare/views/admin.php:223
 msgid "Zone ID"
 msgstr ""
 
@@ -288,8 +336,8 @@ msgstr ""
 msgid "Reduces your server response time by serving static files to users"
 msgstr ""
 
-#: includes/admin/cache.php:30 includes/admin/cache.php:184
-#: includes/admin/cache.php:236
+#: includes/admin/cache.php:30 includes/admin/cache.php:194
+#: includes/admin/cache.php:246
 msgid ""
 "Your web site is running on a Nginx server and some additional steps may be "
 "required in order to use this option."
@@ -336,93 +384,92 @@ msgid "settings are saved"
 msgstr ""
 
 #: includes/admin/cache.php:86
+msgid "Clear cache options"
+msgstr ""
+
+#: includes/admin/cache.php:90
+msgid "Keep generated CSS/JS files"
+msgstr ""
+
+#: includes/admin/cache.php:96
 msgid "Cache preloading"
 msgstr ""
 
-#: includes/admin/cache.php:106 includes/admin/cache.php:325
-#: includes/admin/cache.php:345 includes/admin/cache.php:404
-#: includes/admin/cdn.php:66 includes/admin/css.php:317
-#: includes/admin/css.php:327 includes/admin/includes/external_files.php:66
-#: includes/admin/includes/external_files.php:94
-#: includes/admin/includes/local_files.php:65
-#: includes/admin/includes/local_files.php:92 includes/admin/javascript.php:243
-#: includes/admin/javascript.php:253 includes/admin/media.php:66
-#: includes/admin/media.php:92 includes/admin/media.php:136
-#: includes/admin/media.php:156 includes/admin/media.php:238
-#: includes/admin/media.php:258 includes/functions/miscellaneous.php:258
-msgid "Remove"
-msgstr ""
-
-#: includes/admin/cache.php:116 includes/admin/cache.php:126
+#: includes/admin/cache.php:126 includes/admin/cache.php:136
 msgid "Enter path to XML sitemap which will be used for cache preloading"
 msgstr ""
 
-#: includes/admin/cache.php:129
+#: includes/admin/cache.php:139
 msgid "Add Sitemap"
 msgstr ""
 
-#: includes/admin/cache.php:137
+#: includes/admin/cache.php:147
 msgid "Browser caching"
 msgstr ""
 
-#: includes/admin/cache.php:141
+#: includes/admin/cache.php:151
 msgid "Leverage browser caching"
 msgstr ""
 
-#: includes/admin/cache.php:166
+#: includes/admin/cache.php:176
 msgid ""
 "Setting an expiry date in the HTTP headers for static resources instructs "
 "the browser to load previously downloaded resources from local disk rather "
 "than over the network"
 msgstr ""
 
-#: includes/admin/cache.php:173 includes/admin/cache.php:225
+#: includes/admin/cache.php:183 includes/admin/cache.php:235
 msgid ""
 "This option is turned ON automatically for all sites in Wordpress multisite"
 msgstr ""
 
-#: includes/admin/cache.php:194
+#: includes/admin/cache.php:204
 msgid "Enable gzip compression"
 msgstr ""
 
-#: includes/admin/cache.php:218
+#: includes/admin/cache.php:228
 msgid ""
 "Compressing resources with gzip reduce the number of bytes sent over the "
 "network"
 msgstr ""
 
-#: includes/admin/cache.php:258
+#: includes/admin/cache.php:268
 msgid "Cache statistics"
 msgstr ""
 
-#: includes/admin/cache.php:281
+#: includes/admin/cache.php:269 includes/functions/admin.php:155
+#: includes/functions/admin.php:160
+msgid "Clear cache"
+msgstr ""
+
+#: includes/admin/cache.php:291
 msgid "HTML files"
 msgstr ""
 
-#: includes/admin/cache.php:284
+#: includes/admin/cache.php:294
 msgid "CSS files"
 msgstr ""
 
-#: includes/admin/cache.php:287
+#: includes/admin/cache.php:297
 msgid "JavaScript files"
 msgstr ""
 
-#: includes/admin/cache.php:292
+#: includes/admin/cache.php:302
 msgid "Total cache size"
 msgstr ""
 
-#: includes/admin/cache.php:303
+#: includes/admin/cache.php:313
 msgid "Exclude URL(s) from cache"
 msgstr ""
 
-#: includes/admin/cache.php:324 includes/admin/css.php:316
+#: includes/admin/cache.php:334 includes/admin/css.php:316
 #: includes/admin/javascript.php:242 includes/admin/media.php:135
 #: includes/admin/media.php:237
 #, php-format
 msgid "Remove %s from excluded URL(s)?"
 msgstr ""
 
-#: includes/admin/cache.php:355 includes/admin/cache.php:367
+#: includes/admin/cache.php:365 includes/admin/cache.php:377
 #: includes/admin/cdn.php:75 includes/admin/cdn.php:86
 #: includes/admin/css.php:336 includes/admin/css.php:348
 #: includes/admin/javascript.php:262 includes/admin/javascript.php:274
@@ -431,7 +478,7 @@ msgstr ""
 msgid "Use {numbers} to match only numbers"
 msgstr ""
 
-#: includes/admin/cache.php:356 includes/admin/cache.php:367
+#: includes/admin/cache.php:366 includes/admin/cache.php:377
 #: includes/admin/cdn.php:76 includes/admin/cdn.php:86
 #: includes/admin/css.php:337 includes/admin/css.php:348
 #: includes/admin/javascript.php:263 includes/admin/javascript.php:274
@@ -440,7 +487,7 @@ msgstr ""
 msgid "Use {letters} to match only letters"
 msgstr ""
 
-#: includes/admin/cache.php:357 includes/admin/cache.php:367
+#: includes/admin/cache.php:367 includes/admin/cache.php:377
 #: includes/admin/cdn.php:77 includes/admin/cdn.php:86
 #: includes/admin/css.php:338 includes/admin/css.php:348
 #: includes/admin/javascript.php:264 includes/admin/javascript.php:274
@@ -449,7 +496,7 @@ msgstr ""
 msgid "Use {any} to match any string"
 msgstr ""
 
-#: includes/admin/cache.php:358 includes/admin/cache.php:367
+#: includes/admin/cache.php:368 includes/admin/cache.php:377
 #: includes/admin/css.php:339 includes/admin/css.php:348
 #: includes/admin/javascript.php:265 includes/admin/javascript.php:274
 #: includes/admin/media.php:168 includes/admin/media.php:177
@@ -457,25 +504,15 @@ msgstr ""
 msgid "Use {all} to match all"
 msgstr ""
 
-#: includes/admin/cache.php:370 includes/admin/css.php:351
-#: includes/admin/includes/external_files.php:113
-#: includes/admin/includes/external_files.php:124
-#: includes/admin/includes/local_files.php:109
-#: includes/admin/includes/local_files.php:120
-#: includes/admin/javascript.php:277 includes/admin/media.php:180
-#: includes/admin/media.php:282 includes/functions/miscellaneous.php:260
-msgid "Add URL"
-msgstr ""
-
-#: includes/admin/cache.php:382
+#: includes/admin/cache.php:392
 msgid "Exclude User Agent(s) from cache"
 msgstr ""
 
-#: includes/admin/cache.php:417
+#: includes/admin/cache.php:427
 msgid "Add User Agent"
 msgstr ""
 
-#: includes/admin/cache.php:427
+#: includes/admin/cache.php:437
 msgid "Exclude search engines"
 msgstr ""
 
@@ -1152,11 +1189,11 @@ msgstr ""
 msgid "both head and body tag should be present in template file"
 msgstr ""
 
-#: includes/classes/parser.php:956
+#: includes/classes/parser.php:932
 msgid "Optimized by"
 msgstr ""
 
-#: includes/classes/parser.php:980
+#: includes/classes/parser.php:956
 #, php-format
 msgid "Cache file was created in %s seconds on %s at %s"
 msgstr ""
@@ -1253,15 +1290,15 @@ msgstr ""
 msgid "Invalid settings file"
 msgstr ""
 
-#: includes/functions/settings.php:268
+#: includes/functions/settings.php:269
 msgid "Settings saved"
 msgstr ""
 
-#: includes/functions/settings.php:329
+#: includes/functions/settings.php:330
 msgid "Settings file loaded"
 msgstr ""
 
-#: includes/functions/settings.php:519
+#: includes/functions/settings.php:520
 msgid "Files list cleared"
 msgstr ""
 
