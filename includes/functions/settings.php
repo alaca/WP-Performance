@@ -107,6 +107,7 @@ function wpp_save_settings( $notify = true ) {
     Option::update( 'save_clear',            Input::post( 'save_clear', 'boolean' ) );
     Option::update( 'delete_clear',          Input::post( 'delete_clear', 'boolean' ) );
     Option::update( 'mobile_cache',          Input::post( 'mobile_cache', 'boolean' ) );
+    Option::update( 'clear_assets',          Input::post( 'clear_assets', 'boolean' ) );
     Option::update( 'cache_url_exclude',     Input::post( 'cache_url_exclude', 'string', FILTER_REQUIRE_ARRAY ) );
     Option::update( 'browser_cache',         Input::post( 'browser_cache', 'boolean' ) );
     Option::update( 'gzip_compression',      Input::post( 'gzip_compression', 'boolean' ) );

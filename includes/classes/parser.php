@@ -722,6 +722,10 @@ class Parser
 
             foreach ( array_unique( $linksMedia ) as $media ) {
 
+                $filename = WPP_CACHE_DIR . md5( $media ) . '.css';
+
+                if ( file_exists( $filename ) ) continue;   
+
                 $code = '';
 
                 foreach ( $combined_css as $link ) {
@@ -742,11 +746,9 @@ class Parser
                     }
                 }      
                 
-                $filename = md5( $media ) . '.css';
-                
-                File::save( WPP_CACHE_DIR . $filename, $code );
+                File::save( $filename, $code );
 
-                touch( WPP_CACHE_DIR . $filename, time() - 3600 );
+                //touch( WPP_CACHE_DIR . $filename, time() - 3600 );
 
                 // CDN?
                 $url = ( Option::get( 'cdn' ) && Option::get( 'cdn_hostname' ) ) 
@@ -789,47 +791,52 @@ class Parser
         // combined js files
         if ( ! empty( $combined_js = Collection::get( 'combine', 'js' ) ) ) {
 
-            $code = '';
+            $filename = WPP_CACHE_DIR . md5( serialize( $combined_js ) ) . '.js';
 
-            foreach ( $combined_js as $scripts ) {   
-                // proccess by type
-                foreach ( $scripts as $type => $script ) {
+            // Check if combined file exists
+            if ( ! file_exists( $filename ) ) {
 
-                    if ( $type == 'file' ) {
+                $code = '';
 
-                        $extension = pathinfo( $script , PATHINFO_EXTENSION ); 
+                foreach ( $combined_js as $scripts ) {   
+                    // proccess by type
+                    foreach ( $scripts as $type => $script ) {
+    
+                        if ( $type == 'file' ) {
+    
+                            $extension = pathinfo( $script , PATHINFO_EXTENSION ); 
+    
+                            $originalCode = ( $extension == 'php' ) 
+                                ? wp_remote_retrieve_body( wp_remote_get( $script ) ) 
+                                : File::get( File::path( $script ) );
+    
+                            $code .= wpp_in_array( array_keys( Option::get( 'js_minify', [] ) ), $script ) 
+                                ? Minify::code( $originalCode ) 
+                                : $originalCode;
+    
+                        } else {
+                            $code .= Minify::code( $script );
+                        }
+                        // ASI
+                        $code .= ';' . PHP_EOL;
+                    } 
+    
+                }
+    
+                File::save( $filename, $code );
+    
+                // CDN?
+                $url = ( Option::get( 'cdn' ) && Option::get( 'cdn_hostname' ) ) 
+                     ? str_replace( site_url(), Option::get( 'cdn_hostname' ), WPP_CACHE_URL )
+                     : WPP_CACHE_URL;
+    
+                // Defer js
+                if ( Option::boolval( 'js_defer' ) ) {
+                    $this->body->innertext .= '<script type="text/wppscript" data-src="' . $url . $filename . '"></script>' . PHP_EOL;
+                } else {
+                    $this->body->innertext .= '<script src="' . $url . $filename . '"></script>' . PHP_EOL;
+                }
 
-                        $originalCode = ( $extension == 'php' ) 
-                            ? wp_remote_retrieve_body( wp_remote_get( $script ) ) 
-                            : File::get( File::path( $script ) );
-
-                        $code .= wpp_in_array( array_keys( Option::get( 'js_minify', [] ) ), $script ) 
-                            ? Minify::code( $originalCode ) 
-                            : $originalCode;
-
-                    } else {
-                        $code .= Minify::code( $script );
-                    }
-                    // ASI
-                    $code .= ';' . PHP_EOL;
-                } 
-
-            }
-
-            $filename = md5( $code ) . '.js';
-
-            File::save( WPP_CACHE_DIR . $filename, $code );
-
-            // CDN?
-            $url = ( Option::get( 'cdn' ) && Option::get( 'cdn_hostname' ) ) 
-                 ? str_replace( site_url(), Option::get( 'cdn_hostname' ), WPP_CACHE_URL )
-                 : WPP_CACHE_URL;
-
-            // Defer js
-            if ( Option::boolval( 'js_defer' ) ) {
-                $this->body->innertext .= '<script type="text/wppscript" data-src="' . $url . $filename . '"></script>' . PHP_EOL;
-            } else {
-                $this->body->innertext .= '<script src="' . $url . $filename . '"></script>' . PHP_EOL;
             }
 
         }

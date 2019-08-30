@@ -62,7 +62,7 @@ class Minify {
 
                 File::save( $cached, $minified );
 
-                touch( $cached, time() - 3600 );
+                //touch( $cached, time() - 3600 );
 
             }
 

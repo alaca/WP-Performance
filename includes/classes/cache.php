@@ -86,6 +86,13 @@ class Cache
 
         $cache_dir = WPP_CACHE_DIR;
 
+        // Do not delte extensions
+        $keep_extensions = [ 'log', 'json' ];
+
+        // Keep assets?
+        if ( Option::boolval( 'clear_assets' ) ) 
+            array_push( $keep_extensions, 'css', 'js' );
+
         if ( is_multisite() ) {
 
             $uri = parse_url( get_bloginfo( 'url' ) );
@@ -100,7 +107,7 @@ class Cache
                 if ( $file->isFile() ) {
 
                     if ( 
-                        ! in_array( $file->getExtension(), [ 'log', 'json' ] ) 
+                        ! in_array( $file->getExtension(), $keep_extensions ) 
                         && $file->getFilename() != 'index.php' 
                     ) 
                         unlink( $file->getPathname() );
@@ -122,18 +129,16 @@ class Cache
         foreach ( $files as $file ) {
 
             if ( $file->isDir() ) {
-                    
+
                 rmdir( $file->getRealPath() );
 
             } else {
 
                 if ( 
-                    $file->getFilename() != 'index.php' 
-                    && ! strstr( $file->getFilename(), 'wpp.json' ) 
-                    && ! strstr( $file->getFilename(), 'settings.json' ) 
-                ) {
-                    unlink( $file->getRealPath() );
-                }
+                    ! in_array( $file->getExtension(), $keep_extensions ) 
+                    && $file->getFilename() != 'index.php' 
+                ) 
+                    unlink( $file->getPathname() );
                 
             }
 

@@ -83,6 +83,16 @@ defined('ABSPATH') or exit; ?>
             </tr>
 
             <tr data-wpp-show-checked="cache">
+                <td><strong><?php _e( 'Clear cache options', 'wpp' ); ?></strong></td>
+                <td>
+                    <label class="wpp-info">
+                        <input type="checkbox" value="1" name="clear_assets" form="wpp-settings" <?php wpp_checked( 'clear_assets' ); ?> />
+                        <?php _e( 'Keep generated CSS/JS files', 'wpp' ); ?>
+                    </label>
+                </td>
+            </tr>
+
+            <tr data-wpp-show-checked="cache">
                 <td><strong><?php _e( 'Cache preloading', 'wpp' ); ?></strong></td>
                 <td>
                     <div id="wpp-sitemaps-container">
