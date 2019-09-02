@@ -63,6 +63,9 @@ This plugin generates static html files from your dynamic content and it uses mo
 
 ## Changelog ##
 
+### 1.1.7.1 ###
+* [FIX] htaccess errors
+
 ### 1.1.7 ###
 * [NEW] Cloudflare Add-on - purge individual cache
 * [NEW] Option to keep generated JS/CSS files when flushing the cache

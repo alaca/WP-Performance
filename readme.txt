@@ -11,6 +11,9 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Changelog ==
 
+= 1.1.7.1 =
+[FIX] htaccess errors
+
 = 1.1.7 =
 [NEW] Cloudflare Add-on - purge individual cache
 [NEW] Option to keep generated JS/CSS files when flushing the cache
