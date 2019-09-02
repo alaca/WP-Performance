@@ -202,17 +202,9 @@ function wpp_update_htaccess( $action, $file ) {
                     $definitions_content = str_replace( '{USER_AGENTS}', $condition, $definitions_content );
                     $definitions_content = str_replace( '{AMP_TAG}', wpp_get_constant( 'WPP_AMP_TAG', 'amp' ), $definitions_content );
 
-                    preg_match( '/^# WPP Cache load start(.*?)# WPP Cache load end/s' , $htaccess_content, $match );
-
-                    if ( isset( $match[ 0 ] ) ) {
-                        
-                        $content = str_replace( $match[ 0 ], $definitions_content, $htaccess_content );
-                        File::save( $htaccess, $content );
-
-                    } else {
+                    if ( ! preg_match( '/# WPP Cache load start(.*?)# WPP Cache load end/s', $htaccess_content ) ) {
                         File::prepend( $htaccess, $definitions_content );
                     }
-
 
                     break;
                 
@@ -247,7 +239,7 @@ function wpp_update_htaccess( $action, $file ) {
                     case 'cache':
     
                         if ( preg_match( '/# WPP Cache load start(.*?)# WPP Cache load end/s', $htaccess_content, $match ) ) {
-                            $content = str_replace( $match[ 0 ], '', $htaccess_content );
+                            $content = str_replace( PHP_EOL . $match[ 0 ] . PHP_EOL, '', $htaccess_content );
                             File::save( $htaccess, $content );
                         }
     
@@ -256,7 +248,7 @@ function wpp_update_htaccess( $action, $file ) {
                     case 'gzip':
     
                         if ( preg_match( '/# WPP GZIP start(.*?)# WPP GZIP end/s', $htaccess_content, $match ) ) {
-                            $content = str_replace( $match[ 0 ], '', $htaccess_content );
+                            $content = str_replace( PHP_EOL . $match[ 0 ] . PHP_EOL, '', $htaccess_content );
                             File::save( $htaccess, $content ); 
                         }
     
@@ -265,7 +257,7 @@ function wpp_update_htaccess( $action, $file ) {
                     case 'expire':
                     
                         if ( preg_match( '/# WPP Expire start(.*?)# WPP Expire end/s', $htaccess_content, $match ) ) {
-                            $content = str_replace( $match[ 0 ], '', $htaccess_content );
+                            $content = str_replace( PHP_EOL . $match[ 0 ] . PHP_EOL, '', $htaccess_content );
                             File::save( $htaccess, $content ); 
                         }
     
