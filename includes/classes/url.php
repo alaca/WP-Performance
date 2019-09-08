@@ -42,7 +42,18 @@ class Url
     */
     public static function getClean( $path )
     {
-        return str_replace( [ trailingslashit( site_url() ), '../' ], '', strtok( $path, '?#' ) );
+
+        if ( strpos( $path, '//' ) === 0) {
+
+            $info = parse_url( site_url() );
+
+            if ( strstr( $path, $info[ 'host' ] ) ) {
+                $path = $info[ 'scheme' ] . ':' . $path;
+            }
+            
+        }
+
+        return str_replace( [ trailingslashit( site_url() ), '../' ], '', strtok( $path, '?' ) );
     }
 
 }
