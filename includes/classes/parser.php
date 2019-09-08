@@ -722,9 +722,9 @@ class Parser
 
             foreach ( array_unique( $linksMedia ) as $media ) {
 
-                $filename = WPP_CACHE_DIR . md5( $media ) . '.css';
+                $filename = md5( $media ) . '.css';
 
-                if ( file_exists( $filename ) ) continue;   
+                if ( file_exists( WPP_CACHE_DIR . $filename ) ) continue;   
 
                 $code = '';
 
@@ -746,7 +746,7 @@ class Parser
                     }
                 }      
                 
-                File::save( $filename, $code );
+                File::save( WPP_CACHE_DIR . $filename, $code );
 
                 //touch( WPP_CACHE_DIR . $filename, time() - 3600 );
 
@@ -791,10 +791,10 @@ class Parser
         // combined js files
         if ( ! empty( $combined_js = Collection::get( 'combine', 'js' ) ) ) {
 
-            $filename = WPP_CACHE_DIR . md5( serialize( $combined_js ) ) . '.js';
+            $filename = md5( serialize( $combined_js ) ) . '.js';
 
             // Check if combined file exists
-            if ( ! file_exists( $filename ) ) {
+            if ( ! file_exists( WPP_CACHE_DIR . $filename ) ) {
 
                 $code = '';
 
@@ -823,7 +823,7 @@ class Parser
     
                 }
     
-                File::save( $filename, $code );
+                File::save( WPP_CACHE_DIR . $filename, $code );
     
                 // CDN?
                 $url = ( Option::get( 'cdn' ) && Option::get( 'cdn_hostname' ) ) 
