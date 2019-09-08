@@ -63,6 +63,10 @@ This plugin generates static html files from your dynamic content and it uses mo
 
 ## Changelog ##
 
+### 1.1.7.2 ###
+* [FIX] Combined resource path errors
+* [FIX] Identifiy local resources without URL scheme
+
 ### 1.1.7.1 ###
 * [FIX] htaccess errors
 
