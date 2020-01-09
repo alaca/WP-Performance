@@ -445,7 +445,7 @@ table.wpp-file-list tr {
     border-bottom: 1px solid #E0E0E0;
 }
 
-.wpp_page input[type="checkbox"] {
+/* .wpp_page input[type="checkbox"] {
     width: 16px !important;
     height: 16px !important;
     border-radius: 3px !important;
@@ -457,7 +457,7 @@ table.wpp-file-list tr {
     margin-top: -2px !important;
     margin-left: -4px !important;
     font-size: 20px !important;
-}
+} */
 
 .wpp-cf-input {
     width: 100%;
