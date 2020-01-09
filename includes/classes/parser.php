@@ -77,25 +77,25 @@ class Parser
         // Check for head and body tag
         if ( ! $this->head || ! $this->body ) {
 
-            // Check if is XML file
-            $headers = headers_list();
+            // // Check if is XML file
+            // $headers = headers_list();
 
-            foreach( $headers as $header ) {
+            // foreach( $headers as $header ) {
 
-                if ( strstr( $header, 'text/xml' ) ) {
-                    return $this->html;
-                }
+            //     if ( strstr( $header, 'text/xml' ) ) {
+            //         return $this->html;
+            //     }
 
-            }
+            // }
     
-            $this->html .= sprintf( 
-                '<!-- %s %s: %s -->', 
-                WPP_PLUGIN_NAME, 
-                __( 'error', 'wpp' ), 
-                __( 'both head and body tag should be present in template file', 'wpp' )
-            );
+            // $this->html .= sprintf( 
+            //     '<!-- %s %s: %s -->', 
+            //     WPP_PLUGIN_NAME, 
+            //     __( 'error', 'wpp' ), 
+            //     __( 'both head and body tag should be present in template file', 'wpp' )
+            // );
 
-            wpp_log( __( 'both head and body tag should be present in template file', 'wpp' ) ); 
+            // wpp_log( __( 'both head and body tag should be present in template file', 'wpp' ) ); 
 
             return $this->html;
 
