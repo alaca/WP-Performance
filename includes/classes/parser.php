@@ -722,7 +722,7 @@ class Parser
 
             foreach ( array_unique( $linksMedia ) as $media ) {
 
-                $filename = md5( $media ) . '.css';
+                $filename = md5( $media . $GLOBALS['wp']->request ) . '.css';
 
                 if ( file_exists( WPP_CACHE_DIR . $filename ) ) continue;   
 
@@ -791,7 +791,7 @@ class Parser
         // combined js files
         if ( ! empty( $combined_js = Collection::get( 'combine', 'js' ) ) ) {
 
-            $filename = md5( serialize( $combined_js ) ) . '.js';
+            $filename = md5( serialize( $combined_js ) . $GLOBALS['wp']->request ) . '.js';
 
             // Check if combined file exists
             if ( ! file_exists( WPP_CACHE_DIR . $filename ) ) {
