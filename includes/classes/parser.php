@@ -717,36 +717,38 @@ class Parser
             $linksMedia = [];
 
             foreach ( $combined_css as $link ) {
-                $linksMedia[] = $link[ 'media' ];    
+                $linksMedia[ $link[ 'href' ] ] = $link[ 'media' ];    
             }     
 
             foreach ( array_unique( $linksMedia ) as $media ) {
 
-                $filename = md5( $media . $GLOBALS['wp']->request ) . '.css';
+                $filename = md5( $media . serialize( $linksMedia ) ) . '.css';
 
-                if ( file_exists( WPP_CACHE_DIR . $filename ) ) continue;   
+                if ( ! file_exists( WPP_CACHE_DIR . $filename ) )  {
 
-                $code = '';
+                    $code = '';
 
-                foreach ( $combined_css as $link ) {
-
-                    if ( $link[ 'media' ] == $media ) {
-
-                        $originalCode = File::get( File::path( $link[ 'href' ] ) );  
-
-                        if (
-                            Option::get( 'css_minify' ) 
-                            && wpp_in_array( array_keys( Option::get( 'css_minify' ) ), $link[ 'href' ] )
-                        ) {
-                            $code .= Minify::code( $originalCode, $link[ 'href' ] ); 
-                        } else {
-                            $code .= Minify::replacePaths( $originalCode, $link[ 'href' ] );
+                    foreach ( $combined_css as $link ) {
+    
+                        if ( $link[ 'media' ] == $media ) {
+    
+                            $originalCode = File::get( File::path( $link[ 'href' ] ) );  
+    
+                            if (
+                                Option::get( 'css_minify' ) 
+                                && wpp_in_array( array_keys( Option::get( 'css_minify' ) ), $link[ 'href' ] )
+                            ) {
+                                $code .= Minify::code( $originalCode, $link[ 'href' ] ); 
+                            } else {
+                                $code .= Minify::replacePaths( $originalCode, $link[ 'href' ] );
+                            }
+                            
                         }
-                        
-                    }
-                }      
-                
-                File::save( WPP_CACHE_DIR . $filename, $code );
+                    }      
+                    
+                    File::save( WPP_CACHE_DIR . $filename, $code );
+
+                }
 
                 //touch( WPP_CACHE_DIR . $filename, time() - 3600 );
 
@@ -791,7 +793,7 @@ class Parser
         // combined js files
         if ( ! empty( $combined_js = Collection::get( 'combine', 'js' ) ) ) {
 
-            $filename = md5( serialize( $combined_js ) . $GLOBALS['wp']->request ) . '.js';
+            $filename = md5( serialize( $combined_js ) ) . '.js';
 
             // Check if combined file exists
             if ( ! file_exists( WPP_CACHE_DIR . $filename ) ) {
@@ -824,19 +826,19 @@ class Parser
                 }
     
                 File::save( WPP_CACHE_DIR . $filename, $code );
-    
-                // CDN?
-                $url = ( Option::get( 'cdn' ) && Option::get( 'cdn_hostname' ) ) 
-                     ? str_replace( site_url(), Option::get( 'cdn_hostname' ), WPP_CACHE_URL )
-                     : WPP_CACHE_URL;
-    
-                // Defer js
-                if ( Option::boolval( 'js_defer' ) ) {
-                    $this->body->innertext .= '<script type="text/wppscript" data-src="' . $url . $filename . '"></script>' . PHP_EOL;
-                } else {
-                    $this->body->innertext .= '<script src="' . $url . $filename . '"></script>' . PHP_EOL;
-                }
 
+            }
+    
+            // CDN?
+            $url = ( Option::get( 'cdn' ) && Option::get( 'cdn_hostname' ) ) 
+                    ? str_replace( site_url(), Option::get( 'cdn_hostname' ), WPP_CACHE_URL )
+                    : WPP_CACHE_URL;
+
+            // Defer js
+            if ( Option::boolval( 'js_defer' ) ) {
+                $this->body->innertext .= '<script type="text/wppscript" data-src="' . $url . $filename . '"></script>' . PHP_EOL;
+            } else {
+                $this->body->innertext .= '<script src="' . $url . $filename . '"></script>' . PHP_EOL;
             }
 
         }
