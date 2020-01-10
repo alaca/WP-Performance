@@ -63,6 +63,11 @@ This plugin generates static html files from your dynamic content and it uses mo
 
 ## Changelog ##
 
+
+### 1.1.7.4 ###
+* [FIX] Combine CSS
+* [FIX] Combine JS
+
 ### 1.1.7.3 ###
 * [FIX] Update UI - Checkboxes
 * [FIX] Skip dynamic files

@@ -11,6 +11,10 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Changelog ==
 
+= 1.1.7.4 =
+[FIX] Combine CSS
+[FIX] Combine JS
+
 = 1.1.7.3 =
 [FIX] Update UI - Checkboxes
 [FIX] Skip dynamic files
