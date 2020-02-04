@@ -217,6 +217,44 @@ $external_list      = Option::get( 'external_css_list', [] );
         </div>
 
 
+        <div data-wpp-show-checked="css_defer">
+
+            <h3><?php _e('Exclude file(s) from asynchronous loading', 'wpp'); ?></h3>
+
+            <hr />
+
+            <div>
+
+                <?php $excluded_files = Option::get( 'css_file_exclude', [] ); ?>
+
+                <div id="wpp-exclude-file-css-container">
+
+                    <?php foreach( $excluded_files as $url ): ?>
+                        <div data-dynamic-container="css_file_exclude[]" class="wpp-dynamic-input-container">
+                            <input name="css_file_exclude[]" value="<?php echo $url; ?>" placeholder="<?php echo trailingslashit( site_url() ); ?>" class="wpp-dynamic-input" form="wpp-settings" type="text" required> &nbsp; 
+                            <a href="#" data-name="css_file_exclude[]" class="button wpp-remove-input"><?php _e('Remove', 'wpp'); ?></a>
+                        </div>
+                    <?php endforeach; ?>
+
+                </div>
+
+
+                <a href="#" 
+                    class="button" 
+                    data-add-input="css_file_exclude[]"   
+                    data-suggest="css"
+                    data-container="#wpp-exclude-file-css-container">
+
+                    <?php _e('Add file', 'wpp'); ?>
+
+                </a>
+
+            </div>
+
+            <br />
+
+        </div>
+
 
         <?php $prefetch = Option::get( 'prefetch_css_list', [] ); ?>
 
@@ -353,7 +391,6 @@ $external_list      = Option::get( 'external_css_list', [] );
             </a>
 
         </div>
-
 
         <?php do_action( 'wpp-css-side-section-bottom'); ?>
 

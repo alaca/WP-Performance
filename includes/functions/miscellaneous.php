@@ -246,8 +246,8 @@ function wpp_enqueue_backend_assets() {
 
     // Enqueue scripts and styles
     wp_enqueue_script( 'wpp-confirms', WPP_ASSET_URL . 'confirm.js', [ 'jquery' ], WPP_VERSION );
-    wp_enqueue_script( 'wpp-settings', WPP_ASSET_URL . 'admin.js', [ 'jquery' ], WPP_VERSION );
-    
+    wp_enqueue_script( 'wpp-settings', WPP_ASSET_URL . 'admin.js', [ 'jquery', 'jquery-ui-autocomplete' ], WPP_VERSION );
+
     wp_localize_script( 'wpp-settings', 'WPP', [
         'path' => WPP_ASSET_URL,
         'site_url' => trailingslashit( site_url() ),
@@ -264,6 +264,16 @@ function wpp_enqueue_backend_assets() {
             'something_went_wrong' => __( 'Something went wrong', 'wpp' ),
             'regenerate_thumbs' => __( 'Regenerating thumbs', 'wpp' ),
             'regenerate_thumbs_info' => __( 'Regenerate thumbnails may take a long time. Do not close your browser.', 'wpp' ),
+        ],
+        'autocomplete' => [
+            'css' => array_merge(
+                Option::get( 'theme_css_list', [] ),
+                Option::get( 'plugin_css_list', [] )
+            ),
+            'js' => array_merge(
+                Option::get( 'theme_js_list', [] ),
+                Option::get( 'plugin_js_list', [] )
+            )
         ]
     ] );
 
@@ -522,3 +532,13 @@ function wpp_is_ajax() {
     return false;
 
 }
+
+function wpp_add_plugin_extra_links( $links, $file ) {
+
+    if ( strpos( $file, basename( WPP_SELF ) ) ) {
+        $links[] = '<a href="#">Buy me a coffee ☕</a>';
+    }
+  
+    return $links;
+}
+ 

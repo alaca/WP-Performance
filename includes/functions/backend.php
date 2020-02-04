@@ -231,6 +231,13 @@ add_action( 'wpp_backend_init', function(){
             'wpp_add_disable_link' 
         );
 
+        add_filter( 
+            'plugin_row_meta', 
+            'wpp_add_plugin_extra_links', 
+            10, 
+            2 
+        );
+
         // Check if plugin is disabled
         if ( Option::boolval( 'wpp_disable' ) ) {
             wpp_notify( 

@@ -159,6 +159,43 @@ $external_list      = Option::get( 'external_js_list', [] );
 
         <br /><br />
         <em><span class="dashicons dashicons-info"></span> <?php _e( 'Eliminates render-blocking JavaScript', 'wpp' ); ?></em> 
+        <br />
+
+        <div data-wpp-show-checked="js_defer">
+
+            <h3><?php _e('Exclude file(s) from asynchronous loading', 'wpp'); ?></h3>
+
+            <hr />
+
+            <div>
+
+                <?php $excluded_files = Option::get( 'js_file_exclude', [] ); ?>
+
+                <div id="wpp-exclude-file-js-container">
+
+                    <?php foreach( $excluded_files as $url ): ?>
+                        <div data-dynamic-container="js_file_exclude[]" class="wpp-dynamic-input-container">
+                            <input name="js_file_exclude[]" value="<?php echo $url; ?>" placeholder="<?php echo trailingslashit( site_url() ); ?>" class="wpp-dynamic-input" form="wpp-settings" type="text" required> &nbsp; 
+                            <a href="#" data-name="js_file_exclude[]" class="button wpp-remove-input"><?php _e('Remove', 'wpp'); ?></a>
+                        </div>
+                    <?php endforeach; ?>
+
+                </div>
+
+
+                <a href="#" 
+                    class="button" 
+                    data-add-input="js_file_exclude[]"   
+                    data-suggest="js"
+                    data-container="#wpp-exclude-file-js-container">
+
+                    <?php _e('Add file', 'wpp'); ?>
+
+                </a>
+
+            </div>
+
+        </div>
 
         <br />
         

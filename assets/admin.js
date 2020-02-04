@@ -12,8 +12,8 @@ jQuery(document).ready(function ($) {
 
 
     function _removeUnusedFields() {
-        $('.wpp-dynamic-input').each(function(){
-            if( $(this).attr('required') && ! $(this).val() ) {
+        $('.wpp-dynamic-input').each(function () {
+            if ($(this).attr('required') && !$(this).val()) {
                 $(this).parent('.wpp-dynamic-input-container').remove();
             }
         });
@@ -37,13 +37,13 @@ jQuery(document).ready(function ($) {
         $('[data-wpp-page-id="' + tab + '"]').click();
 
         if (highlight) {
-            var container =  $('[data-wpp-highlight-id="' + highlight + '"]');
+            var container = $('[data-wpp-highlight-id="' + highlight + '"]');
             container.addClass('wpp-highlight');
-            setTimeout( function(){
-                container.one( 'hover', function(){
+            setTimeout(function () {
+                container.one('hover', function () {
                     $(this).removeClass('wpp-highlight');
-                } );
-            }, 500 );
+                });
+            }, 500);
         }
     });
 
@@ -60,7 +60,7 @@ jQuery(document).ready(function ($) {
     /**
      * Select rules
      */
-    $(document).on('click', '.wpp-select-rules', function(e){
+    $(document).on('click', '.wpp-select-rules', function (e) {
         e.preventDefault();
         $('.wpp-rules-textarea').select();
     });
@@ -69,7 +69,7 @@ jQuery(document).ready(function ($) {
     /**
      * Remove excluded page
      */
-     $('.wpp-remove-manually-excluded').on('click', function(e){
+    $('.wpp-remove-manually-excluded').on('click', function (e) {
         e.preventDefault();
 
         var that = this;
@@ -99,43 +99,43 @@ jQuery(document).ready(function ($) {
             }
         });
 
-     });
+    });
 
 
     /**
      * Checkbox confirmation
      */
-     $('.wpp-action-confirm').on('click', function(e){
+    $('.wpp-action-confirm').on('click', function (e) {
 
         var that = this;
 
-        if (  $(that).is(':checked') ) {
+        if ($(that).is(':checked')) {
 
             $.confirm({
                 content: $(this).data('description'),
                 buttons: {
                     Confirm: function () {
-    
-                        $(that).attr('checked', true );
-    
+
+                        $(that).attr('checked', true);
+
                     },
                     Cancel: function () {
-                        $(that).attr('checked', false );
+                        $(that).attr('checked', false);
                     }
                 }
             });
 
         } else {
-            $(that).attr('checked', false );
+            $(that).attr('checked', false);
         }
 
-     });
+    });
 
 
     /**
      * Toggle options
      */
-     $('[data-wpp-toggle-id]').on('click', function(e){
+    $('[data-wpp-toggle-id]').on('click', function (e) {
 
         e.preventDefault();
 
@@ -144,7 +144,7 @@ jQuery(document).ready(function ($) {
         var hide = $(this).data('wpp-toggle-hide');
         var toggle = $('[data-wpp-toggle="' + id + '"]');
 
-        if ( toggle.hasClass('wpp-hidden') ) {
+        if (toggle.hasClass('wpp-hidden')) {
             toggle.removeClass('wpp-hidden');
             $(this).text(hide);
         } else {
@@ -152,29 +152,29 @@ jQuery(document).ready(function ($) {
             $(this).text(show);
         }
 
-     });
+    });
 
     /**
      * Show hide containers depending on checked options
      */
     $('[data-wpp-checkbox]').each(function () {
 
-        var name =  $(this).data('wpp-checkbox');
+        var name = $(this).data('wpp-checkbox');
 
-        if ( $(this).is(':checked') ) {
+        if ($(this).is(':checked')) {
 
-            if ( name.indexOf('|') !== -1 ) {
+            if (name.indexOf('|') !== -1) {
 
                 var names = name.split('|');
 
-                for( var i in names ) {
+                for (var i in names) {
                     $('[data-wpp-show-checked="' + names[i] + '"]').show();
                 }
 
             } else {
                 $('[data-wpp-show-checked="' + name + '"]').show();
             }
-            
+
         }
 
     });
@@ -188,46 +188,46 @@ jQuery(document).ready(function ($) {
         var containers = [];
 
         var name = $(this).data('wpp-checkbox');
-        
-        if ( name.indexOf('|') !== -1 ) {
+
+        if (name.indexOf('|') !== -1) {
 
             var names = name.split('|');
 
-            for( var n in names ) {
-                containers.push( names[ n ] );
+            for (var n in names) {
+                containers.push(names[n]);
             }
 
         } else {
-            containers.push( name );
+            containers.push(name);
         }
 
-        for( var j in containers ) {
+        for (var j in containers) {
 
-            var variations = $('[data-wpp-checkbox*="' + containers[ j ] + '"]');
+            var variations = $('[data-wpp-checkbox*="' + containers[j] + '"]');
 
             if (variations.length > 1) {
 
                 var checked = false;
-    
+
                 $.each(variations, function (i, v) {
-    
+
                     if ($(v).is(':checked')) {
                         checked = true;
                         return;
                     }
-    
+
                 });
-    
+
                 if (checked) {
-                    $('[data-wpp-show-checked="' + containers[ j ] + '"]').show();
+                    $('[data-wpp-show-checked="' + containers[j] + '"]').show();
                 } else {
-                    $('[data-wpp-show-checked="' + containers[ j ] + '"]').hide();
+                    $('[data-wpp-show-checked="' + containers[j] + '"]').hide();
                 }
-    
+
             } else {
-                $('[data-wpp-show-checked="' + containers[ j ] + '"]').toggle();
+                $('[data-wpp-show-checked="' + containers[j] + '"]').toggle();
             }
-    
+
         }
 
     });
@@ -275,11 +275,11 @@ jQuery(document).ready(function ($) {
 
         var btn = $(this);
 
-        if ( btn.attr('disabled') === 'disabled' ) return false;
+        if (btn.attr('disabled') === 'disabled') return false;
 
-        btn.attr( 'disabled', true );
+        btn.attr('disabled', true);
 
-        btn.after( '<img id="wpp-ajax-loader" src="' + WPP.admin_url + 'images/spinner.gif">' );
+        btn.after('<img id="wpp-ajax-loader" src="' + WPP.admin_url + 'images/spinner.gif">');
 
         $.ajax({
             method: 'POST',
@@ -289,20 +289,20 @@ jQuery(document).ready(function ($) {
                 action: 'wpp_get_critical_css_path',
                 nonce: WPP.nonce
             }
-        }).done(function ( response ) {
+        }).done(function (response) {
 
-            if ( response.status ) {
-                $('#wpp-css-custom-path-def').val( response.data );
+            if (response.status) {
+                $('#wpp-css-custom-path-def').val(response.data);
             } else {
-                console.log( response.message );
-                btn.attr( 'disabled', false );
+                console.log(response.message);
+                btn.attr('disabled', false);
             }
 
             $('#wpp-ajax-loader').remove();
-            
-        }).fail(function(){
 
-            btn.attr( 'disabled', false );
+        }).fail(function () {
+
+            btn.attr('disabled', false);
             $('#wpp-ajax-loader').remove();
 
         });
@@ -315,7 +315,7 @@ jQuery(document).ready(function ($) {
      */
     $(document).on('keyup', '#wpp-css-custom-path-def', function (e) {
 
-        if ( ! $(this).val() ) {
+        if (!$(this).val()) {
             $('#wpp-get-critical-css').removeAttr('disabled');
         }
 
@@ -332,14 +332,14 @@ jQuery(document).ready(function ($) {
 
         var items = $('[data-wpp-group="' + $(this).data('wpp-group') + '"]').not(':disabled');
 
-        $.each(items, function(i, e){
+        $.each(items, function (i, e) {
 
             var checked = $(that).is(':checked');
             var show = $(e).data('wpp-show-option');
 
             $(e).prop('checked', checked);
 
-            if( show && checked ){
+            if (show && checked) {
 
                 var index = $(e).data('wpp-index');
                 var file = $(e).data('wpp-file');
@@ -350,25 +350,25 @@ jQuery(document).ready(function ($) {
                 $(this).parents('tr').addClass('wpp-disabled-row');
 
                 // Check if option already exists
-                if( ! $('[data-wpp-option="' + show + '"]' ).length ) {
-    
+                if (!$('[data-wpp-option="' + show + '"]').length) {
+
                     // Add option
-                    var select  = '<div class="wpp-disable-select" data-wpp-option="' + show + '">';
+                    var select = '<div class="wpp-disable-select" data-wpp-option="' + show + '">';
                     select += '<select class="wpp-disable-select-position" data-wpp-options="' + data + '" data-wpp-prefix="' + prefix + '" data-wpp-file="' + file + '" data-wpp-container="wpp-option-' + prefix + '-' + index + '" name="' + name + '[' + file + ']" form="wpp-settings">';
                     select += '<option value="everywhere">' + WPP.lang.disable_everywhere + '</option>';
                     select += '<option value="selected">' + WPP.lang.disable_selected_url + '</option>';
                     select += '<option value="except">' + WPP.lang.disable_everywhere_except + '</option></select>';
                     select += '<div class="wpp-disabled-options-container" id="wpp-option-' + prefix + '-' + index + '"></div></div>';
-        
-                        $(this).parent().siblings('.wpp-list-filename').append( select );
+
+                    $(this).parent().siblings('.wpp-list-filename').append(select);
 
                 }
 
-            }else{
+            } else {
 
                 $(this).parents('tr').removeClass('wpp-disabled-row');
 
-                $( '[data-wpp-option="' + show + '"]' ).remove();
+                $('[data-wpp-option="' + show + '"]').remove();
 
             }
 
@@ -378,17 +378,17 @@ jQuery(document).ready(function ($) {
 
                 var options = option.split('|');
 
-                for ( var i in options ) {
-                    $('input[name="' + options[i] + '"]').not('[data-disabled]').attr('disabled', $(e).is(':checked') );
+                for (var i in options) {
+                    $('input[name="' + options[i] + '"]').not('[data-disabled]').attr('disabled', $(e).is(':checked'));
 
-                    if( show && checked ) {
-                        $( '[data-wpp-option="' + show + '"]' ).removeClass('wpp-hidden');
+                    if (show && checked) {
+                        $('[data-wpp-option="' + show + '"]').removeClass('wpp-hidden');
                     } else {
-                        $( '[data-wpp-option="' + show + '"]' ).addClass('wpp-hidden');
+                        $('[data-wpp-option="' + show + '"]').addClass('wpp-hidden');
                     }
 
                 }
-    
+
             }
 
         });
@@ -398,14 +398,14 @@ jQuery(document).ready(function ($) {
     /**
      * Disable option
      */
-    $('[data-wpp-disable-option]').on('click', function(){
+    $('[data-wpp-disable-option]').on('click', function () {
 
-        var option  = $(this).data('wpp-disable-option');
+        var option = $(this).data('wpp-disable-option');
         var checked = $(this).is(':checked');
-        var show    = $(this).data('wpp-show-option');
-        
-        
-        if( show && checked ){
+        var show = $(this).data('wpp-show-option');
+
+
+        if (show && checked) {
 
             var index = $(this).data('wpp-index');
             var file = $(this).data('wpp-file');
@@ -417,41 +417,41 @@ jQuery(document).ready(function ($) {
             $(this).parents('tr').addClass('wpp-disabled-row');
 
             // Remove if already exists
-            $('[data-wpp-option="' + show + '"]' ).remove();
+            $('[data-wpp-option="' + show + '"]').remove();
 
             // Add option
-            var select  = '<div class="wpp-disable-select" data-wpp-option="' + show + '">';
-                select += '<select class="wpp-disable-select-position" data-wpp-options="' + data + '" data-wpp-prefix="' + prefix + '" data-wpp-file="' + file + '" data-wpp-container="wpp-option-' + prefix + '-' + index + '" name="' + name + '[' + file + ']" form="wpp-settings">';
-                select += '<option value="everywhere">' + WPP.lang.disable_everywhere + '</option>';
-                select += '<option value="selected">' + WPP.lang.disable_selected_url + '</option>';
-                select += '<option value="except">' + WPP.lang.disable_everywhere_except + '</option></select>';
-                select += '<div class="wpp-disabled-options-container" id="wpp-option-' + prefix + '-' + index + '"></div></div>';
+            var select = '<div class="wpp-disable-select" data-wpp-option="' + show + '">';
+            select += '<select class="wpp-disable-select-position" data-wpp-options="' + data + '" data-wpp-prefix="' + prefix + '" data-wpp-file="' + file + '" data-wpp-container="wpp-option-' + prefix + '-' + index + '" name="' + name + '[' + file + ']" form="wpp-settings">';
+            select += '<option value="everywhere">' + WPP.lang.disable_everywhere + '</option>';
+            select += '<option value="selected">' + WPP.lang.disable_selected_url + '</option>';
+            select += '<option value="except">' + WPP.lang.disable_everywhere_except + '</option></select>';
+            select += '<div class="wpp-disabled-options-container" id="wpp-option-' + prefix + '-' + index + '"></div></div>';
 
-                $(this).parent().siblings('.wpp-list-filename').append( select );
+            $(this).parent().siblings('.wpp-list-filename').append(select);
 
-        }else{
+        } else {
 
-            if( show ) {
+            if (show) {
                 $(this).parents('tr').removeClass('wpp-disabled-row');
             }
 
-            
-            $( '[data-wpp-option="' + show + '"]' ).remove();
+
+            $('[data-wpp-option="' + show + '"]').remove();
 
         }
 
-        if( option ) {
+        if (option) {
 
             var options = option.split('|');
 
-            for ( var i in options ) {
+            for (var i in options) {
 
-                $('input[name="' + options[i] + '"]').not('[data-disabled]').attr('disabled', checked );
+                $('input[name="' + options[i] + '"]').not('[data-disabled]').attr('disabled', checked);
 
-                if( show && checked ) {
-                    $( '[data-wpp-option="' + show + '"]' ).removeClass('wpp-hidden');
+                if (show && checked) {
+                    $('[data-wpp-option="' + show + '"]').removeClass('wpp-hidden');
                 } else {
-                    $( '[data-wpp-option="' + show + '"]' ).addClass('wpp-hidden');
+                    $('[data-wpp-option="' + show + '"]').addClass('wpp-hidden');
                 }
             }
 
@@ -462,7 +462,7 @@ jQuery(document).ready(function ($) {
     /**
      * Disable position options
      */
-    $(document).on('change', '.wpp-disable-select-position', function(){
+    $(document).on('change', '.wpp-disable-select-position', function () {
 
         var position = $(this).val();
         var file = $(this).data('wpp-file');
@@ -470,9 +470,9 @@ jQuery(document).ready(function ($) {
         var container = $(this).data('wpp-container');
         var data_options = $(this).data('wpp-options');
 
-        var options = ( data_options ) ? data_options.split('|') : false ;
+        var options = (data_options) ? data_options.split('|') : false;
 
-        switch( position ) {
+        switch (position) {
             case 'selected':
             case 'except':
 
@@ -483,30 +483,30 @@ jQuery(document).ready(function ($) {
 
                 $('[data-add-input="' + prefix + '_disable_' + position + '[' + file + '][]"]').click();
 
-                $.each(options, function(i, name ){
+                $.each(options, function (i, name) {
 
-                    $('input[name="' + name + '[' + file + ']"]').not('[data-disabled]').attr('disabled', false );
+                    $('input[name="' + name + '[' + file + ']"]').not('[data-disabled]').attr('disabled', false);
 
                 });
-                
+
                 break;
             default:
 
                 $('#' + container).html('');
                 $('[data-container="#' + container + '"]').remove();
 
-                if ( options ) {
+                if (options) {
 
-                    $.each(options , function(i, name ){
+                    $.each(options, function (i, name) {
 
-                        $('input[name="' + name + '[' + file + ']"]').attr('disabled', true );
-    
+                        $('input[name="' + name + '[' + file + ']"]').attr('disabled', true);
+
                     });
 
                 }
 
         }
-        
+
     });
 
     /**
@@ -608,7 +608,7 @@ jQuery(document).ready(function ($) {
                             image_action: 'restore_sizes',
                             nonce: WPP.nonce
                         },
-                        
+
                     }).done(function (response) {
 
                         if (response.status) {
@@ -625,7 +625,7 @@ jQuery(document).ready(function ($) {
                                     var row = '<tr><td>' + size.name + '</td>';
                                     row += '<td>' + size.width + ' px</td>';
                                     row += (size.height > 0) ? '<td>' + size.height + ' px</td>' : '<td></td>';
-                                    row += '<td>' + ( ( size.crop > 0 ) ? WPP.lang.yes : '' ) + '</td>';
+                                    row += '<td>' + ((size.crop > 0) ? WPP.lang.yes : '') + '</td>';
                                     row += '<td><a href="#" data-size-name="' + size.name + '" class="button wpp-remove-user-image-size">x</a></td></tr>';
 
                                     tableBody.append(row);
@@ -767,11 +767,11 @@ jQuery(document).ready(function ($) {
         e.preventDefault();
 
         var that = $(this);
-        var title = that.data( 'title' );
+        var title = that.data('title');
         var removeFlag = true;
 
-        var regenerateThumbnails = function ( dialog ) {
-        
+        var regenerateThumbnails = function (dialog) {
+
             return $.ajax({
                 method: 'POST',
                 url: ajaxurl,
@@ -784,23 +784,23 @@ jQuery(document).ready(function ($) {
                     nonce: WPP.nonce
                 }
             }).done(function (response) {
-                
-                dialog.setContent('<div><img height="100" width="100" src="' + WPP.path + 'loader.svg" /><div class="wpp-thumb-loader">' + response.percent + '%</div></div><br />' );
-                dialog.setContentAppend('<div>' + response.info + '</div>' );
+
+                dialog.setContent('<div><img height="100" width="100" src="' + WPP.path + 'loader.svg" /><div class="wpp-thumb-loader">' + response.percent + '%</div></div><br />');
+                dialog.setContentAppend('<div>' + response.info + '</div>');
 
                 removeFlag = false;
 
-                if ( response.process ) {
-                    regenerateThumbnails( dialog )
+                if (response.process) {
+                    regenerateThumbnails(dialog)
                 }
-                
 
-            }).fail(function(e){
 
-                console.log( e.statusText, e.responseText )
+            }).fail(function (e) {
 
-                dialog.setTitle( 'Error' );
-                dialog.setContent('<div>' + WPP.lang.something_went_wrong + '</div>' );
+                console.log(e.statusText, e.responseText)
+
+                dialog.setTitle('Error');
+                dialog.setContent('<div>' + WPP.lang.something_went_wrong + '</div>');
 
             });
 
@@ -816,9 +816,9 @@ jQuery(document).ready(function ($) {
                         $('.jconfirm-content-pane').removeClass('no-scroll').removeAttr('style')
                         this.buttons.Confirm.hide();
                         this.buttons.Cancel.hide();
-                        this.setTitle( WPP.lang.regenerate_thumbs );
-                        this.setContent('<div><img height="100" width="100" src="' + WPP.path + 'loader.svg" /><div class="wpp-thumb-loader">0%</div></div><br />' );
-                        return regenerateThumbnails( this );
+                        this.setTitle(WPP.lang.regenerate_thumbs);
+                        this.setContent('<div><img height="100" width="100" src="' + WPP.path + 'loader.svg" /><div class="wpp-thumb-loader">0%</div></div><br />');
+                        return regenerateThumbnails(this);
                     }
                 },
                 Cancel: function () { }
@@ -856,17 +856,17 @@ jQuery(document).ready(function ($) {
                             nonce: WPP.nonce
                         }
                     }).done(function () {
-                        
+
                         $('#wpp_overlay').remove();
 
-                        if(action == 'all') {
+                        if (action == 'all') {
                             $('.wpp-db-count').text('0');
                         } else {
                             var prev = $('#wpp-all-count').text();
                             $('#wpp-' + action + '-count').text('0');
-                            $('#wpp-all-count').text( parseInt( prev ) - parseInt( count ) )
+                            $('#wpp-all-count').text(parseInt(prev) - parseInt(count))
                         }
-                        
+
                     });
 
                 },
@@ -918,30 +918,39 @@ jQuery(document).ready(function ($) {
     /**
      * Add input element
      */
-    $(document).on('click', '[data-add-input]', function(e){
+    $(document).on('click', '[data-add-input]', function (e) {
 
         e.preventDefault();
 
-        var name  = $(this).data('add-input');
+        var name = $(this).data('add-input');
         var info = $(this).attr('data-info');
         var placeholder = $(this).attr('data-placeholder') || '';
         var container = $(this).data('container');
+        var suggest = $(this).data('suggest');
 
-        var input  = '<div data-dynamic-container="' + name + '" class="wpp-dynamic-input-container">';
-            input += '<input type="text" name="' + name + '" placeholder="' + placeholder + '" class="wpp-dynamic-input" form="wpp-settings" required /> &nbsp; ';
-            input += '<a href="#" data-name="' + name + '" class="button wpp-remove-input">' + WPP.lang.remove + '</a>';
-            input += '</div>';
+        var input = '<div data-dynamic-container="' + name + '" class="wpp-dynamic-input-container">';
+        input += '<input type="text" name="' + name + '" placeholder="' + placeholder + '" class="wpp-dynamic-input" form="wpp-settings" required /> &nbsp; ';
+        input += '<a href="#" data-name="' + name + '" class="button wpp-remove-input">' + WPP.lang.remove + '</a>';
+        input += '</div>';
 
         $(container).append(input);
 
-        if ( info && $('[data-info-name="' + name + '"]').length == 0 ) {
+        if (suggest) {
 
-            if ( info.indexOf('|') !== -1 ) {
+            $(container).find('.wpp-dynamic-input:last').autocomplete({
+                source: WPP.autocomplete[suggest],
+                minLength: 2
+            });
+        }
+
+        if (info && $('[data-info-name="' + name + '"]').length == 0) {
+
+            if (info.indexOf('|') !== -1) {
 
                 var notes = info.split('|');
                 var output = '';
 
-                for( var i in notes ) {
+                for (var i in notes) {
                     output += '<em><span class="dashicons dashicons-info"></span> ' + notes[i] + '</em>';
                 }
 
@@ -950,7 +959,7 @@ jQuery(document).ready(function ($) {
             } else {
                 $(container).after('<div data-info-name="' + name + '"><em><span class="dashicons dashicons-info"></span> ' + info + '</em><br /></div>');
             }
-                        
+
         }
 
     });
@@ -958,13 +967,13 @@ jQuery(document).ready(function ($) {
     /**
      * Remove input element
      */
-    $(document).on('click', '.wpp-remove-input', function(e){
+    $(document).on('click', '.wpp-remove-input', function (e) {
 
         e.preventDefault();
 
         $(this).parent().remove();
 
-        if( $('[data-dynamic-container="' + $(this).data('name') + '"]').length == 0 ) {
+        if ($('[data-dynamic-container="' + $(this).data('name') + '"]').length == 0) {
             $('[data-info-name="' + $(this).data('name') + '"]').remove();
         }
 
@@ -976,24 +985,24 @@ jQuery(document).ready(function ($) {
      */
     var notice = $('.wpp-notice');
 
-    if ( notice.length && notice.hasClass('is-dismissible') ) {
+    if (notice.length && notice.hasClass('is-dismissible')) {
 
-        window.setTimeout(function(){
+        window.setTimeout(function () {
             notice.fadeOut();
-        }, 5000 );
+        }, 5000);
 
     }
 
-    
+
     /**
      * Autoload log content
      */
     var log_textarea = $('.wpp-log-textarea');
 
-    if ( log_textarea.length ) {
+    if (log_textarea.length) {
 
-        var interval = setInterval(function(){
-            
+        var interval = setInterval(function () {
+
             $.ajax({
                 method: 'POST',
                 url: ajaxurl,
@@ -1001,14 +1010,14 @@ jQuery(document).ready(function ($) {
                     action: 'wpp_get_log_content',
                     nonce: WPP.nonce
                 }
-            }).done(function ( data ) {
-                log_textarea.val( data )
-            }).fail(function(){
-                clearInterval( interval );
+            }).done(function (data) {
+                log_textarea.val(data)
+            }).fail(function () {
+                clearInterval(interval);
             })
 
-        }, 10000 );
+        }, 10000);
 
     }
 
-});
+});                                     

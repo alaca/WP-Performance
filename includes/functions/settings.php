@@ -129,6 +129,7 @@ function wpp_save_settings( $notify = true ) {
     Option::update( 'css_preconnect',        Input::post( 'css_preconnect', 'string', FILTER_REQUIRE_ARRAY ) );
     Option::update( 'css_combine_fonts',     Input::post( 'css_combine_fonts', 'boolean' ) );
     Option::update( 'css_url_exclude',       Input::post( 'css_url_exclude', 'string', FILTER_REQUIRE_ARRAY ) );
+    Option::update( 'css_file_exclude',      Input::post( 'css_file_exclude', 'string', FILTER_REQUIRE_ARRAY ) );
     Option::update( 'css_custom_path_def',   stripslashes( Input::post( 'css_custom_path_def' ) ) );
     Option::update( 'css_disable_loggedin',  Input::post( 'css_disable_loggedin', 'boolean' ) );  
 
@@ -145,6 +146,7 @@ function wpp_save_settings( $notify = true ) {
     Option::update( 'js_disable_position',   Input::post( 'js_disable_position', 'string', FILTER_REQUIRE_ARRAY ) );
     Option::update( 'js_disable_selected',   Input::post( 'js_disable_selected', 'string', FILTER_REQUIRE_ARRAY ) );
     Option::update( 'js_disable_except',     Input::post( 'js_disable_except', 'string', FILTER_REQUIRE_ARRAY ) );
+    Option::update( 'js_file_exclude',       Input::post( 'js_file_exclude', 'string', FILTER_REQUIRE_ARRAY ) );
     Option::update( 'js_disable_loggedin',   Input::post( 'js_disable_loggedin', 'boolean' ) );  
 
     // Images
