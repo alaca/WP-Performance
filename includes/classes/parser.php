@@ -285,14 +285,34 @@ class Parser
 
                     if ( wpp_in_array( array_keys( Option::get( 'css_combine' ) ), $href ) ) {
 
-                        Collection::add( 'combine', 'css', [
-                            'href'  => $href,
-                            'media' => !$link->media ? 'all' : $link->media
-                        ] );
+                        if ( Option::boolval( 'css_defer' ) ) {
 
-                        $link->outertext = ''; 
-                        
-                        continue;
+                            // Exclude file from async loading will exclude also exclude file from combine
+                            if ( ! wpp_in_array( Option::get( 'css_file_exclude', [] ), $href ) ) {
+    
+                                Collection::add( 'combine', 'css', [
+                                    'href'  => $href,
+                                    'media' => !$link->media ? 'all' : $link->media
+                                ] );
+        
+                                $link->outertext = ''; 
+                                
+                                continue;
+
+                            }
+    
+                        } else {
+
+                            Collection::add( 'combine', 'css', [
+                                'href'  => $href,
+                                'media' => !$link->media ? 'all' : $link->media
+                            ] );
+    
+                            $link->outertext = ''; 
+                            
+                            continue;
+    
+                        }
 
                     } 
 
@@ -311,13 +331,17 @@ class Parser
             }
             
             // Defer CSS
-            if ( Option::boolval( 'css_defer', false ) ) {
+            if ( 
+                Option::boolval( 'css_defer', false ) 
+                && ! wpp_in_array( Option::get( 'css_file_exclude', [] ), $href ) 
+            ) {
 
                 Collection::add( 'defer', 'css', $link->outertext );
             
                 $link->rel = 'preload';
                 $link->as = 'style';
                 $link->onload = "this.rel='stylesheet'";
+
             }
 
             // CDN
@@ -421,13 +445,30 @@ class Parser
             if ( wpp_in_array( array_keys( Option::get( 'js_combine', [] ) ), $src ) ) {
 
                 if ( File::isLocal( $src ) ) {
+
+                    if ( Option::boolval( 'js_defer' ) ) {
+
+                        // Exclude file from async loading will exclude also exclude file from combine
+                        if ( ! wpp_in_array( Option::get( 'js_file_exclude', [] ), $src ) ) {
+
+                            Collection::add( 'combine', 'js', [ 
+                                'file' => $src 
+                            ] );
+        
+                            $script->outertext = ''; 
+                        }
+
+                    } else {
+
+                        Collection::add( 'combine', 'js', [ 
+                            'file' => $src 
+                        ] );
+    
+                        $script->outertext = ''; 
+
+                    }
+
                     
-                    Collection::add( 'combine', 'js', [ 
-                        'file' => $src 
-                    ] );
-
-                    $script->outertext = ''; 
-
                 } elseif ( ! $script->src) {
 
                     Collection::add( 'combine', 'js', [ 
@@ -470,7 +511,10 @@ class Parser
             }
             
             // Defer JS
-            if ( Option::boolval( 'js_defer' ) ) {
+            if ( 
+                Option::boolval( 'js_defer' ) 
+                && ! wpp_in_array( Option::get( 'js_file_exclude', [] ), $src )
+            ) {
                 // set type
                 $script->type = 'text/wppscript';
                 // change src
