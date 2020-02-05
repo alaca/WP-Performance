@@ -128,6 +128,7 @@ function wpp_save_settings( $notify = true ) {
     Option::update( 'css_prefetch',          Input::post( 'css_prefetch', 'string', FILTER_REQUIRE_ARRAY ) );
     Option::update( 'css_preconnect',        Input::post( 'css_preconnect', 'string', FILTER_REQUIRE_ARRAY ) );
     Option::update( 'css_combine_fonts',     Input::post( 'css_combine_fonts', 'boolean' ) );
+    Option::update( 'css_font_display',      Input::post( 'css_font_display' ) );
     Option::update( 'css_url_exclude',       Input::post( 'css_url_exclude', 'string', FILTER_REQUIRE_ARRAY ) );
     Option::update( 'css_file_exclude',      Input::post( 'css_file_exclude', 'string', FILTER_REQUIRE_ARRAY ) );
     Option::update( 'css_custom_path_def',   stripslashes( Input::post( 'css_custom_path_def' ) ) );
