@@ -271,6 +271,19 @@ $external_list      = Option::get( 'external_css_list', [] );
 
             <br />
 
+            <div class="wpp-label"><?php _e( 'Google Fonts display optimization', 'wpp' ); ?></div> 
+
+            <select form="wpp-settings" name="css_font_display" class="wpp-select">
+                <option value="none" <?php wpp_selected( 'css_font_display', 'none' ); ?>><?php _e( 'None', 'wpp' ); ?></option>
+                <option value="auto" <?php wpp_selected( 'css_font_display', 'auto' ); ?>><?php _e( 'Auto', 'wpp' ); ?></option>
+                <option value="block" <?php wpp_selected( 'css_font_display', 'block' ); ?>><?php _e( 'Block', 'wpp' ); ?></option>
+                <option value="swap" <?php wpp_selected( 'css_font_display', 'swap' ); ?>><?php _e( 'Swap', 'wpp' ); ?></option>
+                <option value="fallback" <?php wpp_selected( 'css_font_display', 'fallback' ); ?>><?php _e( 'Fallback', 'wpp' ); ?></option>
+                <option value="optional" <?php wpp_selected( 'css_font_display', 'optional' ); ?>><?php _e( 'Optional', 'wpp' ); ?></option>
+            </select>
+
+            <br /><br /><br />
+
         <?php endif; ?>
         
         
@@ -283,7 +296,7 @@ $external_list      = Option::get( 'external_css_list', [] );
 
         <?php if ( ! empty( $prefetch ) ): ?>
 
-            <br /><br />
+            <br />
 
             <div>
 
