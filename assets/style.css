@@ -127,6 +127,11 @@
     margin-left: 15px;
 }
 
+.wpp-label {
+    font-size: 14px;
+    padding-bottom: 8px;
+}
+
 .wpp-content-section, .wpp-side-section {
     display: table-cell;
     vertical-align: top;     
@@ -254,9 +259,14 @@
     margin-top: 15px;
 }
 
-.wpp-side-section-list select {
+.wpp-side-section-list select, .wpp-select {
     height: 36px;
     width: 100%;
+}
+
+.wpp-select {
+    margin-bottom: 5px;
+    display: block;
 }
 
 .wpp-hidden {
