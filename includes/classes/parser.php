@@ -250,6 +250,23 @@ class Parser
 
                     }
 
+                    // Google fonts display
+                    if ( Option::get( 'css_font_display' ) !== 'none' ) {
+
+                        if ( strstr( $link->href, 'fonts.googleapis.com' ) ) {
+
+                            $url = parse_url( htmlspecialchars_decode( $link->href ) );
+                            
+                            parse_str( $url['query'], $parameters );
+
+                            $parameters['display'] = Option::get( 'css_font_display' );
+                            
+                            $link->href = '//fonts.googleapis.com/css?'. http_build_query( $parameters );
+
+                        }
+
+                    }
+
                 }                  
 
             }
@@ -819,6 +836,19 @@ class Parser
         if ( ! empty( $google_fonts = Collection::get( 'combine', 'google_fonts' ) ) ) {
 
             $href = '//fonts.googleapis.com/css?family=' . implode( '|', $google_fonts );
+
+            // Google fonts display
+            if ( Option::get( 'css_font_display' ) !== 'none' ) {
+
+                $url = parse_url( htmlspecialchars_decode( $href ) );
+                    
+                parse_str( $url['query'], $parameters );
+
+                $parameters['display'] = Option::get( 'css_font_display' );
+                
+                $href= '//fonts.googleapis.com/css?'. http_build_query( $parameters );
+
+            }
 
             if ( Option::boolval( 'css_defer' ) ) {
 
