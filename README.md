@@ -63,6 +63,13 @@ This plugin generates static html files from your dynamic content and it uses mo
 
 ## Changelog ##
 
+### 1.1.8 ###
+* [NEW] HTML optimization
+* [NEW] Google Fonts display optimization
+* [NEW] Exclude CSS/JS files from asynchronous loading
+* [UPDATE] Translations
+* [FIX] Asynchronous JS loading
+
 
 ### 1.1.7.4 ###
 * [FIX] Combine CSS

@@ -11,6 +11,13 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Changelog ==
 
+= 1.1.8 =
+[NEW] HTML optimization
+[NEW] Google Fonts display optimization
+[NEW] Exclude CSS/JS files from asynchronous loading
+[UPDATE] Translations
+[FIX] Asynchronous JS loading
+
 = 1.1.7.4 =
 [FIX] Combine CSS
 [FIX] Combine JS
