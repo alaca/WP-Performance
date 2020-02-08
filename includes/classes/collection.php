@@ -17,7 +17,7 @@ class Collection
      * 
      * @param string $name
      * @param string $type
-     * @param string $file
+     * @param mixed $file
      * @param boolean $unique
      * 
      * @return void

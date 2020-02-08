@@ -56,7 +56,7 @@ class Option
      * @param string $option
      * @param mixed $default
      * 
-     * @return void
+     * @return boolean
      */
     public static function boolval( $option, $default = false ) {
         return boolval( Option::get( $option, $default ) );
@@ -117,7 +117,7 @@ class Option
      * Get all options
      * 
      * @since 1.1.6
-     * @return void
+     * @return array
      */
     public static function getAll() {
 

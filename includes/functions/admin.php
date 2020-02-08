@@ -62,7 +62,7 @@ function wpp_selected( $name, $value, $default = false ) {
  */
 function wpp_checked( $name, $default = false ) {
 
-    if ( Option::get( $name, $default ) ) {
+    if ( Option::boolval( $name, $default ) ) {
         echo ' checked';  
     } 
 
