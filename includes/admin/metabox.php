@@ -82,6 +82,58 @@ $permalink =  get_permalink( $post );
         <?php 
         
         /**
+         * Exclude URL from HTML optimization filter
+         * @since 1.1.7.5
+         */
+        $html_url_exclude = apply_filters( 'wpp_html_url_exclude', Option::get( 'html_url_exclude', [] ) ); 
+        
+        ?>
+
+        <?php 
+        
+            if ( 
+                ! in_array( $post->ID, Option::get( 'html_post_exclude', [] ) ) 
+                && wpp_is_url_excluded( $permalink, $html_url_exclude ) 
+            ) : 
+            
+            ?>
+
+            <input 
+                type="checkbox" 
+                name="html_post_exclude" 
+                checked="checked"
+                disabled="disabled" />
+
+            <?php _e( 'Exclude from HTML optimization', 'wpp' ); ?>
+
+            <br />
+
+            <em><?php _e( 'This page is affected by URL(s) exclude options on HTML page', 'wpp' ); ?></em>
+
+        <?php else: ?>
+
+            <input 
+                type="checkbox" 
+                name="html_post_exclude" 
+                value="<?php echo $post->ID; ?>" 
+                <?php if ( in_array( $post->ID, Option::get( 'html_post_exclude', [] ) ) ) echo 'checked'; ?> />
+
+            <?php _e( 'Exclude from HTML optimization', 'wpp' ); ?>
+
+        <?php endif; ?>
+
+    </label>
+
+</div>
+
+
+<div class="wpp-meta-option">
+
+    <label title="<?php _e( 'Page URL will be added to exclude list', 'wpp' ); ?>">
+
+        <?php 
+        
+        /**
          * Exclude URL from CSS optimization filter
          * @since 1.0.3
          */

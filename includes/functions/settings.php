@@ -115,6 +115,16 @@ function wpp_save_settings( $notify = true ) {
     Option::update( 'user_agents_exclude',   Input::post( 'user_agents_exclude', 'string', FILTER_REQUIRE_ARRAY ) );
     Option::update( 'search_bots_exclude',   Input::post( 'search_bots_exclude', 'boolean' ) );
 
+    // HTML
+    Option::update( 'html_optimization',       Input::post( 'html_optimization', 'boolean' ) );
+    Option::update( 'html_minify_normal',      Input::post( 'html_minify_normal', 'boolean' ) );
+    Option::update( 'html_minify_aggressive',  Input::post( 'html_minify_aggressive', 'boolean' ) );
+    Option::update( 'html_remove_comments',    Input::post( 'html_remove_comments', 'boolean' ) );
+    Option::update( 'html_remove_link_type',   Input::post( 'html_remove_link_type', 'boolean' ) );
+    Option::update( 'html_remove_script_type', Input::post( 'html_remove_script_type', 'boolean' ) );
+    Option::update( 'html_remove_qoutes',      Input::post( 'html_remove_qoutes', 'boolean' ) );
+    Option::update( 'html_url_exclude',        Input::post( 'html_url_exclude', 'string', FILTER_REQUIRE_ARRAY ) );
+
     // CSS
     Option::update( 'css_minify',            Input::post( 'css_minify', 'string', FILTER_REQUIRE_ARRAY ) );
     Option::update( 'css_minify_inline',     Input::post( 'css_minify_inline', 'boolean' ) );
@@ -346,7 +356,16 @@ function wpp_load_settings( $filename, $notify = true ) {
  */
 function wpp_save_post_options( $post_id ) {
 
-    foreach( [ 'cache_post_exclude', 'css_post_exclude', 'js_post_exclude', 'image_post_exclude', 'video_post_exclude' ] as $option ) {
+    $option_names = [ 
+        'cache_post_exclude', 
+        'html_post_exclude', 
+        'css_post_exclude', 
+        'js_post_exclude', 
+        'image_post_exclude', 
+        'video_post_exclude' 
+    ];
+
+    foreach( $option_names as $option ) {
 
         $options = Option::get( $option, [] ); 
 
@@ -379,6 +398,7 @@ function wpp_ajax_remove_post_options() {
     $options = [
         'js'    => 'js_post_exclude',
         'css'   => 'css_post_exclude',
+        'html'  => 'html_post_exclude',
         'cache' => 'cache_post_exclude',
         'image' => 'image_post_exclude',
         'video' => 'video_post_exclude'

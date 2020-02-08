@@ -21,9 +21,9 @@ defined('ABSPATH') or exit;
     <div id="wpp_tabs_menu">
         <ul>
             <li><a href="#" class="<?php wpp_active( 'cache', true ); ?>" data-wpp-page-id="cache"><?php _e( 'Cache', 'wpp' ); ?></a></li>
-            <li><a href="#" class="<?php wpp_active( 'html' ); ?>" data-wpp-page-id="html">HTML</a></li>
             <li><a href="#" class="<?php wpp_active( 'css' ); ?>" data-wpp-page-id="css">CSS</a></li>
             <li><a href="#" class="<?php wpp_active( 'javascript' ); ?>" data-wpp-page-id="javascript">JavaScript</a></li>
+            <li><a href="#" class="<?php wpp_active( 'html' ); ?>" data-wpp-page-id="html">HTML</a></li>
             <li><a href="#" class="<?php wpp_active( 'media' ); ?>" data-wpp-page-id="media"><?php _e( 'Media', 'wpp' ); ?></a></li>
             <li><a href="#" class="<?php wpp_active( 'database' ); ?>" data-wpp-page-id="database"><?php _e( 'Database', 'wpp' ); ?></a></li>
             <li><a href="#" class="<?php wpp_active( 'cdn' ); ?>" data-wpp-page-id="cdn">CDN</a></li>
@@ -37,8 +37,8 @@ defined('ABSPATH') or exit;
 
         <select name="wpp-mobile-menu" id="wpp-mobile-menu-select">
             <option value="cache" <?php wpp_active( 'cache', true, 'selected' ); ?>><?php _e( 'Cache', 'wpp' ); ?></option>
-            <option value="html" <?php wpp_active( 'html', true, 'selected' ); ?>>HTML</option>
             <option value="css" <?php wpp_active( 'css', false, 'selected' ); ?>>CSS</option>
+            <option value="html" <?php wpp_active( 'html', true, 'selected' ); ?>>HTML</option>
             <option value="javascript" <?php wpp_active( 'javascript', false, 'selected' ); ?>>JavaScript</option>
             <option value="media" <?php wpp_active( 'media', false, 'selected' ); ?>><?php _e( 'Media', 'wpp' ); ?></option>
             <option value="database" <?php wpp_active( 'database', false, 'selected' ); ?>><?php _e( 'Database', 'wpp' ); ?></option>

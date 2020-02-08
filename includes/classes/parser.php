@@ -6,6 +6,8 @@
 * @package WPP
 */
 
+use voku\helper\HtmlMin;
+
 class Parser
 {
     private static $instance;
@@ -69,7 +71,7 @@ class Parser
     /**
      * Parse template
      *
-     * @return void
+     * @return string
      * @since 1.0.9
      */
     private function parseTemplate() {
@@ -725,6 +727,60 @@ class Parser
         }
 
     }
+
+    /**
+     * Parse HTML
+     *
+     * @return string
+     */
+    private function parseHTML() {
+
+        if ( Option::boolval( 'html_optimization' ) ) {
+
+            $html = new HtmlMin();
+
+            $html->doSortCssClassNames(false);
+            $html->doOptimizeAttributes(false);
+            $html->doSortHtmlAttributes(false);
+            $html->doRemoveOmittedHtmlTags(false);
+            $html->doRemoveDeprecatedAnchorName(false);
+            $html->doRemoveValueFromEmptyInput(false);
+            $html->doRemoveEmptyAttributes(false);
+
+            if ( ! Option::boolval( 'html_minify_normal' ) ) {
+                $html->doSumUpWhitespace( false );
+            } else {
+                $html->doRemoveWhitespaceAroundTags();
+            }
+
+            if ( Option::boolval( 'html_minify_aggressive' ) ) {
+                $html->doRemoveSpacesBetweenTags();
+            }
+
+            if ( ! Option::boolval( 'html_remove_comments' ) ) {
+                $html->doRemoveComments( false );
+            }
+
+            if ( ! Option::boolval( 'html_remove_link_type' ) ) {
+                $html->doRemoveDeprecatedTypeFromStylesheetLink( false );
+            }
+
+            if ( ! Option::boolval( 'html_remove_script_type' ) ) {
+                $html->doRemoveDeprecatedTypeFromScriptTag( false );
+            }
+
+            if ( ! Option::boolval( 'html_remove_qoutes' ) ) {
+                $html->doRemoveOmittedQuotes( false );
+            }
+
+            return $html->minify( $this->html );
+
+        }
+
+
+        return $this->html;
+
+    }
     
     /**
      * Rebuild the template
@@ -984,25 +1040,24 @@ class Parser
         }
 
         // WPP JS
-        $this->body->innertext .= '<script>' . str_replace( '{}', json_encode( $vars ),  File::get( WPP_ASSET_DIR . 'load/wpp.min.js' ) ) . '</script>' . PHP_EOL;  
-        
+        $this->body->innertext .= '<script>' . str_replace( '{}', json_encode( $vars ),  File::get( WPP_ASSET_DIR . 'load/wpp.min.js' ) ) . '</script>' . PHP_EOL;
+
+
         /**
-         * Filter parsed content
-         * 
-         * @since 1.0.8
+         * Exclude URL from HTML optimization filter
+         * @since 1.1.8
          */
-        $this->html = apply_filters( 'wpp_parsed_content', $this->html );
+        $html_url_exclude = apply_filters( 'wpp_html_url_exclude', Option::get( 'html_url_exclude', [] ) );
 
-        // Minify html
-        if ( apply_filters( 'wpp_minify_html', true ) ) {
-
-            $this->html = preg_replace( 
-                [ '/<!--(?!\[|\<|\>).*-->/', '/[[:blank:]]+/' ], 
-                [ '',' ' ], 
-                str_replace( "\t", '', $this->html )
-            );
-
+        if ( ! wpp_is_url_excluded( Url::current(), $html_url_exclude ) ) {
+            /**
+             * Filter parsed content
+             *
+             * @since 1.0.8
+             */
+            $this->html = apply_filters( 'wpp_parsed_content', $this->parseHTML() );
         }
+
 
         // Footprint
         $this->html .= PHP_EOL . sprintf( '<!-- %s %s %s -->', __( 'Optimized by', 'wpp' ), WPP_PLUGIN_NAME, WPP_VERSION ) . PHP_EOL;
@@ -1018,7 +1073,7 @@ class Parser
 
         /**
          * Filter excluded urls
-         * 
+         *
          * @since 1.0.0
          */
         $excluded = apply_filters( 'wpp_exclude_urls', Option::get( 'cache_url_exclude', [] ) );
@@ -1028,17 +1083,17 @@ class Parser
 
             if ( ! $this->is_amp() ) {
 
-                $this->html .= sprintf( 
-                    '<!-- ' . __( 'Cache file was created in %s seconds on %s at %s', 'wpp' ) . ' -->',  
-                    number_format( ( microtime( true ) - $this->time ), 2 ), 
+                $this->html .= sprintf(
+                    '<!-- ' . __( 'Cache file was created in %s seconds on %s at %s', 'wpp' ) . ' -->',
+                    number_format( ( microtime( true ) - $this->time ), 2 ),
                     date( get_option( 'date_format' ) ),
-                    date( get_option( 'time_format' ) ) 
+                    date( get_option( 'time_format' ) )
                 );
 
             }
-            
+
             Cache::save( $this->html, $this->is_amp() );
-            
+
         }
 
     }
