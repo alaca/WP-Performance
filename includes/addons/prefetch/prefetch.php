@@ -69,9 +69,9 @@ class Prefetch {
      * @return string
      * @since 1.1.3
      */
-    public function parseLinks( HtmlDOM $parsed ) {
+    public function parseLinks( $html ) {
 
-        $html = new HtmlDOM( $parsed->innertext, false, false );
+        $html = new HtmlDOM( $html, false, false );
 
         $links = $html->find( 'a' );
 
