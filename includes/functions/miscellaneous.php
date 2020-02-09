@@ -536,7 +536,7 @@ function wpp_is_ajax() {
 function wpp_add_plugin_extra_links( $links, $file ) {
 
     if ( strpos( $file, basename( WPP_SELF ) ) ) {
-        $links[] = '<a href="#">Buy me a coffee ☕</a>';
+        $links[] = '<a href="https://www.buymeacoffee.com/alaca" target="_blank">Buy me a coffee ☕</a>';
     }
   
     return $links;
