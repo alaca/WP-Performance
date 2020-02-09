@@ -11,6 +11,9 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Changelog ==
 
+= 1.1.8.1 =
+[FIX] Prefetch add-on
+
 = 1.1.8 =
 [NEW] HTML optimization
 [NEW] Google Fonts display optimization
