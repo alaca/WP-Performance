@@ -63,6 +63,10 @@ This plugin generates static html files from your dynamic content and it uses mo
 
 ## Changelog ##
 
+
+### 1.1.8.2 ###
+* [FIX] Prefetch add-on again
+
 ### 1.1.8.1 ###
 * [FIX] Prefetch add-on
 
