@@ -773,12 +773,12 @@ class Parser
                 $html->doRemoveOmittedQuotes( false );
             }
 
-            return $html->minify( $this->html );
+            return $html->minify( $this->html->innertext );
 
         }
 
 
-        return $this->html;
+        return $this->html->innertext;
 
     }
     

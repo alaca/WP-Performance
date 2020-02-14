@@ -29,7 +29,7 @@ class Prefetch {
         // If add-on is turned on and the cache is on
         if ( Option::boolval( 'prefetch_pages' ) && Option::boolval( 'cache' ) ) {
             // Parse links
-            add_action( 'wpp_parsed_content', [ $this, 'parseLinks' ] );
+            add_filter( 'wpp_parsed_content', [ $this, 'parseLinks' ] );
             // Load add-on scripts in footer
             add_action( 'wp_footer', [ $this, 'loadScript' ] );
         }
