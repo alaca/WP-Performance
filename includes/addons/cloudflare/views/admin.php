@@ -118,7 +118,7 @@ defined('ABSPATH') or exit; ?>
                         <strong><?php _e( 'Browser Cache Expiration', 'wpp' ); ?></strong></td>
                     <td>
                         <select name="cf_browser_expire" form="wpp-settings">
-                            <option value=""><?php _e( 'Respect Existing Headers', 'wpp' ); ?></option>
+                            <option value="0"><?php _e( 'Respect Existing Headers', 'wpp' ); ?></option>
                             <?php foreach( $options as $option ): ?>
                                 <option value="<?php echo $option; ?>" <?php wpp_selected( 'cf_browser_expire', $option, 14400 ); ?>>
                                     <?php echo $option; ?>
