@@ -64,6 +64,9 @@ This plugin generates static html files from your dynamic content and it uses mo
 ## Changelog ##
 
 
+### 1.1.8.3 ###
+* [FIX] Cloudflare add-on - respect existing headers
+
 ### 1.1.8.2 ###
 * [FIX] Prefetch add-on again
 
