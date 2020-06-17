@@ -34,16 +34,11 @@ class Parser
                 if ( ! $this->is_amp() )
                     $this->parseTemplate();
 
-                // Should we cache this page ?
-                if ( 
-                    Option::boolval( 'cache' ) 
-                    && empty( $_POST ) 
-                    && ! is_user_logged_in() 
-                ) {
-                    $this->saveCache();
-                }
-
-                return $this->html;
+                /**
+                 * Parsed template filter
+                 * @since 1.1.8.3
+                 */
+                $template = apply_filters( 'wpp_template', $this->html, $this->is_amp(), $this->time );
 
             }
 
