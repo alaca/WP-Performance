@@ -11,6 +11,11 @@ if ( ! empty( $_POST ) ) {
     return false;
 }
 
+// Exclude feeds from caching
+if ( isset( $_GET[ 'feed' ] ) || strpos( $_SERVER[ 'REQUEST_URI' ], '/feed' ) !== false ) {
+    return false;
+}
+
 // Get settings
 $settings = _wpp_get_site_settings();
 
