@@ -3,7 +3,7 @@
  * Plugin Name: WP Performance
  * Description: WP Performance Optimizer - cache & performance plugin.
  * Version: 2.0.0
- * Requires at least: 6.0
+ * Requires at least: 6.9
  * Requires PHP: 8.1
  * Author: Ante Laca
  * License: GPL-2.0-or-later
