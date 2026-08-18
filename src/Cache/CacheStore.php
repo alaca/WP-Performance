@@ -137,8 +137,15 @@ final class CacheStore
         return true;
     }
 
-    /** Delete cached pages. Keeps json/log (drop-in config + log) and, optionally, css/js. */
-    public function clear(bool $keepAssets = false): void
+    /**
+     * Delete cached pages. Keeps json/log (drop-in config + log) and, optionally, css/js.
+     *
+     * On a network every blog writes into one cache directory, so a purge
+     * started on one site is limited to that site's pages: the generated assets
+     * at the root are shared, and the other blogs' pages are not this blog's to
+     * throw away. $network is the network-wide flush a super admin asks for.
+     */
+    public function clear(bool $keepAssets = false, bool $network = false): void
     {
         if (! is_dir(WPP_CACHE_DIR)) {
             return;
@@ -153,9 +160,31 @@ final class CacheStore
         }
         // Block-cache fragments belong to the after_clear listener, which honours
         // block_cache_flush_on_clear; deleting them here ignores that setting.
-        $this->deleteContents(WPP_CACHE_DIR, $keep, self::fragmentsDir());
+        $this->deleteContents(self::scope($network), $keep, self::fragmentsDir());
 
         do_action('wpp.cache.after_clear');
+    }
+
+    /** Cache subtree a purge may delete from. */
+    private static function scope(bool $network): string
+    {
+        if ($network || ! is_multisite()) {
+            return WPP_CACHE_DIR;
+        }
+
+        $home = (string) home_url();
+        $path = '/' . trim((string) parse_url($home, PHP_URL_PATH), '/');
+        if ($path !== '/') {
+            $path .= '/';
+        }
+
+        // Without permalinks every page is a flat md5 file in the host
+        // directory, so the site path is not part of the layout to scope by.
+        if (! get_option('permalink_structure', '')) {
+            $path = '/';
+        }
+
+        return WPP_CACHE_DIR . self::sanitizeHost((string) parse_url($home, PHP_URL_HOST)) . $path;
     }
 
     public function clearAll(): void

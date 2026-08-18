@@ -15,7 +15,7 @@ final class FragmentCache
     /** @var list<array{identity:string, ttl:int, level:int}> open buffer frames (supports nesting) */
     private array $stack = [];
 
-    /** @var array<string, array{scripts:list<string>, styles:list<string>}> queue snapshots taken on a block miss */
+    /** @var array<string, array<string, mixed>> asset snapshots taken on a block miss */
     private array $pending = [];
 
     public function __construct(
@@ -76,7 +76,7 @@ final class FragmentCache
         $before   = $this->pending[$identity] ?? null;
         unset($this->pending[$identity]);
 
-        $assets = $before === null ? ['scripts' => [], 'styles' => []] : $this->assetsAdded($before);
+        $assets = $before === null ? [] : $this->assetsAdded($before);
 
         $this->store->set(
             $identity,
@@ -164,21 +164,19 @@ final class FragmentCache
     public function shortcode(mixed $atts, ?string $content = null): string
     {
         $atts = shortcode_atts([
-            'key'           => '',
-            'ttl'           => 0,
-            'vary_url'      => '1',
-            'vary_role'     => '0',
-            'vary_device'   => '0',
-            'vary_loggedin' => '0',
+            'key'         => '',
+            'ttl'         => 0,
+            'vary_url'    => '1',
+            'vary_role'   => '0',
+            'vary_device' => '0',
         ], is_array($atts) ? $atts : [], 'wpp_cache');
 
         $content = (string) $content;
         $opts    = [
-            'ttl'           => (int) $atts['ttl'],
-            'vary_url'      => $this->boolAtt($atts['vary_url']),
-            'vary_role'     => $this->boolAtt($atts['vary_role']),
-            'vary_device'   => $this->boolAtt($atts['vary_device']),
-            'vary_loggedin' => $this->boolAtt($atts['vary_loggedin']),
+            'ttl'         => (int) $atts['ttl'],
+            'vary_url'    => $this->boolAtt($atts['vary_url']),
+            'vary_role'   => $this->boolAtt($atts['vary_role']),
+            'vary_device' => $this->boolAtt($atts['vary_device']),
         ];
         $key = $atts['key'] !== '' ? (string) $atts['key'] : 'sc_' . md5($content);
 
@@ -209,8 +207,12 @@ final class FragmentCache
 
         // Not opt-in: a logged-in render carries nonces and account-specific
         // markup, and a shared entry leaks it in whichever direction fills first.
+        // A role bucket is not enough - two subscribers are two people.
         $loggedIn = is_user_logged_in();
         $parts[]  = 'l=' . ($loggedIn ? '1' : '0');
+        if ($loggedIn) {
+            $parts[] = 'uid=' . get_current_user_id();
+        }
 
         if ($loggedIn || ! empty($opts['vary_role'])) {
             $parts[] = 'r=' . $this->currentRole();
@@ -266,11 +268,10 @@ final class FragmentCache
     {
         $attrs = $block['attrs'] ?? [];
         return [
-            'ttl'           => (int) ($attrs['ttl'] ?? 0),
-            'vary_url'      => $attrs['varyUrl'] ?? true,
-            'vary_loggedin' => ! empty($attrs['varyLoggedin']),
-            'vary_role'     => ! empty($attrs['varyRole']),
-            'vary_device'   => ! empty($attrs['varyDevice']),
+            'ttl'         => (int) ($attrs['ttl'] ?? 0),
+            'vary_url'    => $attrs['varyUrl'] ?? true,
+            'vary_role'   => ! empty($attrs['varyRole']),
+            'vary_device' => ! empty($attrs['varyDevice']),
         ];
     }
 
@@ -310,18 +311,76 @@ final class FragmentCache
         return filter_var($value, FILTER_VALIDATE_BOOLEAN);
     }
 
-    /** @return array{scripts:list<string>, styles:list<string>} */
+    /** @return array<string, mixed> */
     private function assetQueue(): array
     {
         return [
             'scripts' => isset($GLOBALS['wp_scripts']->queue) ? array_values((array) $GLOBALS['wp_scripts']->queue) : [],
             'styles'  => isset($GLOBALS['wp_styles']->queue) ? array_values((array) $GLOBALS['wp_styles']->queue) : [],
+            'inline'  => $this->inlineStyles(),
+            'rules'   => $this->supportRules(),
         ];
     }
 
     /**
-     * @param array{scripts:list<string>, styles:list<string>} $before
-     * @return array{scripts:list<string>, styles:list<string>}
+     * Inline CSS attached to registered handles, which the queue diff cannot see.
+     *
+     * @return array<string, list<string>>
+     */
+    private function inlineStyles(): array
+    {
+        $styles = $GLOBALS['wp_styles'] ?? null;
+        if (! is_object($styles) || ! isset($styles->registered) || ! is_array($styles->registered)) {
+            return [];
+        }
+
+        $out = [];
+        foreach ($styles->registered as $handle => $item) {
+            $after = is_object($item) ? ($item->extra['after'] ?? null) : null;
+            if (is_array($after) && $after !== []) {
+                $out[(string) $handle] = array_values(array_filter($after, 'is_string'));
+            }
+        }
+
+        return $out;
+    }
+
+    /**
+     * Layout, elements, duotone and block-style-variation CSS lands in the style
+     * engine's block-supports store during render_block, not in a handle queue.
+     *
+     * @return array<string, array{selector:string, rules_group:string, declarations:array<string, string>}>
+     */
+    private function supportRules(): array
+    {
+        if (! class_exists('WP_Style_Engine_CSS_Rules_Store')) {
+            return [];
+        }
+
+        $store = \WP_Style_Engine_CSS_Rules_Store::get_store('block-supports');
+        if (! is_object($store)) {
+            return [];
+        }
+
+        $out = [];
+        foreach ($store->get_all_rules() as $key => $rule) {
+            $declarations = $rule->get_declarations();
+            if (is_object($declarations)) {
+                $declarations = $declarations->get_declarations();
+            }
+            $out[(string) $key] = [
+                'selector'     => (string) $rule->get_selector(),
+                'rules_group'  => method_exists($rule, 'get_rules_group') ? (string) $rule->get_rules_group() : '',
+                'declarations' => array_map('strval', (array) $declarations),
+            ];
+        }
+
+        return $out;
+    }
+
+    /**
+     * @param array<string, mixed> $before
+     * @return array<string, mixed>
      */
     private function assetsAdded(array $before): array
     {
@@ -330,7 +389,58 @@ final class FragmentCache
         return [
             'scripts' => array_values(array_diff($now['scripts'], $before['scripts'])),
             'styles'  => array_values(array_diff($now['styles'], $before['styles'])),
+            'inline'  => $this->inlineAdded($before['inline'] ?? [], $now['inline']),
+            'rules'   => $this->rulesAdded($before['rules'] ?? [], $now['rules']),
         ];
+    }
+
+    /**
+     * @param array<string, list<string>> $before
+     * @param array<string, list<string>> $now
+     * @return array<string, list<string>>
+     */
+    private function inlineAdded(array $before, array $now): array
+    {
+        $out = [];
+        foreach ($now as $handle => $items) {
+            $added = array_values(array_diff($items, $before[$handle] ?? []));
+            if ($added !== []) {
+                $out[$handle] = $added;
+            }
+        }
+
+        return $out;
+    }
+
+    /**
+     * Rules are merged into whatever object already holds the selector, so the
+     * diff has to run per declaration rather than per selector.
+     *
+     * @param array<string, array<string, mixed>> $before
+     * @param array<string, array<string, mixed>> $now
+     * @return array<string, array<string, mixed>>
+     */
+    private function rulesAdded(array $before, array $now): array
+    {
+        $out = [];
+        foreach ($now as $key => $rule) {
+            $was   = (array) ($before[$key]['declarations'] ?? []);
+            $added = [];
+            foreach ((array) $rule['declarations'] as $property => $value) {
+                if (($was[$property] ?? null) !== $value) {
+                    $added[$property] = $value;
+                }
+            }
+            if ($added !== []) {
+                $out[$key] = [
+                    'selector'     => $rule['selector'],
+                    'rules_group'  => $rule['rules_group'],
+                    'declarations' => $added,
+                ];
+            }
+        }
+
+        return $out;
     }
 
     /** @param array<string, mixed> $assets */
@@ -342,12 +452,22 @@ final class FragmentCache
         foreach ((array) ($assets['styles'] ?? []) as $handle) {
             wp_enqueue_style((string) $handle);
         }
+        foreach ((array) ($assets['inline'] ?? []) as $handle => $items) {
+            foreach ((array) $items as $css) {
+                wp_add_inline_style((string) $handle, (string) $css);
+            }
+        }
+
+        $rules = (array) ($assets['rules'] ?? []);
+        if ($rules !== [] && function_exists('wp_style_engine_get_stylesheet_from_css_rules')) {
+            wp_style_engine_get_stylesheet_from_css_rules(array_values($rules), ['context' => 'block-supports']);
+        }
     }
 
-    /** @param array{scripts:list<string>, styles:list<string>} $assets */
+    /** @param array<string, mixed> $assets */
     private function encode(string $html, array $assets): string
     {
-        if (($assets['scripts'] ?? []) === [] && ($assets['styles'] ?? []) === []) {
+        if (array_filter($assets) === []) {
             return $html;
         }
 

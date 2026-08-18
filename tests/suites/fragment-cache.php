@@ -53,7 +53,7 @@ return static function (): void {
     $_SERVER['REQUEST_URI'] = '/page-a';
     wpp_contains('u=/page-a', $fc->identity('x', []), 'identity varies by URL by default');
     wpp_not_contains('u=', $fc->identity('x', ['vary_url' => false]), 'vary_url false drops the URL');
-    wpp_contains('l=', $fc->identity('x', ['vary_loggedin' => true]), 'vary_loggedin adds login state');
+    wpp_contains('l=', $fc->identity('x', []), 'identity always carries login state');
     wpp_contains('d=', $fc->identity('x', ['vary_device' => true]), 'vary_device adds device');
     wpp_contains('r=', $fc->identity('x', ['vary_role' => true]), 'vary_role adds role');
 

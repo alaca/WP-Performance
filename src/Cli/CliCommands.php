@@ -16,12 +16,15 @@ use WP_CLI;
  */
 final class CliCommands
 {
-    /** Clear the page cache. */
+    /** Clear the page cache. Pass --network to flush every blog. */
     public function flush(array $args, array $assoc): void
     {
-        $keep = ! empty((new SettingsService())->get('cache')['keep_assets']);
-        (new CacheStore())->clear($keep);
-        WP_CLI::success('WP Performance cache cleared.');
+        $keep    = ! empty((new SettingsService())->get('cache')['keep_assets']);
+        $network = ! empty($assoc['network']);
+        (new CacheStore())->clear($keep, $network);
+        WP_CLI::success($network
+            ? 'WP Performance cache cleared for the whole network.'
+            : 'WP Performance cache cleared.');
     }
 
     /** Flush the block (fragment) cache. */

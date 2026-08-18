@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace WPP\Server;
 
+use WPP\Cache\DropinInstaller;
+
 /**
  * Generates browser-cache (expires) and gzip rules. On Apache they are written
  * into .htaccess; on nginx they are returned as text for manual paste.
@@ -32,7 +34,10 @@ final class ServerRules
     /** @param array<string,mixed> $cache write/refresh .htaccess blocks (Apache only). */
     public function apply(array $cache): void
     {
-        if ($this->serverType() !== 'apache') {
+        // ABSPATH/.htaccess is a network-wide root file, so it sits behind the
+        // same boundary as the drop-ins: not a subsite administrator's to write,
+        // and off limits entirely under DISALLOW_FILE_MODS.
+        if (! DropinInstaller::fileModsAllowed() || $this->serverType() !== 'apache') {
             return;
         }
         $file = $this->htaccessPath();
@@ -45,6 +50,9 @@ final class ServerRules
 
     public function removeAll(): void
     {
+        if (! DropinInstaller::fileModsAllowed()) {
+            return;
+        }
         $file = $this->htaccessPath();
         if ($file === null) {
             return;
@@ -74,17 +82,50 @@ final class ServerRules
         }
 
         if (! empty($cache['enabled'])) {
-            $lines[] = '# Serve the WP Performance page cache (optional, bypasses PHP):';
-            $lines[] = 'set $wpp_cache "";';
-            $lines[] = 'if ($request_method = GET) { set $wpp_cache "C"; }';
-            $lines[] = 'if ($query_string != "") { set $wpp_cache ""; }';
-            $lines[] = 'if ($http_cookie ~* "wordpress_logged_in_|wp-postpass_|comment_author_") { set $wpp_cache ""; }';
-            $lines[] = 'set $wpp_file "/wp-content/cache/wpp-cache/$host$request_uri/index.html";';
-            $lines[] = 'if (-f $document_root$wpp_file) { set $wpp_cache "${wpp_cache}F"; }';
-            $lines[] = 'if ($wpp_cache = "CF") { rewrite ^ $wpp_file last; }';
+            foreach ($this->pageCacheLines($cache) as $line) {
+                $lines[] = $line;
+            }
         }
 
         return trim(implode("\n", $lines));
+    }
+
+    /**
+     * A rewrite here answers before PHP runs, so it is only offered where the
+     * static file is the same answer the drop-in would have given.
+     *
+     * @param array<string,mixed> $cache
+     * @return list<string>
+     */
+    private function pageCacheLines(array $cache): array
+    {
+        if (! empty($cache['mobile'])) {
+            return [
+                '# Page cache serving is left to PHP while the mobile cache is on: nginx',
+                '# would answer phones with the desktop copy, and the mobile variant is only',
+                '# ever written by a request that reaches WordPress.',
+            ];
+        }
+
+        if (! get_option('permalink_structure')) {
+            return [
+                '# Page cache serving is left to PHP: with plain permalinks the cached file',
+                '# is named after a hash of the URL, which nginx cannot build.',
+            ];
+        }
+
+        return [
+            '# Serve the WP Performance page cache (optional, bypasses PHP).',
+            '# nginx cannot compare file age, so a page matched here is served whatever its',
+            '# age: the configured expiry only applies to requests that reach PHP.',
+            'set $wpp_cache "";',
+            'if ($request_method = GET) { set $wpp_cache "C"; }',
+            'if ($query_string != "") { set $wpp_cache ""; }',
+            'if ($http_cookie ~* "wordpress_logged_in_|wp-postpass_|comment_author_") { set $wpp_cache ""; }',
+            'set $wpp_file "/wp-content/cache/wpp-cache/$host$request_uri/index.html";',
+            'if (-f $document_root$wpp_file) { set $wpp_cache "${wpp_cache}F"; }',
+            'if ($wpp_cache = "CF") { rewrite ^ $wpp_file last; }',
+        ];
     }
 
     private function expiresBlock(): string

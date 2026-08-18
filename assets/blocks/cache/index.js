@@ -14,7 +14,6 @@ registerBlockType( 'wpp/cache', {
     attributes: {
         ttl: { type: 'number', default: 0 },
         varyUrl: { type: 'boolean', default: true },
-        varyLoggedin: { type: 'boolean', default: false },
         varyRole: { type: 'boolean', default: false },
         varyDevice: { type: 'boolean', default: false },
     },
@@ -39,11 +38,6 @@ registerBlockType( 'wpp/cache', {
                             help={ __( 'Turn off to reuse one copy everywhere, like a menu or footer.', 'wpp' ) }
                             checked={ attributes.varyUrl }
                             onChange={ ( v ) => setAttributes( { varyUrl: v } ) }
-                        />
-                        <ToggleControl
-                            label={ __( 'Separate copy for logged-in visitors', 'wpp' ) }
-                            checked={ attributes.varyLoggedin }
-                            onChange={ ( v ) => setAttributes( { varyLoggedin: v } ) }
                         />
                         <ToggleControl
                             label={ __( 'Separate copy for each user role', 'wpp' ) }

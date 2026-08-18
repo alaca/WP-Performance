@@ -74,6 +74,12 @@ final class AssetParser
                     $hintTags[] = '<link rel="preload" as="style" href="' . esc_url($fullUrl)
                         . '" onload="this.onload=null;this.rel=\'stylesheet\'">'
                         . '<noscript><link rel="stylesheet" href="' . esc_url($fullUrl) . '"></noscript>';
+                } else {
+                    // The originals already stood down for the anchor, so a
+                    // bundle that could not be built has to hand them back.
+                    foreach ($usedUrls as $usedUrl) {
+                        $styleTags[] = $this->styleTag($usedUrl, true);
+                    }
                 }
             }
         }
@@ -99,6 +105,10 @@ final class AssetParser
             $url = $this->combine($urls, 'css', $cdn);
             if ($url !== null) {
                 $styleTags[] = $this->styleTag($url, $deferCss, (string) $mediaValue);
+                continue;
+            }
+            foreach ($urls as $original) {
+                $styleTags[] = $this->styleTag($original, $deferCss, (string) $mediaValue);
             }
         }
         foreach ($googleFonts as $endpoint => $families) {
@@ -144,6 +154,10 @@ final class AssetParser
                     $delayed = true;
                 } else {
                     $tag = '<script src="' . esc_url($url) . '"' . (! empty($js['defer']) ? ' defer' : '') . '></script>';
+                }
+            } else {
+                foreach ($combineJs as $original) {
+                    $tag .= '<script src="' . esc_url($original) . '"' . (! empty($js['defer']) ? ' defer' : '') . '></script>';
                 }
             }
             $html = $this->placeAnchored($html, self::JS_ANCHOR, $tag, '</body>');
@@ -271,12 +285,20 @@ final class AssetParser
             $attrs['href'] = $href;
 
             if ($deferThis) {
+                // The noscript copy is what styles the page when the onload swap
+                // never runs. Its id is dropped so the two never collide.
+                $fallback = $attrs;
+                unset($fallback['id']);
+
                 // A preload whose media query does not match is never fetched, so
                 // its onload never fires: the media moves onto the handler.
                 unset($attrs['media']);
                 $attrs['rel']    = 'preload';
                 $attrs['as']     = 'style';
                 $attrs['onload'] = 'this.onload=null;' . $this->onloadMedia($mediaValue) . "this.rel='stylesheet'";
+
+                return $this->buildVoidTag('link', $attrs)
+                    . '<noscript>' . $this->buildVoidTag('link', $fallback) . '</noscript>';
             }
 
             return $this->buildVoidTag('link', $attrs);
@@ -430,10 +452,16 @@ final class AssetParser
     /**
      * @param array<string,mixed> $media
      * @param array<string,mixed> $cdn
-     * @param array<int,array{src:string,srcset:string,sizes:string}> $preloads collected LCP images
+     * @param array<int,array{src:string,srcset:string,sizes:string,type:string}> $preloads collected LCP images
      */
     private function processImages(string $html, array $media, array $cdn, array &$preloads): string
     {
+        // The page-URL control, matching the video one: the by-name/by-src
+        // control is images_exclude.
+        if (Url::anyMatch((array) ($media['images_exclude_urls'] ?? []), $this->currentUrl)) {
+            return $html;
+        }
+
         $disableOnMobile = ! empty($media['images_lazy_disable_mobile']) && wp_is_mobile();
         $lazy       = ! empty($media['images_lazy']) && ! $disableOnMobile;
         $cdnOn      = ! empty($cdn['enabled']);
@@ -450,9 +478,17 @@ final class AssetParser
         if ($containers !== []) {
             $html = $this->markContainers($html, $containers);
         }
+        if ($nextgen) {
+            $html = $this->markPictureImages($html);
+        }
 
         $index  = 0;
         $result = preg_replace_callback('#<img\b(?:"[^"]*"|\'[^\']*\'|[^"\'>])*>#i', function (array $m) use ($media, $cdn, $lazy, $cdnOn, $responsive, $dimensions, $lcp, $nextgen, &$preloads, &$index): string {
+            $inPicture = str_contains($m[0], 'data-wpp-picture="1"');
+            if ($inPicture) {
+                $m[0] = str_replace(' data-wpp-picture="1"', '', $m[0]);
+            }
+
             if (str_contains($m[0], 'data-wpp-skip')) {
                 return str_replace(' data-wpp-skip="1"', '', $m[0]);
             }
@@ -522,11 +558,6 @@ final class AssetParser
                 if (empty($attrs['fetchpriority'])) {
                     $attrs['fetchpriority'] = 'high';
                 }
-                $preloads[] = [
-                    'src'    => (string) ($attrs['src'] ?? $src),
-                    'srcset' => (string) ($attrs['srcset'] ?? ''),
-                    'sizes'  => (string) ($attrs['sizes'] ?? ''),
-                ];
                 $changed = true;
             } elseif ($lazy) {
                 if (empty($attrs['loading'])) {
@@ -541,40 +572,86 @@ final class AssetParser
 
             $imgTag = $changed ? $this->buildVoidTag('img', $attrs) : $m[0];
 
-            if ($nextgen) {
-                $picture = $this->wrapPicture($imgTag, $originSrc, $originSrcset, $cdnOn ? $cdn : null);
-                if ($picture !== null) {
-                    return $picture;
-                }
+            // An <img> that already sits in a <picture> only ever sees that
+            // picture's own <source>s, so wrapping it again disables them.
+            $sources = $nextgen && ! $inPicture
+                ? $this->nextgenSources($originSrc, $originSrcset, (string) ($attrs['sizes'] ?? ''), $cdnOn ? $cdn : null)
+                : [];
+
+            if ($isLcp) {
+                $preloads[] = $this->preloadFor($sources, $attrs, $src);
             }
 
-            return $imgTag;
+            return $sources === [] ? $imgTag : $this->wrapPicture($imgTag, $sources);
         }, $html);
 
         return $result ?? $html;
     }
 
     /**
-     * Wrap an <img> in a <picture> with avif/webp <source>s when the sibling
-     * next-gen files exist. Returns null if none exist.
-     *
-     * @param array<string,mixed>|null $cdn
+     * Mark every <img> that already lives inside a <picture>.
      */
-    private function wrapPicture(string $imgTag, string $src, string $srcset, ?array $cdn): ?string
+    private function markPictureImages(string $html): string
     {
-        $sources = '';
-        foreach (['avif' => 'image/avif', 'webp' => 'image/webp'] as $format => $mime) {
-            $nextgen = $this->nextgenSrcset($src, $srcset, $format, $cdn);
-            if ($nextgen !== '') {
-                $sources .= '<source srcset="' . esc_attr($nextgen) . '" type="' . $mime . '">';
-            }
+        if (stripos($html, '<picture') === false) {
+            return $html;
         }
 
-        return $sources !== '' ? '<picture>' . $sources . $imgTag . '</picture>' : null;
+        $result = preg_replace_callback(
+            '#<picture\b(?:"[^"]*"|\'[^\']*\'|[^"\'>])*>.*?</picture\s*>#is',
+            static fn (array $m): string => (string) preg_replace('#<img\b#i', '<img data-wpp-picture="1"', $m[0]),
+            $html
+        );
+
+        return $result ?? $html;
     }
 
     /**
-     * Build a next-gen srcset from the origin src/srcset where the files exist.
+     * @param list<array{srcset:string,sizes:string,type:string}> $sources
+     */
+    private function wrapPicture(string $imgTag, array $sources): string
+    {
+        $tags = '';
+        foreach ($sources as $source) {
+            $tags .= '<source srcset="' . esc_attr($source['srcset']) . '"'
+                . ($source['sizes'] !== '' ? ' sizes="' . esc_attr($source['sizes']) . '"' : '')
+                . ' type="' . $source['type'] . '">';
+        }
+
+        return '<picture>' . $tags . $imgTag . '</picture>';
+    }
+
+    /**
+     * The avif/webp <source>s whose sibling files all exist, best format first.
+     *
+     * @param array<string,mixed>|null $cdn
+     * @return list<array{srcset:string,sizes:string,type:string}>
+     */
+    private function nextgenSources(string $src, string $srcset, string $sizes, ?array $cdn): array
+    {
+        $sources = [];
+        foreach (['avif' => 'image/avif', 'webp' => 'image/webp'] as $format => $mime) {
+            $nextgen = $this->nextgenSrcset($src, $srcset, $format, $cdn);
+            if ($nextgen === '') {
+                continue;
+            }
+            $sources[] = [
+                'srcset' => $nextgen,
+                // A <source> without sizes defaults to a source size of 100vw,
+                // so width descriptors would resolve to a larger candidate than
+                // the <img> itself picks.
+                'sizes'  => $this->hasWidthDescriptor($nextgen) ? $sizes : '',
+                'type'   => $mime,
+            ];
+        }
+
+        return $sources;
+    }
+
+    /**
+     * Build a next-gen srcset from the origin src/srcset. Empty unless every
+     * candidate has a sibling: a partial set would let the browser pick a small
+     * next-gen file for a slot the original srcset covered.
      *
      * @param array<string,mixed>|null $cdn
      */
@@ -591,9 +668,10 @@ final class AssetParser
                 $parts      = preg_split('/\s+/', $candidate, 2);
                 $url        = $parts[0];
                 $descriptor = isset($parts[1]) ? ' ' . $parts[1] : '';
-                if ($this->nextgenExists($url, $format)) {
-                    $entries[] = $this->nextgenUrl($url, $format, $cdn) . $descriptor;
+                if (! $this->nextgenExists($url, $format)) {
+                    return '';
                 }
+                $entries[] = $this->nextgenUrl($url, $format, $cdn) . $descriptor;
             }
         } elseif ($src !== '' && $this->nextgenExists($src, $format)) {
             $entries[] = $this->nextgenUrl($src, $format, $cdn);
@@ -602,11 +680,57 @@ final class AssetParser
         return implode(', ', $entries);
     }
 
+    private function hasWidthDescriptor(string $srcset): bool
+    {
+        return (bool) preg_match('/\s\d+w\s*(?:,|$)/', $srcset);
+    }
+
+    /**
+     * The LCP preload for one image: whatever the browser will actually decode,
+     * which is the first <source> when a <picture> was emitted.
+     *
+     * @param list<array{srcset:string,sizes:string,type:string}> $sources
+     * @param array<string,string|bool> $attrs
+     * @return array{src:string,srcset:string,sizes:string,type:string}
+     */
+    private function preloadFor(array $sources, array $attrs, string $src): array
+    {
+        if ($sources === []) {
+            return [
+                'src'    => (string) ($attrs['src'] ?? $src),
+                'srcset' => (string) ($attrs['srcset'] ?? ''),
+                'sizes'  => (string) ($attrs['sizes'] ?? ''),
+                'type'   => '',
+            ];
+        }
+
+        $first = $sources[0];
+        $lead  = $this->firstCandidate($first['srcset']);
+
+        return [
+            'src'    => $lead,
+            'srcset' => $lead === $first['srcset'] ? '' : $first['srcset'],
+            'sizes'  => $first['sizes'],
+            'type'   => $first['type'],
+        ];
+    }
+
+    /** The URL of a srcset's first candidate, without its descriptor. */
+    private function firstCandidate(string $srcset): string
+    {
+        $parts = preg_split('/\s+/', trim(explode(',', $srcset, 2)[0]), 2) ?: [];
+
+        return (string) ($parts[0] ?? '');
+    }
+
     /** @param array<string,mixed>|null $cdn */
     private function nextgenUrl(string $url, string $format, ?array $cdn): string
     {
-        $url = $url . '.' . $format;
-        return $cdn !== null && Assets::isLocal($url) ? $this->cdnRewrite($url, $cdn) : $url;
+        $pos   = strpos($url, '?');
+        $query = $pos === false ? '' : substr($url, $pos);
+        $base  = ($pos === false ? $url : substr($url, 0, $pos)) . '.' . $format;
+
+        return ($cdn !== null && Assets::isLocal($base) ? $this->cdnRewrite($base, $cdn) : $base) . $query;
     }
 
     /**
@@ -771,7 +895,7 @@ final class AssetParser
                 return true;
             }
         }
-        return Url::anyMatch((array) ($media['images_exclude_urls'] ?? []), $src);
+        return false;
     }
 
     /** @param array<string,mixed> $cfg */
@@ -801,21 +925,67 @@ final class AssetParser
         $file = WPP_CACHE_DIR . $hash . '.' . $type;
         $url  = WPP_CACHE_URL . $hash . '.' . $type;
 
-        if (! is_file($file)) {
-            if (! is_dir(WPP_CACHE_DIR)) {
-                wp_mkdir_p(WPP_CACHE_DIR);
-            }
-            $buffer = '';
-            foreach ($urls as $assetUrl) {
-                $buffer .= $this->fetchForCombine($assetUrl, $type) . "\n";
-            }
-            file_put_contents($file, $buffer, LOCK_EX);
+        // The cache key is the source list, so an artifact written from a failed
+        // read would be re-served for as long as the sources keep their mtime.
+        if (is_file($file) && filesize($file) === 0) {
+            @unlink($file);
         }
 
         if (! is_file($file)) {
-            return null;
+            $buffer = $this->combineSources($urls, $type);
+            if ($buffer === null || ! $this->writeAtomic($file, $buffer)) {
+                return null;
+            }
         }
+
         return ! empty($cdn['enabled']) ? $this->cdnRewrite($url, $cdn) : $url;
+    }
+
+    /**
+     * Concatenate the sources, or null when any of them could not be read.
+     *
+     * @param string[] $urls
+     */
+    private function combineSources(array $urls, string $type): ?string
+    {
+        $buffer = '';
+        foreach ($urls as $assetUrl) {
+            $piece = $this->fetchForCombine($assetUrl, $type);
+            if ($this->fetchFailed($piece, $assetUrl)) {
+                return null;
+            }
+            $buffer .= $piece . "\n";
+        }
+
+        return $type === 'css' ? CssMinifier::hoistAtRules($buffer) : $buffer;
+    }
+
+    /** An empty result is a failed read unless the source file is itself empty. */
+    private function fetchFailed(string $piece, string $url): bool
+    {
+        if (trim($piece, " \t\r\n;") !== '') {
+            return false;
+        }
+        $path = Assets::toPath($url);
+
+        return $path === null || (int) @filesize($path) > 0;
+    }
+
+    /** Write through a temp file so a partial write is never published. */
+    private function writeAtomic(string $file, string $contents): bool
+    {
+        $dir = dirname($file);
+        if (! is_dir($dir) && ! wp_mkdir_p($dir)) {
+            return false;
+        }
+
+        $tmp = $file . '.' . getmypid() . '.tmp';
+        if (file_put_contents($tmp, $contents, LOCK_EX) !== strlen($contents) || ! rename($tmp, $file)) {
+            @unlink($tmp);
+            return false;
+        }
+
+        return true;
     }
 
     /**
@@ -865,7 +1035,7 @@ final class AssetParser
             return '';
         }
 
-        $used = (new UsedCss())->build($html, $urls, $safelist);
+        $used = CssMinifier::hoistAtRules((new UsedCss())->build($html, $urls, $safelist));
         file_put_contents($file, $used, LOCK_EX);
 
         return $used;
@@ -955,10 +1125,16 @@ final class AssetParser
         return $insert === '' ? $html : $this->injectBefore($html, $fallback, $insert);
     }
 
-    /** @param array{src:string,srcset:string,sizes:string} $preload */
+    /** @param array{src:string,srcset:string,sizes:string,type:string} $preload */
     private function imagePreloadTag(array $preload): string
     {
         $tag = '<link rel="preload" as="image" fetchpriority="high" href="' . esc_url($preload['src']) . '"';
+
+        // The type is what lets the browser both match the preload to the
+        // <picture> source it will select and skip a format it cannot decode.
+        if ($preload['type'] !== '') {
+            $tag .= ' type="' . esc_attr($preload['type']) . '"';
+        }
 
         // Without the candidate list the browser preloads the src and then
         // downloads a different candidate for the element itself.

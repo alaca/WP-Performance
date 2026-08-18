@@ -50,7 +50,18 @@ final class FragmentStore
     public function flush(): void
     {
         update_option(self::GEN_OPTION, $this->generation() + 1, true);
-        $this->deleteDir($this->dir());
+
+        $scope = $this->siteScope();
+        if ($scope === '') {
+            $this->deleteDir($this->dir());
+            return;
+        }
+
+        // Sibling blogs keep their own generation counter, so wiping the shared
+        // tree would leave them serving entries they can no longer invalidate.
+        foreach (glob($this->dir() . '*/' . $scope . '-*.html.php') ?: [] as $file) {
+            @unlink($file);
+        }
     }
 
     /** @return array{count:int, bytes:int} disk fragments only */
@@ -62,14 +73,20 @@ final class FragmentStore
             return $out;
         }
 
+        $scope    = $this->siteScope();
         $iterator = new \RecursiveIteratorIterator(
             new \RecursiveDirectoryIterator($dir, \FilesystemIterator::SKIP_DOTS)
         );
         foreach ($iterator as $file) {
-            if ($file->isFile() && str_ends_with($file->getFilename(), '.html.php')) {
-                $out['count']++;
-                $out['bytes'] += (int) $file->getSize();
+            $name = $file->getFilename();
+            if (! $file->isFile() || ! str_ends_with($name, '.html.php')) {
+                continue;
             }
+            if ($scope !== '' && ! str_starts_with($name, $scope . '-')) {
+                continue;
+            }
+            $out['count']++;
+            $out['bytes'] += (int) $file->getSize();
         }
 
         return $out;
@@ -80,9 +97,26 @@ final class FragmentStore
         return (int) get_option(self::GEN_OPTION, 0);
     }
 
+    /**
+     * Namespace for the current blog, empty off a network.
+     *
+     * Every blog shares one fragments/ tree and one identity format, so without
+     * this two sites running the same theme resolve to the same file.
+     */
+    private function siteScope(): string
+    {
+        if (! function_exists('is_multisite') || ! is_multisite()) {
+            return '';
+        }
+
+        return 's' . get_current_blog_id();
+    }
+
     private function key(string $identity): string
     {
-        return md5($this->generation() . '|' . $identity);
+        $scope = $this->siteScope();
+
+        return md5($this->generation() . '|' . ($scope !== '' ? $scope . '|' : '') . $identity);
     }
 
     /** Deny direct HTTP access to stored fragments. */
@@ -106,9 +140,12 @@ final class FragmentStore
         return WPP_CACHE_DIR . self::SUBDIR;
     }
 
+    /** The blog prefix keeps flush() and stats() able to tell one blog's files from another's. */
     private function fileFor(string $key): string
     {
-        return $this->dir() . substr($key, 0, 2) . '/' . $key . '.html.php';
+        $scope = $this->siteScope();
+
+        return $this->dir() . substr($key, 0, 2) . '/' . ($scope !== '' ? $scope . '-' : '') . $key . '.html.php';
     }
 
     private function diskGet(string $key): ?string

@@ -17,6 +17,7 @@ use WPP\Foundation\Container\Container;
 use WPP\Foundation\Modules\ModuleManager;
 use WPP\Server\ServerRules;
 use WPP\Settings\SettingsService;
+use WPP\Support\Logger;
 
 /**
  * Plugin singleton. Owns the Container and ModuleManager and runs the boot pipeline.
@@ -79,6 +80,13 @@ final class Plugin
 
         $self->modules->bootAll();
 
+        // The activation hook does not fire on a plugin update, so a copy of
+        // object-cache.php left by an earlier release would otherwise stay in
+        // wp-content untouched for good.
+        add_action('admin_init', static function (): void {
+            self::syncObjectCache(new SettingsService());
+        });
+
         do_action('wpp.booted', $self);
     }
 
@@ -91,30 +99,60 @@ final class Plugin
         self::bootAddons();
         (new Migration($settings))->maybeRun();
 
-        (new DropinInstaller())->install();
+        $dropin = new DropinInstaller();
+        $dropin->install();
         self::syncObjectCache($settings);
         (new RuntimeSettings($settings))->write();
         (new ServerRules())->apply($settings->get('cache'));
 
+        // Deleting the pre-guard files would strand a drop-in that still reads
+        // them, so this waits for confirmation that ours is the one installed.
+        if ($dropin->dropinInstalled()) {
+            self::purgeUnguarded();
+        }
+
         do_action('wpp.activated');
     }
 
-    public static function onDeactivation(): void
+    /** @param bool $networkWide as register_deactivation_hook passes it */
+    public static function onDeactivation(bool $networkWide = false): void
     {
+        // Whatever happens to the shared files, this blog has to stop being
+        // served from cache. The stored settings are left alone so that
+        // reactivating restores them.
+        self::disableRuntime(new RuntimeSettings(new SettingsService()));
+
         // advanced-cache.php, object-cache.php, wp-config.php, the cache
         // directory and the root .htaccess are all network-wide. Tearing them
         // down would stop caching for every other blog still using the plugin.
-        if (! self::activeOnAnotherBlog()) {
+        //
+        // A network deactivation leaves no blog with the plugin active, and
+        // WordPress writes active_sitewide_plugins only after this hook has
+        // run, so the sitewide check cannot answer for it.
+        if ($networkWide || ! self::activeOnAnotherBlog()) {
             (new DropinInstaller())->uninstall();
             (new ObjectCacheInstaller())->uninstall();
-            (new CacheStore())->clear(false);
+            (new CacheStore())->clear(false, true);
             (new ServerRules())->removeAll();
+        } else {
+            // Only this blog's pages: the assets and the other blogs' pages
+            // belong to the sites still running the plugin.
+            (new CacheStore())->clear(true);
         }
 
         wp_clear_scheduled_hook('wpp_preload');
         wp_clear_scheduled_hook('wpp_db_cleanup');
 
         do_action('wpp.deactivated');
+    }
+
+    /** Flip the file the drop-in reads without touching the stored settings. */
+    private static function disableRuntime(RuntimeSettings $runtime): void
+    {
+        $file = $runtime->file();
+        if (is_file($file)) {
+            @file_put_contents($file, RuntimeSettings::GUARD . (string) wp_json_encode(['enabled' => false]), LOCK_EX);
+        }
     }
 
     /**
@@ -152,8 +190,7 @@ final class Plugin
         }
 
         $stale = array_merge(
-            glob(WPP_CACHE_DIR . '*wpp.log') ?: [],
-            glob(WPP_CACHE_DIR . '*.json') ?: [],
+            self::unguardedFiles(),
             glob(WPP_CACHE_DIR . 'fragments/*/*.html') ?: []
         );
 
@@ -162,6 +199,33 @@ final class Plugin
                 @unlink($file);
             }
         }
+    }
+
+    /**
+     * Every blog on a network writes its config and its log into one directory,
+     * so a wildcard would delete files belonging to sites whose own drop-in has
+     * not been refreshed yet, leaving them reading another site's config or
+     * nothing at all. A single site owns everything in there.
+     *
+     * @return list<string>
+     */
+    private static function unguardedFiles(): array
+    {
+        if (! is_multisite()) {
+            return array_merge(
+                glob(WPP_CACHE_DIR . '*wpp.log') ?: [],
+                glob(WPP_CACHE_DIR . '*.json') ?: []
+            );
+        }
+
+        $settings = new SettingsService();
+        $host     = CacheStore::sanitizeHost((string) parse_url((string) home_url(), PHP_URL_HOST));
+
+        return [
+            substr((new RuntimeSettings($settings))->file(), 0, -4),
+            substr((new Logger($settings))->file(), 0, -4),
+            WPP_CACHE_DIR . $host . '.settings.json',
+        ];
     }
 
     /**
@@ -190,8 +254,11 @@ final class Plugin
         $self->modules->bootAll();
     }
 
-    /** Deactivation removes the object-cache drop-in, so activation has to put it back. */
-    private static function syncObjectCache(SettingsService $settings): void
+    /**
+     * Put the object-cache drop-in back after a deactivation removed it, and
+     * refresh a copy an earlier release installed.
+     */
+    public static function syncObjectCache(SettingsService $settings): void
     {
         $objectCache = new ObjectCacheInstaller();
 
@@ -199,7 +266,13 @@ final class Plugin
             return;
         }
 
-        if (! $objectCache->installed() && ! $objectCache->install()) {
+        if ($objectCache->objectCacheInstalled() || $objectCache->install()) {
+            return;
+        }
+
+        // A failed refresh of a copy that still works must not switch the
+        // toggle off; only nothing of ours on disk means the toggle is lying.
+        if (! $objectCache->installed()) {
             $settings->update('tools', ['object_cache' => false]);
         }
     }

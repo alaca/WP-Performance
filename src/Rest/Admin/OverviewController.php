@@ -124,6 +124,10 @@ final class OverviewController
             $checks[] = $this->check('page_cache', __('Page cache', 'wpp'), 'warn', __('Page caching is turned off.', 'wpp'));
         } elseif ($dropinOk) {
             $checks[] = $this->check('page_cache', __('Page cache', 'wpp'), 'good', __('Page caching is active and serving cached pages.', 'wpp'));
+        } elseif ($dropin->foreignDropin()) {
+            // Nothing the admin can change in this plugin will fix it, so saying
+            // the file is "missing" sends them looking in the wrong place.
+            $checks[] = $this->check('page_cache', __('Page cache', 'wpp'), 'bad', __('Another plugin owns advanced-cache.php, so page caching cannot start. Remove that plugin or its drop-in first.', 'wpp'));
         } else {
             $checks[] = $this->check('page_cache', __('Page cache', 'wpp'), 'bad', __('The advanced-cache.php drop-in or WP_CACHE constant is missing.', 'wpp'));
         }

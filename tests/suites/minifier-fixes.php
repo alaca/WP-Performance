@@ -152,11 +152,12 @@ return static function (): void {
     $hosted = $fontHost->localize($googleUrl);
     restore_error_handler();
 
-    wpp_ok(is_array($hosted), 'fonthost: the stylesheet is still hosted when a font write fails');
-    wpp_same([], is_array($hosted) ? $hosted['fonts'] : null, 'fonthost: a font that was not written is not preloaded');
-    wpp_contains(
-        $fontUrl,
-        (string) @file_get_contents(WPP_CACHE_DIR . 'fonts/' . md5($googleUrl) . '.css'),
-        'fonthost: css keeps the remote url when the local copy was not written'
+    // Hosting a stylesheet whose faces are still remote is worse than not
+    // hosting it: the short-circuit makes it permanent, and the admin reports
+    // the fonts as local while every visitor still hits fonts.gstatic.com.
+    wpp_same(null, $hosted, 'fonthost: a partly localised stylesheet is not hosted');
+    wpp_ok(
+        ! is_file(WPP_CACHE_DIR . 'fonts/' . md5($googleUrl) . '.css'),
+        'fonthost: nothing is cached when a font write fails, so the next request retries'
     );
 };

@@ -23,7 +23,7 @@ use WPP\Foundation\Plugin;
 
 if (! function_exists('wpp_cache_start')) {
     /**
-     * @param array<string, mixed> $opts ttl, vary_url, vary_role, vary_device, vary_loggedin
+     * @param array<string, mixed> $opts ttl, vary_url, vary_role, vary_device
      */
     function wpp_cache_start(string $key, array $opts = []): bool
     {

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace WPP\Rest\Admin;
 
+use WP_REST_Request;
 use WP_REST_Response;
 use WP_REST_Server;
 use WPP\Cache\CacheStore;
@@ -63,10 +64,16 @@ final class CacheController
         return new WP_REST_Response($this->store->stats(), 200);
     }
 
-    public function clear(): WP_REST_Response
+    public function clear(WP_REST_Request $request): WP_REST_Response
     {
         $keep = ! empty($this->settings->get('cache')['keep_assets']);
-        $this->store->clear($keep);
+
+        // Only a super admin from Network Admin may reach past their own blog.
+        $network = ! empty($request->get_param('network'))
+            && function_exists('is_multisite') && is_multisite()
+            && current_user_can('manage_network_options');
+
+        $this->store->clear($keep, $network);
         return new WP_REST_Response($this->store->stats(), 200);
     }
 

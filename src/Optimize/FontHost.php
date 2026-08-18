@@ -10,6 +10,9 @@ namespace WPP\Optimize;
  */
 final class FontHost
 {
+    /** Seconds a failed download suppresses the next attempt for. */
+    private const RETRY_AFTER = 300;
+
     /**
      * @return array{css_url: string, fonts: string[]}|null
      */
@@ -24,10 +27,19 @@ final class FontHost
         $cssFile  = $dir . $hash . '.css';
         $cssUrl   = WPP_CACHE_URL . 'fonts/' . $hash . '.css';
         $metaFile = $dir . $hash . '.json';
+        // .php so a cache purge, which runs on every post update, does not drop
+        // the failure record and reopen the stall it exists to prevent.
+        $failFile = $dir . $hash . '.fail.php';
 
         if (is_file($cssFile) && is_file($metaFile)) {
             $fonts = json_decode((string) file_get_contents($metaFile), true);
             return ['css_url' => $cssUrl, 'fonts' => is_array($fonts) ? $fonts : []];
+        }
+
+        // localize() runs inside the output buffer of every uncached front-end
+        // request, so an unreachable endpoint must not be retried each time.
+        if (is_file($failFile) && (time() - (int) @filemtime($failFile)) < self::RETRY_AFTER) {
+            return null;
         }
 
         if (! is_dir($dir) && ! wp_mkdir_p($dir)) {
@@ -42,14 +54,15 @@ final class FontHost
             ],
         ]);
         if (is_wp_error($response)) {
-            return null;
+            return $this->fail($failFile);
         }
         $css = (string) wp_remote_retrieve_body($response);
         if ($css === '') {
-            return null;
+            return $this->fail($failFile);
         }
 
-        $fonts = [];
+        $fonts    = [];
+        $complete = true;
         if (preg_match_all('#https://fonts\.gstatic\.com/[^)\'"]+\.woff2#i', $css, $matches)) {
             foreach (array_unique($matches[0]) as $fontUrl) {
                 $localName = md5($fontUrl) . '.woff2';
@@ -59,15 +72,18 @@ final class FontHost
                 if (! is_file($localPath)) {
                     $fontResponse = wp_remote_get($fontUrl, ['timeout' => 10]);
                     if (is_wp_error($fontResponse)) {
+                        $complete = false;
                         continue;
                     }
                     $body = (string) wp_remote_retrieve_body($fontResponse);
                     if ($body === '') {
+                        $complete = false;
                         continue;
                     }
                     // Rewriting the CSS after a failed write caches @font-face
                     // rules pointing at files that do not exist.
                     if (file_put_contents($localPath, $body, LOCK_EX) === false) {
+                        $complete = false;
                         continue;
                     }
                 }
@@ -77,11 +93,31 @@ final class FontHost
             }
         }
 
-        if (file_put_contents($cssFile, $css, LOCK_EX) === false
-            || file_put_contents($metaFile, (string) wp_json_encode($fonts), LOCK_EX) === false) {
-            return null;
+        // Caching a partial rewrite is permanent: the short-circuit above would
+        // keep serving faces straight from fonts.gstatic.com for good.
+        if (! $complete) {
+            return $this->fail($failFile);
         }
 
+        if (file_put_contents($cssFile, $css, LOCK_EX) === false
+            || file_put_contents($metaFile, (string) wp_json_encode($fonts), LOCK_EX) === false) {
+            return $this->fail($failFile);
+        }
+
+        @unlink($failFile);
+
         return ['css_url' => $cssUrl, 'fonts' => $fonts];
+    }
+
+    /** Records the failure so the next requests fall back without a round trip. */
+    private function fail(string $failFile): ?array
+    {
+        if (! is_file($failFile)) {
+            @file_put_contents($failFile, "<?php exit; ?>\n", LOCK_EX);
+            return null;
+        }
+        @touch($failFile);
+
+        return null;
     }
 }

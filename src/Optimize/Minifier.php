@@ -87,6 +87,16 @@ final class Minifier
             return $content;
         }
         $response = wp_remote_get($url, ['timeout' => 5]);
-        return is_wp_error($response) ? '' : (string) wp_remote_retrieve_body($response);
+        if (is_wp_error($response)) {
+            return '';
+        }
+
+        // A 404 still has a body, and baking an error page into a bundle is
+        // indistinguishable from a successful fetch once it is cached.
+        if ((int) wp_remote_retrieve_response_code($response) !== 200) {
+            return '';
+        }
+
+        return (string) wp_remote_retrieve_body($response);
     }
 }

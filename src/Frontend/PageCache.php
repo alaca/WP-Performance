@@ -111,6 +111,15 @@ final class PageCache extends HookProvider
             return false;
         }
 
+        // Core prefills the comment form from these cookies, so a commenter's
+        // render carries their name, email and URL, plus the moderation notices
+        // on their own pending comments. The drop-in refuses to serve cache to
+        // that session; without the same check here it is that session's render
+        // the drop-in then hands to everyone else.
+        if ($this->commenterSession()) {
+            return false;
+        }
+
         // Only cache real HTML. Sitemaps and other XML/JSON responses would be
         // replayed by the drop-in with a text/html content type.
         if (! $this->isHtmlResponse()) {
@@ -167,6 +176,17 @@ final class PageCache extends HookProvider
     {
         foreach (array_keys($_COOKIE) as $cookie) {
             if (str_starts_with((string) $cookie, 'wp-postpass_')) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /** A visitor holding comment-author cookies renders a personalised page. */
+    private function commenterSession(): bool
+    {
+        foreach (array_keys($_COOKIE) as $cookie) {
+            if (str_starts_with((string) $cookie, 'comment_author_')) {
                 return true;
             }
         }

@@ -43,8 +43,8 @@ return static function (): void {
     wpp_ok($dropin->install(), 'stale copy is refreshed');
     wpp_contains(WPP_VERSION, (string) file_get_contents($advanced), 'refreshed to the current version');
 
-    // ---- a pre-stamp copy from an older release is still recognised as ours ----
-    file_put_contents($advanced, "<?php\n/**\n * WP Performance advanced-cache.php drop-in.\n */\n");
+    // ---- the 1.x loader is still recognised as ours, not as another plugin's ----
+    file_put_contents($advanced, "<?php\n/**\n * WP Performance Optimizer - Cache loader\n */\nfunction _wpp_get_cache_file() {}\n");
     wpp_ok(! $dropin->foreignDropin(), 'a pre-stamp copy of ours is not treated as foreign');
     wpp_ok(! $dropin->dropinInstalled(), 'a pre-stamp copy counts as needing a refresh');
     wpp_ok($dropin->install(), 'a pre-stamp copy is upgraded in place');

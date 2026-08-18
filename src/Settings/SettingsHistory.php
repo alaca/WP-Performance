@@ -64,8 +64,10 @@ final class SettingsHistory
         }
 
         foreach ($list[$index]['groups'] as $group => $values) {
+            // replace(), not update(): a snapshot is the whole state, so a rule
+            // added after it has to disappear rather than merge back in.
             if (is_string($group) && is_array($values) && $this->settings->knows($group)) {
-                $this->settings->update($group, $values);
+                $this->settings->replace($group, $values);
             }
         }
 

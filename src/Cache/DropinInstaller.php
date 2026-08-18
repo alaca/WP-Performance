@@ -14,8 +14,18 @@ final class DropinInstaller
     private const STAMP   = 'WPP_ADVANCED_CACHE';
     private const PLACEHOLDER = '@wpp-version@';
 
-    /** Copies installed before the version stamp existed are still ours. */
-    private const LEGACY = 'WP Performance advanced-cache.php drop-in';
+    /**
+     * Copies installed before the version stamp existed are still ours, and so
+     * is the 1.x loader an updating site still has in wp-content: mistaking it
+     * for a third-party drop-in blocks the install forever and leaves 1.x
+     * serving pages that 2.0 writes.
+     */
+    private const LEGACY = [
+        'WP Performance advanced-cache.php drop-in',
+        'WP Performance Optimizer - Cache loader',
+        '_wpp_get_cache_file',
+        '_wpp_get_site_settings',
+    ];
 
     public function install(): bool
     {
@@ -86,8 +96,17 @@ final class DropinInstaller
         }
 
         $contents = (string) @file_get_contents($dest);
+        if (str_contains($contents, self::STAMP)) {
+            return true;
+        }
 
-        return str_contains($contents, self::STAMP) || str_contains($contents, self::LEGACY);
+        foreach (self::LEGACY as $marker) {
+            if (str_contains($contents, $marker)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     private function installedVersion(): ?string

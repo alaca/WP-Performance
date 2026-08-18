@@ -107,8 +107,10 @@ final class ToolsController
         $data = $request->get_json_params();
         if (is_array($data)) {
             foreach ($data as $group => $values) {
+                // An import is the whole configuration, so rules the target site
+                // has and the file does not have to be cleared, not merged.
                 if (is_string($group) && is_array($values) && $this->settings->knows($group)) {
-                    $this->settings->update($group, $values);
+                    $this->settings->replace($group, $values);
                 }
             }
         }

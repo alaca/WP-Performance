@@ -11,6 +11,10 @@ final class CloudflareApi
 {
     private const BASE = 'https://api.cloudflare.com/client/v4';
 
+    /** Seconds the whole zone-settings push may spend, and the cap per call. */
+    private const PUSH_BUDGET  = 10;
+    private const PUSH_TIMEOUT = 5;
+
     public function __construct(
         private string $email,
         private string $key,
@@ -36,6 +40,10 @@ final class CloudflareApi
     /**
      * Push the plugin's CF settings to the zone.
      *
+     * This runs inside the settings-save request, so the whole push is held to
+     * one budget: a zone that stops answering costs the admin a report, not a
+     * request that PHP kills after the options have already been written.
+     *
      * @param array<string,mixed> $cfg
      * @return array<string,string> setting id => error message, empty when every push succeeded
      */
@@ -50,9 +58,18 @@ final class CloudflareApi
         $values['rocket_loader']     = ! empty($cfg['rocket_loader']) ? 'on' : 'off';
         $values['brotli']            = ! empty($cfg['brotli']) ? 'on' : 'off';
 
+        $budget   = (float) apply_filters('wpp.cloudflare.push_budget', self::PUSH_BUDGET);
+        $deadline = microtime(true) + $budget;
+
         $failed = [];
         foreach ($values as $id => $value) {
-            $result = $this->setting($id, $value);
+            $timeout = (int) min(self::PUSH_TIMEOUT, floor($deadline - microtime(true)));
+            if ($timeout < 1) {
+                $failed[$id] = __('Cloudflare did not answer in time, so this setting was not applied.', 'wpp');
+                continue;
+            }
+
+            $result = $this->setting($id, $value, $timeout);
             if (empty($result['success'])) {
                 $messages     = self::errorMessages((array) ($result['errors'] ?? []));
                 $failed[$id]  = $messages[0] ?? __('Unknown Cloudflare error.', 'wpp');
@@ -85,16 +102,16 @@ final class CloudflareApi
         return array_values(array_filter($out));
     }
 
-    private function setting(string $id, mixed $value): array
+    private function setting(string $id, mixed $value, int $timeout): array
     {
-        return $this->request('PATCH', "/zones/{$this->zone}/settings/{$id}", ['value' => $value]);
+        return $this->request('PATCH', "/zones/{$this->zone}/settings/{$id}", ['value' => $value], $timeout);
     }
 
-    private function request(string $method, string $path, ?array $body = null): array
+    private function request(string $method, string $path, ?array $body = null, int $timeout = 15): array
     {
         $args = [
             'method'  => $method,
-            'timeout' => 15,
+            'timeout' => $timeout,
             'headers' => [
                 'X-Auth-Email' => $this->email,
                 'X-Auth-Key'   => $this->key,

@@ -70,4 +70,3 @@ jobs:
           SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
           SLUG: wp-performance
           ASSETS_DIR: .wordpress-org
-          BUILD_DIR: .

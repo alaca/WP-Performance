@@ -59,6 +59,8 @@ return static function (): void {
 
     // ---- media attribute survives combining and used-CSS ----
     $reset();
+    file_put_contents($abs . 'screen.css', '.screen{color:red}');
+    file_put_contents($abs . 'print.css', '.print{color:black}');
     $settings->update('css', ['combine' => ['/screen.css' => true, '/print.css' => true]]);
 
     $out = $parser()->parse($page(
@@ -74,6 +76,7 @@ return static function (): void {
 
     // ---- combined JS lands where the first combined tag stood ----
     $reset();
+    file_put_contents($abs . 'jquery.js', 'var jq=1;');
     $settings->update('js', ['combine' => ['/jquery.js' => true]]);
 
     $out    = $parser()->parse($page('<script src="/jquery.js"></script><script>jQuery(1);</script>'));
@@ -144,6 +147,7 @@ return static function (): void {
 
     // ---- stylesheets are re-inserted in place, not at the end of <head> ----
     $reset();
+    file_put_contents($abs . 'theme.css', '.theme{color:green}');
     $settings->update('css', ['combine' => ['/theme.css' => true]]);
 
     $out    = $parser()->parse('<html><head><link rel="stylesheet" href="/theme.css"><style id="custom">.a{color:red}</style></head><body></body></html>');
@@ -157,7 +161,9 @@ return static function (): void {
     $settings->update('css', ['defer' => true]);
 
     $out = $parser()->parse($page('<link rel="stylesheet" href="/p.css" media="print">'));
-    wpp_not_contains('media="print"', $out, 'preload link carries no media attribute');
+    preg_match('#<link[^>]*rel="preload"[^>]*>#', $out, $m);
+    wpp_not_contains('media="print"', $m[0] ?? '', 'preload link carries no media attribute');
+    wpp_contains('<noscript>', $out, 'a deferred sheet keeps a noscript fallback');
     wpp_contains('this.media=', $out, 'media is restored when the preload loads');
 
     $out = $parser()->parse($page('<link rel="alternate stylesheet" href="/alt.css" title="Alt">'));

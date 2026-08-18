@@ -171,7 +171,12 @@ final class SettingsService
         'used_safelist',
         'dns_prefetch',
         'preconnect',
+        'disable_selected',
+        'disable_except',
     ];
+
+    /** Numeric keys where zero is a choice the UI offers, not an emptied field. */
+    private const ZERO_ALLOWED_KEYS = ['browser_expire'];
 
     /**
      * All groups: core + add-on (via filter).
@@ -228,21 +233,60 @@ final class SettingsService
         }
 
         $cfg = $groups[$group];
+        $clean = $this->clean($cfg['defaults'], $partial);
 
-        // Whitelist to known top-level keys, then sanitize.
-        $clean = [];
-        foreach ($partial as $key => $value) {
-            if (! array_key_exists($key, $cfg['defaults'])) {
-                continue;
-            }
-            $clean[$key] = is_int($cfg['defaults'][$key])
-                ? $this->numeric($value, $cfg['defaults'][$key])
-                : $this->sanitize($key, $value);
+        return $this->write($group, $cfg, $this->mergeDeep($this->get($group), $clean));
+    }
+
+    /**
+     * Write a whole group: keys the payload omits fall back to the group
+     * defaults. Restoring a snapshot and importing a configuration both have to
+     * remove settings, which merging into the current value cannot do.
+     *
+     * @param array<string, mixed> $values
+     * @return array<string, mixed> the new value
+     */
+    public function replace(string $group, array $values): array
+    {
+        $groups = $this->groups();
+        if (! isset($groups[$group])) {
+            return [];
         }
 
-        $current = $this->get($group);
-        $next = $this->mergeDeep($current, $clean);
+        $cfg = $groups[$group];
+        $clean = $this->clean($cfg['defaults'], $values);
 
+        return $this->write($group, $cfg, $this->mergeDeep($cfg['defaults'], $clean));
+    }
+
+    /**
+     * Whitelist a payload to the group's known top-level keys, then sanitize.
+     *
+     * @param array<string, mixed> $defaults
+     * @param array<string, mixed> $values
+     * @return array<string, mixed>
+     */
+    private function clean(array $defaults, array $values): array
+    {
+        $clean = [];
+        foreach ($values as $key => $value) {
+            if (! array_key_exists($key, $defaults)) {
+                continue;
+            }
+            $clean[$key] = is_int($defaults[$key])
+                ? $this->numeric($key, $value, $defaults[$key])
+                : $this->sanitize($key, $value);
+        }
+        return $clean;
+    }
+
+    /**
+     * @param array{option: string, defaults: array<string, mixed>} $cfg
+     * @param array<string, mixed>                                  $next
+     * @return array<string, mixed>
+     */
+    private function write(string $group, array $cfg, array $next): array
+    {
         // Fired before the write so listeners (e.g. settings history) can capture
         // the full prior state as a restore point.
         do_action('wpp.settings.updating', $group);
@@ -292,7 +336,7 @@ final class SettingsService
      * number field arrives as '', and a string there reaches the drop-in as a
      * cache lifetime of zero.
      */
-    private function numeric(mixed $value, int $default): int
+    private function numeric(string $key, mixed $value, int $default): int
     {
         if (is_bool($value) || is_array($value) || $value === null || $value === '') {
             return $default;
@@ -300,8 +344,13 @@ final class SettingsService
 
         $number = (int) $value;
 
-        // A positive default means zero is not a legal value for that setting.
-        return ($number <= 0 && $default > 0) ? $default : max(0, $number);
+        // A positive default means zero is not a legal value for that setting,
+        // unless the setting itself offers zero as an option.
+        if ($number <= 0 && $default > 0 && ! in_array($key, self::ZERO_ALLOWED_KEYS, true)) {
+            return $default;
+        }
+
+        return max(0, $number);
     }
 
     /**

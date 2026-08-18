@@ -128,6 +128,7 @@ final class Migration
         $this->migrateGroup('css', [
             'minify_inline'    => ['css_minify_inline', 'bool'],
             'defer'            => ['css_defer', 'bool'],
+            'critical_path'    => ['css_custom_path_def', 'string'],
             'combine_fonts'    => ['css_combine_fonts', 'bool'],
             'font_display'     => ['css_font_display', 'string'],
             'disable_loggedin' => ['css_disable_loggedin', 'bool'],
@@ -322,8 +323,10 @@ final class Migration
     private function deleteOldOptions(): void
     {
         // Keys whose option name collides with a new group/feature option and now
-        // holds migrated data, so they must NOT be deleted.
-        $keep = ['cache', 'cdn', 'image_sizes', 'image_sizes_remove'];
+        // holds migrated data, so they must NOT be deleted. db_cleanup_next is the
+        // same option name v2 reads for the next scheduled cleanup, and nothing
+        // rewrites it while the recurrence is unchanged.
+        $keep = ['cache', 'cdn', 'image_sizes', 'image_sizes_remove', 'db_cleanup_next'];
 
         $old = self::LEGACY_UNGROUPED;
         foreach (self::LEGACY_KEYS as $group => $keys) {

@@ -88,6 +88,10 @@ final class ImageService
         $custom[$name] = ['width' => $width, 'height' => $height, 'crop' => $crop];
         update_option(self::OPT_CUSTOM, $custom, false);
         $this->setRemoved(array_values(array_diff($this->removed(), [$name])));
+
+        // $_wp_additional_image_sizes is filled once, on init, so the rest of
+        // this request - definedSizes() included - only sees the change here.
+        add_image_size($name, $width, $height, $crop);
     }
 
     public function remove(string $name): void
@@ -96,6 +100,7 @@ final class ImageService
         if (isset($custom[$name])) {
             unset($custom[$name]);
             update_option(self::OPT_CUSTOM, $custom, false);
+            remove_image_size($name);
             return;
         }
         $removed   = $this->removed();
@@ -105,6 +110,9 @@ final class ImageService
 
     public function restore(): void
     {
+        foreach (array_keys($this->custom()) as $name) {
+            remove_image_size((string) $name);
+        }
         delete_option(self::OPT_CUSTOM);
         delete_option(self::OPT_REMOVED);
     }
