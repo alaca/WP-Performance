@@ -37,14 +37,14 @@ return static function (): void {
     // ---- one runtime config per site, not per host ----
     // Sites in a subdirectory network share a host and would otherwise overwrite
     // each other's cache settings.
-    file_put_contents($dir . 'example.test.json', '{"site":"main"}');
-    file_put_contents($dir . 'example.test~shop.json', '{"site":"shop"}');
+    file_put_contents($dir . 'example.test.json.php', '{"site":"main"}');
+    file_put_contents($dir . 'example.test~shop.json.php', '{"site":"shop"}');
 
-    wpp_same($dir . 'example.test.json', wpp_dropin_conf($dir, 'example.test', '/'), 'the front page uses the main site config');
-    wpp_same($dir . 'example.test.json', wpp_dropin_conf($dir, 'example.test', '/about/'), 'a main-site path uses the main site config');
-    wpp_same($dir . 'example.test~shop.json', wpp_dropin_conf($dir, 'example.test', '/shop/'), 'a subsite uses its own config');
-    wpp_same($dir . 'example.test~shop.json', wpp_dropin_conf($dir, 'example.test', '/shop/cart/?x=1'), 'a path inside a subsite uses the subsite config');
-    wpp_same($dir . 'example.test.json', wpp_dropin_conf($dir, 'example.test', '/shopping/'), 'a path that only shares a prefix is not the subsite');
+    wpp_same($dir . 'example.test.json.php', wpp_dropin_conf($dir, 'example.test', '/'), 'the front page uses the main site config');
+    wpp_same($dir . 'example.test.json.php', wpp_dropin_conf($dir, 'example.test', '/about/'), 'a main-site path uses the main site config');
+    wpp_same($dir . 'example.test~shop.json.php', wpp_dropin_conf($dir, 'example.test', '/shop/'), 'a subsite uses its own config');
+    wpp_same($dir . 'example.test~shop.json.php', wpp_dropin_conf($dir, 'example.test', '/shop/cart/?x=1'), 'a path inside a subsite uses the subsite config');
+    wpp_same($dir . 'example.test.json.php', wpp_dropin_conf($dir, 'example.test', '/shopping/'), 'a path that only shares a prefix is not the subsite');
     wpp_same('', wpp_dropin_conf($dir, 'other.test', '/'), 'an unknown host resolves to no config');
 
     wpp_same('', RuntimeSettings::pathKey('/'), 'the main site keeps the host-only filename');
@@ -52,12 +52,12 @@ return static function (): void {
     wpp_ok(RuntimeSettings::pathKey('/shop/') !== RuntimeSettings::pathKey('/blog/'), 'two subsites on one host get different files');
 
     foreach (['/shop/', '/a/b/', '/Shop/'] as $sitePath) {
-        $file = $dir . 'example.test' . RuntimeSettings::pathKey($sitePath) . '.json';
+        $file = $dir . 'example.test' . RuntimeSettings::pathKey($sitePath) . '.json.php';
         file_put_contents($file, '{}');
         wpp_same($file, wpp_dropin_conf($dir, 'example.test', $sitePath . 'page/'), "the reader finds the file the writer named for {$sitePath}");
         @unlink($file);
     }
-    wpp_same($dir . 'example.test.json', $runtime->file(), 'a single-site install keeps the host-only config path');
+    wpp_same($dir . 'example.test.json.php', $runtime->file(), 'a single-site install keeps the host-only config path');
 
     // ---- mobile bucket must match wp_is_mobile(), which picks what gets written ----
     $mobileCases = [
@@ -105,20 +105,20 @@ return static function (): void {
     update_option('permalink_structure', '/%postname%/');
     update_option('wpp_cache', ['enabled' => true, 'clear_time' => 10, 'clear_unit' => 60]);
     $runtime->write();
-    $data = json_decode((string) file_get_contents($runtime->file()), true);
+    $data = json_decode(WPP\Cache\RuntimeSettings::payload((string) file_get_contents($runtime->file())), true);
     wpp_same(true, $data['trailing_slash'], 'the drop-in learns the site uses trailing slashes');
     wpp_same(600, $data['expire'], 'a configured expiry is written through untouched');
 
     update_option('permalink_structure', '/%postname%');
     $runtime->write();
-    $data = json_decode((string) file_get_contents($runtime->file()), true);
+    $data = json_decode(WPP\Cache\RuntimeSettings::payload((string) file_get_contents($runtime->file())), true);
     wpp_same(false, $data['trailing_slash'], 'and when it does not');
 
     // An emptied "Clear cache after" box stores '', and expire 0 means the
     // drop-in never considers a page stale again.
     update_option('wpp_cache', ['enabled' => true, 'clear_time' => '', 'clear_unit' => 3600]);
     $runtime->write();
-    $data = json_decode((string) file_get_contents($runtime->file()), true);
+    $data = json_decode(WPP\Cache\RuntimeSettings::payload((string) file_get_contents($runtime->file())), true);
     wpp_ok($data['expire'] > 0, 'an emptied expiry field cannot switch expiry off');
 
     // ---- the cache directory is inside the web root ----
@@ -179,5 +179,5 @@ return static function (): void {
     @unlink($fragment);
     @rmdir($dir . 'fragments/ab');
     @rmdir($dir . 'fragments');
-    @unlink($dir . 'example.test~shop.json');
+    @unlink($dir . 'example.test~shop.json.php');
 };

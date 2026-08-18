@@ -106,7 +106,9 @@ return static function (): void {
     $runtime->write();
     wpp_ok($runtime->written(), 'runtime file is rewritten');
 
-    $data = json_decode((string) file_get_contents($runtime->file()), true);
+    $raw  = (string) file_get_contents($runtime->file());
+    wpp_contains('<?php exit;', $raw, 'runtime file is guarded against direct HTTP access');
+    $data = json_decode(WPP\Cache\RuntimeSettings::payload($raw), true);
     wpp_ok(is_array($data), 'runtime file is valid json');
     foreach (['enabled', 'disabled', 'mobile', 'expire', 'permalinks', 'exclude', 'user_agents', 'cache_query_strings'] as $key) {
         wpp_ok(array_key_exists($key, $data), "runtime file exposes {$key} to the drop-in");

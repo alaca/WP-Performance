@@ -65,15 +65,21 @@ if (! function_exists('wpp_dropin_conf')) {
         $segments = array_slice(array_values(array_filter(explode('/', $path), 'strlen')), 0, 3);
 
         for ($i = count($segments); $i > 0; $i--) {
-            $file = $cacheDir . $host . wpp_dropin_path_key(array_slice($segments, 0, $i)) . '.json';
+            $base = $cacheDir . $host . wpp_dropin_path_key(array_slice($segments, 0, $i));
+            foreach ([$base . '.json.php', $base . '.json'] as $file) {
+                if (is_file($file)) {
+                    return $file;
+                }
+            }
+        }
+
+        foreach ([$cacheDir . $host . '.json.php', $cacheDir . $host . '.json'] as $file) {
             if (is_file($file)) {
                 return $file;
             }
         }
 
-        $file = $cacheDir . $host . '.json';
-
-        return is_file($file) ? $file : '';
+        return '';
     }
 }
 
@@ -207,7 +213,11 @@ if ($wpp_conf === '') {
     return;
 }
 
-$wpp_settings = json_decode((string) file_get_contents($wpp_conf), true);
+$wpp_raw = (string) file_get_contents($wpp_conf);
+if (strncmp($wpp_raw, '<?php', 5) === 0) {
+    $wpp_raw = (string) strstr($wpp_raw, "\n");
+}
+$wpp_settings = json_decode($wpp_raw, true);
 if (! is_array($wpp_settings) || empty($wpp_settings['enabled']) || ! empty($wpp_settings['disabled'])) {
     return;
 }

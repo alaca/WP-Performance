@@ -25,7 +25,7 @@ return static function (): void {
     $store->set('id3', 'TEMP', 100);
     $gen = (int) get_option('wpp_fragment_gen', 0);
     $key = md5($gen . '|id3');
-    $file = WPP_CACHE_DIR . 'fragments/' . substr($key, 0, 2) . '/' . $key . '.html';
+    $file = WPP_CACHE_DIR . 'fragments/' . substr($key, 0, 2) . '/' . $key . '.html.php';
     wpp_ok(is_file($file), 'disk: fragment file written');
     file_put_contents($file, (time() - 10) . "\nTEMP");
     wpp_same(null, $store->get('id3'), 'disk: expired fragment is a miss');

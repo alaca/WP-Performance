@@ -254,7 +254,7 @@ return static function (): void {
     $store->set('atomic', 'A', 60);
     $gen  = (int) get_option('wpp_fragment_gen', 0);
     $key  = md5($gen . '|atomic');
-    $file = WPP_CACHE_DIR . 'fragments/' . substr($key, 0, 2) . '/' . $key . '.html';
+    $file = WPP_CACHE_DIR . 'fragments/' . substr($key, 0, 2) . '/' . $key . '.html.php';
     clearstatcache();
     $first = fileinode($file);
     $store->set('atomic', 'BBBBBBBB', 60);
@@ -268,13 +268,13 @@ return static function (): void {
     $fullDir  = WPP_CACHE_DIR . 'fragments/' . substr($fullKey, 0, 2);
     wp_mkdir_p($fullDir);
     for ($i = 0; $i < $max; $i++) {
-        file_put_contents($fullDir . '/filler' . $i . '.html', "0\nX");
+        file_put_contents($fullDir . '/filler' . $i . '.html.php', "0\nX");
     }
 
     $store->set('shard-probe', 'OVERFLOW', 60);
     wpp_same(null, $store->get('shard-probe'), 'a full shard refuses new fragments');
 
-    foreach ((array) glob($fullDir . '/filler*.html') as $filler) {
+    foreach ((array) glob($fullDir . '/filler*.html.php') as $filler) {
         file_put_contents((string) $filler, (time() - 10) . "\nX");
     }
     $store->set('shard-probe', 'ROOM', 60);

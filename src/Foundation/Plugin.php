@@ -25,7 +25,7 @@ final class Plugin
 {
     private const HTACCESS = <<<'HTACCESS'
         Options -Indexes
-        <FilesMatch "\.(log|json)$">
+        <FilesMatch "\.(log|json)(\.php)?$">
         <IfModule mod_authz_core.c>
         Require all denied
         </IfModule>
@@ -137,6 +137,30 @@ final class Plugin
         $htaccess = WPP_CACHE_DIR . '.htaccess';
         if (! is_file($htaccess)) {
             @file_put_contents($htaccess, self::HTACCESS, LOCK_EX);
+        }
+    }
+
+    /**
+     * Earlier releases wrote the runtime config, the log and cached fragments
+     * without a .php extension or an exit guard, so on nginx they were readable
+     * over HTTP. A cache clear preserves json/log, so nothing else removes them.
+     */
+    public static function purgeUnguarded(): void
+    {
+        if (! is_dir(WPP_CACHE_DIR)) {
+            return;
+        }
+
+        $stale = array_merge(
+            glob(WPP_CACHE_DIR . '*wpp.log') ?: [],
+            glob(WPP_CACHE_DIR . '*.json') ?: [],
+            glob(WPP_CACHE_DIR . 'fragments/*/*.html') ?: []
+        );
+
+        foreach ($stale as $file) {
+            if (is_file($file)) {
+                @unlink($file);
+            }
         }
     }
 

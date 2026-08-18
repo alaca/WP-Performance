@@ -33,9 +33,15 @@ final class RuntimeSettings
             return false;
         }
 
-        $data = json_decode((string) file_get_contents($file), true);
+        $data = json_decode(self::payload((string) file_get_contents($file)), true);
 
         return is_array($data) && ($data['version'] ?? null) === $this->version();
+    }
+
+    /** Contents with the guard prefix removed. */
+    public static function payload(string $contents): string
+    {
+        return str_starts_with($contents, '<?php') ? (string) strstr($contents, "\n") : $contents;
     }
 
     private function version(): string
@@ -43,12 +49,19 @@ final class RuntimeSettings
         return defined('WPP_VERSION') ? (string) WPP_VERSION : '0';
     }
 
+    /**
+     * Guard prefix so a direct HTTP request returns nothing. The cache directory
+     * is inside the web root and .htaccess is ignored by nginx, so the extension
+     * plus this prefix is the only protection that holds on every server.
+     */
+    public const GUARD = "<?php exit; ?>\n";
+
     public function file(): string
     {
         $home = (string) home_url();
         $host = CacheStore::sanitizeHost((string) parse_url($home, PHP_URL_HOST));
 
-        return WPP_CACHE_DIR . $host . self::pathKey((string) parse_url($home, PHP_URL_PATH)) . '.json';
+        return WPP_CACHE_DIR . $host . self::pathKey((string) parse_url($home, PHP_URL_PATH)) . '.json.php';
     }
 
     /**
@@ -100,7 +113,7 @@ final class RuntimeSettings
             'search_bots' => (bool) ($cache['exclude_search_bots'] ?? false),
         ];
 
-        file_put_contents($this->file(), (string) wp_json_encode($data), LOCK_EX);
+        file_put_contents($this->file(), self::GUARD . (string) wp_json_encode($data), LOCK_EX);
     }
 
     /**
@@ -122,7 +135,7 @@ final class RuntimeSettings
 
         file_put_contents($htaccess, implode("\n", [
             'Options -Indexes',
-            '<FilesMatch "\.(json|log)$">',
+            '<FilesMatch "\.(json|log)(\.php)?$">',
             '<IfModule mod_authz_core.c>',
             'Require all denied',
             '</IfModule>',

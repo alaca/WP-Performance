@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace WPP\Support;
 
 use WPP\Foundation\Plugin;
+use WPP\Cache\RuntimeSettings;
 use WPP\Settings\SettingsService;
 
 /**
@@ -35,8 +36,8 @@ final class Logger
     public function file(): string
     {
         $name = (function_exists('is_multisite') && is_multisite())
-            ? get_current_blog_id() . '_wpp.log'
-            : 'wpp.log';
+            ? get_current_blog_id() . '_wpp.log.php'
+            : 'wpp.log.php';
         return WPP_CACHE_DIR . $name;
     }
 
@@ -53,6 +54,9 @@ final class Logger
         }
 
         $line = sprintf('[%s] %s%s', current_time('mysql'), $message, PHP_EOL);
+        if (! is_file($this->file())) {
+            $line = RuntimeSettings::GUARD . $line;
+        }
         file_put_contents($this->file(), $line, FILE_APPEND | LOCK_EX);
 
         $this->trim();
@@ -61,7 +65,10 @@ final class Logger
     public function read(): string
     {
         $file = $this->file();
-        return is_file($file) ? (string) file_get_contents($file) : '';
+
+        return is_file($file)
+            ? ltrim(RuntimeSettings::payload((string) file_get_contents($file)), "\n")
+            : '';
     }
 
     public function clear(): void
@@ -75,16 +82,25 @@ final class Logger
     private function trim(): void
     {
         $file = $this->file();
+
+        // The append above just changed the size and PHP serves a cached stat,
+        // so the check below is only correct as long as something evicts the
+        // entry first. Do not leave that to the caller.
+        clearstatcache(true, $file);
+
         if (! is_file($file) || (int) filesize($file) <= self::MAX_BYTES) {
             return;
         }
 
-        $contents = (string) file_get_contents($file);
+        // Trimming from the front would take the guard with it and leave a
+        // plain-text log the web server would happily serve.
+        $contents = ltrim(RuntimeSettings::payload((string) file_get_contents($file)), "\n");
         $contents = substr($contents, -self::MAX_BYTES);
         $cut = strpos($contents, PHP_EOL);
         if ($cut !== false) {
             $contents = substr($contents, $cut + 1);
         }
-        file_put_contents($file, $contents, LOCK_EX);
+
+        file_put_contents($file, RuntimeSettings::GUARD . $contents, LOCK_EX);
     }
 }

@@ -66,7 +66,7 @@ final class FragmentStore
             new \RecursiveDirectoryIterator($dir, \FilesystemIterator::SKIP_DOTS)
         );
         foreach ($iterator as $file) {
-            if ($file->isFile() && strtolower($file->getExtension()) === 'html') {
+            if ($file->isFile() && str_ends_with($file->getFilename(), '.html.php')) {
                 $out['count']++;
                 $out['bytes'] += (int) $file->getSize();
             }
@@ -108,7 +108,7 @@ final class FragmentStore
 
     private function fileFor(string $key): string
     {
-        return $this->dir() . substr($key, 0, 2) . '/' . $key . '.html';
+        return $this->dir() . substr($key, 0, 2) . '/' . $key . '.html.php';
     }
 
     private function diskGet(string $key): ?string
@@ -122,6 +122,9 @@ final class FragmentStore
         if ($raw === false) {
             return null;
         }
+
+        $raw = RuntimeSettings::payload($raw);
+        $raw = ltrim($raw, "\n");
 
         $nl = strpos($raw, "\n");
         if ($nl === false) {
@@ -156,10 +159,11 @@ final class FragmentStore
         }
 
         $expiry = $ttl > 0 ? time() + $ttl : 0;
+        $body   = RuntimeSettings::GUARD . $expiry . "\n" . $html;
 
         // Readers take no lock, so the entry has to appear whole or not at all.
         $tmp = $file . '.' . getmypid() . uniqid('', false) . '.tmp';
-        if (file_put_contents($tmp, $expiry . "\n" . $html) === false || ! @rename($tmp, $file)) {
+        if (file_put_contents($tmp, $body) === false || ! @rename($tmp, $file)) {
             @unlink($tmp);
         }
     }
@@ -167,7 +171,7 @@ final class FragmentStore
     /** Sweeps expired entries before reporting a shard as full. */
     private function shardFull(string $dir): bool
     {
-        $files = glob(rtrim($dir, '/') . '/*.html');
+        $files = glob(rtrim($dir, '/') . '/*.html.php');
         if (! is_array($files) || count($files) < self::MAX_PER_SHARD) {
             return false;
         }
@@ -180,7 +184,9 @@ final class FragmentStore
                 $live++;
                 continue;
             }
-            $expiry = (int) fgets($handle);
+            // First line is the exit guard, so the expiry is on the second.
+            $first  = (string) fgets($handle);
+            $expiry = str_starts_with($first, '<?php') ? (int) fgets($handle) : (int) $first;
             fclose($handle);
             if ($expiry !== 0 && $expiry < $now) {
                 @unlink($file);

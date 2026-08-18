@@ -70,7 +70,9 @@ return static function (): void {
 
     $runtime = new RuntimeSettings($settings);
     $runtime->write();
-    $data = json_decode((string) file_get_contents($runtime->file()), true);
+    $raw  = (string) file_get_contents($runtime->file());
+    wpp_contains('<?php exit;', $raw, 'runtime file is guarded against direct HTTP access');
+    $data = json_decode(WPP\Cache\RuntimeSettings::payload($raw), true);
 
     wpp_ok(is_array($data), 'runtime file is valid json');
     wpp_same(true, $data['enabled'], 'enabled written');
@@ -92,9 +94,9 @@ return static function (): void {
     // A file written by an older release must be rewritten, or the drop-in
     // keeps reading a payload that is missing keys it now depends on.
     wpp_ok($runtime->written(), 'a freshly written runtime file is current');
-    $stale = json_decode((string) file_get_contents($runtime->file()), true);
+    $stale = json_decode(WPP\Cache\RuntimeSettings::payload((string) file_get_contents($runtime->file())), true);
     $stale['version'] = '1.0.0';
-    file_put_contents($runtime->file(), (string) json_encode($stale));
+    file_put_contents($runtime->file(), WPP\Cache\RuntimeSettings::GUARD . (string) json_encode($stale));
     wpp_ok(! $runtime->written(), 'a runtime file from an older version counts as needing a rewrite');
     $runtime->write();
     wpp_ok($runtime->written(), 'rewriting brings it up to date');

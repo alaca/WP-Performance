@@ -187,11 +187,23 @@ final class CoreModule implements Module
 
             $dropin  = new DropinInstaller();
             $runtime = $container->get(RuntimeSettings::class);
+            // Both files are version stamped, so a rewrite here means this is the
+            // first admin request after an update.
+            $updated = false;
             if (! defined('WP_CACHE') || ! $dropin->dropinInstalled()) {
                 $dropin->install();
                 $runtime->write();
+                $updated = true;
             } elseif (! $runtime->written()) {
                 $runtime->write();
+                $updated = true;
+            }
+
+            // Deleting the pre-guard config would stop page caching outright if
+            // the drop-in still reading it could not be refreshed, so this waits
+            // for confirmation that the installed one looks for the new name.
+            if ($updated && $dropin->dropinInstalled()) {
+                Plugin::purgeUnguarded();
             }
         } else {
             (new PageCache($settings, $store))->register();
