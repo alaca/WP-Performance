@@ -1,0 +1,105 @@
+== Changelog ==
+
+= 2.0.0 =
+A complete rebuild with a new dashboard and many new features.
+[NEW] Overview dashboard with environment health checks
+[NEW] One-click presets (Safe, Balanced, Aggressive)
+[NEW] Block cache - cache parts of a page via the Cache block, the [wpp_cache] shortcode, or wpp_cache_start()
+[NEW] Delay JavaScript until the visitor interacts
+[NEW] Remove unused CSS, per page
+[NEW] Host Google Fonts locally
+[NEW] Convert images to WebP and AVIF
+[NEW] Preload the LCP image and set fetchpriority
+[NEW] Add missing image width and height to reduce layout shift
+[NEW] Redis object cache drop-in
+[UPDATE] Rebuilt the cache engine, asset optimizer, and CSS/JS/HTML minifiers from scratch, with no third-party dependencies
+[UPDATE] New React dashboard
+[UPDATE] Existing settings are migrated automatically on update
+[REMOVED] AMP support
+
+= 1.1.8.3 =
+[FIX] Cloudflare add-on - respect existing headers
+
+= 1.1.8.2 =
+[FIX] Prefetch add-on again
+
+= 1.1.8.1 =
+[FIX] Prefetch add-on
+
+= 1.1.8 =
+[NEW] HTML optimization
+[NEW] Google Fonts display optimization
+[NEW] Exclude CSS/JS files from asynchronous loading
+[UPDATE] Translations
+[FIX] Asynchronous JS loading
+
+= 1.1.7.4 =
+[FIX] Combine CSS
+[FIX] Combine JS
+
+= 1.1.7.3 =
+[FIX] Update UI - Checkboxes
+[FIX] Skip dynamic files
+
+= 1.1.7.2 =
+[FIX] Combined resource path errors
+[FIX] Identifiy local resources without URL scheme
+
+= 1.1.7.1 =
+[FIX] htaccess errors
+
+= 1.1.7 =
+[NEW] Cloudflare Add-on - purge individual cache
+[NEW] Option to keep generated JS/CSS files when flushing the cache
+[FIX] Lazy Load issues in MSIE
+
+= 1.1.6.2 =
+[FIX] HTML minify
+
+= 1.1.6.1 =
+[FIX] Lazyload issues
+
+= 1.1.6 =
+[NEW] Lazy load videos
+[NEW] Disable Emojis
+[NEW] Disable Embeds
+[UPDATE] Translations
+[FIX] Load/Save settings
+
+= 1.1.5.1 =
+[FIX] Fix WooCommerce Add to cart error
+
+= 1.1.5 =
+[IMPROVE] Minify JS
+[IMPROVE] Minify CSS
+[IMPROVE] Minify HTML
+[IMPROVE] Images LazyLoad
+[IMPROVE] Async JavaScript
+[IMPROVE] Prefetch Add-on
+[FIX] Cache dir path
+
+= 1.1.4 =
+[NEW] Multisite support
+
+= 1.1.3 =
+[NEW] Dynamic page preload addon
+[NEW] Minify HTML
+
+= 1.1.0 =
+[NEW] Exclude user agents from cache
+[NEW] Exclude search engines from cache
+[NEW] Add-ons page
+
+= 1.0.8 =
+[NEW] Cloudflare integration
+
+= 1.0.5 =
+[NEW] Drafts cleanup
+[NEW] WP CLI commands - run database cleanups
+
+= 1.0.2 =
+[NEW] Detect server software
+[NEW] Generate NGINX rewrite rules
+
+= 1.0.0 =
+First release.

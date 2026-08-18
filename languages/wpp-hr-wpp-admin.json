@@ -1,0 +1,926 @@
+{
+    "translation-revision-date": "2026-08-18 12:27+0000",
+    "generator": "wp-performance/merge-script-translations",
+    "domain": "messages",
+    "locale_data": {
+        "messages": {
+            "": {
+                "domain": "messages",
+                "lang": "hr",
+                "plural-forms": "nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);"
+            },
+            "%d day ago": [
+                ""
+            ],
+            "%d hour ago": [
+                ""
+            ],
+            "%d minute ago": [
+                ""
+            ],
+            "%s settings": [
+                ""
+            ],
+            "A post or page is deleted": [
+                "Stranica ili post je izbrisan"
+            ],
+            "A post or page is published or updated": [
+                ""
+            ],
+            "API key": [
+                "API ključ"
+            ],
+            "About": [
+                ""
+            ],
+            "Above-the-fold CSS, inlined and applied before the async stylesheet loads.": [
+                ""
+            ],
+            "Account email": [
+                "E-pošta računa"
+            ],
+            "Active": [
+                ""
+            ],
+            "Active optimizations": [
+                ""
+            ],
+            "Add": [
+                ""
+            ],
+            "Add Sitemap": [
+                "Dodaj XML mapu stranice"
+            ],
+            "Add URL": [
+                "Dodaj URL"
+            ],
+            "Add User Agent": [
+                "Dodaj korisničkog agenta"
+            ],
+            "Add container": [
+                ""
+            ],
+            "Add file": [
+                "Dodaj datoteku"
+            ],
+            "Add image": [
+                ""
+            ],
+            "Add missing width/height to prevent layout shift (CLS)": [
+                ""
+            ],
+            "Add origin": [
+                ""
+            ],
+            "Add selector": [
+                ""
+            ],
+            "Add size": [
+                "Dodaj veličinu"
+            ],
+            "Add these rules to your nginx server block, then reload nginx.": [
+                ""
+            ],
+            "Add-ons": [
+                "Dodaci"
+            ],
+            "Adds deferred CSS/JS, hosted fonts and modern image formats. Recommended for most sites.": [
+                ""
+            ],
+            "Aggressive": [
+                ""
+            ],
+            "Apply": [
+                ""
+            ],
+            "Apply a curated configuration in one click, then fine-tune any tab.": [
+                ""
+            ],
+            "Apply this preset? It will overwrite the related settings.": [
+                ""
+            ],
+            "Apply to all": [
+                ""
+            ],
+            "Applying…": [
+                ""
+            ],
+            "Asynchronous CSS": [
+                ""
+            ],
+            "Asynchronous JavaScript": [
+                ""
+            ],
+            "Asynchronous JavaScript loading": [
+                ""
+            ],
+            "Auto Drafts": [
+                "Skice"
+            ],
+            "Auto-saved draft posts.": [
+                ""
+            ],
+            "Automatic database cleanup": [
+                "Automatsko čišćenje baze podataka"
+            ],
+            "Automatically purge Varnish whenever the cache is cleared.": [
+                ""
+            ],
+            "Back up your database before running any cleanup. These actions cannot be undone.": [
+                ""
+            ],
+            "Back up your database first. Run this cleanup now?": [
+                ""
+            ],
+            "Balanced": [
+                ""
+            ],
+            "Basic (no query string)": [
+                ""
+            ],
+            "Biggest TBT/INP win: scripts run on first scroll, click, or key press. Exclude anything that must run immediately.": [
+                ""
+            ],
+            "Brotli": [
+                "Brotli"
+            ],
+            "Brotli compression": [
+                ""
+            ],
+            "Browser cache TTL": [
+                ""
+            ],
+            "Browser cache and gzip rules are written to .htaccess automatically.": [
+                ""
+            ],
+            "Browser caching": [
+                "Predmemorija preglednika"
+            ],
+            "CDN": [
+                ""
+            ],
+            "CDN hostname": [
+                "Naziv CDN poslužitelja"
+            ],
+            "CSS": [
+                ""
+            ],
+            "CSS files": [
+                "CSS datoteke"
+            ],
+            "CSS id or class, e.g. #hero or .no-lazy": [
+                ""
+            ],
+            "CSS settings": [
+                "CSS postavke"
+            ],
+            "Cache": [
+                "Predmemorija"
+            ],
+            "Cache URLs with query strings": [
+                ""
+            ],
+            "Cache cleared.": [
+                ""
+            ],
+            "Cache level": [
+                "Level predmemorija"
+            ],
+            "Cache preloading": [
+                "Predučitavanje predmemorije"
+            ],
+            "Cache size": [
+                ""
+            ],
+            "Cache statistics": [
+                "Statistika predmemorije"
+            ],
+            "Cache status": [
+                ""
+            ],
+            "Cached pages": [
+                ""
+            ],
+            "Cancel": [
+                ""
+            ],
+            "Cleaning…": [
+                ""
+            ],
+            "Cleanup complete.": [
+                ""
+            ],
+            "Cleanup failed.": [
+                ""
+            ],
+            "Clear cache": [
+                "Očisti predmemeoriju"
+            ],
+            "Clear cache after": [
+                "Očisti predmemoriju nakon"
+            ],
+            "Clear cache options": [
+                ""
+            ],
+            "Clear cache when": [
+                "Očisti predmemoriju kada"
+            ],
+            "Clear log": [
+                ""
+            ],
+            "Clearing…": [
+                ""
+            ],
+            "Cloudflare": [
+                "Cloudflare"
+            ],
+            "Cloudflare error.": [
+                ""
+            ],
+            "Combine": [
+                "Kombinirati"
+            ],
+            "Combine Google Fonts into one request": [
+                ""
+            ],
+            "Compresses resources before sending them to the browser.": [
+                ""
+            ],
+            "Configure Cloudflare": [
+                ""
+            ],
+            "Content refreshes automatically every 10 seconds.": [
+                ""
+            ],
+            "Conversion failed.": [
+                ""
+            ],
+            "Convert all images to WebP/AVIF? This can take a while.": [
+                ""
+            ],
+            "Convert existing images": [
+                ""
+            ],
+            "Converting": [
+                ""
+            ],
+            "Could not add size.": [
+                ""
+            ],
+            "Could not apply the preset.": [
+                ""
+            ],
+            "Could not clear the cache.": [
+                ""
+            ],
+            "Could not clear the log.": [
+                ""
+            ],
+            "Could not remove size.": [
+                ""
+            ],
+            "Could not restore settings.": [
+                ""
+            ],
+            "Could not save settings.": [
+                ""
+            ],
+            "Could not update the file list.": [
+                ""
+            ],
+            "Credentials": [
+                ""
+            ],
+            "Critical CSS": [
+                ""
+            ],
+            "Crop": [
+                "Izreži"
+            ],
+            "Custom URLs to purge": [
+                ""
+            ],
+            "Custom host": [
+                "Prilagođeni URL host"
+            ],
+            "DNS prefetch": [
+                ""
+            ],
+            "Daily": [
+                "Dnevno"
+            ],
+            "Database": [
+                "Baza podataka"
+            ],
+            "Days": [
+                ""
+            ],
+            "Default": [
+                ""
+            ],
+            "Defaults restored.": [
+                ""
+            ],
+            "Defer JavaScript to remove render-blocking": [
+                ""
+            ],
+            "Defer offscreen images with native loading=\"lazy\".": [
+                ""
+            ],
+            "Delay JavaScript until user interaction": [
+                ""
+            ],
+            "Delay until interaction": [
+                ""
+            ],
+            "Delete": [
+                "Izbriši"
+            ],
+            "Delete all": [
+                "Izbrisati sve"
+            ],
+            "Development mode": [
+                "Uključi development mode"
+            ],
+            "Disable": [
+                "Onesposobiti"
+            ],
+            "Disable CSS optimization for logged-in users": [
+                "Onemogućite CSS optimizaciju za prijavljene korisnike"
+            ],
+            "Disable JavaScript optimization for logged-in users": [
+                "Onemogućite JavaScript optimizaciju za prijavljene korisnike"
+            ],
+            "Disable WordPress emoji": [
+                ""
+            ],
+            "Disable lazy load on mobile devices": [
+                "Onemogući lazy load na mobilnim uređajima"
+            ],
+            "Disable oEmbed discovery": [
+                ""
+            ],
+            "Disabled": [
+                ""
+            ],
+            "Download settings file": [
+                ""
+            ],
+            "Dynamic page prefetch": [
+                ""
+            ],
+            "Embeds": [
+                "Embeds"
+            ],
+            "Emoji": [
+                ""
+            ],
+            "Emoji & Embeds": [
+                ""
+            ],
+            "Enable CDN": [
+                "Omogući CDN"
+            ],
+            "Enable HTML optimization": [
+                ""
+            ],
+            "Enable automatic cleanup": [
+                "Omogući automatsko čišćenje"
+            ],
+            "Enable cache": [
+                "Omogući predmemoriju"
+            ],
+            "Enable persistent object cache": [
+                ""
+            ],
+            "Enable troubleshooting log": [
+                ""
+            ],
+            "Enter the path to an XML sitemap used to preload the cache.": [
+                ""
+            ],
+            "Every optimization on, including delayed JavaScript and unused-CSS removal. Test your site after applying.": [
+                ""
+            ],
+            "Everywhere": [
+                ""
+            ],
+            "Everywhere except selected URLs": [
+                ""
+            ],
+            "Exclude URL(s)": [
+                "Izuzmi URL"
+            ],
+            "Exclude URL(s) from CSS optimization": [
+                "Izuzimanje URL-ova iz CSS optimizacije"
+            ],
+            "Exclude URL(s) from HTML optimization": [
+                ""
+            ],
+            "Exclude URL(s) from JavaScript optimization": [
+                "Izuzimanje URL-ova iz JavaScript optimizacije"
+            ],
+            "Exclude URL(s) from cache": [
+                "Izuzimanje URL-ova iz predmemorije"
+            ],
+            "Exclude User Agent(s) from cache": [
+                "Izuzmite korisničke agente iz predmemorije"
+            ],
+            "Exclude by name": [
+                ""
+            ],
+            "Exclude containers": [
+                ""
+            ],
+            "Exclude file(s) from CDN": [
+                "Izuzmi datoteke iz CDN-a"
+            ],
+            "Exclude from async": [
+                ""
+            ],
+            "Exclude from defer": [
+                ""
+            ],
+            "Exclude from delay": [
+                ""
+            ],
+            "Exclude search engines": [
+                "Izuzmi tražilice"
+            ],
+            "Expired and stale transients.": [
+                ""
+            ],
+            "Export failed.": [
+                ""
+            ],
+            "Export settings": [
+                "Izvezi postavke"
+            ],
+            "Export your configuration to move it between sites, or import a saved configuration file.": [
+                ""
+            ],
+            "External": [
+                ""
+            ],
+            "File": [
+                "Datoteka"
+            ],
+            "File list updated.": [
+                ""
+            ],
+            "Font display": [
+                ""
+            ],
+            "Force srcset on images": [
+                ""
+            ],
+            "Google Fonts": [
+                ""
+            ],
+            "Google, Bing and other crawlers bypass the cache.": [
+                ""
+            ],
+            "Gzip compression": [
+                ""
+            ],
+            "H": [
+                ""
+            ],
+            "HTML": [
+                ""
+            ],
+            "HTML files": [
+                "HTML datoteke"
+            ],
+            "HTML optimization": [
+                ""
+            ],
+            "Health checks": [
+                ""
+            ],
+            "Heuristic: keeps rules whose classes/ids appear on the page. The full CSS still loads async as a fallback.": [
+                ""
+            ],
+            "Host Google Fonts locally and preload them": [
+                ""
+            ],
+            "Hours": [
+                ""
+            ],
+            "Image dimensions": [
+                ""
+            ],
+            "Image size added.": [
+                ""
+            ],
+            "Image sizes": [
+                "Veličine slika"
+            ],
+            "Images": [
+                "Slike"
+            ],
+            "Images converted.": [
+                ""
+            ],
+            "Import / Export": [
+                ""
+            ],
+            "Import failed - invalid file.": [
+                ""
+            ],
+            "Import settings": [
+                "Uvezi postavke"
+            ],
+            "Inline": [
+                "Umetni"
+            ],
+            "Inline only used CSS; load the rest async": [
+                ""
+            ],
+            "Integrate your Cloudflare account to purge cache and manage zone settings.": [
+                ""
+            ],
+            "JavaScript": [
+                ""
+            ],
+            "JavaScript files": [
+                "JavaScript datoteke"
+            ],
+            "JavaScript settings": [
+                "JavaScript postavke"
+            ],
+            "Keep generated CSS/JS files when clearing the cache": [
+                ""
+            ],
+            "Lazy load": [
+                "Lazy load"
+            ],
+            "Lazy load images": [
+                "Lazy load slika"
+            ],
+            "Lazy load videos & iframes": [
+                ""
+            ],
+            "Leverage browser caching": [
+                "Iskoristite predmemoriju preglednika"
+            ],
+            "Load CSS without render-blocking": [
+                ""
+            ],
+            "Log cleared.": [
+                ""
+            ],
+            "Log file": [
+                ""
+            ],
+            "Logged-in users": [
+                ""
+            ],
+            "Logging": [
+                ""
+            ],
+            "Media": [
+                "Media"
+            ],
+            "Minify": [
+                "Umanji"
+            ],
+            "Minify inline CSS": [
+                "Smanji umetnuti  CSS"
+            ],
+            "Minify inline JavaScript": [
+                "Smanjite umetnuti JavaScript"
+            ],
+            "Minutes": [
+                ""
+            ],
+            "Mobile cache": [
+                ""
+            ],
+            "Monthly": [
+                "Mjesečno"
+            ],
+            "Name": [
+                "Naziv"
+            ],
+            "Next run": [
+                "Sljedeće čišćenje"
+            ],
+            "Next-gen images": [
+                ""
+            ],
+            "Nginx rules": [
+                ""
+            ],
+            "No files collected yet. Enable caching or an optimization, visit your site, then choose \"Update files list\".": [
+                ""
+            ],
+            "No supported object cache backend was detected. Install and enable the Redis PHP extension to use a persistent object cache.": [
+                ""
+            ],
+            "Normal": [
+                ""
+            ],
+            "Not scheduled": [
+                "Nije zakazano"
+            ],
+            "Not set": [
+                "Nije postavljeno"
+            ],
+            "Number of above-the-fold images to preload (fetchpriority=high) and skip from lazy load. 0 = off.": [
+                ""
+            ],
+            "Object cache": [
+                ""
+            ],
+            "Off (recommended): tracking params (utm, gclid, fbclid…) are ignored so only clean URLs are cached.": [
+                ""
+            ],
+            "Only on selected URLs": [
+                ""
+            ],
+            "Origins to resolve early, e.g. https://fonts.gstatic.com": [
+                ""
+            ],
+            "Orphaned cron events.": [
+                ""
+            ],
+            "Overview": [
+                ""
+            ],
+            "Page cache, GZIP, browser caching and lazy loading. Works with virtually any theme.": [
+                ""
+            ],
+            "Plugins": [
+                "Dodatci"
+            ],
+            "Preconnect": [
+                ""
+            ],
+            "Prefetch": [
+                ""
+            ],
+            "Prefetch a page as soon as a visitor hovers over its link.": [
+                ""
+            ],
+            "Preload LCP images": [
+                ""
+            ],
+            "Preset applied. Reloading…": [
+                ""
+            ],
+            "Purge cache": [
+                ""
+            ],
+            "Purge custom URLs": [
+                ""
+            ],
+            "Purge everything": [
+                "Očisti sve"
+            ],
+            "Purging…": [
+                ""
+            ],
+            "Query strings": [
+                ""
+            ],
+            "Quick setup": [
+                ""
+            ],
+            "Recommended": [
+                ""
+            ],
+            "Records cache and optimization activity to help diagnose issues.": [
+                ""
+            ],
+            "Redis object cache": [
+                ""
+            ],
+            "Reduces server response time by serving static HTML files to visitors.": [
+                ""
+            ],
+            "Regenerate all thumbnails? This may take a while.": [
+                ""
+            ],
+            "Regenerate thumbnails": [
+                "Regenerirajte umanjene slike"
+            ],
+            "Regenerating": [
+                ""
+            ],
+            "Regeneration failed.": [
+                ""
+            ],
+            "Remove": [
+                "Makni"
+            ],
+            "Remove HTML comments (conditional comments preserved)": [
+                ""
+            ],
+            "Remove comments": [
+                ""
+            ],
+            "Remove quotes": [
+                ""
+            ],
+            "Remove quotes from attributes where possible": [
+                ""
+            ],
+            "Remove this image size?": [
+                ""
+            ],
+            "Remove type attribute": [
+                ""
+            ],
+            "Remove type=\"text/css\" from link tags": [
+                ""
+            ],
+            "Remove type=\"text/javascript\" from script tags": [
+                ""
+            ],
+            "Remove unused CSS": [
+                ""
+            ],
+            "Resource hints": [
+                ""
+            ],
+            "Respect existing headers": [
+                ""
+            ],
+            "Responsive images": [
+                "Responzivne  slike"
+            ],
+            "Restore": [
+                ""
+            ],
+            "Restore default image sizes?": [
+                ""
+            ],
+            "Restore defaults": [
+                ""
+            ],
+            "Restore points": [
+                ""
+            ],
+            "Restore this saved configuration? Your current settings will be replaced.": [
+                ""
+            ],
+            "Restoring…": [
+                ""
+            ],
+            "Revisions": [
+                "Revizije"
+            ],
+            "Rewrites static asset URLs (CSS, JavaScript, images) to your CDN hostname.": [
+                ""
+            ],
+            "Rocket Loader": [
+                "Rocket Loader"
+            ],
+            "Safe": [
+                ""
+            ],
+            "Save changes": [
+                "Spremi izmjene"
+            ],
+            "Saving…": [
+                ""
+            ],
+            "Schedule": [
+                "Raspored"
+            ],
+            "Scheduled tasks": [
+                "Zakazani zadaci"
+            ],
+            "Selectors to always keep, e.g. classes toggled by JavaScript.": [
+                ""
+            ],
+            "Separate cache for mobile devices": [
+                "Odvojite predmemoriju za mobilne uređaje"
+            ],
+            "Serve WebP/AVIF images": [
+                ""
+            ],
+            "Serve WebP/AVIF via <picture> when a converted file exists. New uploads convert automatically.": [
+                ""
+            ],
+            "Server": [
+                "Poslužitelj"
+            ],
+            "Sets HTTP expiry headers so returning visitors load resources from their browser.": [
+                ""
+            ],
+            "Settings": [
+                "Postavke"
+            ],
+            "Settings imported. Reloading…": [
+                ""
+            ],
+            "Settings restored. Reloading…": [
+                ""
+            ],
+            "Settings saved.": [
+                ""
+            ],
+            "Simplified (ignore query string)": [
+                ""
+            ],
+            "Spam": [
+                "Spam"
+            ],
+            "Spam and trashed comments.": [
+                ""
+            ],
+            "Stored post revisions.": [
+                ""
+            ],
+            "Stores WordPress query and option lookups in Redis to cut database load. Installs an object-cache.php drop-in.": [
+                ""
+            ],
+            "Temporarily bypass the Cloudflare cache (auto-off after 3h)": [
+                ""
+            ],
+            "The last five saved configurations appear here so you can roll back a change.": [
+                ""
+            ],
+            "The log is empty.": [
+                ""
+            ],
+            "Theme": [
+                "Tema"
+            ],
+            "Thumbnails regenerated.": [
+                ""
+            ],
+            "Total": [
+                ""
+            ],
+            "Transients": [
+                "Privremene postavke"
+            ],
+            "Trash": [
+                "Smeće"
+            ],
+            "Trashed posts and pages.": [
+                ""
+            ],
+            "Troubleshooting": [
+                ""
+            ],
+            "Update files list": [
+                "Ažuriraj popis datoteka"
+            ],
+            "Updating…": [
+                ""
+            ],
+            "Use {numbers}, {letters} or {any} to match dynamic parts of a URL.": [
+                ""
+            ],
+            "Use {numbers}, {letters}, {any} or {all} to match dynamic parts of a URL.": [
+                ""
+            ],
+            "Used-CSS safelist": [
+                ""
+            ],
+            "Varnish": [
+                "Varnish"
+            ],
+            "Videos": [
+                "Video"
+            ],
+            "W": [
+                ""
+            ],
+            "WP Performance": [
+                "WP Performance"
+            ],
+            "WP Performance settings are saved": [
+                ""
+            ],
+            "Weekly": [
+                "Tjedno"
+            ],
+            "Yes": [
+                "Da"
+            ],
+            "Zone ID": [
+                "ID Zone"
+            ],
+            "Zone settings": [
+                ""
+            ],
+            "complete.": [
+                ""
+            ],
+            "is being rebuilt in the next step.": [
+                ""
+            ],
+            "just now": [
+                ""
+            ],
+            "name": [
+                ""
+            ]
+        }
+    }
+}

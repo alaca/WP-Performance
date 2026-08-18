@@ -1,0 +1,73 @@
+name: Deploy to WordPress.org
+
+# Pushing a version tag publishes that version. The tag is the single source of
+# truth, so a release is exactly what was tagged.
+on:
+  push:
+    tags:
+      - '[0-9]+.[0-9]+.[0-9]+'
+      - '[0-9]+.[0-9]+.[0-9]+.[0-9]+'
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Build and deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+          coverage: none
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Check the tag matches the plugin version
+        run: |
+          TAG="${GITHUB_REF_NAME}"
+          HEADER=$(grep -m1 '^ \* Version:' wp-performance.php | sed 's/.*Version:[[:space:]]*//' | tr -d '[:space:]')
+          STABLE=$(grep -m1 '^Stable tag:' readme.txt | sed 's/.*Stable tag:[[:space:]]*//' | tr -d '[:space:]')
+          echo "tag=$TAG header=$HEADER stable=$STABLE"
+          if [ "$TAG" != "$HEADER" ]; then
+            echo "::error::Tag $TAG does not match the Version header ($HEADER)."
+            exit 1
+          fi
+          if [ "$STABLE" != "trunk" ] && [ "$TAG" != "$STABLE" ]; then
+            echo "::error::Tag $TAG does not match readme.txt Stable tag ($STABLE)."
+            exit 1
+          fi
+
+      - name: Install PHP dependencies
+        run: composer install --no-dev --optimize-autoloader --prefer-dist --no-interaction
+
+      - name: Run tests
+        run: php tests/run.php
+
+      - name: Build assets
+        run: |
+          npm ci
+          npm run build
+
+      - name: Confirm the build produced what the plugin loads
+        run: |
+          test -f build/admin/app/index.js || { echo "::error::admin bundle missing"; exit 1; }
+          test -f build/admin/app/index.asset.php || { echo "::error::admin asset manifest missing"; exit 1; }
+          test -f build/admin/app.css || { echo "::error::admin stylesheet missing"; exit 1; }
+          test -f build/blocks/cache/index.js || { echo "::error::cache block bundle missing"; exit 1; }
+          test -f vendor/autoload.php || { echo "::error::autoloader missing"; exit 1; }
+
+      - name: Deploy to the plugin directory
+        uses: 10up/action-wordpress-plugin-deploy@stable
+        env:
+          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+          SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+          SLUG: wp-performance
+          ASSETS_DIR: .wordpress-org
+          BUILD_DIR: .

@@ -1,1323 +1,1709 @@
-#, fuzzy
+# Copyright (C) 2026 Ante Laca
+# This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
-"Project-Id-Version: WP Performance\n"
-"POT-Creation-Date: 2019-08-30 14:57+0200\n"
-"PO-Revision-Date: 2018-12-26 17:50+0100\n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"Project-Id-Version: WP Performance 2.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/WP-Performance\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.3\n"
-"X-Poedit-Basepath: ..\n"
-"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
-"X-Poedit-WPHeader: wp-performance.php\n"
-"X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
-"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
-"_nx_noop:3c,1,2;__ngettext_noop:1,2;wpp_notify\n"
-"X-Poedit-SearchPath-0: .\n"
-"X-Poedit-SearchPath-1: vendor\n"
-"X-Poedit-SearchPath-2: .git\n"
-"X-Poedit-SearchPath-3: assets\n"
-"X-Poedit-SearchPathExcluded-0: *.js\n"
-
-#: includes/addons/cloudflare/cloudflare.php:55
-msgid "Cloudflare - purge everything"
-msgstr ""
-
-#: includes/addons/cloudflare/cloudflare.php:56
-msgid "Cloudflare - purge custom URL(s)"
-msgstr ""
-
-#: includes/addons/cloudflare/cloudflare.php:97
-msgid "Cloudflare API credentials not set"
-msgstr ""
-
-#: includes/addons/cloudflare/cloudflare.php:116
-msgid " Cloudflare cannot get zone details. Check your Cloudflare credentials"
-msgstr ""
-
-#: includes/addons/cloudflare/cloudflare.php:123
-#, php-format
-msgid ""
-" Cloudflare zone %s is not activated. Please go to your Cloudflare dashboard "
-"and activate it."
-msgstr ""
-
-#: includes/addons/cloudflare/cloudflare.php:127
-#, php-format
-msgid ""
-" Cloudflare zone %s status is pending and these settings won't have any "
-"effect on your website."
-msgstr ""
-
-#: includes/addons/cloudflare/cloudflare.php:142
-msgid " Cloudflare development mode not set"
-msgstr ""
-
-#: includes/addons/cloudflare/cloudflare.php:151
-msgid " Cloudflare cache level not set"
-msgstr ""
-
-#: includes/addons/cloudflare/cloudflare.php:161
-msgid " Cloudflare browser cache expiration not set"
-msgstr ""
-
-#: includes/addons/cloudflare/cloudflare.php:175
-msgid " Cloudflare minify not set"
-msgstr ""
-
-#: includes/addons/cloudflare/cloudflare.php:187
-msgid " Cloudflare Rocket loader mode not set"
-msgstr ""
-
-#: includes/addons/cloudflare/cloudflare.php:197
-msgid " Cloudflare Brotli mode not set"
-msgstr ""
-
-#: includes/addons/cloudflare/cloudflare.php:209
-msgid "Cloudflare settings saved"
-msgstr ""
-
-#: includes/addons/cloudflare/cloudflare.php:231
-msgid "Something went wrong. Cannot purge Cloudflare cache"
-msgstr ""
-
-#: includes/addons/cloudflare/cloudflare.php:261
-msgid "Something went wrong. Cannot purge Cloudflare custom URL(s) cache"
-msgstr ""
-
-#: includes/addons/cloudflare/views/addon.php:20
-msgid "Integrate your Cloudflare account with this add-on."
-msgstr ""
-
-#: includes/addons/cloudflare/views/addon.php:27
-#: includes/addons/cloudflare/views/admin.php:82
-#: includes/addons/cloudflare/views/admin.php:175
-#: includes/addons/cloudflare/views/admin.php:187
-#: includes/addons/prefetch/views/addon.php:18
-#: includes/addons/varnish/views/addon.php:49 includes/functions/admin.php:267
-#: includes/functions/backend.php:238
-msgid "Enable"
-msgstr ""
-
-#: includes/addons/cloudflare/views/admin.php:15
-msgid "Caching"
-msgstr ""
-
-#: includes/addons/cloudflare/views/admin.php:21
-msgid "Purge Cache"
-msgstr ""
-
-#: includes/addons/cloudflare/views/admin.php:23
-msgid "Clear all Cloudflare cache"
-msgstr ""
-
-#: includes/addons/cloudflare/views/admin.php:23
-msgid "Purge everything"
-msgstr ""
-
-#: includes/addons/cloudflare/views/admin.php:24
-msgid "Clear custom URL(s) from Cloudflare cache"
-msgstr ""
-
-#: includes/addons/cloudflare/views/admin.php:24
-#: includes/addons/cloudflare/views/admin.php:29
-msgid "Purge custom URL(s)"
-msgstr ""
-
-#: includes/addons/cloudflare/views/admin.php:49 includes/admin/cache.php:116
-#: includes/admin/cache.php:335 includes/admin/cache.php:355
-#: includes/admin/cache.php:414 includes/admin/cdn.php:66
-#: includes/admin/css.php:317 includes/admin/css.php:327
-#: includes/admin/includes/external_files.php:66
-#: includes/admin/includes/external_files.php:94
-#: includes/admin/includes/local_files.php:65
-#: includes/admin/includes/local_files.php:92 includes/admin/javascript.php:243
-#: includes/admin/javascript.php:253 includes/admin/media.php:66
-#: includes/admin/media.php:92 includes/admin/media.php:136
-#: includes/admin/media.php:156 includes/admin/media.php:238
-#: includes/admin/media.php:258 includes/functions/miscellaneous.php:258
-msgid "Remove"
-msgstr ""
-
-#: includes/addons/cloudflare/views/admin.php:58
-#: includes/addons/cloudflare/views/admin.php:67
-msgid ""
-"Any assets in the Cloudflare cache that match the URL(s) exactly will be "
-"purged from the cache."
-msgstr ""
-
-#: includes/addons/cloudflare/views/admin.php:70 includes/admin/cache.php:380
-#: includes/admin/css.php:351 includes/admin/includes/external_files.php:113
-#: includes/admin/includes/external_files.php:124
-#: includes/admin/includes/local_files.php:109
-#: includes/admin/includes/local_files.php:120
-#: includes/admin/javascript.php:277 includes/admin/media.php:180
-#: includes/admin/media.php:282 includes/functions/miscellaneous.php:260
-msgid "Add URL"
-msgstr ""
-
-#: includes/addons/cloudflare/views/admin.php:78
-msgid "Development mode"
-msgstr ""
-
-#: includes/addons/cloudflare/views/admin.php:85
-msgid "Temporarily activate development mode on your website."
-msgstr ""
-
-#: includes/addons/cloudflare/views/admin.php:86
-msgid "This setting will automatically turn off after 3 hours."
-msgstr ""
-
-#: includes/addons/cloudflare/views/admin.php:91
-msgid "Cache level"
-msgstr ""
-
-#: includes/addons/cloudflare/views/admin.php:94
-msgid "Aggressive - Standard"
-msgstr ""
-
-#: includes/addons/cloudflare/views/admin.php:95
-msgid "Simplified - Ignore query string"
-msgstr ""
-
-#: includes/addons/cloudflare/views/admin.php:96
-msgid "Basic - No query string"
-msgstr ""
-
-#: includes/addons/cloudflare/views/admin.php:101
-msgid ""
-"Aggressive: Delivers a different resource each time the query string changes."
-msgstr ""
-
-#: includes/addons/cloudflare/views/admin.php:102
-msgid ""
-"Simplified: Delivers the same resource to everyone independent of the query "
-"string."
-msgstr ""
-
-#: includes/addons/cloudflare/views/admin.php:103
-msgid ""
-"Basic: Only delivers resources from cache when there is no query string."
-msgstr ""
-
-#: includes/addons/cloudflare/views/admin.php:118
-msgid "Browser Cache Expiration"
-msgstr ""
-
-#: includes/addons/cloudflare/views/admin.php:121
-msgid "Respect Existing Headers"
-msgstr ""
-
-#: includes/addons/cloudflare/views/admin.php:131
-msgid ""
-"Browser cache TTL (in seconds) specifies how long CloudFlare-cached "
-"resources will remain on your visitors computers."
-msgstr ""
-
-#: includes/addons/cloudflare/views/admin.php:132
-msgid "The minimum TTL available depends on the plan level of the zone."
-msgstr ""
-
-#: includes/addons/cloudflare/views/admin.php:140
-msgid "Content"
-msgstr ""
-
-#: includes/addons/cloudflare/views/admin.php:146 includes/admin/css.php:27
-#: includes/admin/includes/local_files.php:153 includes/admin/javascript.php:27
-msgid "Minify"
-msgstr ""
-
-#: includes/addons/cloudflare/views/admin.php:171
-msgid "Rocket Loader"
-msgstr ""
-
-#: includes/addons/cloudflare/views/admin.php:178
-msgid "Rocket Loader is a asynchronous JavaScript loader."
-msgstr ""
-
-#: includes/addons/cloudflare/views/admin.php:183
-msgid "Brotli"
-msgstr ""
-
-#: includes/addons/cloudflare/views/admin.php:190
-msgid ""
-"Speed up page load times for your visitor’s HTTPS traffic by applying Brotli "
-"compression."
-msgstr ""
-
-#: includes/addons/cloudflare/views/admin.php:198 includes/admin/addons.php:17
-#: includes/admin/cache.php:259 includes/admin/cdn.php:33
-#: includes/admin/css.php:119 includes/admin/database.php:183
-#: includes/admin/javascript.php:118 includes/admin/media.php:292
-#: includes/admin/settings.php:81
-msgid "Save changes"
-msgstr ""
-
-#: includes/addons/cloudflare/views/admin.php:207
-msgid "Cloudflare credentials"
-msgstr ""
-
-#: includes/addons/cloudflare/views/admin.php:211
-msgid "API key"
-msgstr ""
-
-#: includes/addons/cloudflare/views/admin.php:218
-msgid "Account email"
-msgstr ""
-
-#: includes/addons/cloudflare/views/admin.php:223
-msgid "Zone ID"
-msgstr ""
-
-#: includes/addons/prefetch/views/addon.php:9
-#: includes/addons/prefetch/views/addon.php:18
-msgid "Dynamic page preload"
-msgstr ""
-
-#: includes/addons/prefetch/views/addon.php:12
-msgid "Preloads a page right before a user clicks on link"
-msgstr ""
-
-#: includes/addons/varnish/views/addon.php:20
-msgid "If Varnish runs on your server, you must activate this add-on."
-msgstr ""
-
-#: includes/addons/varnish/views/addon.php:28
-msgid "Custom host"
-msgstr ""
-
-#: includes/addons/varnish/views/addon.php:41
-msgid "If you are using proxy, you may need this option"
-msgstr ""
-
-#: includes/admin/addons.php:27 includes/admin/admin.php:30
-#: includes/admin/admin.php:45 includes/functions/admin.php:236
-#: includes/functions/admin.php:240
-msgid "Add-ons"
-msgstr ""
-
-#: includes/admin/addons.php:31
-#, php-format
-msgid "Add more features to %s with add-ons."
-msgstr ""
-
-#: includes/admin/admin.php:23 includes/admin/admin.php:38
-#: includes/functions/admin.php:166
-msgid "Cache"
-msgstr ""
-
-#: includes/admin/admin.php:26 includes/admin/admin.php:41
-#: includes/functions/admin.php:196 includes/functions/admin.php:200
-msgid "Media"
-msgstr ""
-
-#: includes/admin/admin.php:27 includes/admin/admin.php:42
-#: includes/functions/admin.php:206 includes/functions/admin.php:210
-msgid "Database"
-msgstr ""
-
-#: includes/admin/admin.php:29 includes/admin/admin.php:44
-#: includes/admin/settings.php:12 includes/functions/admin.php:170
-#: includes/functions/admin.php:226 includes/functions/admin.php:230
-#: includes/functions/admin.php:290
-msgid "Settings"
-msgstr ""
-
-#: includes/admin/cache.php:11
-msgid "Enable cache"
-msgstr ""
-
-#: includes/admin/cache.php:15
-msgid "Reduces your server response time by serving static files to users"
-msgstr ""
-
-#: includes/admin/cache.php:30 includes/admin/cache.php:194
-#: includes/admin/cache.php:246
-msgid ""
-"Your web site is running on a Nginx server and some additional steps may be "
-"required in order to use this option."
-msgstr ""
-
-#: includes/admin/cache.php:39
-msgid "Separate cache for mobile devices"
-msgstr ""
-
-#: includes/admin/cache.php:42
-msgid "Create a dedicated cache file for mobile devices"
-msgstr ""
-
-#: includes/admin/cache.php:48
-msgid "Clear cache after"
-msgstr ""
-
-#: includes/admin/cache.php:53
-msgid "minutes"
-msgstr ""
-
-#: includes/admin/cache.php:56
-msgid "hours"
-msgstr ""
-
-#: includes/admin/cache.php:59
-msgid "days"
-msgstr ""
-
-#: includes/admin/cache.php:66
-msgid "Clear cache when"
-msgstr ""
-
-#: includes/admin/cache.php:70
-msgid "A new post or page is published or updated"
-msgstr ""
-
-#: includes/admin/cache.php:75
-msgid "A post or page is deleted"
-msgstr ""
-
-#: includes/admin/cache.php:80
-msgid "settings are saved"
-msgstr ""
-
-#: includes/admin/cache.php:86
-msgid "Clear cache options"
-msgstr ""
-
-#: includes/admin/cache.php:90
-msgid "Keep generated CSS/JS files"
-msgstr ""
-
-#: includes/admin/cache.php:96
-msgid "Cache preloading"
-msgstr ""
-
-#: includes/admin/cache.php:126 includes/admin/cache.php:136
-msgid "Enter path to XML sitemap which will be used for cache preloading"
-msgstr ""
-
-#: includes/admin/cache.php:139
-msgid "Add Sitemap"
-msgstr ""
-
-#: includes/admin/cache.php:147
-msgid "Browser caching"
-msgstr ""
-
-#: includes/admin/cache.php:151
-msgid "Leverage browser caching"
-msgstr ""
-
-#: includes/admin/cache.php:176
-msgid ""
-"Setting an expiry date in the HTTP headers for static resources instructs "
-"the browser to load previously downloaded resources from local disk rather "
-"than over the network"
-msgstr ""
-
-#: includes/admin/cache.php:183 includes/admin/cache.php:235
-msgid ""
-"This option is turned ON automatically for all sites in Wordpress multisite"
-msgstr ""
-
-#: includes/admin/cache.php:204
-msgid "Enable gzip compression"
-msgstr ""
-
-#: includes/admin/cache.php:228
-msgid ""
-"Compressing resources with gzip reduce the number of bytes sent over the "
-"network"
-msgstr ""
-
-#: includes/admin/cache.php:268
-msgid "Cache statistics"
-msgstr ""
-
-#: includes/admin/cache.php:269 includes/functions/admin.php:155
-#: includes/functions/admin.php:160
-msgid "Clear cache"
-msgstr ""
-
-#: includes/admin/cache.php:291
-msgid "HTML files"
-msgstr ""
-
-#: includes/admin/cache.php:294
-msgid "CSS files"
-msgstr ""
-
-#: includes/admin/cache.php:297
-msgid "JavaScript files"
-msgstr ""
-
-#: includes/admin/cache.php:302
-msgid "Total cache size"
-msgstr ""
-
-#: includes/admin/cache.php:313
-msgid "Exclude URL(s) from cache"
-msgstr ""
-
-#: includes/admin/cache.php:334 includes/admin/css.php:316
-#: includes/admin/javascript.php:242 includes/admin/media.php:135
-#: includes/admin/media.php:237
-#, php-format
-msgid "Remove %s from excluded URL(s)?"
-msgstr ""
-
-#: includes/admin/cache.php:365 includes/admin/cache.php:377
-#: includes/admin/cdn.php:75 includes/admin/cdn.php:86
-#: includes/admin/css.php:336 includes/admin/css.php:348
-#: includes/admin/javascript.php:262 includes/admin/javascript.php:274
-#: includes/admin/media.php:165 includes/admin/media.php:177
-#: includes/admin/media.php:267 includes/admin/media.php:279
-msgid "Use {numbers} to match only numbers"
-msgstr ""
-
-#: includes/admin/cache.php:366 includes/admin/cache.php:377
-#: includes/admin/cdn.php:76 includes/admin/cdn.php:86
-#: includes/admin/css.php:337 includes/admin/css.php:348
-#: includes/admin/javascript.php:263 includes/admin/javascript.php:274
-#: includes/admin/media.php:166 includes/admin/media.php:177
-#: includes/admin/media.php:268 includes/admin/media.php:279
-msgid "Use {letters} to match only letters"
-msgstr ""
-
-#: includes/admin/cache.php:367 includes/admin/cache.php:377
-#: includes/admin/cdn.php:77 includes/admin/cdn.php:86
-#: includes/admin/css.php:338 includes/admin/css.php:348
-#: includes/admin/javascript.php:264 includes/admin/javascript.php:274
-#: includes/admin/media.php:167 includes/admin/media.php:177
-#: includes/admin/media.php:269 includes/admin/media.php:279
-msgid "Use {any} to match any string"
-msgstr ""
-
-#: includes/admin/cache.php:368 includes/admin/cache.php:377
-#: includes/admin/css.php:339 includes/admin/css.php:348
-#: includes/admin/javascript.php:265 includes/admin/javascript.php:274
-#: includes/admin/media.php:168 includes/admin/media.php:177
-#: includes/admin/media.php:270 includes/admin/media.php:279
-msgid "Use {all} to match all"
-msgstr ""
-
-#: includes/admin/cache.php:392
-msgid "Exclude User Agent(s) from cache"
-msgstr ""
-
-#: includes/admin/cache.php:427
-msgid "Add User Agent"
-msgstr ""
-
-#: includes/admin/cache.php:437
-msgid "Exclude search engines"
-msgstr ""
-
-#: includes/admin/cdn.php:12
-msgid "Enable CDN"
-msgstr ""
-
-#: includes/admin/cdn.php:16
-msgid ""
-"All URL(s) of static files ( CSS, JavaScript and Images ) will be rewritten "
-"to the CDN hostname you provide. "
-msgstr ""
-
-#: includes/admin/cdn.php:23
-msgid "CDN hostname"
-msgstr ""
-
-#: includes/admin/cdn.php:43
-msgid "Exclude file(s) from CDN"
-msgstr ""
-
-#: includes/admin/cdn.php:89
-msgid "Add file"
-msgstr ""
-
-#: includes/admin/css.php:26 includes/admin/javascript.php:26
-msgid "File"
-msgstr ""
-
-#: includes/admin/css.php:28 includes/admin/includes/local_files.php:171
-#: includes/admin/javascript.php:28
-msgid "Inline"
-msgstr ""
-
-#: includes/admin/css.php:29 includes/admin/includes/local_files.php:189
-#: includes/admin/javascript.php:29
-msgid "Combine"
-msgstr ""
-
-#: includes/admin/css.php:30 includes/admin/includes/external_files.php:152
-#: includes/admin/includes/local_files.php:213 includes/admin/javascript.php:30
-msgid "Disable"
-msgstr ""
-
-#: includes/admin/css.php:37 includes/admin/javascript.php:37
-msgid "Update all files in list below"
-msgstr ""
-
-#: includes/admin/css.php:47 includes/admin/javascript.php:47
-msgid "Theme"
-msgstr ""
-
-#: includes/admin/css.php:69 includes/admin/javascript.php:69
-msgid "Plugins"
-msgstr ""
-
-#: includes/admin/css.php:92 includes/admin/javascript.php:92
-msgid "External resources"
-msgstr ""
-
-#: includes/admin/css.php:115 includes/admin/javascript.php:114
-msgid ""
-"If some of the files are missing from this list, enable Cache preloading "
-"option."
-msgstr ""
-
-#: includes/admin/css.php:122 includes/admin/javascript.php:121
-#, php-format
-msgid "Clear collected %s files list.%s This option will also clear the cache."
-msgstr ""
-
-#: includes/admin/css.php:125 includes/admin/javascript.php:124
-msgid "Update files list"
-msgstr ""
-
-#: includes/admin/css.php:130
-msgid "CSS files not found"
-msgstr ""
-
-#: includes/admin/css.php:134 includes/admin/javascript.php:133
-msgid "Reload"
-msgstr ""
-
-#: includes/admin/css.php:142
-msgid "CSS settings"
-msgstr ""
-
-#: includes/admin/css.php:158
-msgid "Minify inline CSS"
-msgstr ""
-
-#: includes/admin/css.php:166
-msgid "Asynchronously load CSS"
-msgstr ""
-
-#: includes/admin/css.php:176 includes/admin/css.php:178
-msgid "Show critical CSS"
-msgstr ""
-
-#: includes/admin/css.php:177 includes/admin/css.php:178
-msgid "Hide critical CSS"
-msgstr ""
-
-#: includes/admin/css.php:188
-msgid "Eliminates render-blocking CSS"
-msgstr ""
-
-#: includes/admin/css.php:194
-msgid ""
-"Loading CSS asynchronously will produce FOUC effect (a Flash Of Unstyled "
-"Content). In order to minimize the FOUC effect, use critical CSS path."
-msgstr ""
-
-#: includes/admin/css.php:202
-msgid "Critical CSS path"
-msgstr ""
-
-#: includes/admin/css.php:207
-msgid "Enter critical CSS path definitions"
-msgstr ""
-
-#: includes/admin/css.php:212
-msgid "Generate critical CSS path"
-msgstr ""
-
-#: includes/admin/css.php:227
-msgid "Combine Google Fonts"
-msgstr ""
-
-#: includes/admin/css.php:232
-msgid "Load all google fonts in one HTTP request"
-msgstr ""
-
-#: includes/admin/css.php:241
-msgid "Disable CSS optimization for logged-in users"
-msgstr ""
-
-#: includes/admin/css.php:252 includes/admin/javascript.php:178
-msgid "Resource Hints"
-msgstr ""
-
-#: includes/admin/css.php:259 includes/admin/javascript.php:185
-msgid "Origins"
-msgstr ""
-
-#: includes/admin/css.php:286 includes/admin/javascript.php:212
-msgid "DNS prefetching can make external resources load faster"
-msgstr ""
-
-#: includes/admin/css.php:287 includes/admin/javascript.php:213
-msgid "Preconnect can remove additional roundtrips and reduce request latency"
-msgstr ""
-
-#: includes/admin/css.php:295
-msgid "Exclude URL(s) from CSS optimization"
-msgstr ""
-
-#: includes/admin/database.php:30 includes/admin/database.php:35
-msgid "Delete all pages, posts and comments from trash"
-msgstr ""
-
-#: includes/admin/database.php:31 includes/admin/database.php:55
-#: includes/admin/database.php:82 includes/admin/database.php:105
-#: includes/admin/database.php:132 includes/admin/database.php:157
-msgid "Delete"
-msgstr ""
-
-#: includes/admin/database.php:34
-msgid "Trash"
-msgstr ""
-
-#: includes/admin/database.php:41 includes/admin/database.php:65
-#: includes/admin/database.php:92 includes/admin/database.php:115
-#: includes/admin/database.php:142 includes/admin/database.php:167
-msgid "Enable automatic cleanup"
-msgstr ""
-
-#: includes/admin/database.php:54 includes/admin/database.php:59
-msgid "Delete all spam comments"
-msgstr ""
-
-#: includes/admin/database.php:58
-msgid "Spam"
-msgstr ""
-
-#: includes/admin/database.php:81 includes/admin/database.php:86
-msgid "Delete all revisions"
-msgstr ""
-
-#: includes/admin/database.php:85
-msgid "Revisions"
-msgstr ""
-
-#: includes/admin/database.php:104 includes/admin/database.php:109
-msgid "Delete all expired transients"
-msgstr ""
-
-#: includes/admin/database.php:108
-msgid "Transients"
-msgstr ""
-
-#: includes/admin/database.php:131 includes/admin/database.php:136
-msgid "Delete all auto drafts"
-msgstr ""
-
-#: includes/admin/database.php:135
-msgid "Auto Drafts"
-msgstr ""
-
-#: includes/admin/database.php:156 includes/admin/database.php:161
-msgid "Delete all unused scheduled tasks"
-msgstr ""
-
-#: includes/admin/database.php:160
-msgid "Scheduled tasks"
-msgstr ""
-
-#: includes/admin/database.php:179
-msgid ""
-"Backup your database before running any of these cleanup actions. Once a "
-"database cleanup has been performed, there is no way to undo it."
-msgstr ""
-
-#: includes/admin/database.php:185 includes/admin/database.php:186
-msgid "Delete all"
-msgstr ""
-
-#: includes/admin/database.php:194
-msgid "Automatic database cleanup"
-msgstr ""
-
-#: includes/admin/database.php:200
-msgid "Schedule"
-msgstr ""
-
-#: includes/admin/database.php:202
-msgid "Not scheduled"
-msgstr ""
-
-#: includes/admin/database.php:203 includes/functions/cron.php:26
-msgid "Daily"
-msgstr ""
-
-#: includes/admin/database.php:204 includes/functions/cron.php:31
-msgid "Weekly"
-msgstr ""
-
-#: includes/admin/database.php:205 includes/functions/cron.php:36
-msgid "Monthly"
-msgstr ""
-
-#: includes/admin/database.php:208
-msgid "Next run"
-msgstr ""
-
-#: includes/admin/database.php:214
-msgid "Not set"
-msgstr ""
-
-#: includes/admin/includes/external_files.php:31
-#: includes/admin/includes/local_files.php:31
-#: includes/functions/miscellaneous.php:261
-msgid "Disable everywhere"
-msgstr ""
-
-#: includes/admin/includes/external_files.php:35
-#: includes/admin/includes/local_files.php:35
-#: includes/functions/miscellaneous.php:262
-msgid "Disable only on selected URL"
-msgstr ""
-
-#: includes/admin/includes/external_files.php:39
-#: includes/admin/includes/local_files.php:39
-#: includes/functions/miscellaneous.php:263
-msgid "Disable everywhere except on selected URL"
-msgstr ""
-
-#: includes/admin/javascript.php:129
-msgid "JavaScript files not found"
-msgstr ""
-
-#: includes/admin/javascript.php:142
-msgid "JavaScript settings"
-msgstr ""
-
-#: includes/admin/javascript.php:150
-msgid "Minify inline JavaScript"
-msgstr ""
-
-#: includes/admin/javascript.php:157
-msgid "Asynchronously load JavaScript"
-msgstr ""
-
-#: includes/admin/javascript.php:161
-msgid "Eliminates render-blocking JavaScript"
-msgstr ""
-
-#: includes/admin/javascript.php:167
-msgid "Disable JavaScript optimization for logged-in users"
-msgstr ""
-
-#: includes/admin/javascript.php:221
-msgid "Exclude URL(s) from JavaScript optimization"
-msgstr ""
-
-#: includes/admin/media.php:12
-msgid "Images"
-msgstr ""
-
-#: includes/admin/media.php:16 includes/admin/media.php:192
-msgid "Lazy load"
-msgstr ""
-
-#: includes/admin/media.php:20
-msgid "Lazy load images"
-msgstr ""
-
-#: includes/admin/media.php:24 includes/admin/media.php:209
-msgid "Reduces the number of HTTP requests and improves loading time"
-msgstr ""
-
-#: includes/admin/media.php:34
-msgid "Disable lazy load on mobile devices"
-msgstr ""
-
-#: includes/admin/media.php:40
-msgid "Responsive images"
-msgstr ""
-
-#: includes/admin/media.php:44
-msgid "Force images to use srcset attribute"
-msgstr ""
-
-#: includes/admin/media.php:47
-msgid ""
-"Loads the best optimized image depending on users screen size and image "
-"sizes settings"
-msgstr ""
-
-#: includes/admin/media.php:52
-msgid "Exclude"
-msgstr ""
-
-#: includes/admin/media.php:55
-msgid "Exclude image by name"
-msgstr ""
-
-#: includes/admin/media.php:72
-msgid "Add Image"
-msgstr ""
-
-#: includes/admin/media.php:81
-msgid ""
-"Exclude images located in specific html containers like sliders and galleries"
-msgstr ""
-
-#: includes/admin/media.php:99 includes/admin/media.php:108
-msgid "Enter container id or class name"
-msgstr ""
-
-#: includes/admin/media.php:100 includes/admin/media.php:108
-msgid "Example"
-msgstr ""
-
-#: includes/admin/media.php:108
-msgid "Add Container"
-msgstr ""
-
-#: includes/admin/media.php:116
-msgid "Exclude URL(s) from image optimization"
-msgstr ""
-
-#: includes/admin/media.php:188
-msgid "Videos"
-msgstr ""
-
-#: includes/admin/media.php:204
-msgid "Lazy load videos"
-msgstr ""
-
-#: includes/admin/media.php:218
-msgid "Exclude URL(s)"
-msgstr ""
-
-#: includes/admin/media.php:303
-msgid "Emoji"
-msgstr ""
-
-#: includes/admin/media.php:310
-msgid "Disable Emoji"
-msgstr ""
-
-#: includes/admin/media.php:314
-msgid ""
-"Use default emoji of visitor's browser instead of loading emoji from "
-"WordPress.org"
-msgstr ""
-
-#: includes/admin/media.php:319
-msgid "Embeds"
-msgstr ""
-
-#: includes/admin/media.php:326
-msgid "Disable embeds"
-msgstr ""
-
-#: includes/admin/media.php:330
-msgid "Prevents embedding content from your site"
-msgstr ""
-
-#: includes/admin/media.php:336
-msgid "Image sizes"
-msgstr ""
-
-#: includes/admin/media.php:343 includes/admin/media.php:354
-msgid "Name"
-msgstr ""
-
-#: includes/admin/media.php:344 includes/admin/media.php:360
-msgid "Width"
-msgstr ""
-
-#: includes/admin/media.php:345 includes/admin/media.php:366
-msgid "Height"
-msgstr ""
-
-#: includes/admin/media.php:346 includes/admin/media.php:372
-msgid "Crop"
-msgstr ""
-
-#: includes/admin/media.php:347
-msgid "Actions"
-msgstr ""
-
-#: includes/admin/media.php:374 includes/functions/miscellaneous.php:259
-msgid "Yes"
-msgstr ""
-
-#: includes/admin/media.php:379
-#, php-format
-msgid "Remove image size %s"
-msgstr ""
-
-#: includes/admin/media.php:381
-msgid "Remove size"
-msgstr ""
-
-#: includes/admin/media.php:391
-msgid "Add size"
-msgstr ""
-
-#: includes/admin/media.php:392
-msgid "Restore default image sizes"
-msgstr ""
-
-#: includes/admin/media.php:392
-msgid "Restore image sizes"
-msgstr ""
-
-#: includes/admin/media.php:398
-msgid "Regenerate thumbnails every time you make some changes to image sizes"
-msgstr ""
-
-#: includes/admin/media.php:400
-msgid "Regenerate thumbnails"
-msgstr ""
-
-#: includes/admin/metabox.php:13 includes/admin/metabox.php:80
-#: includes/admin/metabox.php:131 includes/admin/metabox.php:183
-#: includes/admin/metabox.php:234
-msgid "Page URL will be added to exclude list"
-msgstr ""
-
-#: includes/admin/metabox.php:41 includes/admin/metabox.php:68
-msgid "Exclude from cache"
-msgstr ""
-
-#: includes/admin/metabox.php:46
-msgid ""
-"This page is your website home page and it is affected by Exclude URL(s) "
-"from cache option. Usually a home page is not excluded from cache. Please "
-"check your exclude settings."
-msgstr ""
-
-#: includes/admin/metabox.php:49
-msgid "This page is affected by URL(s) exclude options on Cache page"
-msgstr ""
-
-#: includes/admin/metabox.php:63
-msgid ""
-"This page is your website home page.<br />Do you want to exclude home page "
-"from cache?"
-msgstr ""
-
-#: includes/admin/metabox.php:107 includes/admin/metabox.php:121
-#: includes/admin/metabox.php:158
-msgid "Exclude from CSS optimization"
-msgstr ""
-
-#: includes/admin/metabox.php:111
-msgid "This page is affected by URL(s) exclude options on CSS page"
-msgstr ""
-
-#: includes/admin/metabox.php:162
-msgid "This page is affected by URL(s) exclude options on JavaScript page"
-msgstr ""
-
-#: includes/admin/metabox.php:172
-msgid "Exclude from JS optimization"
-msgstr ""
-
-#: includes/admin/metabox.php:209 includes/admin/metabox.php:223
-msgid "Exclude from Image optimization"
-msgstr ""
-
-#: includes/admin/metabox.php:213 includes/admin/metabox.php:264
-msgid "This page is affected by URL(s) exclude options on Media page"
-msgstr ""
-
-#: includes/admin/metabox.php:260 includes/admin/metabox.php:274
-msgid "Exclude from Video lazyload"
-msgstr ""
-
-#: includes/admin/settings.php:16
-msgid "Import settings"
-msgstr ""
-
-#: includes/admin/settings.php:22
-msgid "Export settings"
-msgstr ""
-
-#: includes/admin/settings.php:25
-msgid "Export"
-msgstr ""
-
-#: includes/admin/settings.php:34
-msgid "Server"
-msgstr ""
-
-#: includes/admin/settings.php:39
-msgid "Nginx configuration"
-msgstr ""
-
-#: includes/admin/settings.php:43
-#, php-format
-msgid ""
-"%s will work out of the box on Nginx servers, this rewrite rules are not "
-"required. However, to optimize your website even more, you should add this "
-"rules to your Nginx configuration file."
-msgstr ""
-
-#: includes/admin/settings.php:45
-msgid "Select all"
-msgstr ""
-
-#: includes/admin/settings.php:52
-msgid "Logs"
-msgstr ""
-
-#: includes/admin/settings.php:56
-msgid "Troubleshooting logging"
-msgstr ""
-
-#: includes/admin/settings.php:60
-msgid "Enable troubleshooting logging"
-msgstr ""
-
-#: includes/admin/settings.php:63
-msgid "These logs can be helpful for troubleshooting problems"
-msgstr ""
-
-#: includes/admin/settings.php:69
-msgid "Log file content"
-msgstr ""
-
-#: includes/admin/settings.php:72
-msgid "Content is auto refreshed every 10 seconds"
-msgstr ""
-
-#: includes/admin/settings.php:84
-msgid "Clear log file"
-msgstr ""
-
-#: includes/admin/settings.php:93
-msgid "Previous configuration settings"
-msgstr ""
-
-#: includes/admin/settings.php:114
-msgid "Saved"
-msgstr ""
-
-#: includes/admin/settings.php:117
-msgid "Load configuration settings saved on "
-msgstr ""
-
-#: includes/admin/settings.php:120
-msgid "Load"
-msgstr ""
-
-#: includes/classes/api.php:130
-#, php-format
-msgid "Call to undefined method %s"
-msgstr ""
-
-#: includes/classes/cli.php:23
-msgid "Flushing the cache..."
-msgstr ""
-
-#: includes/classes/cli.php:25
-msgid "Cache flushed."
-msgstr ""
-
-#: includes/classes/cli.php:73
-msgid "Running tranisent cleanup"
-msgstr ""
-
-#: includes/classes/cli.php:75
-msgid "Transient cleanup complete"
-msgstr ""
-
-#: includes/classes/cli.php:81
-msgid "Running revisions cleanup"
-msgstr ""
-
-#: includes/classes/cli.php:83
-msgid "Revisions cleanup complete"
-msgstr ""
-
-#: includes/classes/cli.php:89
-msgid "Running drafts cleanup"
-msgstr ""
-
-#: includes/classes/cli.php:91
-msgid "Drafts cleanup complete"
-msgstr ""
-
-#: includes/classes/cli.php:97
-msgid "Running trash cleanup"
-msgstr ""
-
-#: includes/classes/cli.php:99
-msgid "Trash cleanup complete"
-msgstr ""
-
-#: includes/classes/cli.php:105
-msgid "Running spam cleanup"
-msgstr ""
-
-#: includes/classes/cli.php:107
-msgid "Spam cleanup complete"
-msgstr ""
-
-#: includes/classes/cli.php:113
-msgid "Running cron tasks cleanup"
-msgstr ""
-
-#: includes/classes/cli.php:115
-msgid "Cron tasks cleanup complete"
-msgstr ""
-
-#: includes/classes/cli.php:126
-msgid "Running database cleanup"
-msgstr ""
-
-#: includes/classes/cli.php:128
-msgid "Database cleanup complete"
-msgstr ""
-
-#: includes/classes/parser.php:94
-msgid "error"
-msgstr ""
-
-#: includes/classes/parser.php:95 includes/classes/parser.php:98
-msgid "both head and body tag should be present in template file"
-msgstr ""
-
-#: includes/classes/parser.php:932
-msgid "Optimized by"
-msgstr ""
-
-#: includes/classes/parser.php:956
-#, php-format
-msgid "Cache file was created in %s seconds on %s at %s"
-msgstr ""
-
-#: includes/functions/admin.php:270
-msgid "Temporarily disable"
-msgstr ""
-
-#: includes/functions/backend.php:52
-#, php-format
-msgid ""
-"File <code>advanced-cache.php</code> is missing. If you updated your "
-"installation of %s recently, try to deactivate and then activate the plugin "
-"again."
-msgstr ""
-
-#: includes/functions/backend.php:237
-msgid "is temporarily disabled"
-msgstr ""
-
-#: includes/functions/backend.php:250
-#, php-format
-msgid ""
-"%s: Log file is getting large, either clear the log or disable "
-"troubleshooting logging"
-msgstr ""
-
-#: includes/functions/backend.php:262
-#, php-format
-msgid "%s: missing writing permissions for file <code>.htaccess</code>"
-msgstr ""
-
-#: includes/functions/backend.php:275
-#, php-format
-msgid "%s: enter Cloudflare credentials"
-msgstr ""
-
-#: includes/functions/cron.php:41
-msgid "Every minute"
-msgstr ""
-
-#: includes/functions/cron.php:46
-msgid "Every 5 minutes"
-msgstr ""
-
-#: includes/functions/db.php:85
-msgid "You are doing it wrong"
-msgstr ""
-
-#: includes/functions/files.php:350
-msgid "Log file cleared"
-msgstr ""
-
-#: includes/functions/image.php:68
-msgid "Size name already in use"
-msgstr ""
-
-#: includes/functions/image.php:190
-#, php-format
-msgid "%s image left"
-msgid_plural "%s images left"
-msgstr[0] ""
-msgstr[1] ""
-
-#: includes/functions/image.php:202
-msgid "Done"
-msgstr ""
-
-#: includes/functions/miscellaneous.php:257
-msgid "Are you sure?"
-msgstr ""
-
-#: includes/functions/miscellaneous.php:264
-msgid "Something went wrong"
-msgstr ""
-
-#: includes/functions/miscellaneous.php:265
-msgid "Regenerating thumbs"
-msgstr ""
-
-#: includes/functions/miscellaneous.php:266
-msgid "Regenerate thumbnails may take a long time. Do not close your browser."
-msgstr ""
-
-#: includes/functions/plugin.php:220
-msgid "The following plugins are not compatible with"
-msgstr ""
-
-#: includes/functions/plugin.php:227
-msgid "Deactivate"
-msgstr ""
-
-#: includes/functions/settings.php:57
-msgid "Invalid settings file"
-msgstr ""
-
-#: includes/functions/settings.php:269
-msgid "Settings saved"
-msgstr ""
-
-#: includes/functions/settings.php:330
-msgid "Settings file loaded"
-msgstr ""
-
-#: includes/functions/settings.php:520
-msgid "Files list cleared"
-msgstr ""
-
-#. Plugin Name of the plugin/theme
+"POT-Creation-Date: 2026-08-18T12:27:44+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: wpp\n"
+
+#. Plugin Name of the plugin
+#: wp-performance.php
+#: src/Admin/AdminMenu.php:23
+#: src/Admin/AdminMenu.php:24
+#: src/Admin/Metabox.php:37
+#: assets/admin/app/App.jsx:85
 msgid "WP Performance"
 msgstr ""
 
-#. Plugin URI of the plugin/theme
-msgid "https://www.wp-performance.com"
+#. Description of the plugin
+#: wp-performance.php
+msgid "WP Performance Optimizer - cache & performance plugin."
 msgstr ""
 
-#. Description of the plugin/theme
-msgid "WP Performance Optimizer"
-msgstr ""
-
-#. Author of the plugin/theme
+#. Author of the plugin
+#: wp-performance.php
 msgid "Ante Laca"
 msgstr ""
 
-#. Author URI of the plugin/theme
-msgid "https://www.antelaca.xyz"
+#: src/Addons/Cloudflare/CloudflareApi.php:58
+msgid "Unknown Cloudflare error."
+msgstr ""
+
+#: src/Addons/Cloudflare/CloudflareController.php:113
+msgid "Cloudflare rejected the request."
+msgstr ""
+
+#: src/Addons/Cloudflare/CloudflareController.php:120
+msgid "Cloudflare is not configured."
+msgstr ""
+
+#: src/Admin/CompatibilityNotice.php:63
+msgid "WP Performance detected another caching/optimization plugin:"
+msgstr ""
+
+#: src/Admin/CompatibilityNotice.php:65
+msgid "Running more than one can cause conflicts; consider deactivating the others."
+msgstr ""
+
+#: src/Admin/Metabox.php:54
+msgid "Exclude from cache"
+msgstr ""
+
+#: src/Admin/Metabox.php:55
+msgid "Exclude from CSS optimization"
+msgstr ""
+
+#: src/Admin/Metabox.php:56
+msgid "Exclude from JavaScript optimization"
+msgstr ""
+
+#: src/Admin/Metabox.php:57
+msgid "Exclude from HTML optimization"
+msgstr ""
+
+#: src/Admin/Metabox.php:58
+msgid "Exclude from image optimization"
+msgstr ""
+
+#: src/Admin/Metabox.php:59
+msgid "Exclude from video lazy load"
+msgstr ""
+
+#: src/Cron/CronHooks.php:45
+msgid "Once weekly"
+msgstr ""
+
+#: src/Cron/CronHooks.php:46
+msgid "Once monthly"
+msgstr ""
+
+#: src/Rest/Admin/FilesController.php:77
+msgid "Could not load the homepage automatically, so the list may be incomplete. Visit your site once, then reload this page."
+msgstr ""
+
+#: src/Rest/Admin/FilesController.php:82
+msgid "No files were found. Turn on a CSS or JavaScript optimization first, then update the list."
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:98
+#: src/Rest/Admin/OverviewController.php:124
+#: src/Rest/Admin/OverviewController.php:126
+#: src/Rest/Admin/OverviewController.php:128
+msgid "Page cache"
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:99
+#: assets/admin/app/tabs/CacheTab.jsx:240
+#: assets/admin/app/tabs/CacheTab.jsx:270
+msgid "Block cache"
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:100
+#: assets/admin/app/tabs/CacheTab.jsx:220
+msgid "Browser caching"
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:101
+msgid "GZIP compression"
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:102
+msgid "CSS optimization"
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:103
+msgid "JavaScript optimization"
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:104
+msgid "HTML minification"
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:105
+msgid "Lazy loading"
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:106
+msgid "WebP/AVIF images"
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:107
+msgid "Database cleanup"
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:108
+#: assets/admin/app/App.jsx:43
+#: assets/admin/app/tabs/SettingsTab.jsx:22
+msgid "CDN"
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:109
+#: src/Rest/Admin/OverviewController.php:133
+#: src/Rest/Admin/OverviewController.php:135
+#: src/Rest/Admin/OverviewController.php:137
+#: src/Rest/Admin/OverviewController.php:139
+#: assets/admin/app/tabs/SettingsTab.jsx:211
+msgid "Object cache"
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:124
+msgid "Page caching is turned off."
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:126
+msgid "Page caching is active and serving cached pages."
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:128
+msgid "The advanced-cache.php drop-in or WP_CACHE constant is missing."
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:133
+msgid "A persistent object cache is active."
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:135
+msgid "Another object cache drop-in is installed."
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:137
+msgid "Redis is available but the object cache is not enabled."
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:139
+msgid "No object cache backend detected (Redis recommended)."
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:144
+#: src/Rest/Admin/OverviewController.php:145
+msgid "Compression"
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:144
+msgid "GZIP compression is available."
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:145
+msgid "The zlib extension is missing, so GZIP is unavailable."
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:154
+#: src/Rest/Admin/OverviewController.php:155
+msgid "PHP OPcache"
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:154
+msgid "OPcache is enabled."
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:155
+msgid "OPcache is not enabled. Enabling it speeds up PHP execution."
+msgstr ""
+
+#. translators: %s: PHP version.
+#: src/Rest/Admin/OverviewController.php:159
+#: src/Rest/Admin/OverviewController.php:160
+msgid "PHP version"
+msgstr ""
+
+#. translators: %s: PHP version.
+#: src/Rest/Admin/OverviewController.php:159
+#, php-format
+msgid "Running PHP %s."
+msgstr ""
+
+#. translators: 1: current PHP version, 2: recommended version.
+#: src/Rest/Admin/OverviewController.php:160
+#, php-format
+msgid "PHP %1$s is below the recommended %2$s."
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:166
+#: src/Rest/Admin/OverviewController.php:167
+msgid "Cache directory"
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:166
+msgid "The cache directory is writable."
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:167
+msgid "The cache directory is not writable."
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:171
+#: src/Rest/Admin/OverviewController.php:172
+msgid "Image conversion"
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:171
+msgid "GD can generate WebP images."
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:172
+msgid "GD cannot generate WebP images on this server."
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:179
+#: src/Rest/Admin/OverviewController.php:180
+#: src/Rest/Admin/OverviewController.php:182
+#: src/Rest/Admin/OverviewController.php:184
+msgid "Server rules"
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:179
+msgid "Apache detected; .htaccess is writable."
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:180
+msgid "Apache detected but .htaccess is not writable."
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:182
+msgid "Nginx detected; add the generated rules from Settings."
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:184
+msgid "Server type could not be determined."
+msgstr ""
+
+#: src/Rest/Admin/SettingsController.php:64
+#: src/Rest/Admin/SettingsController.php:73
+msgid "Unknown settings group."
+msgstr ""
+
+#: assets/admin/app/App.jsx:36
+msgid "Overview"
+msgstr ""
+
+#: assets/admin/app/App.jsx:37
+#: assets/admin/app/tabs/SettingsTab.jsx:16
+#: assets/blocks/cache/index.js:8
+msgid "Cache"
+msgstr ""
+
+#: assets/admin/app/App.jsx:38
+#: assets/admin/app/tabs/SettingsTab.jsx:17
+msgid "CSS"
+msgstr ""
+
+#: assets/admin/app/App.jsx:39
+#: assets/admin/app/tabs/SettingsTab.jsx:18
+msgid "JavaScript"
+msgstr ""
+
+#: assets/admin/app/App.jsx:40
+#: assets/admin/app/tabs/SettingsTab.jsx:19
+msgid "HTML"
+msgstr ""
+
+#: assets/admin/app/App.jsx:41
+#: assets/admin/app/tabs/SettingsTab.jsx:20
+msgid "Media"
+msgstr ""
+
+#: assets/admin/app/App.jsx:42
+#: assets/admin/app/tabs/SettingsTab.jsx:21
+msgid "Database"
+msgstr ""
+
+#: assets/admin/app/App.jsx:44
+#: assets/admin/app/tabs/SettingsTab.jsx:23
+msgid "Settings"
+msgstr ""
+
+#: assets/admin/app/App.jsx:45
+msgid "Add-ons"
+msgstr ""
+
+#: assets/admin/app/App.jsx:51
+#: assets/admin/app/tabs/AddonsTab.jsx:60
+#: assets/admin/app/tabs/SettingsTab.jsx:24
+msgid "Cloudflare"
+msgstr ""
+
+#: assets/admin/app/components/ConfirmDialog.jsx:72
+msgid "Are you sure?"
+msgstr ""
+
+#: assets/admin/app/components/ConfirmDialog.jsx:103
+#: assets/admin/app/components/ImageSizes.jsx:176
+msgid "Cancel"
+msgstr ""
+
+#: assets/admin/app/components/ConfirmDialog.jsx:111
+msgid "Confirm"
+msgstr ""
+
+#: assets/admin/app/components/fields/RepeatableInput.jsx:11
+#: assets/admin/app/components/ImageSizes.jsx:173
+#: assets/admin/app/tabs/JsTab.jsx:77
+msgid "Add"
+msgstr ""
+
+#: assets/admin/app/components/fields/RepeatableInput.jsx:37
+#: assets/admin/app/components/ImageSizes.jsx:47
+#: assets/admin/app/components/ImageSizes.jsx:131
+msgid "Remove"
+msgstr ""
+
+#: assets/admin/app/components/FileListTable.jsx:8
+msgid "Theme"
+msgstr ""
+
+#: assets/admin/app/components/FileListTable.jsx:9
+msgid "Plugins"
+msgstr ""
+
+#: assets/admin/app/components/FileListTable.jsx:10
+msgid "External"
+msgstr ""
+
+#: assets/admin/app/components/FileListTable.jsx:14
+msgid "Everywhere"
+msgstr ""
+
+#: assets/admin/app/components/FileListTable.jsx:15
+msgid "Only on selected URLs"
+msgstr ""
+
+#: assets/admin/app/components/FileListTable.jsx:16
+msgid "Everywhere except selected URLs"
+msgstr ""
+
+#: assets/admin/app/components/FileListTable.jsx:35
+msgid "No files collected yet. Enable caching or an optimization, visit your site, then choose \"Update files list\"."
+msgstr ""
+
+#: assets/admin/app/components/FileListTable.jsx:75
+msgid "File"
+msgstr ""
+
+#: assets/admin/app/components/FileListTable.jsx:76
+#: assets/admin/app/tabs/HtmlTab.jsx:45
+msgid "Minify"
+msgstr ""
+
+#: assets/admin/app/components/FileListTable.jsx:77
+msgid "Inline"
+msgstr ""
+
+#: assets/admin/app/components/FileListTable.jsx:78
+msgid "Combine"
+msgstr ""
+
+#: assets/admin/app/components/FileListTable.jsx:79
+msgid "Disable"
+msgstr ""
+
+#: assets/admin/app/components/FileListTable.jsx:84
+msgid "Apply to all"
+msgstr ""
+
+#: assets/admin/app/components/FileListTable.jsx:125
+#: assets/admin/app/components/FileListTable.jsx:132
+#: assets/admin/app/tabs/AddonsTab.jsx:130
+#: assets/admin/app/tabs/CacheTab.jsx:102
+#: assets/admin/app/tabs/CloudflareTab.jsx:104
+#: assets/admin/app/tabs/CssTab.jsx:160
+#: assets/admin/app/tabs/HtmlTab.jsx:26
+#: assets/admin/app/tabs/JsTab.jsx:96
+#: assets/admin/app/tabs/MediaTab.jsx:166
+#: assets/admin/app/tabs/MediaTab.jsx:183
+msgid "Add URL"
+msgstr ""
+
+#: assets/admin/app/components/ImageSizes.jsx:36
+msgid "Image size added."
+msgstr ""
+
+#: assets/admin/app/components/ImageSizes.jsx:38
+msgid "Could not add size."
+msgstr ""
+
+#: assets/admin/app/components/ImageSizes.jsx:45
+msgid "Remove image size"
+msgstr ""
+
+#: assets/admin/app/components/ImageSizes.jsx:46
+msgid "New uploads will no longer be generated at this size."
+msgstr ""
+
+#: assets/admin/app/components/ImageSizes.jsx:56
+msgid "Could not remove size."
+msgstr ""
+
+#: assets/admin/app/components/ImageSizes.jsx:63
+#: assets/admin/app/components/ImageSizes.jsx:185
+msgid "Restore defaults"
+msgstr ""
+
+#: assets/admin/app/components/ImageSizes.jsx:64
+msgid "This restores the WordPress default image sizes and discards your changes here."
+msgstr ""
+
+#: assets/admin/app/components/ImageSizes.jsx:65
+#: assets/admin/app/tabs/SettingsTab.jsx:71
+#: assets/admin/app/tabs/SettingsTab.jsx:158
+msgid "Restore"
+msgstr ""
+
+#: assets/admin/app/components/ImageSizes.jsx:71
+msgid "Defaults restored."
+msgstr ""
+
+#: assets/admin/app/components/ImageSizes.jsx:77
+#: assets/admin/app/components/ImageSizes.jsx:194
+msgid "Regenerate thumbnails"
+msgstr ""
+
+#: assets/admin/app/components/ImageSizes.jsx:78
+msgid "Every image is processed again. This may take a while on large media libraries."
+msgstr ""
+
+#: assets/admin/app/components/ImageSizes.jsx:79
+msgid "Regenerate"
+msgstr ""
+
+#: assets/admin/app/components/ImageSizes.jsx:98
+msgid "Thumbnails regenerated."
+msgstr ""
+
+#: assets/admin/app/components/ImageSizes.jsx:100
+msgid "Regeneration failed."
+msgstr ""
+
+#: assets/admin/app/components/ImageSizes.jsx:113
+msgid "Name"
+msgstr ""
+
+#: assets/admin/app/components/ImageSizes.jsx:114
+msgid "W"
+msgstr ""
+
+#: assets/admin/app/components/ImageSizes.jsx:115
+msgid "H"
+msgstr ""
+
+#: assets/admin/app/components/ImageSizes.jsx:116
+#: assets/admin/app/components/ImageSizes.jsx:170
+msgid "Crop"
+msgstr ""
+
+#: assets/admin/app/components/ImageSizes.jsx:126
+msgid "Yes"
+msgstr ""
+
+#: assets/admin/app/components/ImageSizes.jsx:146
+msgid "name"
+msgstr ""
+
+#: assets/admin/app/components/ImageSizes.jsx:182
+msgid "Add size"
+msgstr ""
+
+#: assets/admin/app/components/ImageSizes.jsx:193
+msgid "Regenerating"
+msgstr ""
+
+#: assets/admin/app/components/SaveButton.jsx:12
+msgid "Saving…"
+msgstr ""
+
+#: assets/admin/app/components/SaveButton.jsx:12
+msgid "Save changes"
+msgstr ""
+
+#: assets/admin/app/hooks/useSettingsGroup.js:62
+msgid "Settings saved."
+msgstr ""
+
+#: assets/admin/app/hooks/useSettingsGroup.js:65
+msgid "Could not save settings."
+msgstr ""
+
+#: assets/admin/app/lib/format.js:6
+msgid "just now"
+msgstr ""
+
+#. translators: %d: number of minutes.
+#: assets/admin/app/lib/format.js:11
+#, js-format
+msgid "%d minute ago"
+msgid_plural "%d minutes ago"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %d: number of hours.
+#: assets/admin/app/lib/format.js:16
+#, js-format
+msgid "%d hour ago"
+msgid_plural "%d hours ago"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %d: number of days.
+#: assets/admin/app/lib/format.js:20
+#, js-format
+msgid "%d day ago"
+msgid_plural "%d days ago"
+msgstr[0] ""
+msgstr[1] ""
+
+#: assets/admin/app/tabs/AddonsTab.jsx:13
+msgid "Prerender (load the whole page, instant)"
+msgstr ""
+
+#: assets/admin/app/tabs/AddonsTab.jsx:14
+msgid "Prefetch (fetch the page, lighter)"
+msgstr ""
+
+#: assets/admin/app/tabs/AddonsTab.jsx:18
+msgid "On click"
+msgstr ""
+
+#: assets/admin/app/tabs/AddonsTab.jsx:19
+msgid "On hover"
+msgstr ""
+
+#: assets/admin/app/tabs/AddonsTab.jsx:20
+msgid "As soon as possible"
+msgstr ""
+
+#: assets/admin/app/tabs/AddonsTab.jsx:64
+msgid "Integrate your Cloudflare account to purge cache and manage zone settings."
+msgstr ""
+
+#: assets/admin/app/tabs/AddonsTab.jsx:73
+msgid "Configure Cloudflare"
+msgstr ""
+
+#: assets/admin/app/tabs/AddonsTab.jsx:80
+#: assets/admin/app/tabs/SettingsTab.jsx:25
+msgid "Varnish"
+msgstr ""
+
+#: assets/admin/app/tabs/AddonsTab.jsx:84
+msgid "Automatically purge Varnish whenever the cache is cleared."
+msgstr ""
+
+#: assets/admin/app/tabs/AddonsTab.jsx:88
+msgid "Custom host"
+msgstr ""
+
+#: assets/admin/app/tabs/AddonsTab.jsx:100
+msgid "Link prefetch"
+msgstr ""
+
+#: assets/admin/app/tabs/AddonsTab.jsx:104
+msgid "Loads the next page in the background before a visitor clicks, so navigation feels instant. Uses the Speculation Rules API."
+msgstr ""
+
+#: assets/admin/app/tabs/AddonsTab.jsx:109
+msgid "Mode"
+msgstr ""
+
+#: assets/admin/app/tabs/AddonsTab.jsx:117
+msgid "When to start"
+msgstr ""
+
+#: assets/admin/app/tabs/AddonsTab.jsx:125
+msgid "Exclude URLs"
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:19
+msgid "Minutes"
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:20
+msgid "Hours"
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:21
+msgid "Days"
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:24
+#: assets/admin/app/tabs/HtmlTab.jsx:11
+msgid "Use {numbers}, {letters}, {any} or {all} to match dynamic parts of a URL."
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:45
+msgid "Block cache cleared."
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:47
+msgid "Could not clear the block cache."
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:58
+#: assets/admin/app/tabs/OverviewTab.jsx:60
+msgid "Cache cleared."
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:60
+#: assets/admin/app/tabs/OverviewTab.jsx:62
+msgid "Could not clear the cache."
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:67
+msgid "HTML files"
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:68
+msgid "CSS files"
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:69
+msgid "JavaScript files"
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:74
+msgid "Cache statistics"
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:83
+msgid "Total"
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:93
+#: assets/admin/app/tabs/CacheTab.jsx:277
+#: assets/admin/app/tabs/OverviewTab.jsx:134
+msgid "Clearing…"
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:93
+#: assets/admin/app/tabs/OverviewTab.jsx:134
+msgid "Clear cache"
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:97
+msgid "Exclude URL(s) from cache"
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:107
+msgid "Exclude User Agent(s) from cache"
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:111
+msgid "Add User Agent"
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:117
+msgid "Exclude search engines"
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:118
+msgid "Google, Bing and other crawlers bypass the cache."
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:128
+msgid "Enable cache"
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:132
+msgid "Reduces server response time by serving static HTML files to visitors."
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:141
+msgid "Mobile cache"
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:145
+msgid "Separate cache for mobile devices"
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:149
+msgid "Clear cache after"
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:164
+msgid "Clear cache when"
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:168
+msgid "A post or page is published or updated"
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:173
+msgid "A post or page is deleted"
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:178
+msgid "WP Performance settings are saved"
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:182
+msgid "Clear cache options"
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:186
+msgid "Keep generated CSS/JS files when clearing the cache"
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:190
+msgid "Query strings"
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:194
+msgid "Cache URLs with query strings"
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:195
+msgid "Off (recommended): tracking params (utm, gclid, fbclid…) are ignored so only clean URLs are cached."
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:203
+msgid "Cache preloading"
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:204
+msgid "Enter the path to an XML sitemap used to preload the cache."
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:213
+msgid "Add Sitemap"
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:221
+msgid "Leverage browser caching"
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:225
+msgid "Sets HTTP expiry headers so returning visitors load resources from their browser."
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:231
+msgid "Gzip compression"
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:235
+msgid "Compresses resources before sending them to the browser."
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:241
+msgid "Enable block cache"
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:245
+msgid "Caches parts of a page so they load faster, even when the full page is not cached. Add a Cache block to a page to use it."
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:254
+msgid "Default cache time (seconds)"
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:262
+msgid "Clearing"
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:266
+msgid "Also clear it when I clear the page cache"
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:277
+msgid "Clear block cache"
+msgstr ""
+
+#: assets/admin/app/tabs/CdnTab.jsx:18
+msgid "Exclude file(s) from CDN"
+msgstr ""
+
+#: assets/admin/app/tabs/CdnTab.jsx:23
+#: assets/admin/app/tabs/CssTab.jsx:91
+#: assets/admin/app/tabs/JsTab.jsx:56
+msgid "Add file"
+msgstr ""
+
+#: assets/admin/app/tabs/CdnTab.jsx:26
+msgid "Use {numbers}, {letters} or {any} to match dynamic parts of a URL."
+msgstr ""
+
+#: assets/admin/app/tabs/CdnTab.jsx:34
+msgid "Enable CDN"
+msgstr ""
+
+#: assets/admin/app/tabs/CdnTab.jsx:38
+msgid "Rewrites static asset URLs (CSS, JavaScript, images) to your CDN hostname."
+msgstr ""
+
+#: assets/admin/app/tabs/CdnTab.jsx:46
+msgid "CDN hostname"
+msgstr ""
+
+#: assets/admin/app/tabs/CloudflareTab.jsx:16
+#: assets/admin/app/tabs/HtmlTab.jsx:54
+#: assets/admin/app/tabs/OverviewTab.jsx:36
+msgid "Aggressive"
+msgstr ""
+
+#: assets/admin/app/tabs/CloudflareTab.jsx:17
+msgid "Simplified (ignore query string)"
+msgstr ""
+
+#: assets/admin/app/tabs/CloudflareTab.jsx:18
+msgid "Basic (no query string)"
+msgstr ""
+
+#: assets/admin/app/tabs/CloudflareTab.jsx:34
+msgid "complete."
+msgstr ""
+
+#: assets/admin/app/tabs/CloudflareTab.jsx:36
+msgid "Cloudflare error."
+msgstr ""
+
+#: assets/admin/app/tabs/CloudflareTab.jsx:52
+msgid "Cloudflare rejected:"
+msgstr ""
+
+#: assets/admin/app/tabs/CloudflareTab.jsx:58
+msgid "Respect existing headers"
+msgstr ""
+
+#: assets/admin/app/tabs/CloudflareTab.jsx:62
+msgid "Credentials"
+msgstr ""
+
+#: assets/admin/app/tabs/CloudflareTab.jsx:63
+msgid "Account email"
+msgstr ""
+
+#: assets/admin/app/tabs/CloudflareTab.jsx:66
+msgid "API key"
+msgstr ""
+
+#: assets/admin/app/tabs/CloudflareTab.jsx:69
+msgid "Zone ID"
+msgstr ""
+
+#: assets/admin/app/tabs/CloudflareTab.jsx:77
+msgid "Purge cache"
+msgstr ""
+
+#: assets/admin/app/tabs/CloudflareTab.jsx:83
+#: assets/admin/app/tabs/CloudflareTab.jsx:85
+msgid "Purge everything"
+msgstr ""
+
+#: assets/admin/app/tabs/CloudflareTab.jsx:85
+msgid "Purging…"
+msgstr ""
+
+#: assets/admin/app/tabs/CloudflareTab.jsx:92
+#: assets/admin/app/tabs/CloudflareTab.jsx:97
+msgid "Purge custom URLs"
+msgstr ""
+
+#: assets/admin/app/tabs/CloudflareTab.jsx:100
+msgid "Custom URLs to purge"
+msgstr ""
+
+#: assets/admin/app/tabs/CloudflareTab.jsx:109
+msgid "Zone settings"
+msgstr ""
+
+#: assets/admin/app/tabs/CloudflareTab.jsx:110
+msgid "Development mode"
+msgstr ""
+
+#: assets/admin/app/tabs/CloudflareTab.jsx:114
+msgid "Temporarily bypass the Cloudflare cache (auto-off after 3h)"
+msgstr ""
+
+#: assets/admin/app/tabs/CloudflareTab.jsx:117
+msgid "Cache level"
+msgstr ""
+
+#: assets/admin/app/tabs/CloudflareTab.jsx:120
+msgid "Browser cache TTL"
+msgstr ""
+
+#: assets/admin/app/tabs/CloudflareTab.jsx:127
+msgid "Rocket Loader"
+msgstr ""
+
+#: assets/admin/app/tabs/CloudflareTab.jsx:128
+msgid "Asynchronous JavaScript loading"
+msgstr ""
+
+#: assets/admin/app/tabs/CloudflareTab.jsx:130
+msgid "Brotli"
+msgstr ""
+
+#: assets/admin/app/tabs/CloudflareTab.jsx:131
+msgid "Brotli compression"
+msgstr ""
+
+#: assets/admin/app/tabs/CssTab.jsx:19
+msgid "Default"
+msgstr ""
+
+#: assets/admin/app/tabs/CssTab.jsx:41
+#: assets/admin/app/tabs/JsTab.jsx:30
+msgid "File list updated."
+msgstr ""
+
+#: assets/admin/app/tabs/CssTab.jsx:43
+#: assets/admin/app/tabs/JsTab.jsx:32
+msgid "Could not update the file list."
+msgstr ""
+
+#: assets/admin/app/tabs/CssTab.jsx:51
+msgid "CSS settings"
+msgstr ""
+
+#: assets/admin/app/tabs/CssTab.jsx:52
+msgid "Minify inline CSS"
+msgstr ""
+
+#: assets/admin/app/tabs/CssTab.jsx:55
+msgid "Remove unused CSS"
+msgstr ""
+
+#: assets/admin/app/tabs/CssTab.jsx:59
+msgid "Inline only used CSS; load the rest async"
+msgstr ""
+
+#: assets/admin/app/tabs/CssTab.jsx:60
+msgid "Heuristic: keeps rules whose classes/ids appear on the page. The full CSS still loads async as a fallback."
+msgstr ""
+
+#: assets/admin/app/tabs/CssTab.jsx:68
+msgid "Used-CSS safelist"
+msgstr ""
+
+#: assets/admin/app/tabs/CssTab.jsx:69
+msgid "Selectors to always keep, e.g. classes toggled by JavaScript."
+msgstr ""
+
+#: assets/admin/app/tabs/CssTab.jsx:74
+msgid "Add selector"
+msgstr ""
+
+#: assets/admin/app/tabs/CssTab.jsx:78
+msgid "Asynchronous CSS"
+msgstr ""
+
+#: assets/admin/app/tabs/CssTab.jsx:82
+msgid "Load CSS without render-blocking"
+msgstr ""
+
+#: assets/admin/app/tabs/CssTab.jsx:87
+msgid "Exclude from async"
+msgstr ""
+
+#: assets/admin/app/tabs/CssTab.jsx:95
+msgid "Critical CSS"
+msgstr ""
+
+#: assets/admin/app/tabs/CssTab.jsx:96
+msgid "Above-the-fold CSS, inlined and applied before the async stylesheet loads."
+msgstr ""
+
+#: assets/admin/app/tabs/CssTab.jsx:107
+msgid "Google Fonts"
+msgstr ""
+
+#: assets/admin/app/tabs/CssTab.jsx:111
+msgid "Combine Google Fonts into one request"
+msgstr ""
+
+#: assets/admin/app/tabs/CssTab.jsx:116
+msgid "Host Google Fonts locally and preload them"
+msgstr ""
+
+#: assets/admin/app/tabs/CssTab.jsx:119
+msgid "Font display"
+msgstr ""
+
+#: assets/admin/app/tabs/CssTab.jsx:126
+#: assets/admin/app/tabs/JsTab.jsx:82
+msgid "Logged-in users"
+msgstr ""
+
+#: assets/admin/app/tabs/CssTab.jsx:130
+msgid "Disable CSS optimization for logged-in users"
+msgstr ""
+
+#: assets/admin/app/tabs/CssTab.jsx:135
+msgid "Resource hints"
+msgstr ""
+
+#: assets/admin/app/tabs/CssTab.jsx:137
+msgid "DNS prefetch"
+msgstr ""
+
+#: assets/admin/app/tabs/CssTab.jsx:138
+msgid "Origins to resolve early, e.g. https://fonts.gstatic.com"
+msgstr ""
+
+#: assets/admin/app/tabs/CssTab.jsx:143
+#: assets/admin/app/tabs/CssTab.jsx:150
+msgid "Add origin"
+msgstr ""
+
+#: assets/admin/app/tabs/CssTab.jsx:146
+msgid "Preconnect"
+msgstr ""
+
+#: assets/admin/app/tabs/CssTab.jsx:155
+msgid "Exclude URL(s) from CSS optimization"
+msgstr ""
+
+#: assets/admin/app/tabs/CssTab.jsx:177
+#: assets/admin/app/tabs/JsTab.jsx:113
+msgid "Updating…"
+msgstr ""
+
+#: assets/admin/app/tabs/CssTab.jsx:177
+#: assets/admin/app/tabs/JsTab.jsx:113
+msgid "Update files list"
+msgstr ""
+
+#: assets/admin/app/tabs/DatabaseTab.jsx:15
+msgid "Not scheduled"
+msgstr ""
+
+#: assets/admin/app/tabs/DatabaseTab.jsx:16
+msgid "Daily"
+msgstr ""
+
+#: assets/admin/app/tabs/DatabaseTab.jsx:17
+msgid "Weekly"
+msgstr ""
+
+#: assets/admin/app/tabs/DatabaseTab.jsx:18
+msgid "Monthly"
+msgstr ""
+
+#: assets/admin/app/tabs/DatabaseTab.jsx:22
+msgid "Trash"
+msgstr ""
+
+#: assets/admin/app/tabs/DatabaseTab.jsx:22
+msgid "Trashed posts and pages."
+msgstr ""
+
+#: assets/admin/app/tabs/DatabaseTab.jsx:23
+msgid "Spam"
+msgstr ""
+
+#: assets/admin/app/tabs/DatabaseTab.jsx:23
+msgid "Spam and trashed comments."
+msgstr ""
+
+#: assets/admin/app/tabs/DatabaseTab.jsx:24
+msgid "Revisions"
+msgstr ""
+
+#: assets/admin/app/tabs/DatabaseTab.jsx:24
+msgid "Stored post revisions."
+msgstr ""
+
+#: assets/admin/app/tabs/DatabaseTab.jsx:25
+msgid "Transients"
+msgstr ""
+
+#: assets/admin/app/tabs/DatabaseTab.jsx:25
+msgid "Expired and stale transients."
+msgstr ""
+
+#: assets/admin/app/tabs/DatabaseTab.jsx:26
+msgid "Auto Drafts"
+msgstr ""
+
+#: assets/admin/app/tabs/DatabaseTab.jsx:26
+msgid "Auto-saved draft posts."
+msgstr ""
+
+#: assets/admin/app/tabs/DatabaseTab.jsx:27
+msgid "Scheduled tasks"
+msgstr ""
+
+#: assets/admin/app/tabs/DatabaseTab.jsx:27
+msgid "Orphaned cron events."
+msgstr ""
+
+#: assets/admin/app/tabs/DatabaseTab.jsx:53
+msgid "Run cleanup"
+msgstr ""
+
+#: assets/admin/app/tabs/DatabaseTab.jsx:54
+msgid "This permanently deletes the selected data. Back up your database first."
+msgstr ""
+
+#: assets/admin/app/tabs/DatabaseTab.jsx:55
+#: assets/admin/app/tabs/DatabaseTab.jsx:110
+msgid "Delete"
+msgstr ""
+
+#: assets/admin/app/tabs/DatabaseTab.jsx:66
+msgid "Cleanup complete."
+msgstr ""
+
+#: assets/admin/app/tabs/DatabaseTab.jsx:68
+msgid "Cleanup failed."
+msgstr ""
+
+#: assets/admin/app/tabs/DatabaseTab.jsx:77
+msgid "Automatic database cleanup"
+msgstr ""
+
+#: assets/admin/app/tabs/DatabaseTab.jsx:78
+msgid "Schedule"
+msgstr ""
+
+#: assets/admin/app/tabs/DatabaseTab.jsx:85
+msgid "Next run"
+msgstr ""
+
+#: assets/admin/app/tabs/DatabaseTab.jsx:89
+msgid "Not set"
+msgstr ""
+
+#: assets/admin/app/tabs/DatabaseTab.jsx:110
+#: assets/admin/app/tabs/DatabaseTab.jsx:140
+msgid "Cleaning…"
+msgstr ""
+
+#: assets/admin/app/tabs/DatabaseTab.jsx:119
+msgid "Enable automatic cleanup"
+msgstr ""
+
+#: assets/admin/app/tabs/DatabaseTab.jsx:128
+msgid "Back up your database before running any cleanup. These actions cannot be undone."
+msgstr ""
+
+#: assets/admin/app/tabs/DatabaseTab.jsx:141
+msgid "Delete all"
+msgstr ""
+
+#: assets/admin/app/tabs/HtmlTab.jsx:21
+msgid "Exclude URL(s) from HTML optimization"
+msgstr ""
+
+#: assets/admin/app/tabs/HtmlTab.jsx:35
+msgid "HTML optimization"
+msgstr ""
+
+#: assets/admin/app/tabs/HtmlTab.jsx:39
+msgid "Enable HTML optimization"
+msgstr ""
+
+#: assets/admin/app/tabs/HtmlTab.jsx:49
+msgid "Normal"
+msgstr ""
+
+#: assets/admin/app/tabs/HtmlTab.jsx:58
+msgid "Remove comments"
+msgstr ""
+
+#: assets/admin/app/tabs/HtmlTab.jsx:62
+msgid "Remove HTML comments (conditional comments preserved)"
+msgstr ""
+
+#: assets/admin/app/tabs/HtmlTab.jsx:66
+msgid "Remove type attribute"
+msgstr ""
+
+#: assets/admin/app/tabs/HtmlTab.jsx:70
+msgid "Remove type=\"text/css\" from link tags"
+msgstr ""
+
+#: assets/admin/app/tabs/HtmlTab.jsx:75
+msgid "Remove type=\"text/javascript\" from script tags"
+msgstr ""
+
+#: assets/admin/app/tabs/HtmlTab.jsx:79
+msgid "Remove quotes"
+msgstr ""
+
+#: assets/admin/app/tabs/HtmlTab.jsx:83
+msgid "Remove quotes from attributes where possible"
+msgstr ""
+
+#: assets/admin/app/tabs/JsTab.jsx:40
+msgid "JavaScript settings"
+msgstr ""
+
+#: assets/admin/app/tabs/JsTab.jsx:41
+msgid "Minify inline JavaScript"
+msgstr ""
+
+#: assets/admin/app/tabs/JsTab.jsx:44
+msgid "Asynchronous JavaScript"
+msgstr ""
+
+#: assets/admin/app/tabs/JsTab.jsx:48
+msgid "Defer JavaScript to remove render-blocking"
+msgstr ""
+
+#: assets/admin/app/tabs/JsTab.jsx:52
+msgid "Exclude from defer"
+msgstr ""
+
+#: assets/admin/app/tabs/JsTab.jsx:61
+msgid "Delay until interaction"
+msgstr ""
+
+#: assets/admin/app/tabs/JsTab.jsx:65
+msgid "Delay JavaScript until user interaction"
+msgstr ""
+
+#: assets/admin/app/tabs/JsTab.jsx:66
+msgid "Biggest TBT/INP win: scripts run on first scroll, click, or key press. Exclude anything that must run immediately."
+msgstr ""
+
+#: assets/admin/app/tabs/JsTab.jsx:73
+msgid "Exclude from delay"
+msgstr ""
+
+#: assets/admin/app/tabs/JsTab.jsx:86
+msgid "Disable JavaScript optimization for logged-in users"
+msgstr ""
+
+#: assets/admin/app/tabs/JsTab.jsx:91
+msgid "Exclude URL(s) from JavaScript optimization"
+msgstr ""
+
+#: assets/admin/app/tabs/MediaTab.jsx:26
+msgid "Convert images"
+msgstr ""
+
+#: assets/admin/app/tabs/MediaTab.jsx:27
+msgid "Convert all images to WebP and AVIF? This can take a while on large media libraries."
+msgstr ""
+
+#: assets/admin/app/tabs/MediaTab.jsx:28
+msgid "Convert"
+msgstr ""
+
+#: assets/admin/app/tabs/MediaTab.jsx:44
+msgid "Images converted."
+msgstr ""
+
+#: assets/admin/app/tabs/MediaTab.jsx:46
+msgid "Conversion failed."
+msgstr ""
+
+#: assets/admin/app/tabs/MediaTab.jsx:54
+msgid "Emoji & Embeds"
+msgstr ""
+
+#: assets/admin/app/tabs/MediaTab.jsx:55
+msgid "Emoji"
+msgstr ""
+
+#: assets/admin/app/tabs/MediaTab.jsx:59
+msgid "Disable WordPress emoji"
+msgstr ""
+
+#: assets/admin/app/tabs/MediaTab.jsx:62
+msgid "Embeds"
+msgstr ""
+
+#: assets/admin/app/tabs/MediaTab.jsx:66
+msgid "Disable oEmbed discovery"
+msgstr ""
+
+#: assets/admin/app/tabs/MediaTab.jsx:71
+msgid "Image sizes"
+msgstr ""
+
+#: assets/admin/app/tabs/MediaTab.jsx:79
+msgid "Images"
+msgstr ""
+
+#: assets/admin/app/tabs/MediaTab.jsx:80
+#: assets/admin/app/tabs/MediaTab.jsx:172
+msgid "Lazy load"
+msgstr ""
+
+#: assets/admin/app/tabs/MediaTab.jsx:84
+msgid "Lazy load images"
+msgstr ""
+
+#: assets/admin/app/tabs/MediaTab.jsx:85
+msgid "Defer offscreen images with native loading=\"lazy\"."
+msgstr ""
+
+#: assets/admin/app/tabs/MediaTab.jsx:92
+msgid "Disable lazy load on mobile devices"
+msgstr ""
+
+#: assets/admin/app/tabs/MediaTab.jsx:97
+msgid "Responsive images"
+msgstr ""
+
+#: assets/admin/app/tabs/MediaTab.jsx:101
+msgid "Force srcset on images"
+msgstr ""
+
+#: assets/admin/app/tabs/MediaTab.jsx:104
+msgid "Image dimensions"
+msgstr ""
+
+#: assets/admin/app/tabs/MediaTab.jsx:108
+msgid "Add missing width/height to prevent layout shift (CLS)"
+msgstr ""
+
+#: assets/admin/app/tabs/MediaTab.jsx:112
+msgid "Preload LCP images"
+msgstr ""
+
+#: assets/admin/app/tabs/MediaTab.jsx:113
+msgid "Number of above-the-fold images to preload (fetchpriority=high) and skip from lazy load. 0 = off."
+msgstr ""
+
+#: assets/admin/app/tabs/MediaTab.jsx:126
+msgid "Next-gen images"
+msgstr ""
+
+#: assets/admin/app/tabs/MediaTab.jsx:127
+msgid "Serve WebP/AVIF via <picture> when a converted file exists. New uploads convert automatically."
+msgstr ""
+
+#: assets/admin/app/tabs/MediaTab.jsx:132
+msgid "Serve WebP/AVIF images"
+msgstr ""
+
+#: assets/admin/app/tabs/MediaTab.jsx:142
+msgid "Converting"
+msgstr ""
+
+#: assets/admin/app/tabs/MediaTab.jsx:143
+msgid "Convert existing images"
+msgstr ""
+
+#: assets/admin/app/tabs/MediaTab.jsx:147
+msgid "Exclude by name"
+msgstr ""
+
+#: assets/admin/app/tabs/MediaTab.jsx:151
+msgid "Add image"
+msgstr ""
+
+#: assets/admin/app/tabs/MediaTab.jsx:154
+msgid "Exclude containers"
+msgstr ""
+
+#: assets/admin/app/tabs/MediaTab.jsx:154
+msgid "CSS id or class, e.g. #hero or .no-lazy"
+msgstr ""
+
+#: assets/admin/app/tabs/MediaTab.jsx:158
+msgid "Add container"
+msgstr ""
+
+#: assets/admin/app/tabs/MediaTab.jsx:161
+#: assets/admin/app/tabs/MediaTab.jsx:179
+msgid "Exclude URL(s)"
+msgstr ""
+
+#: assets/admin/app/tabs/MediaTab.jsx:171
+msgid "Videos"
+msgstr ""
+
+#: assets/admin/app/tabs/MediaTab.jsx:176
+msgid "Lazy load videos & iframes"
+msgstr ""
+
+#: assets/admin/app/tabs/OverviewTab.jsx:19
+msgid "Safe"
+msgstr ""
+
+#: assets/admin/app/tabs/OverviewTab.jsx:20
+msgid "Page cache, GZIP, browser caching and lazy loading. Works with virtually any theme."
+msgstr ""
+
+#: assets/admin/app/tabs/OverviewTab.jsx:27
+msgid "Balanced"
+msgstr ""
+
+#: assets/admin/app/tabs/OverviewTab.jsx:29
+msgid "Adds deferred CSS/JS, hosted fonts and modern image formats. Recommended for most sites."
+msgstr ""
+
+#: assets/admin/app/tabs/OverviewTab.jsx:37
+msgid "Every optimization on, including delayed JavaScript and unused-CSS removal. Test your site after applying."
+msgstr ""
+
+#: assets/admin/app/tabs/OverviewTab.jsx:70
+msgid "Apply preset"
+msgstr ""
+
+#: assets/admin/app/tabs/OverviewTab.jsx:71
+msgid "This replaces the settings the preset covers. Your file lists, exclusions and CDN settings are kept."
+msgstr ""
+
+#: assets/admin/app/tabs/OverviewTab.jsx:72
+#: assets/admin/app/tabs/OverviewTab.jsx:166
+msgid "Apply"
+msgstr ""
+
+#: assets/admin/app/tabs/OverviewTab.jsx:80
+msgid "Preset applied. Reloading…"
+msgstr ""
+
+#: assets/admin/app/tabs/OverviewTab.jsx:83
+msgid "Could not apply the preset."
+msgstr ""
+
+#: assets/admin/app/tabs/OverviewTab.jsx:96
+msgid "Cache status"
+msgstr ""
+
+#: assets/admin/app/tabs/OverviewTab.jsx:100
+msgid "Active"
+msgstr ""
+
+#: assets/admin/app/tabs/OverviewTab.jsx:101
+msgid "Disabled"
+msgstr ""
+
+#: assets/admin/app/tabs/OverviewTab.jsx:106
+msgid "Cached pages"
+msgstr ""
+
+#: assets/admin/app/tabs/OverviewTab.jsx:112
+msgid "Cache size"
+msgstr ""
+
+#: assets/admin/app/tabs/OverviewTab.jsx:119
+msgid "Block fragments"
+msgstr ""
+
+#: assets/admin/app/tabs/OverviewTab.jsx:122
+msgid "In Redis"
+msgstr ""
+
+#: assets/admin/app/tabs/OverviewTab.jsx:139
+msgid "Quick setup"
+msgstr ""
+
+#: assets/admin/app/tabs/OverviewTab.jsx:141
+msgid "Apply a curated configuration in one click, then fine-tune any tab."
+msgstr ""
+
+#: assets/admin/app/tabs/OverviewTab.jsx:153
+msgid "Recommended"
+msgstr ""
+
+#: assets/admin/app/tabs/OverviewTab.jsx:165
+msgid "Applying…"
+msgstr ""
+
+#: assets/admin/app/tabs/OverviewTab.jsx:173
+msgid "Active optimizations"
+msgstr ""
+
+#: assets/admin/app/tabs/OverviewTab.jsx:189
+msgid "Health checks"
+msgstr ""
+
+#: assets/admin/app/tabs/Placeholder.jsx:8
+msgid "is being rebuilt in the next step."
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:26
+msgid "Prefetch"
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:61
+msgid "Log cleared."
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:63
+msgid "Could not clear the log."
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:69
+msgid "Restore settings"
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:70
+msgid "Your current settings will be replaced by this saved configuration."
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:79
+msgid "Settings restored. Reloading…"
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:82
+msgid "Could not restore settings."
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:100
+msgid "Export failed."
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:112
+msgid "Settings imported. Reloading…"
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:115
+msgid "Import failed - invalid file."
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:125
+msgid "Restore points"
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:128
+msgid "The last five saved configurations appear here so you can roll back a change."
+msgstr ""
+
+#. translators: %s: settings group name.
+#: assets/admin/app/tabs/SettingsTab.jsx:143
+#, js-format
+msgid "%s settings"
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:157
+msgid "Restoring…"
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:166
+msgid "About"
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:168
+msgid "Export your configuration to move it between sites, or import a saved configuration file."
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:179
+msgid "Import / Export"
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:180
+msgid "Export settings"
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:182
+msgid "Download settings file"
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:185
+msgid "Import settings"
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:196
+msgid "Nginx rules"
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:198
+msgid "Add these rules to your nginx server block, then reload nginx."
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:204
+msgid "Server"
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:206
+msgid "Browser cache and gzip rules are written to .htaccess automatically."
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:213
+msgid "Redis object cache"
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:217
+msgid "Enable persistent object cache"
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:218
+msgid "Stores WordPress query and option lookups in Redis to cut database load. Installs an object-cache.php drop-in."
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:226
+msgid "No supported object cache backend was detected. Install and enable the Redis PHP extension to use a persistent object cache."
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:234
+msgid "Troubleshooting"
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:235
+msgid "Logging"
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:239
+msgid "Enable troubleshooting log"
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:240
+msgid "Records cache and optimization activity to help diagnose issues."
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:245
+msgid "Log file"
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:250
+msgid "The log is empty."
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:254
+msgid "Content refreshes automatically every 10 seconds."
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:257
+msgid "Clear log"
+msgstr ""
+
+#: assets/blocks/cache/index.js:9
+msgid "Saves everything inside this block so it loads faster."
+msgstr ""
+
+#: assets/blocks/cache/index.js:12
+msgid "cache"
+msgstr ""
+
+#: assets/blocks/cache/index.js:12
+msgid "fragment"
+msgstr ""
+
+#: assets/blocks/cache/index.js:12
+msgid "performance"
+msgstr ""
+
+#: assets/blocks/cache/index.js:28
+msgid "Caching"
+msgstr ""
+
+#: assets/blocks/cache/index.js:31
+msgid "Cache for (seconds)"
+msgstr ""
+
+#: assets/blocks/cache/index.js:32
+msgid "Leave 0 to use the default."
+msgstr ""
+
+#: assets/blocks/cache/index.js:38
+msgid "Cache each page separately"
+msgstr ""
+
+#: assets/blocks/cache/index.js:39
+msgid "Turn off to reuse one copy everywhere, like a menu or footer."
+msgstr ""
+
+#: assets/blocks/cache/index.js:44
+msgid "Separate copy for logged-in visitors"
+msgstr ""
+
+#: assets/blocks/cache/index.js:49
+msgid "Separate copy for each user role"
+msgstr ""
+
+#: assets/blocks/cache/index.js:54
+msgid "Separate copy on mobile"
 msgstr ""

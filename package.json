@@ -1,0 +1,22 @@
+{
+    "name": "wp-performance",
+    "version": "2.0.0",
+    "description": "WP Performance Optimizer admin app",
+    "private": true,
+    "scripts": {
+        "build": "wp-scripts build",
+        "start": "wp-scripts start",
+        "lint:js": "wp-scripts lint-js",
+        "format": "wp-scripts format"
+    },
+    "devDependencies": {
+        "@wordpress/scripts": "^30.0.0"
+    },
+    "dependencies": {
+        "@wordpress/api-fetch": "^7.0.0",
+        "@wordpress/element": "^6.0.0",
+        "@wordpress/i18n": "^5.0.0",
+        "@wordpress/url": "^4.0.0",
+        "lucide-react": "^1.16.0"
+    }
+}

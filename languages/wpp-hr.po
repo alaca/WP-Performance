@@ -1,7 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WP Performance\n"
-"POT-Creation-Date: 2019-08-30 14:57+0200\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/WP-Performance\n"
+"POT-Creation-Date: 2026-05-25T19:59:27+00:00\n"
 "PO-Revision-Date: 2019-08-30 15:10+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -9,1382 +10,2210 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Poedit 2.0.3\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: wp-performance.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
-"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
-"_nx_noop:3c,1,2;__ngettext_noop:1,2;wpp_notify\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2;wpp_notify\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: includes/addons/cloudflare/cloudflare.php:55
-#, fuzzy
-#| msgid "Cloudflare credentials"
-msgid "Cloudflare - purge everything"
-msgstr "Cloudflare podaci"
-
-#: includes/addons/cloudflare/cloudflare.php:56
-msgid "Cloudflare - purge custom URL(s)"
-msgstr ""
-
-#: includes/addons/cloudflare/cloudflare.php:97
-msgid "Cloudflare API credentials not set"
-msgstr "Cloudflare API podaci nisu postavljeni"
-
-#: includes/addons/cloudflare/cloudflare.php:116
-msgid " Cloudflare cannot get zone details. Check your Cloudflare credentials"
-msgstr ""
-"Cloudflare ne može dobiti detalje zone. Provjerite Cloudflare podatke računa"
-
-#: includes/addons/cloudflare/cloudflare.php:123
-#, php-format
-msgid ""
-" Cloudflare zone %s is not activated. Please go to your Cloudflare dashboard "
-"and activate it."
-msgstr ""
-"Cloudflare zona %s nije aktivirana. Idite u svoju Cloudflare nadzornu ploču "
-"i aktivirajte je."
-
-#: includes/addons/cloudflare/cloudflare.php:127
-#, php-format
-msgid ""
-" Cloudflare zone %s status is pending and these settings won't have any "
-"effect on your website."
-msgstr ""
-"Cloudflare zona %s je na čekanju i ove postavke neće imati nikakvog utjecaja "
-"na vašu web-lokaciju."
-
-#: includes/addons/cloudflare/cloudflare.php:142
-msgid " Cloudflare development mode not set"
-msgstr "Cloudflare razvojni mod nije postavljen"
-
-#: includes/addons/cloudflare/cloudflare.php:151
-msgid " Cloudflare cache level not set"
-msgstr "Cloudflare level predmemorije nije postavljen"
-
-#: includes/addons/cloudflare/cloudflare.php:161
-msgid " Cloudflare browser cache expiration not set"
-msgstr "Cloudflare istek predmemorije preglednika nije postavljen"
-
-#: includes/addons/cloudflare/cloudflare.php:175
-msgid " Cloudflare minify not set"
-msgstr "Cloudflare minifikacija nije postavljena"
-
-#: includes/addons/cloudflare/cloudflare.php:187
-msgid " Cloudflare Rocket loader mode not set"
-msgstr " Cloudflare Rocket loader mod nije postavljen"
-
-#: includes/addons/cloudflare/cloudflare.php:197
-msgid " Cloudflare Brotli mode not set"
-msgstr " Cloudflare Brotli mod nije postavljen"
-
-#: includes/addons/cloudflare/cloudflare.php:209
-msgid "Cloudflare settings saved"
-msgstr "Cloudflare postavke spremljene"
-
-#: includes/addons/cloudflare/cloudflare.php:231
-msgid "Something went wrong. Cannot purge Cloudflare cache"
-msgstr ""
-
-#: includes/addons/cloudflare/cloudflare.php:261
-msgid "Something went wrong. Cannot purge Cloudflare custom URL(s) cache"
-msgstr ""
-
-#: includes/addons/cloudflare/views/addon.php:20
-msgid "Integrate your Cloudflare account with this add-on."
-msgstr "S ovim dodatkom integrirajte svoj račun za Cloudflare."
-
-#: includes/addons/cloudflare/views/addon.php:27
-#: includes/addons/cloudflare/views/admin.php:82
-#: includes/addons/cloudflare/views/admin.php:175
-#: includes/addons/cloudflare/views/admin.php:187
-#: includes/addons/prefetch/views/addon.php:18
-#: includes/addons/varnish/views/addon.php:49 includes/functions/admin.php:267
-#: includes/functions/backend.php:238
-msgid "Enable"
-msgstr "Omogući"
-
-#: includes/addons/cloudflare/views/admin.php:15
-msgid "Caching"
-msgstr "Predmemorija"
-
-#: includes/addons/cloudflare/views/admin.php:21
-msgid "Purge Cache"
-msgstr "Očisti predmemoriju"
-
-#: includes/addons/cloudflare/views/admin.php:23
-msgid "Clear all Cloudflare cache"
-msgstr "Očisti Cloudflare predmemoriju"
-
-#: includes/addons/cloudflare/views/admin.php:23
-msgid "Purge everything"
-msgstr "Očisti sve"
-
-#: includes/addons/cloudflare/views/admin.php:24
-msgid "Clear custom URL(s) from Cloudflare cache"
-msgstr ""
-
-#: includes/addons/cloudflare/views/admin.php:24
-#: includes/addons/cloudflare/views/admin.php:29
-msgid "Purge custom URL(s)"
-msgstr ""
-
-#: includes/addons/cloudflare/views/admin.php:49 includes/admin/cache.php:116
-#: includes/admin/cache.php:335 includes/admin/cache.php:355
-#: includes/admin/cache.php:414 includes/admin/cdn.php:66
-#: includes/admin/css.php:317 includes/admin/css.php:327
-#: includes/admin/includes/external_files.php:66
-#: includes/admin/includes/external_files.php:94
-#: includes/admin/includes/local_files.php:65
-#: includes/admin/includes/local_files.php:92 includes/admin/javascript.php:243
-#: includes/admin/javascript.php:253 includes/admin/media.php:66
-#: includes/admin/media.php:92 includes/admin/media.php:136
-#: includes/admin/media.php:156 includes/admin/media.php:238
-#: includes/admin/media.php:258 includes/functions/miscellaneous.php:258
-msgid "Remove"
-msgstr "Makni"
-
-#: includes/addons/cloudflare/views/admin.php:58
-#: includes/addons/cloudflare/views/admin.php:67
-msgid ""
-"Any assets in the Cloudflare cache that match the URL(s) exactly will be "
-"purged from the cache."
-msgstr ""
-
-#: includes/addons/cloudflare/views/admin.php:70 includes/admin/cache.php:380
-#: includes/admin/css.php:351 includes/admin/includes/external_files.php:113
-#: includes/admin/includes/external_files.php:124
-#: includes/admin/includes/local_files.php:109
-#: includes/admin/includes/local_files.php:120
-#: includes/admin/javascript.php:277 includes/admin/media.php:180
-#: includes/admin/media.php:282 includes/functions/miscellaneous.php:260
-msgid "Add URL"
-msgstr "Dodaj URL"
-
-#: includes/addons/cloudflare/views/admin.php:78
-msgid "Development mode"
-msgstr "Uključi development mode"
-
-#: includes/addons/cloudflare/views/admin.php:85
-msgid "Temporarily activate development mode on your website."
-msgstr "Privremeno uključuje development mode na stranici"
-
-#: includes/addons/cloudflare/views/admin.php:86
-msgid "This setting will automatically turn off after 3 hours."
-msgstr "Ova opcija će se automatski isključiti nakon 3 sata"
-
-#: includes/addons/cloudflare/views/admin.php:91
-msgid "Cache level"
-msgstr "Level predmemorija"
-
-#: includes/addons/cloudflare/views/admin.php:94
-msgid "Aggressive - Standard"
-msgstr "Agresivno - Standardno"
-
-#: includes/addons/cloudflare/views/admin.php:95
-msgid "Simplified - Ignore query string"
-msgstr "Pojednostavljeno"
-
-#: includes/addons/cloudflare/views/admin.php:96
-msgid "Basic - No query string"
-msgstr "Osnovno"
-
-#: includes/addons/cloudflare/views/admin.php:101
-msgid ""
-"Aggressive: Delivers a different resource each time the query string changes."
-msgstr ""
-"Agresivno: isporučuje drugi resurs svaki put kad se niz upita promijeni."
-
-#: includes/addons/cloudflare/views/admin.php:102
-msgid ""
-"Simplified: Delivers the same resource to everyone independent of the query "
-"string."
-msgstr "Pojednostavljeno: donosi isti resurs svima neovisno o nizu upita."
-
-#: includes/addons/cloudflare/views/admin.php:103
-msgid ""
-"Basic: Only delivers resources from cache when there is no query string."
-msgstr "Osnovno: isporučuje samo resurse iz predmemorije kada nema niza upita."
-
-#: includes/addons/cloudflare/views/admin.php:118
-msgid "Browser Cache Expiration"
-msgstr "Istek predmemorije preglednika"
-
-#: includes/addons/cloudflare/views/admin.php:121
-msgid "Respect Existing Headers"
-msgstr "Poštuj postojeća zaglavlja"
-
-#: includes/addons/cloudflare/views/admin.php:131
-msgid ""
-"Browser cache TTL (in seconds) specifies how long CloudFlare-cached "
-"resources will remain on your visitors computers."
-msgstr ""
-"Predmemorija preglednika TTL (u sekundama) određuje koliko dugo će resursi "
-"spremljeni u CloudFlareu ostati na računalima posjetitelja."
-
-#: includes/addons/cloudflare/views/admin.php:132
-msgid "The minimum TTL available depends on the plan level of the zone."
-msgstr "Minimalna dostupnost TTL-a ovisi o planu zone koji koristite."
-
-#: includes/addons/cloudflare/views/admin.php:140
-msgid "Content"
-msgstr "Sadržaj"
-
-#: includes/addons/cloudflare/views/admin.php:146 includes/admin/css.php:27
-#: includes/admin/includes/local_files.php:153 includes/admin/javascript.php:27
-msgid "Minify"
-msgstr "Umanji"
-
-#: includes/addons/cloudflare/views/admin.php:171
-msgid "Rocket Loader"
-msgstr "Rocket Loader"
-
-#: includes/addons/cloudflare/views/admin.php:178
-msgid "Rocket Loader is a asynchronous JavaScript loader."
-msgstr "Rocket Loader je asinkroni JavaScript loader."
-
-#: includes/addons/cloudflare/views/admin.php:183
-msgid "Brotli"
-msgstr "Brotli"
-
-#: includes/addons/cloudflare/views/admin.php:190
-msgid ""
-"Speed up page load times for your visitor’s HTTPS traffic by applying Brotli "
-"compression."
-msgstr ""
-"Ubrzajte vrijeme učitavanja stranice za HTTPS promet posjetitelja primjenom "
-"Brotli kompresije."
-
-#: includes/addons/cloudflare/views/admin.php:198 includes/admin/addons.php:17
-#: includes/admin/cache.php:259 includes/admin/cdn.php:33
-#: includes/admin/css.php:119 includes/admin/database.php:183
-#: includes/admin/javascript.php:118 includes/admin/media.php:292
-#: includes/admin/settings.php:81
-msgid "Save changes"
-msgstr "Spremi izmjene"
-
-#: includes/addons/cloudflare/views/admin.php:207
-msgid "Cloudflare credentials"
-msgstr "Cloudflare podaci"
-
-#: includes/addons/cloudflare/views/admin.php:211
-msgid "API key"
-msgstr "API ključ"
-
-#: includes/addons/cloudflare/views/admin.php:218
-msgid "Account email"
-msgstr "E-pošta računa"
-
-#: includes/addons/cloudflare/views/admin.php:223
-msgid "Zone ID"
-msgstr "ID Zone"
-
-#: includes/addons/prefetch/views/addon.php:9
-#: includes/addons/prefetch/views/addon.php:18
-msgid "Dynamic page preload"
-msgstr "Dinamičko pred učitavanje stranice"
-
-#: includes/addons/prefetch/views/addon.php:12
-msgid "Preloads a page right before a user clicks on link"
-msgstr "Dinamički pred učitava stranice prije nego ih korisnik posjeti"
-
-#: includes/addons/varnish/views/addon.php:20
-msgid "If Varnish runs on your server, you must activate this add-on."
-msgstr ""
-"Ako je Varnish instaliran na vašem poslužitelju, morate aktivirati ovu "
-"opciju."
-
-#: includes/addons/varnish/views/addon.php:28
-msgid "Custom host"
-msgstr "Prilagođeni URL host"
-
-#: includes/addons/varnish/views/addon.php:41
-msgid "If you are using proxy, you may need this option"
-msgstr "Ako koristite proxy, možda vam zatreba ova opcija"
-
-#: includes/admin/addons.php:27 includes/admin/admin.php:30
-#: includes/admin/admin.php:45 includes/functions/admin.php:236
-#: includes/functions/admin.php:240
-msgid "Add-ons"
-msgstr "Dodaci"
-
-#: includes/admin/addons.php:31
-#, php-format
-msgid "Add more features to %s with add-ons."
-msgstr "Dodajte više mogućnosti %s s dodacima"
-
-#: includes/admin/admin.php:23 includes/admin/admin.php:38
-#: includes/functions/admin.php:166
-msgid "Cache"
-msgstr "Predmemorija"
-
-#: includes/admin/admin.php:26 includes/admin/admin.php:41
-#: includes/functions/admin.php:196 includes/functions/admin.php:200
-msgid "Media"
-msgstr "Media"
-
-#: includes/admin/admin.php:27 includes/admin/admin.php:42
-#: includes/functions/admin.php:206 includes/functions/admin.php:210
-msgid "Database"
-msgstr "Baza podataka"
-
-#: includes/admin/admin.php:29 includes/admin/admin.php:44
-#: includes/admin/settings.php:12 includes/functions/admin.php:170
-#: includes/functions/admin.php:226 includes/functions/admin.php:230
-#: includes/functions/admin.php:290
-msgid "Settings"
-msgstr "Postavke"
-
-#: includes/admin/cache.php:11
-msgid "Enable cache"
-msgstr "Omogući predmemoriju"
-
-#: includes/admin/cache.php:15
-msgid "Reduces your server response time by serving static files to users"
-msgstr ""
-"Smanjuje vrijeme odgovora poslužitelja posluživanjem statičkih datoteka "
-"korisnicima"
-
-#: includes/admin/cache.php:30 includes/admin/cache.php:194
-#: includes/admin/cache.php:246
-msgid ""
-"Your web site is running on a Nginx server and some additional steps may be "
-"required in order to use this option."
-msgstr ""
-"Vaša web stranica se nalazi na Nginx poslužitelju i možda će biti potrebni "
-"dodatni koraci kako bi se koristila ova opcija."
-
-#: includes/admin/cache.php:39
-msgid "Separate cache for mobile devices"
-msgstr "Odvojite predmemoriju za mobilne uređaje"
-
-#: includes/admin/cache.php:42
-msgid "Create a dedicated cache file for mobile devices"
-msgstr "Spremite predmemoriju u zasebnu datoteku za mobilne uređaje"
-
-#: includes/admin/cache.php:48
-msgid "Clear cache after"
-msgstr "Očisti predmemoriju nakon"
-
-#: includes/admin/cache.php:53
-msgid "minutes"
-msgstr "minuta"
-
-#: includes/admin/cache.php:56
-msgid "hours"
-msgstr "sat"
-
-#: includes/admin/cache.php:59
-msgid "days"
-msgstr "dan"
-
-#: includes/admin/cache.php:66
-msgid "Clear cache when"
-msgstr "Očisti predmemoriju kada"
-
-#: includes/admin/cache.php:70
-msgid "A new post or page is published or updated"
-msgstr "Nova stranica ili post je objavljen ili ažuriran"
-
-#: includes/admin/cache.php:75
-msgid "A post or page is deleted"
-msgstr "Stranica ili post je izbrisan"
-
-#: includes/admin/cache.php:80
-msgid "settings are saved"
-msgstr "postavke su spremljene"
-
-#: includes/admin/cache.php:86
-msgid "Clear cache options"
-msgstr ""
-
-#: includes/admin/cache.php:90
-msgid "Keep generated CSS/JS files"
-msgstr ""
-
-#: includes/admin/cache.php:96
-msgid "Cache preloading"
-msgstr "Predučitavanje predmemorije"
-
-#: includes/admin/cache.php:126 includes/admin/cache.php:136
-msgid "Enter path to XML sitemap which will be used for cache preloading"
-msgstr ""
-"Unesite putanju do XML mape stranice koji će se koristiti za predučitavanje "
-"predmemorije"
-
-#: includes/admin/cache.php:139
-msgid "Add Sitemap"
-msgstr "Dodaj XML mapu stranice"
-
-#: includes/admin/cache.php:147
-msgid "Browser caching"
-msgstr "Predmemorija preglednika"
-
-#: includes/admin/cache.php:151
-msgid "Leverage browser caching"
-msgstr "Iskoristite predmemoriju preglednika"
-
-#: includes/admin/cache.php:176
-msgid ""
-"Setting an expiry date in the HTTP headers for static resources instructs "
-"the browser to load previously downloaded resources from local disk rather "
-"than over the network"
-msgstr ""
-"Postavljanje datuma isteka u HTTP zaglavljima za statičke resurse upućuje "
-"preglednik na učitavanje prethodno preuzetih resursa s lokalnog diska, a ne "
-"preko mreže"
-
-#: includes/admin/cache.php:183 includes/admin/cache.php:235
-msgid ""
-"This option is turned ON automatically for all sites in Wordpress multisite"
-msgstr ""
-
-#: includes/admin/cache.php:204
-msgid "Enable gzip compression"
-msgstr "Omogući gzip kompresiju"
-
-#: includes/admin/cache.php:228
-msgid ""
-"Compressing resources with gzip reduce the number of bytes sent over the "
-"network"
-msgstr ""
-"Komprimiranje resursa pomoću gzip-a smanjuje broj bajtova poslanih preko "
-"mreže"
-
-#: includes/admin/cache.php:268
-msgid "Cache statistics"
-msgstr "Statistika predmemorije"
-
-#: includes/admin/cache.php:269 includes/functions/admin.php:155
-#: includes/functions/admin.php:160
-msgid "Clear cache"
-msgstr "Očisti predmemeoriju"
-
-#: includes/admin/cache.php:291
-msgid "HTML files"
-msgstr "HTML datoteke"
-
-#: includes/admin/cache.php:294
-msgid "CSS files"
-msgstr "CSS datoteke"
-
-#: includes/admin/cache.php:297
-msgid "JavaScript files"
-msgstr "JavaScript datoteke"
-
-#: includes/admin/cache.php:302
-msgid "Total cache size"
-msgstr "Ukupna veličina predmemorije"
-
-#: includes/admin/cache.php:313
-msgid "Exclude URL(s) from cache"
-msgstr "Izuzimanje URL-ova iz predmemorije"
-
-#: includes/admin/cache.php:334 includes/admin/css.php:316
-#: includes/admin/javascript.php:242 includes/admin/media.php:135
-#: includes/admin/media.php:237
-#, php-format
-msgid "Remove %s from excluded URL(s)?"
-msgstr "Makni %s s liste izuzetih URL-ova"
-
-#: includes/admin/cache.php:365 includes/admin/cache.php:377
-#: includes/admin/cdn.php:75 includes/admin/cdn.php:86
-#: includes/admin/css.php:336 includes/admin/css.php:348
-#: includes/admin/javascript.php:262 includes/admin/javascript.php:274
-#: includes/admin/media.php:165 includes/admin/media.php:177
-#: includes/admin/media.php:267 includes/admin/media.php:279
-msgid "Use {numbers} to match only numbers"
-msgstr "Koristite {numbers} za podudaranje samo brojeva"
-
-#: includes/admin/cache.php:366 includes/admin/cache.php:377
-#: includes/admin/cdn.php:76 includes/admin/cdn.php:86
-#: includes/admin/css.php:337 includes/admin/css.php:348
-#: includes/admin/javascript.php:263 includes/admin/javascript.php:274
-#: includes/admin/media.php:166 includes/admin/media.php:177
-#: includes/admin/media.php:268 includes/admin/media.php:279
-msgid "Use {letters} to match only letters"
-msgstr "Koristite {letters} za podudaranje samo slova"
-
-#: includes/admin/cache.php:367 includes/admin/cache.php:377
-#: includes/admin/cdn.php:77 includes/admin/cdn.php:86
-#: includes/admin/css.php:338 includes/admin/css.php:348
-#: includes/admin/javascript.php:264 includes/admin/javascript.php:274
-#: includes/admin/media.php:167 includes/admin/media.php:177
-#: includes/admin/media.php:269 includes/admin/media.php:279
-msgid "Use {any} to match any string"
-msgstr "Koristite {any} za podudaranje bilo kojeg niza"
-
-#: includes/admin/cache.php:368 includes/admin/cache.php:377
-#: includes/admin/css.php:339 includes/admin/css.php:348
-#: includes/admin/javascript.php:265 includes/admin/javascript.php:274
-#: includes/admin/media.php:168 includes/admin/media.php:177
-#: includes/admin/media.php:270 includes/admin/media.php:279
-msgid "Use {all} to match all"
-msgstr "Koristite {all} za podudaranje bilo kojeg niza"
-
-#: includes/admin/cache.php:392
-msgid "Exclude User Agent(s) from cache"
-msgstr "Izuzmite korisničke agente iz predmemorije"
-
-#: includes/admin/cache.php:427
-msgid "Add User Agent"
-msgstr "Dodaj korisničkog agenta"
-
-#: includes/admin/cache.php:437
-msgid "Exclude search engines"
-msgstr "Izuzmi tražilice"
-
-#: includes/admin/cdn.php:12
-msgid "Enable CDN"
-msgstr "Omogući CDN"
-
-#: includes/admin/cdn.php:16
-msgid ""
-"All URL(s) of static files ( CSS, JavaScript and Images ) will be rewritten "
-"to the CDN hostname you provide. "
-msgstr ""
-"Svi URL-ovi statičkih datoteka (CSS, JavaScript i slike) bit će promijenjeni "
-"u naziv CDN poslužitelja koji navedete."
-
-#: includes/admin/cdn.php:23
-msgid "CDN hostname"
-msgstr "Naziv CDN poslužitelja"
-
-#: includes/admin/cdn.php:43
-msgid "Exclude file(s) from CDN"
-msgstr "Izuzmi datoteke iz CDN-a"
-
-#: includes/admin/cdn.php:89
-msgid "Add file"
-msgstr "Dodaj datoteku"
-
-#: includes/admin/css.php:26 includes/admin/javascript.php:26
-msgid "File"
-msgstr "Datoteka"
-
-#: includes/admin/css.php:28 includes/admin/includes/local_files.php:171
-#: includes/admin/javascript.php:28
-msgid "Inline"
-msgstr "Umetni"
-
-#: includes/admin/css.php:29 includes/admin/includes/local_files.php:189
-#: includes/admin/javascript.php:29
-msgid "Combine"
-msgstr "Kombinirati"
-
-#: includes/admin/css.php:30 includes/admin/includes/external_files.php:152
-#: includes/admin/includes/local_files.php:213 includes/admin/javascript.php:30
-msgid "Disable"
-msgstr "Onesposobiti"
-
-#: includes/admin/css.php:37 includes/admin/javascript.php:37
-msgid "Update all files in list below"
-msgstr "Ažurirajte sve datoteke na popisu u nastavku"
-
-#: includes/admin/css.php:47 includes/admin/javascript.php:47
-msgid "Theme"
-msgstr "Tema"
-
-#: includes/admin/css.php:69 includes/admin/javascript.php:69
-msgid "Plugins"
-msgstr "Dodatci"
-
-#: includes/admin/css.php:92 includes/admin/javascript.php:92
-msgid "External resources"
-msgstr "Vanjski resursi"
-
-#: includes/admin/css.php:115 includes/admin/javascript.php:114
-msgid ""
-"If some of the files are missing from this list, enable Cache preloading "
-"option."
-msgstr ""
-"Ako neke datoteke nedostaju s ovog popisa, omogućite opciju Predučitavanje "
-"predmemorije."
-
-#: includes/admin/css.php:122 includes/admin/javascript.php:121
-#, php-format
-msgid "Clear collected %s files list.%s This option will also clear the cache."
-msgstr ""
-"Izbriši popis prikupljanih %s datoteka.%s Ova opcija će također izbrisati i "
-"predmemoriju."
-
-#: includes/admin/css.php:125 includes/admin/javascript.php:124
-msgid "Update files list"
-msgstr "Ažuriraj popis datoteka"
-
-#: includes/admin/css.php:130
-msgid "CSS files not found"
-msgstr "CSS datoteke nisu pronađene"
-
-#: includes/admin/css.php:134 includes/admin/javascript.php:133
-msgid "Reload"
-msgstr "Ponovno učitati"
-
-#: includes/admin/css.php:142
-msgid "CSS settings"
-msgstr "CSS postavke"
-
-#: includes/admin/css.php:158
-msgid "Minify inline CSS"
-msgstr "Smanji umetnuti  CSS"
-
-#: includes/admin/css.php:166
-msgid "Asynchronously load CSS"
-msgstr "Asinhrono učitajte CSS"
-
-#: includes/admin/css.php:176 includes/admin/css.php:178
-msgid "Show critical CSS"
-msgstr "Prikaži CSS definicije"
-
-#: includes/admin/css.php:177 includes/admin/css.php:178
-msgid "Hide critical CSS"
-msgstr "Sakri CSS definicije"
-
-#: includes/admin/css.php:188
-msgid "Eliminates render-blocking CSS"
-msgstr "CSS se ne prikazuje kao blokirajući sadržaj"
-
-#: includes/admin/css.php:194
-msgid ""
-"Loading CSS asynchronously will produce FOUC effect (a Flash Of Unstyled "
-"Content). In order to minimize the FOUC effect, use critical CSS path."
-msgstr ""
-"Učitavanje CSS-a asinkrono će rezultirati FOUC efektom (Flash Of Unstyled "
-"Content). Kako bi se smanjio FOUC učinak, umetnite kritične CSS definicije."
-
-#: includes/admin/css.php:202
-msgid "Critical CSS path"
-msgstr "Kritične CSS definicije"
-
-#: includes/admin/css.php:207
-msgid "Enter critical CSS path definitions"
-msgstr "Unesi kritične CSS definicije"
-
-#: includes/admin/css.php:212
-msgid "Generate critical CSS path"
-msgstr "Generirajte kritične CSS definicije"
-
-#: includes/admin/css.php:227
-msgid "Combine Google Fonts"
-msgstr "Kombinirajte Google fontove"
-
-#: includes/admin/css.php:232
-msgid "Load all google fonts in one HTTP request"
-msgstr "Učitajte sve Google fontove u jednom HTTP zahtjevu"
-
-#: includes/admin/css.php:241
-msgid "Disable CSS optimization for logged-in users"
-msgstr "Onemogućite CSS optimizaciju za prijavljene korisnike"
-
-#: includes/admin/css.php:252 includes/admin/javascript.php:178
-msgid "Resource Hints"
-msgstr "Postavke za vanjske resurse"
-
-#: includes/admin/css.php:259 includes/admin/javascript.php:185
-msgid "Origins"
-msgstr "Podrijetlo"
-
-#: includes/admin/css.php:286 includes/admin/javascript.php:212
-msgid "DNS prefetching can make external resources load faster"
-msgstr "Prethodno dohvaćanje DNS-a može ubrzati učitavanje vanjskih resursa"
-
-#: includes/admin/css.php:287 includes/admin/javascript.php:213
-msgid "Preconnect can remove additional roundtrips and reduce request latency"
-msgstr ""
-"Preconnect može ukloniti dodatne HTTP round-trip zahtjeve i tako smanjiti "
-"latenciju HTTP zahtjeva"
-
-#: includes/admin/css.php:295
-msgid "Exclude URL(s) from CSS optimization"
-msgstr "Izuzimanje URL-ova iz CSS optimizacije"
-
-#: includes/admin/database.php:30 includes/admin/database.php:35
-msgid "Delete all pages, posts and comments from trash"
-msgstr "Izbrišite sve stranice, postove i komentare iz smeća"
-
-#: includes/admin/database.php:31 includes/admin/database.php:55
-#: includes/admin/database.php:82 includes/admin/database.php:105
-#: includes/admin/database.php:132 includes/admin/database.php:157
-msgid "Delete"
-msgstr "Izbriši"
-
-#: includes/admin/database.php:34
-msgid "Trash"
-msgstr "Smeće"
-
-#: includes/admin/database.php:41 includes/admin/database.php:65
-#: includes/admin/database.php:92 includes/admin/database.php:115
-#: includes/admin/database.php:142 includes/admin/database.php:167
-msgid "Enable automatic cleanup"
-msgstr "Omogući automatsko čišćenje"
-
-#: includes/admin/database.php:54 includes/admin/database.php:59
-msgid "Delete all spam comments"
-msgstr "Izbrišite sve spam komentare"
-
-#: includes/admin/database.php:58
-msgid "Spam"
-msgstr "Spam"
-
-#: includes/admin/database.php:81 includes/admin/database.php:86
-msgid "Delete all revisions"
-msgstr "Izbrišite sve revizije"
-
-#: includes/admin/database.php:85
-msgid "Revisions"
-msgstr "Revizije"
-
-#: includes/admin/database.php:104 includes/admin/database.php:109
-msgid "Delete all expired transients"
-msgstr "Izbrišite sve istekle privremene postavke"
-
-#: includes/admin/database.php:108
-msgid "Transients"
-msgstr "Privremene postavke"
-
-#: includes/admin/database.php:131 includes/admin/database.php:136
-msgid "Delete all auto drafts"
-msgstr "Izbrišite sve skice"
-
-#: includes/admin/database.php:135
-msgid "Auto Drafts"
-msgstr "Skice"
-
-#: includes/admin/database.php:156 includes/admin/database.php:161
-msgid "Delete all unused scheduled tasks"
-msgstr "Obrišite sve zakazane zadatke koji se ne koriste"
-
-#: includes/admin/database.php:160
-msgid "Scheduled tasks"
-msgstr "Zakazani zadaci"
-
-#: includes/admin/database.php:179
-msgid ""
-"Backup your database before running any of these cleanup actions. Once a "
-"database cleanup has been performed, there is no way to undo it."
-msgstr ""
-"Izradite sigurnosnu kopiju baze podataka prije pokretanja bilo koje od ovih "
-"akcija čišćenja. Nakon što je već izvršeno čišćenje baze, nema načina da se "
-"izmjene ponište i vrate podaci."
-
-#: includes/admin/database.php:185 includes/admin/database.php:186
-msgid "Delete all"
-msgstr "Izbrisati sve"
-
-#: includes/admin/database.php:194
-msgid "Automatic database cleanup"
-msgstr "Automatsko čišćenje baze podataka"
-
-#: includes/admin/database.php:200
-msgid "Schedule"
-msgstr "Raspored"
-
-#: includes/admin/database.php:202
-msgid "Not scheduled"
-msgstr "Nije zakazano"
-
-#: includes/admin/database.php:203 includes/functions/cron.php:26
-msgid "Daily"
-msgstr "Dnevno"
-
-#: includes/admin/database.php:204 includes/functions/cron.php:31
-msgid "Weekly"
-msgstr "Tjedno"
-
-#: includes/admin/database.php:205 includes/functions/cron.php:36
-msgid "Monthly"
-msgstr "Mjesečno"
-
-#: includes/admin/database.php:208
-msgid "Next run"
-msgstr "Sljedeće čišćenje"
-
-#: includes/admin/database.php:214
-msgid "Not set"
-msgstr "Nije postavljeno"
-
-#: includes/admin/includes/external_files.php:31
-#: includes/admin/includes/local_files.php:31
-#: includes/functions/miscellaneous.php:261
-msgid "Disable everywhere"
-msgstr "Onemogućite svugdje"
-
-#: includes/admin/includes/external_files.php:35
-#: includes/admin/includes/local_files.php:35
-#: includes/functions/miscellaneous.php:262
-msgid "Disable only on selected URL"
-msgstr "Onemogućite samo na odabranom URL-u"
-
-#: includes/admin/includes/external_files.php:39
-#: includes/admin/includes/local_files.php:39
-#: includes/functions/miscellaneous.php:263
-msgid "Disable everywhere except on selected URL"
-msgstr "Onemogući svugdje osim na odabranom URL-u"
-
-#: includes/admin/javascript.php:129
-msgid "JavaScript files not found"
-msgstr "JavaScript datoteke nisu pronađene"
-
-#: includes/admin/javascript.php:142
-msgid "JavaScript settings"
-msgstr "JavaScript postavke"
-
-#: includes/admin/javascript.php:150
-msgid "Minify inline JavaScript"
-msgstr "Smanjite umetnuti JavaScript"
-
-#: includes/admin/javascript.php:157
-msgid "Asynchronously load JavaScript"
-msgstr "Asinhrono učitajte JavaScript"
-
-#: includes/admin/javascript.php:161
-msgid "Eliminates render-blocking JavaScript"
-msgstr "JavaScript se ne prikazuje kao blokirajući sadržaj"
-
-#: includes/admin/javascript.php:167
-msgid "Disable JavaScript optimization for logged-in users"
-msgstr "Onemogućite JavaScript optimizaciju za prijavljene korisnike"
-
-#: includes/admin/javascript.php:221
-msgid "Exclude URL(s) from JavaScript optimization"
-msgstr "Izuzimanje URL-ova iz JavaScript optimizacije"
-
-#: includes/admin/media.php:12
-msgid "Images"
-msgstr "Slike"
-
-#: includes/admin/media.php:16 includes/admin/media.php:192
-msgid "Lazy load"
-msgstr "Lazy load"
-
-#: includes/admin/media.php:20
-msgid "Lazy load images"
-msgstr "Lazy load slika"
-
-#: includes/admin/media.php:24 includes/admin/media.php:209
-msgid "Reduces the number of HTTP requests and improves loading time"
-msgstr "Smanjuje broj HTTP zahtjeva i poboljšava vrijeme učitavanja stranice"
-
-#: includes/admin/media.php:34
-msgid "Disable lazy load on mobile devices"
-msgstr "Onemogući lazy load na mobilnim uređajima"
-
-#: includes/admin/media.php:40
-msgid "Responsive images"
-msgstr "Responzivne  slike"
-
-#: includes/admin/media.php:44
-msgid "Force images to use srcset attribute"
-msgstr "Prisilite slike da koriste srcset atribut"
-
-#: includes/admin/media.php:47
-msgid ""
-"Loads the best optimized image depending on users screen size and image "
-"sizes settings"
-msgstr ""
-"Učitava najbolju optimiziranu sliku ovisno o veličini zaslona i postavkama "
-"veličine slike"
-
-#: includes/admin/media.php:52
-msgid "Exclude"
-msgstr "Izuzmi"
-
-#: includes/admin/media.php:55
-msgid "Exclude image by name"
-msgstr "Izuzmi sliku po imenu slike"
-
-#: includes/admin/media.php:72
-msgid "Add Image"
-msgstr "Dodaj sliku"
-
-#: includes/admin/media.php:81
-msgid ""
-"Exclude images located in specific html containers like sliders and galleries"
-msgstr ""
-"Izuzmite slike koje se nalaze u određenim html kontejnerima kao npr. galerije"
-
-#: includes/admin/media.php:99 includes/admin/media.php:108
-msgid "Enter container id or class name"
-msgstr "Unesite ID kontejnera ili naziv klase"
-
-#: includes/admin/media.php:100 includes/admin/media.php:108
-msgid "Example"
-msgstr "Primjer"
-
-#: includes/admin/media.php:108
-msgid "Add Container"
-msgstr "Dodaj kontejner"
-
-#: includes/admin/media.php:116
-msgid "Exclude URL(s) from image optimization"
-msgstr "Izuzmi URL iz CSS optimizacije"
-
-#: includes/admin/media.php:188
-msgid "Videos"
-msgstr "Video"
-
-#: includes/admin/media.php:204
-msgid "Lazy load videos"
-msgstr "Lazy load videa"
-
-#: includes/admin/media.php:218
-msgid "Exclude URL(s)"
-msgstr "Izuzmi URL"
-
-#: includes/admin/media.php:303
-msgid "Emoji"
-msgstr ""
-
-#: includes/admin/media.php:310
-msgid "Disable Emoji"
-msgstr "Onemogući Emoji"
-
-#: includes/admin/media.php:314
-msgid ""
-"Use default emoji of visitor's browser instead of loading emoji from "
-"WordPress.org"
-msgstr ""
-"Upotrijebite zadani emotikon preglednika posjetitelja umjesto učitavanja "
-"emotikona sa WordPress.org"
-
-#: includes/admin/media.php:319
-msgid "Embeds"
-msgstr "Embeds"
-
-#: includes/admin/media.php:326
-msgid "Disable embeds"
-msgstr "Onemogući ugrađivanje (embeds)"
-
-#: includes/admin/media.php:330
-msgid "Prevents embedding content from your site"
-msgstr "Sprječava ugrađivanje sadržaja s vaše web-lokacije"
-
-#: includes/admin/media.php:336
-msgid "Image sizes"
-msgstr "Veličine slika"
-
-#: includes/admin/media.php:343 includes/admin/media.php:354
-msgid "Name"
-msgstr "Naziv"
-
-#: includes/admin/media.php:344 includes/admin/media.php:360
-msgid "Width"
-msgstr "Širina"
-
-#: includes/admin/media.php:345 includes/admin/media.php:366
-msgid "Height"
-msgstr "Visina"
-
-#: includes/admin/media.php:346 includes/admin/media.php:372
-msgid "Crop"
-msgstr "Izreži"
-
-#: includes/admin/media.php:347
-msgid "Actions"
-msgstr "Akcije"
-
-#: includes/admin/media.php:374 includes/functions/miscellaneous.php:259
-msgid "Yes"
-msgstr "Da"
-
-#: includes/admin/media.php:379
-#, php-format
-msgid "Remove image size %s"
-msgstr "Ukloni veličinu slike %s"
-
-#: includes/admin/media.php:381
-msgid "Remove size"
-msgstr "Makni veličinu"
-
-#: includes/admin/media.php:391
-msgid "Add size"
-msgstr "Dodaj veličinu"
-
-#: includes/admin/media.php:392
-msgid "Restore default image sizes"
-msgstr "Vraćanje zadanih veličina slika"
-
-#: includes/admin/media.php:392
-msgid "Restore image sizes"
-msgstr "Vratite zadane veličine slika"
-
-#: includes/admin/media.php:398
-msgid "Regenerate thumbnails every time you make some changes to image sizes"
-msgstr ""
-"Regenerirajte umanjene slike svaki put kada napravite neke promjene u "
-"veličini slika"
-
-#: includes/admin/media.php:400
-msgid "Regenerate thumbnails"
-msgstr "Regenerirajte umanjene slike"
-
-#: includes/admin/metabox.php:13 includes/admin/metabox.php:80
-#: includes/admin/metabox.php:131 includes/admin/metabox.php:183
-#: includes/admin/metabox.php:234
-msgid "Page URL will be added to exclude list"
-msgstr "URL stranice će biti dodan na listu izuzetih URL-ova"
-
-#: includes/admin/metabox.php:41 includes/admin/metabox.php:68
-msgid "Exclude from cache"
-msgstr "Izuzmi stranicu iz predmemorije"
-
-#: includes/admin/metabox.php:46
-msgid ""
-"This page is your website home page and it is affected by Exclude URL(s) "
-"from cache option. Usually a home page is not excluded from cache. Please "
-"check your exclude settings."
-msgstr ""
-"Ova stranica je početna stranica vaše web stranice i na nju utječu URL-ovi "
-"dodani kao opcije izuzimanja iz predmemorije na stranici Predmemorija. "
-"Obično početna stranica nije isključena iz predmemorije. Provjerite postavke "
-"izuzimanja."
-
-#: includes/admin/metabox.php:49
-msgid "This page is affected by URL(s) exclude options on Cache page"
-msgstr ""
-"Na izuzimanje ove stranice utječu URL-ovi dodani na stranici Predmemorija"
-
-#: includes/admin/metabox.php:63
-msgid ""
-"This page is your website home page.<br />Do you want to exclude home page "
-"from cache?"
-msgstr ""
-"Ova stranica je početna stranica vaše web stranice.<br />Da li želite "
-"izuzeti početnu stranicu iz predmemorije?"
-
-#: includes/admin/metabox.php:107 includes/admin/metabox.php:121
-#: includes/admin/metabox.php:158
-msgid "Exclude from CSS optimization"
-msgstr "Izuzmi stranicu iz CSS optimizacije"
-
-#: includes/admin/metabox.php:111
-msgid "This page is affected by URL(s) exclude options on CSS page"
-msgstr "Na izuzimanje ove stranice utječu URL-ovi dodani na stranici CSS"
-
-#: includes/admin/metabox.php:162
-msgid "This page is affected by URL(s) exclude options on JavaScript page"
-msgstr ""
-"Na izuzimanje ove stranice utječu URL-ovi dodani na stranici JavaScript"
-
-#: includes/admin/metabox.php:172
-msgid "Exclude from JS optimization"
-msgstr "Izuzmi stranicu iz JS optimizacije"
-
-#: includes/admin/metabox.php:209 includes/admin/metabox.php:223
-msgid "Exclude from Image optimization"
-msgstr "Izuzmi stranicu iz optimizacije slika"
-
-#: includes/admin/metabox.php:213 includes/admin/metabox.php:264
-msgid "This page is affected by URL(s) exclude options on Media page"
-msgstr "Na izuzimanje ove stranice utječu URL-ovi dodani na stranici Media"
-
-#: includes/admin/metabox.php:260 includes/admin/metabox.php:274
-msgid "Exclude from Video lazyload"
-msgstr "Onemogući lazy load na ovoj stranici"
-
-#: includes/admin/settings.php:16
-msgid "Import settings"
-msgstr "Uvezi postavke"
-
-#: includes/admin/settings.php:22
-msgid "Export settings"
-msgstr "Izvezi postavke"
-
-#: includes/admin/settings.php:25
-msgid "Export"
-msgstr "Izvezi"
-
-#: includes/admin/settings.php:34
-msgid "Server"
-msgstr "Poslužitelj"
-
-#: includes/admin/settings.php:39
-msgid "Nginx configuration"
-msgstr "Nginx postavke"
-
-#: includes/admin/settings.php:43
-#, php-format
-msgid ""
-"%s will work out of the box on Nginx servers, this rewrite rules are not "
-"required. However, to optimize your website even more, you should add this "
-"rules to your Nginx configuration file."
-msgstr ""
-"%s će raditi bez dodatnih postavki na Nginx poslužiteljima, ove definicije "
-"nisu neophodne. Međutim, da biste dodatno optimizirali vašu web stranicu, "
-"dodajte ove definicije u Nginx konfiguracijsku datoteku."
-
-#: includes/admin/settings.php:45
-msgid "Select all"
-msgstr "Odabrati sve"
-
-#: includes/admin/settings.php:52
-msgid "Logs"
-msgstr "Zapisi"
-
-#: includes/admin/settings.php:56
-msgid "Troubleshooting logging"
-msgstr "Dnevnik"
-
-#: includes/admin/settings.php:60
-msgid "Enable troubleshooting logging"
-msgstr "Omogući dnevnik"
-
-#: includes/admin/settings.php:63
-msgid "These logs can be helpful for troubleshooting problems"
-msgstr "Ovi zapisi mogu biti korisni za rješavanje problema"
-
-#: includes/admin/settings.php:69
-msgid "Log file content"
-msgstr "Sadržaj datoteke dnevnika"
-
-#: includes/admin/settings.php:72
-msgid "Content is auto refreshed every 10 seconds"
-msgstr "Sadržaj se automatski osvježava svakih 10 sekundi"
-
-#: includes/admin/settings.php:84
-msgid "Clear log file"
-msgstr "Očisti datoteku dnevnika"
-
-#: includes/admin/settings.php:93
-msgid "Previous configuration settings"
-msgstr "Prethodne postavke konfiguracije"
-
-#: includes/admin/settings.php:114
-msgid "Saved"
-msgstr "Spremljeno"
-
-#: includes/admin/settings.php:117
-msgid "Load configuration settings saved on "
-msgstr "Učitajte postavke konfiguracije spremljene u "
-
-#: includes/admin/settings.php:120
-msgid "Load"
-msgstr "Učitaj"
-
-#: includes/classes/api.php:130
-#, php-format
-msgid "Call to undefined method %s"
-msgstr ""
-
-#: includes/classes/cli.php:23
-msgid "Flushing the cache..."
-msgstr "Čišćenje predmemorije..."
-
-#: includes/classes/cli.php:25
-msgid "Cache flushed."
-msgstr "Predmemorija očišćena."
-
-#: includes/classes/cli.php:73
-msgid "Running tranisent cleanup"
-msgstr "Pokrenuto čišćenje privremenih postavki"
-
-#: includes/classes/cli.php:75
-msgid "Transient cleanup complete"
-msgstr "Završeno čišćenje privremenih postavki"
-
-#: includes/classes/cli.php:81
-msgid "Running revisions cleanup"
-msgstr "Pokrenuto čišćenje revizija"
-
-#: includes/classes/cli.php:83
-msgid "Revisions cleanup complete"
-msgstr "Završeno čišćenje revizija"
-
-#: includes/classes/cli.php:89
-msgid "Running drafts cleanup"
-msgstr "Pokrenuto čišćenje skica"
-
-#: includes/classes/cli.php:91
-msgid "Drafts cleanup complete"
-msgstr "Pokrenuto čišćenje skica"
-
-#: includes/classes/cli.php:97
-msgid "Running trash cleanup"
-msgstr "Pokrenuto čišćenje smeća"
-
-#: includes/classes/cli.php:99
-msgid "Trash cleanup complete"
-msgstr "Završeno čišćenje smeća"
-
-#: includes/classes/cli.php:105
-msgid "Running spam cleanup"
-msgstr "Pokrenuto čišćenje spam-a"
-
-#: includes/classes/cli.php:107
-msgid "Spam cleanup complete"
-msgstr "Završeno čišćenje spam-a"
-
-#: includes/classes/cli.php:113
-msgid "Running cron tasks cleanup"
-msgstr "Pokrenuto čišćenje zakazanih zadataka"
-
-#: includes/classes/cli.php:115
-msgid "Cron tasks cleanup complete"
-msgstr "Završeno čišćenje zakazanih zadataka"
-
-#: includes/classes/cli.php:126
-msgid "Running database cleanup"
-msgstr "Pokrenuto čišćenje baze"
-
-#: includes/classes/cli.php:128
-msgid "Database cleanup complete"
-msgstr "Završeno čišćenje baze"
-
-#: includes/classes/parser.php:94
-msgid "error"
-msgstr "greška"
-
-#: includes/classes/parser.php:95 includes/classes/parser.php:98
-msgid "both head and body tag should be present in template file"
-msgstr "oznaka head i body bi trebale biti prisutne u datoteci predloška"
-
-#: includes/classes/parser.php:932
-msgid "Optimized by"
-msgstr "Optimizirano sa"
-
-#: includes/classes/parser.php:956
-#, php-format
-msgid "Cache file was created in %s seconds on %s at %s"
-msgstr "Datoteka predmemorije stvorena je za %s sekundi na dan %s u %s"
-
-#: includes/functions/admin.php:270
-msgid "Temporarily disable"
-msgstr "Privremeno onemogući"
-
-#: includes/functions/backend.php:52
-#, php-format
-msgid ""
-"File <code>advanced-cache.php</code> is missing. If you updated your "
-"installation of %s recently, try to deactivate and then activate the plugin "
-"again."
-msgstr ""
-
-#: includes/functions/backend.php:237
-msgid "is temporarily disabled"
-msgstr "je privremeno onemogućen"
-
-#: includes/functions/backend.php:250
-#, php-format
-msgid ""
-"%s: Log file is getting large, either clear the log or disable "
-"troubleshooting logging"
-msgstr ""
-"%s: Datoteka dnevnika postaje sve veća, očistite zapise dnevnika ili "
-"onemogućite zapisivanje u dnevnik"
-
-#: includes/functions/backend.php:262
-#, php-format
-msgid "%s: missing writing permissions for file <code>.htaccess</code>"
-msgstr "%s: nedostaju dozvole za pisanje u datoteku <code> .htaccess </code>"
-
-#: includes/functions/backend.php:275
-#, php-format
-msgid "%s: enter Cloudflare credentials"
-msgstr "%s: unesite Cloudflare podatke računa"
-
-#: includes/functions/cron.php:41
-msgid "Every minute"
-msgstr "Svake minute"
-
-#: includes/functions/cron.php:46
-msgid "Every 5 minutes"
-msgstr "Svakih 5 minuta"
-
-#: includes/functions/db.php:85
-msgid "You are doing it wrong"
-msgstr "Vi to radite krivo"
-
-#: includes/functions/files.php:350
-msgid "Log file cleared"
-msgstr "Dnevnik je izbrisan"
-
-#: includes/functions/image.php:68
-msgid "Size name already in use"
-msgstr "Naziv veličine već se koristi"
-
-#: includes/functions/image.php:190
-#, php-format
-msgid "%s image left"
-msgid_plural "%s images left"
-msgstr[0] "Ostala je %s slika"
-msgstr[1] "Ostale su %s slike"
-msgstr[2] "Ostalo je %s slika"
-
-#: includes/functions/image.php:202
-msgid "Done"
-msgstr "Gotovo"
-
-#: includes/functions/miscellaneous.php:257
-msgid "Are you sure?"
-msgstr "Da li ste sigurni?"
-
-#: includes/functions/miscellaneous.php:264
-msgid "Something went wrong"
-msgstr "Nešto je pošlo krivo"
-
-#: includes/functions/miscellaneous.php:265
-msgid "Regenerating thumbs"
-msgstr "Regeneriranje umanjenih slika"
-
-#: includes/functions/miscellaneous.php:266
-msgid "Regenerate thumbnails may take a long time. Do not close your browser."
-msgstr ""
-"Regeneriranje umanjenih slika može potrajati dugo. Ne zatvarajte preglednik."
-
-#: includes/functions/plugin.php:220
-msgid "The following plugins are not compatible with"
-msgstr "Slijedeći dodaci nisu kompatibilni sa"
-
-#: includes/functions/plugin.php:227
-msgid "Deactivate"
-msgstr "Deaktiviraj"
-
-#: includes/functions/settings.php:57
-msgid "Invalid settings file"
-msgstr "Nevažeća datoteka postavki"
-
-#: includes/functions/settings.php:269
-msgid "Settings saved"
-msgstr "Postavke spremljene"
-
-#: includes/functions/settings.php:330
-msgid "Settings file loaded"
-msgstr "Datoteka postavki je učitana"
-
-#: includes/functions/settings.php:520
-msgid "Files list cleared"
-msgstr "Lista izbrisana"
-
-#. Plugin Name of the plugin/theme
+#. Plugin Name of the plugin
+#: wp-performance.php src/Admin/AdminMenu.php:23 src/Admin/AdminMenu.php:24
+#: src/Admin/Metabox.php:28 assets/admin/app/App.jsx:77
 msgid "WP Performance"
 msgstr "WP Performance"
 
-#. Plugin URI of the plugin/theme
-msgid "https://www.wp-performance.com"
+#. Description of the plugin
+#: wp-performance.php
+msgid "WP Performance Optimizer - cache & performance plugin."
 msgstr ""
 
-#. Description of the plugin/theme
-msgid "WP Performance Optimizer"
-msgstr "WP Performance Optimizer"
-
-#. Author of the plugin/theme
+#. Author of the plugin
+#: wp-performance.php
 msgid "Ante Laca"
 msgstr ""
 
-#. Author URI of the plugin/theme
-msgid "https://www.antelaca.xyz"
+#: src/Addons/Cloudflare/CloudflareController.php:87
+msgid "Cloudflare is not configured."
 msgstr ""
+
+#: src/Admin/CompatibilityNotice.php:51
+msgid "WP Performance detected another caching/optimization plugin:"
+msgstr ""
+
+#: src/Admin/CompatibilityNotice.php:53
+msgid ""
+"Running more than one can cause conflicts; consider deactivating the others."
+msgstr ""
+
+#: src/Admin/Metabox.php:36
+msgid "Exclude from cache"
+msgstr "Izuzmi stranicu iz predmemorije"
+
+#: src/Admin/Metabox.php:37
+msgid "Exclude from CSS optimization"
+msgstr "Izuzmi stranicu iz CSS optimizacije"
+
+#: src/Admin/Metabox.php:38
+msgid "Exclude from JavaScript optimization"
+msgstr ""
+
+#: src/Admin/Metabox.php:39
+msgid "Exclude from HTML optimization"
+msgstr ""
+
+#: src/Admin/Metabox.php:40
+msgid "Exclude from image optimization"
+msgstr ""
+
+#: src/Admin/Metabox.php:41
+msgid "Exclude from video lazy load"
+msgstr ""
+
+#: src/Cron/CronHooks.php:45
+msgid "Once weekly"
+msgstr ""
+
+#: src/Cron/CronHooks.php:46
+msgid "Once monthly"
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:91
+#: src/Rest/Admin/OverviewController.php:120
+#: src/Rest/Admin/OverviewController.php:122
+#: src/Rest/Admin/OverviewController.php:124
+msgid "Page cache"
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:92
+#: assets/admin/app/tabs/CacheTab.jsx:207
+msgid "Browser caching"
+msgstr "Predmemorija preglednika"
+
+#: src/Rest/Admin/OverviewController.php:93
+msgid "GZIP compression"
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:94
+msgid "CSS optimization"
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:95
+msgid "JavaScript optimization"
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:96
+msgid "HTML minification"
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:97
+msgid "Lazy loading"
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:98
+msgid "WebP/AVIF images"
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:99
+msgid "Database cleanup"
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:100 assets/admin/app/App.jsx:42
+#: assets/admin/app/tabs/SettingsTab.jsx:21
+msgid "CDN"
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:101
+#: src/Rest/Admin/OverviewController.php:129
+#: src/Rest/Admin/OverviewController.php:131
+#: src/Rest/Admin/OverviewController.php:133
+#: src/Rest/Admin/OverviewController.php:135
+#: assets/admin/app/tabs/SettingsTab.jsx:205
+msgid "Object cache"
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:120
+msgid "Page caching is turned off."
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:122
+msgid "Page caching is active and serving cached pages."
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:124
+msgid "The advanced-cache.php drop-in or WP_CACHE constant is missing."
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:129
+msgid "A persistent object cache is active."
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:131
+msgid "Another object cache drop-in is installed."
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:133
+msgid "Redis is available but the object cache is not enabled."
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:135
+msgid "No object cache backend detected (Redis recommended)."
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:140
+#: src/Rest/Admin/OverviewController.php:141
+msgid "Compression"
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:140
+msgid "GZIP compression is available."
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:141
+msgid "The zlib extension is missing, so GZIP is unavailable."
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:150
+#: src/Rest/Admin/OverviewController.php:151
+msgid "PHP OPcache"
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:150
+msgid "OPcache is enabled."
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:151
+msgid "OPcache is not enabled. Enabling it speeds up PHP execution."
+msgstr ""
+
+#. translators: %s: PHP version.
+#: src/Rest/Admin/OverviewController.php:155
+#: src/Rest/Admin/OverviewController.php:156
+msgid "PHP version"
+msgstr ""
+
+#. translators: %s: PHP version.
+#: src/Rest/Admin/OverviewController.php:155
+#, php-format
+msgid "Running PHP %s."
+msgstr ""
+
+#. translators: 1: current PHP version, 2: recommended version.
+#: src/Rest/Admin/OverviewController.php:156
+#, php-format
+msgid "PHP %1$s is below the recommended %2$s."
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:162
+#: src/Rest/Admin/OverviewController.php:163
+msgid "Cache directory"
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:162
+msgid "The cache directory is writable."
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:163
+msgid "The cache directory is not writable."
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:167
+#: src/Rest/Admin/OverviewController.php:168
+msgid "Image conversion"
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:167
+msgid "GD can generate WebP images."
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:168
+msgid "GD cannot generate WebP images on this server."
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:175
+#: src/Rest/Admin/OverviewController.php:176
+#: src/Rest/Admin/OverviewController.php:178
+#: src/Rest/Admin/OverviewController.php:180
+msgid "Server rules"
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:175
+msgid "Apache detected; .htaccess is writable."
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:176
+msgid "Apache detected but .htaccess is not writable."
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:178
+msgid "Nginx detected; add the generated rules from Settings."
+msgstr ""
+
+#: src/Rest/Admin/OverviewController.php:180
+msgid "Server type could not be determined."
+msgstr ""
+
+#: src/Rest/Admin/SettingsController.php:64
+#: src/Rest/Admin/SettingsController.php:73
+msgid "Unknown settings group."
+msgstr ""
+
+#: assets/admin/app/App.jsx:35
+msgid "Overview"
+msgstr ""
+
+#: assets/admin/app/App.jsx:36 assets/admin/app/tabs/SettingsTab.jsx:15
+msgid "Cache"
+msgstr "Predmemorija"
+
+#: assets/admin/app/App.jsx:37 assets/admin/app/tabs/SettingsTab.jsx:16
+msgid "CSS"
+msgstr ""
+
+#: assets/admin/app/App.jsx:38 assets/admin/app/tabs/SettingsTab.jsx:17
+msgid "JavaScript"
+msgstr ""
+
+#: assets/admin/app/App.jsx:39 assets/admin/app/tabs/SettingsTab.jsx:18
+msgid "HTML"
+msgstr ""
+
+#: assets/admin/app/App.jsx:40 assets/admin/app/tabs/SettingsTab.jsx:19
+msgid "Media"
+msgstr "Media"
+
+#: assets/admin/app/App.jsx:41 assets/admin/app/tabs/SettingsTab.jsx:20
+msgid "Database"
+msgstr "Baza podataka"
+
+#: assets/admin/app/App.jsx:43 assets/admin/app/tabs/SettingsTab.jsx:22
+msgid "Settings"
+msgstr "Postavke"
+
+#: assets/admin/app/App.jsx:44
+msgid "Add-ons"
+msgstr "Dodaci"
+
+#: assets/admin/app/App.jsx:50 assets/admin/app/tabs/AddonsTab.jsx:35
+#: assets/admin/app/tabs/SettingsTab.jsx:23
+msgid "Cloudflare"
+msgstr "Cloudflare"
+
+#: assets/admin/app/components/fields/RepeatableInput.jsx:11
+#: assets/admin/app/components/ImageSizes.jsx:156
+#: assets/admin/app/tabs/JsTab.jsx:77
+msgid "Add"
+msgstr ""
+
+#: assets/admin/app/components/fields/RepeatableInput.jsx:37
+#: assets/admin/app/components/ImageSizes.jsx:114
+msgid "Remove"
+msgstr "Makni"
+
+#: assets/admin/app/components/FileListTable.jsx:8
+msgid "Theme"
+msgstr "Tema"
+
+#: assets/admin/app/components/FileListTable.jsx:9
+msgid "Plugins"
+msgstr "Dodatci"
+
+#: assets/admin/app/components/FileListTable.jsx:10
+msgid "External"
+msgstr ""
+
+#: assets/admin/app/components/FileListTable.jsx:14
+msgid "Everywhere"
+msgstr ""
+
+#: assets/admin/app/components/FileListTable.jsx:15
+msgid "Only on selected URLs"
+msgstr ""
+
+#: assets/admin/app/components/FileListTable.jsx:16
+msgid "Everywhere except selected URLs"
+msgstr ""
+
+#: assets/admin/app/components/FileListTable.jsx:35
+msgid ""
+"No files collected yet. Enable caching or an optimization, visit your site, "
+"then choose \"Update files list\"."
+msgstr ""
+
+#: assets/admin/app/components/FileListTable.jsx:75
+msgid "File"
+msgstr "Datoteka"
+
+#: assets/admin/app/components/FileListTable.jsx:76
+#: assets/admin/app/tabs/CloudflareTab.jsx:113
+#: assets/admin/app/tabs/HtmlTab.jsx:45
+msgid "Minify"
+msgstr "Umanji"
+
+#: assets/admin/app/components/FileListTable.jsx:77
+msgid "Inline"
+msgstr "Umetni"
+
+#: assets/admin/app/components/FileListTable.jsx:78
+msgid "Combine"
+msgstr "Kombinirati"
+
+#: assets/admin/app/components/FileListTable.jsx:79
+msgid "Disable"
+msgstr "Onesposobiti"
+
+#: assets/admin/app/components/FileListTable.jsx:84
+msgid "Apply to all"
+msgstr ""
+
+#: assets/admin/app/components/FileListTable.jsx:125
+#: assets/admin/app/components/FileListTable.jsx:132
+#: assets/admin/app/tabs/CacheTab.jsx:89
+#: assets/admin/app/tabs/CloudflareTab.jsx:90
+#: assets/admin/app/tabs/CssTab.jsx:160 assets/admin/app/tabs/HtmlTab.jsx:26
+#: assets/admin/app/tabs/JsTab.jsx:96 assets/admin/app/tabs/MediaTab.jsx:160
+#: assets/admin/app/tabs/MediaTab.jsx:177
+msgid "Add URL"
+msgstr "Dodaj URL"
+
+#: assets/admin/app/components/ImageSizes.jsx:35
+msgid "Image size added."
+msgstr ""
+
+#: assets/admin/app/components/ImageSizes.jsx:37
+msgid "Could not add size."
+msgstr ""
+
+#: assets/admin/app/components/ImageSizes.jsx:43
+msgid "Remove this image size?"
+msgstr ""
+
+#: assets/admin/app/components/ImageSizes.jsx:49
+msgid "Could not remove size."
+msgstr ""
+
+#: assets/admin/app/components/ImageSizes.jsx:55
+msgid "Restore default image sizes?"
+msgstr ""
+
+#: assets/admin/app/components/ImageSizes.jsx:59
+msgid "Defaults restored."
+msgstr ""
+
+#: assets/admin/app/components/ImageSizes.jsx:64
+msgid "Regenerate all thumbnails? This may take a while."
+msgstr ""
+
+#: assets/admin/app/components/ImageSizes.jsx:81
+msgid "Thumbnails regenerated."
+msgstr ""
+
+#: assets/admin/app/components/ImageSizes.jsx:83
+msgid "Regeneration failed."
+msgstr ""
+
+#: assets/admin/app/components/ImageSizes.jsx:96
+msgid "Name"
+msgstr "Naziv"
+
+#: assets/admin/app/components/ImageSizes.jsx:97
+msgid "W"
+msgstr ""
+
+#: assets/admin/app/components/ImageSizes.jsx:98
+msgid "H"
+msgstr ""
+
+#: assets/admin/app/components/ImageSizes.jsx:99
+#: assets/admin/app/components/ImageSizes.jsx:153
+msgid "Crop"
+msgstr "Izreži"
+
+#: assets/admin/app/components/ImageSizes.jsx:109
+msgid "Yes"
+msgstr "Da"
+
+#: assets/admin/app/components/ImageSizes.jsx:129
+msgid "name"
+msgstr ""
+
+#: assets/admin/app/components/ImageSizes.jsx:159
+msgid "Cancel"
+msgstr ""
+
+#: assets/admin/app/components/ImageSizes.jsx:165
+msgid "Add size"
+msgstr "Dodaj veličinu"
+
+#: assets/admin/app/components/ImageSizes.jsx:168
+msgid "Restore defaults"
+msgstr ""
+
+#: assets/admin/app/components/ImageSizes.jsx:176
+msgid "Regenerating"
+msgstr ""
+
+#: assets/admin/app/components/ImageSizes.jsx:177
+msgid "Regenerate thumbnails"
+msgstr "Regenerirajte umanjene slike"
+
+#: assets/admin/app/components/SaveButton.jsx:12
+msgid "Saving…"
+msgstr ""
+
+#: assets/admin/app/components/SaveButton.jsx:12
+msgid "Save changes"
+msgstr "Spremi izmjene"
+
+#: assets/admin/app/hooks/useSettingsGroup.js:46
+msgid "Settings saved."
+msgstr ""
+
+#: assets/admin/app/hooks/useSettingsGroup.js:49
+msgid "Could not save settings."
+msgstr ""
+
+#: assets/admin/app/lib/format.js:6
+msgid "just now"
+msgstr ""
+
+#. translators: %d: number of minutes.
+#: assets/admin/app/lib/format.js:11
+msgid "%d minute ago"
+msgid_plural "%d minutes ago"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#. translators: %d: number of hours.
+#: assets/admin/app/lib/format.js:16
+msgid "%d hour ago"
+msgid_plural "%d hours ago"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#. translators: %d: number of days.
+#: assets/admin/app/lib/format.js:20
+msgid "%d day ago"
+msgid_plural "%d days ago"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: assets/admin/app/tabs/AddonsTab.jsx:39
+msgid ""
+"Integrate your Cloudflare account to purge cache and manage zone settings."
+msgstr ""
+
+#: assets/admin/app/tabs/AddonsTab.jsx:43
+msgid "Configure Cloudflare"
+msgstr ""
+
+#: assets/admin/app/tabs/AddonsTab.jsx:50
+#: assets/admin/app/tabs/SettingsTab.jsx:24
+msgid "Varnish"
+msgstr "Varnish"
+
+#: assets/admin/app/tabs/AddonsTab.jsx:54
+msgid "Automatically purge Varnish whenever the cache is cleared."
+msgstr ""
+
+#: assets/admin/app/tabs/AddonsTab.jsx:58
+msgid "Custom host"
+msgstr "Prilagođeni URL host"
+
+#: assets/admin/app/tabs/AddonsTab.jsx:70
+msgid "Dynamic page prefetch"
+msgstr ""
+
+#: assets/admin/app/tabs/AddonsTab.jsx:74
+msgid "Prefetch a page as soon as a visitor hovers over its link."
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:19
+msgid "Minutes"
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:20
+msgid "Hours"
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:21
+msgid "Days"
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:24 assets/admin/app/tabs/HtmlTab.jsx:11
+msgid ""
+"Use {numbers}, {letters}, {any} or {all} to match dynamic parts of a URL."
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:45
+#: assets/admin/app/tabs/OverviewTab.jsx:59
+msgid "Cache cleared."
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:47
+#: assets/admin/app/tabs/OverviewTab.jsx:61
+msgid "Could not clear the cache."
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:54
+msgid "HTML files"
+msgstr "HTML datoteke"
+
+#: assets/admin/app/tabs/CacheTab.jsx:55
+msgid "CSS files"
+msgstr "CSS datoteke"
+
+#: assets/admin/app/tabs/CacheTab.jsx:56
+msgid "JavaScript files"
+msgstr "JavaScript datoteke"
+
+#: assets/admin/app/tabs/CacheTab.jsx:61
+msgid "Cache statistics"
+msgstr "Statistika predmemorije"
+
+#: assets/admin/app/tabs/CacheTab.jsx:70
+msgid "Total"
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:80
+#: assets/admin/app/tabs/OverviewTab.jsx:118
+msgid "Clearing…"
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:80
+#: assets/admin/app/tabs/OverviewTab.jsx:118
+msgid "Clear cache"
+msgstr "Očisti predmemeoriju"
+
+#: assets/admin/app/tabs/CacheTab.jsx:84
+msgid "Exclude URL(s) from cache"
+msgstr "Izuzimanje URL-ova iz predmemorije"
+
+#: assets/admin/app/tabs/CacheTab.jsx:94
+msgid "Exclude User Agent(s) from cache"
+msgstr "Izuzmite korisničke agente iz predmemorije"
+
+#: assets/admin/app/tabs/CacheTab.jsx:98
+msgid "Add User Agent"
+msgstr "Dodaj korisničkog agenta"
+
+#: assets/admin/app/tabs/CacheTab.jsx:104
+msgid "Exclude search engines"
+msgstr "Izuzmi tražilice"
+
+#: assets/admin/app/tabs/CacheTab.jsx:105
+msgid "Google, Bing and other crawlers bypass the cache."
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:115
+msgid "Enable cache"
+msgstr "Omogući predmemoriju"
+
+#: assets/admin/app/tabs/CacheTab.jsx:119
+msgid "Reduces server response time by serving static HTML files to visitors."
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:128
+msgid "Mobile cache"
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:132
+msgid "Separate cache for mobile devices"
+msgstr "Odvojite predmemoriju za mobilne uređaje"
+
+#: assets/admin/app/tabs/CacheTab.jsx:136
+msgid "Clear cache after"
+msgstr "Očisti predmemoriju nakon"
+
+#: assets/admin/app/tabs/CacheTab.jsx:151
+msgid "Clear cache when"
+msgstr "Očisti predmemoriju kada"
+
+#: assets/admin/app/tabs/CacheTab.jsx:155
+msgid "A post or page is published or updated"
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:160
+msgid "A post or page is deleted"
+msgstr "Stranica ili post je izbrisan"
+
+#: assets/admin/app/tabs/CacheTab.jsx:165
+msgid "WP Performance settings are saved"
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:169
+msgid "Clear cache options"
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:173
+msgid "Keep generated CSS/JS files when clearing the cache"
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:177
+msgid "Query strings"
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:181
+msgid "Cache URLs with query strings"
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:182
+msgid ""
+"Off (recommended): tracking params (utm, gclid, fbclid…) are ignored so only "
+"clean URLs are cached."
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:190
+msgid "Cache preloading"
+msgstr "Predučitavanje predmemorije"
+
+#: assets/admin/app/tabs/CacheTab.jsx:191
+msgid "Enter the path to an XML sitemap used to preload the cache."
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:200
+msgid "Add Sitemap"
+msgstr "Dodaj XML mapu stranice"
+
+#: assets/admin/app/tabs/CacheTab.jsx:208
+msgid "Leverage browser caching"
+msgstr "Iskoristite predmemoriju preglednika"
+
+#: assets/admin/app/tabs/CacheTab.jsx:212
+msgid ""
+"Sets HTTP expiry headers so returning visitors load resources from their "
+"browser."
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:218
+msgid "Gzip compression"
+msgstr ""
+
+#: assets/admin/app/tabs/CacheTab.jsx:222
+msgid "Compresses resources before sending them to the browser."
+msgstr ""
+
+#: assets/admin/app/tabs/CdnTab.jsx:18
+msgid "Exclude file(s) from CDN"
+msgstr "Izuzmi datoteke iz CDN-a"
+
+#: assets/admin/app/tabs/CdnTab.jsx:23 assets/admin/app/tabs/CssTab.jsx:91
+#: assets/admin/app/tabs/JsTab.jsx:56
+msgid "Add file"
+msgstr "Dodaj datoteku"
+
+#: assets/admin/app/tabs/CdnTab.jsx:26
+msgid "Use {numbers}, {letters} or {any} to match dynamic parts of a URL."
+msgstr ""
+
+#: assets/admin/app/tabs/CdnTab.jsx:34
+msgid "Enable CDN"
+msgstr "Omogući CDN"
+
+#: assets/admin/app/tabs/CdnTab.jsx:38
+msgid ""
+"Rewrites static asset URLs (CSS, JavaScript, images) to your CDN hostname."
+msgstr ""
+
+#: assets/admin/app/tabs/CdnTab.jsx:46
+msgid "CDN hostname"
+msgstr "Naziv CDN poslužitelja"
+
+#: assets/admin/app/tabs/CloudflareTab.jsx:16
+#: assets/admin/app/tabs/HtmlTab.jsx:54
+#: assets/admin/app/tabs/OverviewTab.jsx:35
+msgid "Aggressive"
+msgstr ""
+
+#: assets/admin/app/tabs/CloudflareTab.jsx:17
+msgid "Simplified (ignore query string)"
+msgstr ""
+
+#: assets/admin/app/tabs/CloudflareTab.jsx:18
+msgid "Basic (no query string)"
+msgstr ""
+
+#: assets/admin/app/tabs/CloudflareTab.jsx:35
+msgid "complete."
+msgstr ""
+
+#: assets/admin/app/tabs/CloudflareTab.jsx:37
+#: assets/admin/app/tabs/CloudflareTab.jsx:40
+msgid "Cloudflare error."
+msgstr ""
+
+#: assets/admin/app/tabs/CloudflareTab.jsx:48
+msgid "Respect existing headers"
+msgstr ""
+
+#: assets/admin/app/tabs/CloudflareTab.jsx:52
+msgid "Credentials"
+msgstr ""
+
+#: assets/admin/app/tabs/CloudflareTab.jsx:53
+msgid "Account email"
+msgstr "E-pošta računa"
+
+#: assets/admin/app/tabs/CloudflareTab.jsx:56
+msgid "API key"
+msgstr "API ključ"
+
+#: assets/admin/app/tabs/CloudflareTab.jsx:59
+msgid "Zone ID"
+msgstr "ID Zone"
+
+#: assets/admin/app/tabs/CloudflareTab.jsx:67
+msgid "Purge cache"
+msgstr ""
+
+#: assets/admin/app/tabs/CloudflareTab.jsx:73
+#: assets/admin/app/tabs/CloudflareTab.jsx:75
+msgid "Purge everything"
+msgstr "Očisti sve"
+
+#: assets/admin/app/tabs/CloudflareTab.jsx:75
+msgid "Purging…"
+msgstr ""
+
+#: assets/admin/app/tabs/CloudflareTab.jsx:81
+#: assets/admin/app/tabs/CloudflareTab.jsx:83
+msgid "Purge custom URLs"
+msgstr ""
+
+#: assets/admin/app/tabs/CloudflareTab.jsx:86
+msgid "Custom URLs to purge"
+msgstr ""
+
+#: assets/admin/app/tabs/CloudflareTab.jsx:95
+msgid "Zone settings"
+msgstr ""
+
+#: assets/admin/app/tabs/CloudflareTab.jsx:96
+msgid "Development mode"
+msgstr "Uključi development mode"
+
+#: assets/admin/app/tabs/CloudflareTab.jsx:100
+msgid "Temporarily bypass the Cloudflare cache (auto-off after 3h)"
+msgstr ""
+
+#: assets/admin/app/tabs/CloudflareTab.jsx:103
+msgid "Cache level"
+msgstr "Level predmemorija"
+
+#: assets/admin/app/tabs/CloudflareTab.jsx:106
+msgid "Browser cache TTL"
+msgstr ""
+
+#: assets/admin/app/tabs/CloudflareTab.jsx:118
+msgid "Rocket Loader"
+msgstr "Rocket Loader"
+
+#: assets/admin/app/tabs/CloudflareTab.jsx:119
+msgid "Asynchronous JavaScript loading"
+msgstr ""
+
+#: assets/admin/app/tabs/CloudflareTab.jsx:121
+msgid "Brotli"
+msgstr "Brotli"
+
+#: assets/admin/app/tabs/CloudflareTab.jsx:122
+msgid "Brotli compression"
+msgstr ""
+
+#: assets/admin/app/tabs/CssTab.jsx:19
+msgid "Default"
+msgstr ""
+
+#: assets/admin/app/tabs/CssTab.jsx:41 assets/admin/app/tabs/JsTab.jsx:30
+msgid "File list updated."
+msgstr ""
+
+#: assets/admin/app/tabs/CssTab.jsx:43 assets/admin/app/tabs/JsTab.jsx:32
+msgid "Could not update the file list."
+msgstr ""
+
+#: assets/admin/app/tabs/CssTab.jsx:51
+msgid "CSS settings"
+msgstr "CSS postavke"
+
+#: assets/admin/app/tabs/CssTab.jsx:52
+msgid "Minify inline CSS"
+msgstr "Smanji umetnuti  CSS"
+
+#: assets/admin/app/tabs/CssTab.jsx:55
+msgid "Remove unused CSS"
+msgstr ""
+
+#: assets/admin/app/tabs/CssTab.jsx:59
+msgid "Inline only used CSS; load the rest async"
+msgstr ""
+
+#: assets/admin/app/tabs/CssTab.jsx:60
+msgid ""
+"Heuristic: keeps rules whose classes/ids appear on the page. The full CSS "
+"still loads async as a fallback."
+msgstr ""
+
+#: assets/admin/app/tabs/CssTab.jsx:68
+msgid "Used-CSS safelist"
+msgstr ""
+
+#: assets/admin/app/tabs/CssTab.jsx:69
+msgid "Selectors to always keep, e.g. classes toggled by JavaScript."
+msgstr ""
+
+#: assets/admin/app/tabs/CssTab.jsx:74
+msgid "Add selector"
+msgstr ""
+
+#: assets/admin/app/tabs/CssTab.jsx:78
+msgid "Asynchronous CSS"
+msgstr ""
+
+#: assets/admin/app/tabs/CssTab.jsx:82
+msgid "Load CSS without render-blocking"
+msgstr ""
+
+#: assets/admin/app/tabs/CssTab.jsx:87
+msgid "Exclude from async"
+msgstr ""
+
+#: assets/admin/app/tabs/CssTab.jsx:95
+msgid "Critical CSS"
+msgstr ""
+
+#: assets/admin/app/tabs/CssTab.jsx:96
+msgid ""
+"Above-the-fold CSS, inlined and applied before the async stylesheet loads."
+msgstr ""
+
+#: assets/admin/app/tabs/CssTab.jsx:107
+msgid "Google Fonts"
+msgstr ""
+
+#: assets/admin/app/tabs/CssTab.jsx:111
+msgid "Combine Google Fonts into one request"
+msgstr ""
+
+#: assets/admin/app/tabs/CssTab.jsx:116
+msgid "Host Google Fonts locally and preload them"
+msgstr ""
+
+#: assets/admin/app/tabs/CssTab.jsx:119
+msgid "Font display"
+msgstr ""
+
+#: assets/admin/app/tabs/CssTab.jsx:126 assets/admin/app/tabs/JsTab.jsx:82
+msgid "Logged-in users"
+msgstr ""
+
+#: assets/admin/app/tabs/CssTab.jsx:130
+msgid "Disable CSS optimization for logged-in users"
+msgstr "Onemogućite CSS optimizaciju za prijavljene korisnike"
+
+#: assets/admin/app/tabs/CssTab.jsx:135
+msgid "Resource hints"
+msgstr ""
+
+#: assets/admin/app/tabs/CssTab.jsx:137
+msgid "DNS prefetch"
+msgstr ""
+
+#: assets/admin/app/tabs/CssTab.jsx:138
+msgid "Origins to resolve early, e.g. https://fonts.gstatic.com"
+msgstr ""
+
+#: assets/admin/app/tabs/CssTab.jsx:143 assets/admin/app/tabs/CssTab.jsx:150
+msgid "Add origin"
+msgstr ""
+
+#: assets/admin/app/tabs/CssTab.jsx:146
+msgid "Preconnect"
+msgstr ""
+
+#: assets/admin/app/tabs/CssTab.jsx:155
+msgid "Exclude URL(s) from CSS optimization"
+msgstr "Izuzimanje URL-ova iz CSS optimizacije"
+
+#: assets/admin/app/tabs/CssTab.jsx:177 assets/admin/app/tabs/JsTab.jsx:113
+msgid "Updating…"
+msgstr ""
+
+#: assets/admin/app/tabs/CssTab.jsx:177 assets/admin/app/tabs/JsTab.jsx:113
+msgid "Update files list"
+msgstr "Ažuriraj popis datoteka"
+
+#: assets/admin/app/tabs/DatabaseTab.jsx:14
+msgid "Not scheduled"
+msgstr "Nije zakazano"
+
+#: assets/admin/app/tabs/DatabaseTab.jsx:15
+msgid "Daily"
+msgstr "Dnevno"
+
+#: assets/admin/app/tabs/DatabaseTab.jsx:16
+msgid "Weekly"
+msgstr "Tjedno"
+
+#: assets/admin/app/tabs/DatabaseTab.jsx:17
+msgid "Monthly"
+msgstr "Mjesečno"
+
+#: assets/admin/app/tabs/DatabaseTab.jsx:21
+msgid "Trash"
+msgstr "Smeće"
+
+#: assets/admin/app/tabs/DatabaseTab.jsx:21
+msgid "Trashed posts and pages."
+msgstr ""
+
+#: assets/admin/app/tabs/DatabaseTab.jsx:22
+msgid "Spam"
+msgstr "Spam"
+
+#: assets/admin/app/tabs/DatabaseTab.jsx:22
+msgid "Spam and trashed comments."
+msgstr ""
+
+#: assets/admin/app/tabs/DatabaseTab.jsx:23
+msgid "Revisions"
+msgstr "Revizije"
+
+#: assets/admin/app/tabs/DatabaseTab.jsx:23
+msgid "Stored post revisions."
+msgstr ""
+
+#: assets/admin/app/tabs/DatabaseTab.jsx:24
+msgid "Transients"
+msgstr "Privremene postavke"
+
+#: assets/admin/app/tabs/DatabaseTab.jsx:24
+msgid "Expired and stale transients."
+msgstr ""
+
+#: assets/admin/app/tabs/DatabaseTab.jsx:25
+msgid "Auto Drafts"
+msgstr "Skice"
+
+#: assets/admin/app/tabs/DatabaseTab.jsx:25
+msgid "Auto-saved draft posts."
+msgstr ""
+
+#: assets/admin/app/tabs/DatabaseTab.jsx:26
+msgid "Scheduled tasks"
+msgstr "Zakazani zadaci"
+
+#: assets/admin/app/tabs/DatabaseTab.jsx:26
+msgid "Orphaned cron events."
+msgstr ""
+
+#: assets/admin/app/tabs/DatabaseTab.jsx:51
+msgid "Back up your database first. Run this cleanup now?"
+msgstr ""
+
+#: assets/admin/app/tabs/DatabaseTab.jsx:59
+msgid "Cleanup complete."
+msgstr ""
+
+#: assets/admin/app/tabs/DatabaseTab.jsx:61
+msgid "Cleanup failed."
+msgstr ""
+
+#: assets/admin/app/tabs/DatabaseTab.jsx:70
+msgid "Automatic database cleanup"
+msgstr "Automatsko čišćenje baze podataka"
+
+#: assets/admin/app/tabs/DatabaseTab.jsx:71
+msgid "Schedule"
+msgstr "Raspored"
+
+#: assets/admin/app/tabs/DatabaseTab.jsx:78
+msgid "Next run"
+msgstr "Sljedeće čišćenje"
+
+#: assets/admin/app/tabs/DatabaseTab.jsx:82
+msgid "Not set"
+msgstr "Nije postavljeno"
+
+#: assets/admin/app/tabs/DatabaseTab.jsx:103
+#: assets/admin/app/tabs/DatabaseTab.jsx:133
+msgid "Cleaning…"
+msgstr ""
+
+#: assets/admin/app/tabs/DatabaseTab.jsx:103
+msgid "Delete"
+msgstr "Izbriši"
+
+#: assets/admin/app/tabs/DatabaseTab.jsx:112
+msgid "Enable automatic cleanup"
+msgstr "Omogući automatsko čišćenje"
+
+#: assets/admin/app/tabs/DatabaseTab.jsx:121
+msgid ""
+"Back up your database before running any cleanup. These actions cannot be "
+"undone."
+msgstr ""
+
+#: assets/admin/app/tabs/DatabaseTab.jsx:134
+msgid "Delete all"
+msgstr "Izbrisati sve"
+
+#: assets/admin/app/tabs/HtmlTab.jsx:21
+msgid "Exclude URL(s) from HTML optimization"
+msgstr ""
+
+#: assets/admin/app/tabs/HtmlTab.jsx:35
+msgid "HTML optimization"
+msgstr ""
+
+#: assets/admin/app/tabs/HtmlTab.jsx:39
+msgid "Enable HTML optimization"
+msgstr ""
+
+#: assets/admin/app/tabs/HtmlTab.jsx:49
+msgid "Normal"
+msgstr ""
+
+#: assets/admin/app/tabs/HtmlTab.jsx:58
+msgid "Remove comments"
+msgstr ""
+
+#: assets/admin/app/tabs/HtmlTab.jsx:62
+msgid "Remove HTML comments (conditional comments preserved)"
+msgstr ""
+
+#: assets/admin/app/tabs/HtmlTab.jsx:66
+msgid "Remove type attribute"
+msgstr ""
+
+#: assets/admin/app/tabs/HtmlTab.jsx:70
+msgid "Remove type=\"text/css\" from link tags"
+msgstr ""
+
+#: assets/admin/app/tabs/HtmlTab.jsx:75
+msgid "Remove type=\"text/javascript\" from script tags"
+msgstr ""
+
+#: assets/admin/app/tabs/HtmlTab.jsx:79
+msgid "Remove quotes"
+msgstr ""
+
+#: assets/admin/app/tabs/HtmlTab.jsx:83
+msgid "Remove quotes from attributes where possible"
+msgstr ""
+
+#: assets/admin/app/tabs/JsTab.jsx:40
+msgid "JavaScript settings"
+msgstr "JavaScript postavke"
+
+#: assets/admin/app/tabs/JsTab.jsx:41
+msgid "Minify inline JavaScript"
+msgstr "Smanjite umetnuti JavaScript"
+
+#: assets/admin/app/tabs/JsTab.jsx:44
+msgid "Asynchronous JavaScript"
+msgstr ""
+
+#: assets/admin/app/tabs/JsTab.jsx:48
+msgid "Defer JavaScript to remove render-blocking"
+msgstr ""
+
+#: assets/admin/app/tabs/JsTab.jsx:52
+msgid "Exclude from defer"
+msgstr ""
+
+#: assets/admin/app/tabs/JsTab.jsx:61
+msgid "Delay until interaction"
+msgstr ""
+
+#: assets/admin/app/tabs/JsTab.jsx:65
+msgid "Delay JavaScript until user interaction"
+msgstr ""
+
+#: assets/admin/app/tabs/JsTab.jsx:66
+msgid ""
+"Biggest TBT/INP win: scripts run on first scroll, click, or key press. "
+"Exclude anything that must run immediately."
+msgstr ""
+
+#: assets/admin/app/tabs/JsTab.jsx:73
+msgid "Exclude from delay"
+msgstr ""
+
+#: assets/admin/app/tabs/JsTab.jsx:86
+msgid "Disable JavaScript optimization for logged-in users"
+msgstr "Onemogućite JavaScript optimizaciju za prijavljene korisnike"
+
+#: assets/admin/app/tabs/JsTab.jsx:91
+msgid "Exclude URL(s) from JavaScript optimization"
+msgstr "Izuzimanje URL-ova iz JavaScript optimizacije"
+
+#: assets/admin/app/tabs/MediaTab.jsx:24
+msgid "Convert all images to WebP/AVIF? This can take a while."
+msgstr ""
+
+#: assets/admin/app/tabs/MediaTab.jsx:38
+msgid "Images converted."
+msgstr ""
+
+#: assets/admin/app/tabs/MediaTab.jsx:40
+msgid "Conversion failed."
+msgstr ""
+
+#: assets/admin/app/tabs/MediaTab.jsx:48
+msgid "Emoji & Embeds"
+msgstr ""
+
+#: assets/admin/app/tabs/MediaTab.jsx:49
+msgid "Emoji"
+msgstr ""
+
+#: assets/admin/app/tabs/MediaTab.jsx:53
+msgid "Disable WordPress emoji"
+msgstr ""
+
+#: assets/admin/app/tabs/MediaTab.jsx:56
+msgid "Embeds"
+msgstr "Embeds"
+
+#: assets/admin/app/tabs/MediaTab.jsx:60
+msgid "Disable oEmbed discovery"
+msgstr ""
+
+#: assets/admin/app/tabs/MediaTab.jsx:65
+msgid "Image sizes"
+msgstr "Veličine slika"
+
+#: assets/admin/app/tabs/MediaTab.jsx:73
+msgid "Images"
+msgstr "Slike"
+
+#: assets/admin/app/tabs/MediaTab.jsx:74 assets/admin/app/tabs/MediaTab.jsx:166
+msgid "Lazy load"
+msgstr "Lazy load"
+
+#: assets/admin/app/tabs/MediaTab.jsx:78
+msgid "Lazy load images"
+msgstr "Lazy load slika"
+
+#: assets/admin/app/tabs/MediaTab.jsx:79
+msgid "Defer offscreen images with native loading=\"lazy\"."
+msgstr ""
+
+#: assets/admin/app/tabs/MediaTab.jsx:86
+msgid "Disable lazy load on mobile devices"
+msgstr "Onemogući lazy load na mobilnim uređajima"
+
+#: assets/admin/app/tabs/MediaTab.jsx:91
+msgid "Responsive images"
+msgstr "Responzivne  slike"
+
+#: assets/admin/app/tabs/MediaTab.jsx:95
+msgid "Force srcset on images"
+msgstr ""
+
+#: assets/admin/app/tabs/MediaTab.jsx:98
+msgid "Image dimensions"
+msgstr ""
+
+#: assets/admin/app/tabs/MediaTab.jsx:102
+msgid "Add missing width/height to prevent layout shift (CLS)"
+msgstr ""
+
+#: assets/admin/app/tabs/MediaTab.jsx:106
+msgid "Preload LCP images"
+msgstr ""
+
+#: assets/admin/app/tabs/MediaTab.jsx:107
+msgid ""
+"Number of above-the-fold images to preload (fetchpriority=high) and skip "
+"from lazy load. 0 = off."
+msgstr ""
+
+#: assets/admin/app/tabs/MediaTab.jsx:120
+msgid "Next-gen images"
+msgstr ""
+
+#: assets/admin/app/tabs/MediaTab.jsx:121
+msgid ""
+"Serve WebP/AVIF via <picture> when a converted file exists. New uploads "
+"convert automatically."
+msgstr ""
+
+#: assets/admin/app/tabs/MediaTab.jsx:126
+msgid "Serve WebP/AVIF images"
+msgstr ""
+
+#: assets/admin/app/tabs/MediaTab.jsx:136
+msgid "Converting"
+msgstr ""
+
+#: assets/admin/app/tabs/MediaTab.jsx:137
+msgid "Convert existing images"
+msgstr ""
+
+#: assets/admin/app/tabs/MediaTab.jsx:141
+msgid "Exclude by name"
+msgstr ""
+
+#: assets/admin/app/tabs/MediaTab.jsx:145
+msgid "Add image"
+msgstr ""
+
+#: assets/admin/app/tabs/MediaTab.jsx:148
+msgid "Exclude containers"
+msgstr ""
+
+#: assets/admin/app/tabs/MediaTab.jsx:148
+msgid "CSS id or class, e.g. #hero or .no-lazy"
+msgstr ""
+
+#: assets/admin/app/tabs/MediaTab.jsx:152
+msgid "Add container"
+msgstr ""
+
+#: assets/admin/app/tabs/MediaTab.jsx:155
+#: assets/admin/app/tabs/MediaTab.jsx:173
+msgid "Exclude URL(s)"
+msgstr "Izuzmi URL"
+
+#: assets/admin/app/tabs/MediaTab.jsx:165
+msgid "Videos"
+msgstr "Video"
+
+#: assets/admin/app/tabs/MediaTab.jsx:170
+msgid "Lazy load videos & iframes"
+msgstr ""
+
+#: assets/admin/app/tabs/OverviewTab.jsx:18
+msgid "Safe"
+msgstr ""
+
+#: assets/admin/app/tabs/OverviewTab.jsx:19
+msgid ""
+"Page cache, GZIP, browser caching and lazy loading. Works with virtually any "
+"theme."
+msgstr ""
+
+#: assets/admin/app/tabs/OverviewTab.jsx:26
+msgid "Balanced"
+msgstr ""
+
+#: assets/admin/app/tabs/OverviewTab.jsx:28
+msgid ""
+"Adds deferred CSS/JS, hosted fonts and modern image formats. Recommended for "
+"most sites."
+msgstr ""
+
+#: assets/admin/app/tabs/OverviewTab.jsx:36
+msgid ""
+"Every optimization on, including delayed JavaScript and unused-CSS removal. "
+"Test your site after applying."
+msgstr ""
+
+#: assets/admin/app/tabs/OverviewTab.jsx:68
+msgid "Apply this preset? It will overwrite the related settings."
+msgstr ""
+
+#: assets/admin/app/tabs/OverviewTab.jsx:74
+msgid "Preset applied. Reloading…"
+msgstr ""
+
+#: assets/admin/app/tabs/OverviewTab.jsx:77
+msgid "Could not apply the preset."
+msgstr ""
+
+#: assets/admin/app/tabs/OverviewTab.jsx:90
+msgid "Cache status"
+msgstr ""
+
+#: assets/admin/app/tabs/OverviewTab.jsx:94
+msgid "Active"
+msgstr ""
+
+#: assets/admin/app/tabs/OverviewTab.jsx:95
+msgid "Disabled"
+msgstr ""
+
+#: assets/admin/app/tabs/OverviewTab.jsx:100
+msgid "Cached pages"
+msgstr ""
+
+#: assets/admin/app/tabs/OverviewTab.jsx:106
+msgid "Cache size"
+msgstr ""
+
+#: assets/admin/app/tabs/OverviewTab.jsx:123
+msgid "Quick setup"
+msgstr ""
+
+#: assets/admin/app/tabs/OverviewTab.jsx:125
+msgid "Apply a curated configuration in one click, then fine-tune any tab."
+msgstr ""
+
+#: assets/admin/app/tabs/OverviewTab.jsx:137
+msgid "Recommended"
+msgstr ""
+
+#: assets/admin/app/tabs/OverviewTab.jsx:149
+msgid "Applying…"
+msgstr ""
+
+#: assets/admin/app/tabs/OverviewTab.jsx:150
+msgid "Apply"
+msgstr ""
+
+#: assets/admin/app/tabs/OverviewTab.jsx:157
+msgid "Active optimizations"
+msgstr ""
+
+#: assets/admin/app/tabs/OverviewTab.jsx:173
+msgid "Health checks"
+msgstr ""
+
+#: assets/admin/app/tabs/Placeholder.jsx:8
+msgid "is being rebuilt in the next step."
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:25
+msgid "Prefetch"
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:60
+msgid "Log cleared."
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:62
+msgid "Could not clear the log."
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:67
+msgid ""
+"Restore this saved configuration? Your current settings will be replaced."
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:73
+msgid "Settings restored. Reloading…"
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:76
+msgid "Could not restore settings."
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:94
+msgid "Export failed."
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:106
+msgid "Settings imported. Reloading…"
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:109
+msgid "Import failed - invalid file."
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:119
+msgid "Restore points"
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:122
+msgid ""
+"The last five saved configurations appear here so you can roll back a change."
+msgstr ""
+
+#. translators: %s: settings group name.
+#: assets/admin/app/tabs/SettingsTab.jsx:137
+msgid "%s settings"
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:151
+msgid "Restoring…"
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:152
+msgid "Restore"
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:160
+msgid "About"
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:162
+msgid ""
+"Export your configuration to move it between sites, or import a saved "
+"configuration file."
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:173
+msgid "Import / Export"
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:174
+msgid "Export settings"
+msgstr "Izvezi postavke"
+
+#: assets/admin/app/tabs/SettingsTab.jsx:176
+msgid "Download settings file"
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:179
+msgid "Import settings"
+msgstr "Uvezi postavke"
+
+#: assets/admin/app/tabs/SettingsTab.jsx:190
+msgid "Nginx rules"
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:192
+msgid "Add these rules to your nginx server block, then reload nginx."
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:198
+msgid "Server"
+msgstr "Poslužitelj"
+
+#: assets/admin/app/tabs/SettingsTab.jsx:200
+msgid "Browser cache and gzip rules are written to .htaccess automatically."
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:207
+msgid "Redis object cache"
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:211
+msgid "Enable persistent object cache"
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:212
+msgid ""
+"Stores WordPress query and option lookups in Redis to cut database load. "
+"Installs an object-cache.php drop-in."
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:220
+msgid ""
+"No supported object cache backend was detected. Install and enable the Redis "
+"PHP extension to use a persistent object cache."
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:228
+msgid "Troubleshooting"
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:229
+msgid "Logging"
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:233
+msgid "Enable troubleshooting log"
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:234
+msgid "Records cache and optimization activity to help diagnose issues."
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:239
+msgid "Log file"
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:244
+msgid "The log is empty."
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:248
+msgid "Content refreshes automatically every 10 seconds."
+msgstr ""
+
+#: assets/admin/app/tabs/SettingsTab.jsx:251
+msgid "Clear log"
+msgstr ""
+
+#, fuzzy
+#~| msgid "Cloudflare credentials"
+#~ msgid "Cloudflare - purge everything"
+#~ msgstr "Cloudflare podaci"
+
+#~ msgid "Cloudflare API credentials not set"
+#~ msgstr "Cloudflare API podaci nisu postavljeni"
+
+#~ msgid ""
+#~ " Cloudflare cannot get zone details. Check your Cloudflare credentials"
+#~ msgstr ""
+#~ "Cloudflare ne može dobiti detalje zone. Provjerite Cloudflare podatke "
+#~ "računa"
+
+#, php-format
+#~ msgid ""
+#~ " Cloudflare zone %s is not activated. Please go to your Cloudflare "
+#~ "dashboard and activate it."
+#~ msgstr ""
+#~ "Cloudflare zona %s nije aktivirana. Idite u svoju Cloudflare nadzornu "
+#~ "ploču i aktivirajte je."
+
+#, php-format
+#~ msgid ""
+#~ " Cloudflare zone %s status is pending and these settings won't have any "
+#~ "effect on your website."
+#~ msgstr ""
+#~ "Cloudflare zona %s je na čekanju i ove postavke neće imati nikakvog "
+#~ "utjecaja na vašu web-lokaciju."
+
+#~ msgid " Cloudflare development mode not set"
+#~ msgstr "Cloudflare razvojni mod nije postavljen"
+
+#~ msgid " Cloudflare cache level not set"
+#~ msgstr "Cloudflare level predmemorije nije postavljen"
+
+#~ msgid " Cloudflare browser cache expiration not set"
+#~ msgstr "Cloudflare istek predmemorije preglednika nije postavljen"
+
+#~ msgid " Cloudflare minify not set"
+#~ msgstr "Cloudflare minifikacija nije postavljena"
+
+#~ msgid " Cloudflare Rocket loader mode not set"
+#~ msgstr " Cloudflare Rocket loader mod nije postavljen"
+
+#~ msgid " Cloudflare Brotli mode not set"
+#~ msgstr " Cloudflare Brotli mod nije postavljen"
+
+#~ msgid "Cloudflare settings saved"
+#~ msgstr "Cloudflare postavke spremljene"
+
+#~ msgid "Integrate your Cloudflare account with this add-on."
+#~ msgstr "S ovim dodatkom integrirajte svoj račun za Cloudflare."
+
+#~ msgid "Enable"
+#~ msgstr "Omogući"
+
+#~ msgid "Caching"
+#~ msgstr "Predmemorija"
+
+#~ msgid "Purge Cache"
+#~ msgstr "Očisti predmemoriju"
+
+#~ msgid "Clear all Cloudflare cache"
+#~ msgstr "Očisti Cloudflare predmemoriju"
+
+#~ msgid "Temporarily activate development mode on your website."
+#~ msgstr "Privremeno uključuje development mode na stranici"
+
+#~ msgid "This setting will automatically turn off after 3 hours."
+#~ msgstr "Ova opcija će se automatski isključiti nakon 3 sata"
+
+#~ msgid "Aggressive - Standard"
+#~ msgstr "Agresivno - Standardno"
+
+#~ msgid "Simplified - Ignore query string"
+#~ msgstr "Pojednostavljeno"
+
+#~ msgid "Basic - No query string"
+#~ msgstr "Osnovno"
+
+#~ msgid ""
+#~ "Aggressive: Delivers a different resource each time the query string "
+#~ "changes."
+#~ msgstr ""
+#~ "Agresivno: isporučuje drugi resurs svaki put kad se niz upita promijeni."
+
+#~ msgid ""
+#~ "Simplified: Delivers the same resource to everyone independent of the "
+#~ "query string."
+#~ msgstr "Pojednostavljeno: donosi isti resurs svima neovisno o nizu upita."
+
+#~ msgid ""
+#~ "Basic: Only delivers resources from cache when there is no query string."
+#~ msgstr ""
+#~ "Osnovno: isporučuje samo resurse iz predmemorije kada nema niza upita."
+
+#~ msgid "Browser Cache Expiration"
+#~ msgstr "Istek predmemorije preglednika"
+
+#~ msgid "Respect Existing Headers"
+#~ msgstr "Poštuj postojeća zaglavlja"
+
+#~ msgid ""
+#~ "Browser cache TTL (in seconds) specifies how long CloudFlare-cached "
+#~ "resources will remain on your visitors computers."
+#~ msgstr ""
+#~ "Predmemorija preglednika TTL (u sekundama) određuje koliko dugo će "
+#~ "resursi spremljeni u CloudFlareu ostati na računalima posjetitelja."
+
+#~ msgid "The minimum TTL available depends on the plan level of the zone."
+#~ msgstr "Minimalna dostupnost TTL-a ovisi o planu zone koji koristite."
+
+#~ msgid "Content"
+#~ msgstr "Sadržaj"
+
+#~ msgid "Rocket Loader is a asynchronous JavaScript loader."
+#~ msgstr "Rocket Loader je asinkroni JavaScript loader."
+
+#~ msgid ""
+#~ "Speed up page load times for your visitor’s HTTPS traffic by applying "
+#~ "Brotli compression."
+#~ msgstr ""
+#~ "Ubrzajte vrijeme učitavanja stranice za HTTPS promet posjetitelja "
+#~ "primjenom Brotli kompresije."
+
+#~ msgid "Cloudflare credentials"
+#~ msgstr "Cloudflare podaci"
+
+#~ msgid "Dynamic page preload"
+#~ msgstr "Dinamičko pred učitavanje stranice"
+
+#~ msgid "Preloads a page right before a user clicks on link"
+#~ msgstr "Dinamički pred učitava stranice prije nego ih korisnik posjeti"
+
+#~ msgid "If Varnish runs on your server, you must activate this add-on."
+#~ msgstr ""
+#~ "Ako je Varnish instaliran na vašem poslužitelju, morate aktivirati ovu "
+#~ "opciju."
+
+#~ msgid "If you are using proxy, you may need this option"
+#~ msgstr "Ako koristite proxy, možda vam zatreba ova opcija"
+
+#, php-format
+#~ msgid "Add more features to %s with add-ons."
+#~ msgstr "Dodajte više mogućnosti %s s dodacima"
+
+#~ msgid "Reduces your server response time by serving static files to users"
+#~ msgstr ""
+#~ "Smanjuje vrijeme odgovora poslužitelja posluživanjem statičkih datoteka "
+#~ "korisnicima"
+
+#~ msgid ""
+#~ "Your web site is running on a Nginx server and some additional steps may "
+#~ "be required in order to use this option."
+#~ msgstr ""
+#~ "Vaša web stranica se nalazi na Nginx poslužitelju i možda će biti "
+#~ "potrebni dodatni koraci kako bi se koristila ova opcija."
+
+#~ msgid "Create a dedicated cache file for mobile devices"
+#~ msgstr "Spremite predmemoriju u zasebnu datoteku za mobilne uređaje"
+
+#~ msgid "minutes"
+#~ msgstr "minuta"
+
+#~ msgid "hours"
+#~ msgstr "sat"
+
+#~ msgid "days"
+#~ msgstr "dan"
+
+#~ msgid "A new post or page is published or updated"
+#~ msgstr "Nova stranica ili post je objavljen ili ažuriran"
+
+#~ msgid "settings are saved"
+#~ msgstr "postavke su spremljene"
+
+#~ msgid "Enter path to XML sitemap which will be used for cache preloading"
+#~ msgstr ""
+#~ "Unesite putanju do XML mape stranice koji će se koristiti za "
+#~ "predučitavanje predmemorije"
+
+#~ msgid ""
+#~ "Setting an expiry date in the HTTP headers for static resources instructs "
+#~ "the browser to load previously downloaded resources from local disk "
+#~ "rather than over the network"
+#~ msgstr ""
+#~ "Postavljanje datuma isteka u HTTP zaglavljima za statičke resurse upućuje "
+#~ "preglednik na učitavanje prethodno preuzetih resursa s lokalnog diska, a "
+#~ "ne preko mreže"
+
+#~ msgid "Enable gzip compression"
+#~ msgstr "Omogući gzip kompresiju"
+
+#~ msgid ""
+#~ "Compressing resources with gzip reduce the number of bytes sent over the "
+#~ "network"
+#~ msgstr ""
+#~ "Komprimiranje resursa pomoću gzip-a smanjuje broj bajtova poslanih preko "
+#~ "mreže"
+
+#~ msgid "Total cache size"
+#~ msgstr "Ukupna veličina predmemorije"
+
+#, php-format
+#~ msgid "Remove %s from excluded URL(s)?"
+#~ msgstr "Makni %s s liste izuzetih URL-ova"
+
+#~ msgid "Use {numbers} to match only numbers"
+#~ msgstr "Koristite {numbers} za podudaranje samo brojeva"
+
+#~ msgid "Use {letters} to match only letters"
+#~ msgstr "Koristite {letters} za podudaranje samo slova"
+
+#~ msgid "Use {any} to match any string"
+#~ msgstr "Koristite {any} za podudaranje bilo kojeg niza"
+
+#~ msgid "Use {all} to match all"
+#~ msgstr "Koristite {all} za podudaranje bilo kojeg niza"
+
+#~ msgid ""
+#~ "All URL(s) of static files ( CSS, JavaScript and Images ) will be "
+#~ "rewritten to the CDN hostname you provide. "
+#~ msgstr ""
+#~ "Svi URL-ovi statičkih datoteka (CSS, JavaScript i slike) bit će "
+#~ "promijenjeni u naziv CDN poslužitelja koji navedete."
+
+#~ msgid "Update all files in list below"
+#~ msgstr "Ažurirajte sve datoteke na popisu u nastavku"
+
+#~ msgid "External resources"
+#~ msgstr "Vanjski resursi"
+
+#~ msgid ""
+#~ "If some of the files are missing from this list, enable Cache preloading "
+#~ "option."
+#~ msgstr ""
+#~ "Ako neke datoteke nedostaju s ovog popisa, omogućite opciju "
+#~ "Predučitavanje predmemorije."
+
+#, php-format
+#~ msgid ""
+#~ "Clear collected %s files list.%s This option will also clear the cache."
+#~ msgstr ""
+#~ "Izbriši popis prikupljanih %s datoteka.%s Ova opcija će također izbrisati "
+#~ "i predmemoriju."
+
+#~ msgid "CSS files not found"
+#~ msgstr "CSS datoteke nisu pronađene"
+
+#~ msgid "Reload"
+#~ msgstr "Ponovno učitati"
+
+#~ msgid "Asynchronously load CSS"
+#~ msgstr "Asinhrono učitajte CSS"
+
+#~ msgid "Show critical CSS"
+#~ msgstr "Prikaži CSS definicije"
+
+#~ msgid "Hide critical CSS"
+#~ msgstr "Sakri CSS definicije"
+
+#~ msgid "Eliminates render-blocking CSS"
+#~ msgstr "CSS se ne prikazuje kao blokirajući sadržaj"
+
+#~ msgid ""
+#~ "Loading CSS asynchronously will produce FOUC effect (a Flash Of Unstyled "
+#~ "Content). In order to minimize the FOUC effect, use critical CSS path."
+#~ msgstr ""
+#~ "Učitavanje CSS-a asinkrono će rezultirati FOUC efektom (Flash Of Unstyled "
+#~ "Content). Kako bi se smanjio FOUC učinak, umetnite kritične CSS "
+#~ "definicije."
+
+#~ msgid "Critical CSS path"
+#~ msgstr "Kritične CSS definicije"
+
+#~ msgid "Enter critical CSS path definitions"
+#~ msgstr "Unesi kritične CSS definicije"
+
+#~ msgid "Generate critical CSS path"
+#~ msgstr "Generirajte kritične CSS definicije"
+
+#~ msgid "Combine Google Fonts"
+#~ msgstr "Kombinirajte Google fontove"
+
+#~ msgid "Load all google fonts in one HTTP request"
+#~ msgstr "Učitajte sve Google fontove u jednom HTTP zahtjevu"
+
+#~ msgid "Resource Hints"
+#~ msgstr "Postavke za vanjske resurse"
+
+#~ msgid "Origins"
+#~ msgstr "Podrijetlo"
+
+#~ msgid "DNS prefetching can make external resources load faster"
+#~ msgstr "Prethodno dohvaćanje DNS-a može ubrzati učitavanje vanjskih resursa"
+
+#~ msgid ""
+#~ "Preconnect can remove additional roundtrips and reduce request latency"
+#~ msgstr ""
+#~ "Preconnect može ukloniti dodatne HTTP round-trip zahtjeve i tako smanjiti "
+#~ "latenciju HTTP zahtjeva"
+
+#~ msgid "Delete all pages, posts and comments from trash"
+#~ msgstr "Izbrišite sve stranice, postove i komentare iz smeća"
+
+#~ msgid "Delete all spam comments"
+#~ msgstr "Izbrišite sve spam komentare"
+
+#~ msgid "Delete all revisions"
+#~ msgstr "Izbrišite sve revizije"
+
+#~ msgid "Delete all expired transients"
+#~ msgstr "Izbrišite sve istekle privremene postavke"
+
+#~ msgid "Delete all auto drafts"
+#~ msgstr "Izbrišite sve skice"
+
+#~ msgid "Delete all unused scheduled tasks"
+#~ msgstr "Obrišite sve zakazane zadatke koji se ne koriste"
+
+#~ msgid ""
+#~ "Backup your database before running any of these cleanup actions. Once a "
+#~ "database cleanup has been performed, there is no way to undo it."
+#~ msgstr ""
+#~ "Izradite sigurnosnu kopiju baze podataka prije pokretanja bilo koje od "
+#~ "ovih akcija čišćenja. Nakon što je već izvršeno čišćenje baze, nema "
+#~ "načina da se izmjene ponište i vrate podaci."
+
+#~ msgid "Disable everywhere"
+#~ msgstr "Onemogućite svugdje"
+
+#~ msgid "Disable only on selected URL"
+#~ msgstr "Onemogućite samo na odabranom URL-u"
+
+#~ msgid "Disable everywhere except on selected URL"
+#~ msgstr "Onemogući svugdje osim na odabranom URL-u"
+
+#~ msgid "JavaScript files not found"
+#~ msgstr "JavaScript datoteke nisu pronađene"
+
+#~ msgid "Asynchronously load JavaScript"
+#~ msgstr "Asinhrono učitajte JavaScript"
+
+#~ msgid "Eliminates render-blocking JavaScript"
+#~ msgstr "JavaScript se ne prikazuje kao blokirajući sadržaj"
+
+#~ msgid "Reduces the number of HTTP requests and improves loading time"
+#~ msgstr ""
+#~ "Smanjuje broj HTTP zahtjeva i poboljšava vrijeme učitavanja stranice"
+
+#~ msgid "Force images to use srcset attribute"
+#~ msgstr "Prisilite slike da koriste srcset atribut"
+
+#~ msgid ""
+#~ "Loads the best optimized image depending on users screen size and image "
+#~ "sizes settings"
+#~ msgstr ""
+#~ "Učitava najbolju optimiziranu sliku ovisno o veličini zaslona i "
+#~ "postavkama veličine slike"
+
+#~ msgid "Exclude"
+#~ msgstr "Izuzmi"
+
+#~ msgid "Exclude image by name"
+#~ msgstr "Izuzmi sliku po imenu slike"
+
+#~ msgid "Add Image"
+#~ msgstr "Dodaj sliku"
+
+#~ msgid ""
+#~ "Exclude images located in specific html containers like sliders and "
+#~ "galleries"
+#~ msgstr ""
+#~ "Izuzmite slike koje se nalaze u određenim html kontejnerima kao npr. "
+#~ "galerije"
+
+#~ msgid "Enter container id or class name"
+#~ msgstr "Unesite ID kontejnera ili naziv klase"
+
+#~ msgid "Example"
+#~ msgstr "Primjer"
+
+#~ msgid "Add Container"
+#~ msgstr "Dodaj kontejner"
+
+#~ msgid "Exclude URL(s) from image optimization"
+#~ msgstr "Izuzmi URL iz CSS optimizacije"
+
+#~ msgid "Lazy load videos"
+#~ msgstr "Lazy load videa"
+
+#~ msgid "Disable Emoji"
+#~ msgstr "Onemogući Emoji"
+
+#~ msgid ""
+#~ "Use default emoji of visitor's browser instead of loading emoji from "
+#~ "WordPress.org"
+#~ msgstr ""
+#~ "Upotrijebite zadani emotikon preglednika posjetitelja umjesto učitavanja "
+#~ "emotikona sa WordPress.org"
+
+#~ msgid "Disable embeds"
+#~ msgstr "Onemogući ugrađivanje (embeds)"
+
+#~ msgid "Prevents embedding content from your site"
+#~ msgstr "Sprječava ugrađivanje sadržaja s vaše web-lokacije"
+
+#~ msgid "Width"
+#~ msgstr "Širina"
+
+#~ msgid "Height"
+#~ msgstr "Visina"
+
+#~ msgid "Actions"
+#~ msgstr "Akcije"
+
+#, php-format
+#~ msgid "Remove image size %s"
+#~ msgstr "Ukloni veličinu slike %s"
+
+#~ msgid "Remove size"
+#~ msgstr "Makni veličinu"
+
+#~ msgid "Restore default image sizes"
+#~ msgstr "Vraćanje zadanih veličina slika"
+
+#~ msgid "Restore image sizes"
+#~ msgstr "Vratite zadane veličine slika"
+
+#~ msgid ""
+#~ "Regenerate thumbnails every time you make some changes to image sizes"
+#~ msgstr ""
+#~ "Regenerirajte umanjene slike svaki put kada napravite neke promjene u "
+#~ "veličini slika"
+
+#~ msgid "Page URL will be added to exclude list"
+#~ msgstr "URL stranice će biti dodan na listu izuzetih URL-ova"
+
+#~ msgid ""
+#~ "This page is your website home page and it is affected by Exclude URL(s) "
+#~ "from cache option. Usually a home page is not excluded from cache. Please "
+#~ "check your exclude settings."
+#~ msgstr ""
+#~ "Ova stranica je početna stranica vaše web stranice i na nju utječu URL-"
+#~ "ovi dodani kao opcije izuzimanja iz predmemorije na stranici "
+#~ "Predmemorija. Obično početna stranica nije isključena iz predmemorije. "
+#~ "Provjerite postavke izuzimanja."
+
+#~ msgid "This page is affected by URL(s) exclude options on Cache page"
+#~ msgstr ""
+#~ "Na izuzimanje ove stranice utječu URL-ovi dodani na stranici Predmemorija"
+
+#~ msgid ""
+#~ "This page is your website home page.<br />Do you want to exclude home "
+#~ "page from cache?"
+#~ msgstr ""
+#~ "Ova stranica je početna stranica vaše web stranice.<br />Da li želite "
+#~ "izuzeti početnu stranicu iz predmemorije?"
+
+#~ msgid "This page is affected by URL(s) exclude options on CSS page"
+#~ msgstr "Na izuzimanje ove stranice utječu URL-ovi dodani na stranici CSS"
+
+#~ msgid "This page is affected by URL(s) exclude options on JavaScript page"
+#~ msgstr ""
+#~ "Na izuzimanje ove stranice utječu URL-ovi dodani na stranici JavaScript"
+
+#~ msgid "Exclude from JS optimization"
+#~ msgstr "Izuzmi stranicu iz JS optimizacije"
+
+#~ msgid "Exclude from Image optimization"
+#~ msgstr "Izuzmi stranicu iz optimizacije slika"
+
+#~ msgid "This page is affected by URL(s) exclude options on Media page"
+#~ msgstr "Na izuzimanje ove stranice utječu URL-ovi dodani na stranici Media"
+
+#~ msgid "Exclude from Video lazyload"
+#~ msgstr "Onemogući lazy load na ovoj stranici"
+
+#~ msgid "Export"
+#~ msgstr "Izvezi"
+
+#~ msgid "Nginx configuration"
+#~ msgstr "Nginx postavke"
+
+#, php-format
+#~ msgid ""
+#~ "%s will work out of the box on Nginx servers, this rewrite rules are not "
+#~ "required. However, to optimize your website even more, you should add "
+#~ "this rules to your Nginx configuration file."
+#~ msgstr ""
+#~ "%s će raditi bez dodatnih postavki na Nginx poslužiteljima, ove "
+#~ "definicije nisu neophodne. Međutim, da biste dodatno optimizirali vašu "
+#~ "web stranicu, dodajte ove definicije u Nginx konfiguracijsku datoteku."
+
+#~ msgid "Select all"
+#~ msgstr "Odabrati sve"
+
+#~ msgid "Logs"
+#~ msgstr "Zapisi"
+
+#~ msgid "Troubleshooting logging"
+#~ msgstr "Dnevnik"
+
+#~ msgid "Enable troubleshooting logging"
+#~ msgstr "Omogući dnevnik"
+
+#~ msgid "These logs can be helpful for troubleshooting problems"
+#~ msgstr "Ovi zapisi mogu biti korisni za rješavanje problema"
+
+#~ msgid "Log file content"
+#~ msgstr "Sadržaj datoteke dnevnika"
+
+#~ msgid "Content is auto refreshed every 10 seconds"
+#~ msgstr "Sadržaj se automatski osvježava svakih 10 sekundi"
+
+#~ msgid "Clear log file"
+#~ msgstr "Očisti datoteku dnevnika"
+
+#~ msgid "Previous configuration settings"
+#~ msgstr "Prethodne postavke konfiguracije"
+
+#~ msgid "Saved"
+#~ msgstr "Spremljeno"
+
+#~ msgid "Load configuration settings saved on "
+#~ msgstr "Učitajte postavke konfiguracije spremljene u "
+
+#~ msgid "Load"
+#~ msgstr "Učitaj"
+
+#~ msgid "Flushing the cache..."
+#~ msgstr "Čišćenje predmemorije..."
+
+#~ msgid "Cache flushed."
+#~ msgstr "Predmemorija očišćena."
+
+#~ msgid "Running tranisent cleanup"
+#~ msgstr "Pokrenuto čišćenje privremenih postavki"
+
+#~ msgid "Transient cleanup complete"
+#~ msgstr "Završeno čišćenje privremenih postavki"
+
+#~ msgid "Running revisions cleanup"
+#~ msgstr "Pokrenuto čišćenje revizija"
+
+#~ msgid "Revisions cleanup complete"
+#~ msgstr "Završeno čišćenje revizija"
+
+#~ msgid "Running drafts cleanup"
+#~ msgstr "Pokrenuto čišćenje skica"
+
+#~ msgid "Drafts cleanup complete"
+#~ msgstr "Pokrenuto čišćenje skica"
+
+#~ msgid "Running trash cleanup"
+#~ msgstr "Pokrenuto čišćenje smeća"
+
+#~ msgid "Trash cleanup complete"
+#~ msgstr "Završeno čišćenje smeća"
+
+#~ msgid "Running spam cleanup"
+#~ msgstr "Pokrenuto čišćenje spam-a"
+
+#~ msgid "Spam cleanup complete"
+#~ msgstr "Završeno čišćenje spam-a"
+
+#~ msgid "Running cron tasks cleanup"
+#~ msgstr "Pokrenuto čišćenje zakazanih zadataka"
+
+#~ msgid "Cron tasks cleanup complete"
+#~ msgstr "Završeno čišćenje zakazanih zadataka"
+
+#~ msgid "Running database cleanup"
+#~ msgstr "Pokrenuto čišćenje baze"
+
+#~ msgid "Database cleanup complete"
+#~ msgstr "Završeno čišćenje baze"
+
+#~ msgid "error"
+#~ msgstr "greška"
+
+#~ msgid "both head and body tag should be present in template file"
+#~ msgstr "oznaka head i body bi trebale biti prisutne u datoteci predloška"
+
+#~ msgid "Optimized by"
+#~ msgstr "Optimizirano sa"
+
+#, php-format
+#~ msgid "Cache file was created in %s seconds on %s at %s"
+#~ msgstr "Datoteka predmemorije stvorena je za %s sekundi na dan %s u %s"
+
+#~ msgid "Temporarily disable"
+#~ msgstr "Privremeno onemogući"
+
+#~ msgid "is temporarily disabled"
+#~ msgstr "je privremeno onemogućen"
+
+#, php-format
+#~ msgid ""
+#~ "%s: Log file is getting large, either clear the log or disable "
+#~ "troubleshooting logging"
+#~ msgstr ""
+#~ "%s: Datoteka dnevnika postaje sve veća, očistite zapise dnevnika ili "
+#~ "onemogućite zapisivanje u dnevnik"
+
+#, php-format
+#~ msgid "%s: missing writing permissions for file <code>.htaccess</code>"
+#~ msgstr ""
+#~ "%s: nedostaju dozvole za pisanje u datoteku <code> .htaccess </code>"
+
+#, php-format
+#~ msgid "%s: enter Cloudflare credentials"
+#~ msgstr "%s: unesite Cloudflare podatke računa"
+
+#~ msgid "Every minute"
+#~ msgstr "Svake minute"
+
+#~ msgid "Every 5 minutes"
+#~ msgstr "Svakih 5 minuta"
+
+#~ msgid "You are doing it wrong"
+#~ msgstr "Vi to radite krivo"
+
+#~ msgid "Log file cleared"
+#~ msgstr "Dnevnik je izbrisan"
+
+#~ msgid "Size name already in use"
+#~ msgstr "Naziv veličine već se koristi"
+
+#, php-format
+#~ msgid "%s image left"
+#~ msgid_plural "%s images left"
+#~ msgstr[0] "Ostala je %s slika"
+#~ msgstr[1] "Ostale su %s slike"
+#~ msgstr[2] "Ostalo je %s slika"
+
+#~ msgid "Done"
+#~ msgstr "Gotovo"
+
+#~ msgid "Are you sure?"
+#~ msgstr "Da li ste sigurni?"
+
+#~ msgid "Something went wrong"
+#~ msgstr "Nešto je pošlo krivo"
+
+#~ msgid "Regenerating thumbs"
+#~ msgstr "Regeneriranje umanjenih slika"
+
+#~ msgid ""
+#~ "Regenerate thumbnails may take a long time. Do not close your browser."
+#~ msgstr ""
+#~ "Regeneriranje umanjenih slika može potrajati dugo. Ne zatvarajte "
+#~ "preglednik."
+
+#~ msgid "The following plugins are not compatible with"
+#~ msgstr "Slijedeći dodaci nisu kompatibilni sa"
+
+#~ msgid "Deactivate"
+#~ msgstr "Deaktiviraj"
+
+#~ msgid "Invalid settings file"
+#~ msgstr "Nevažeća datoteka postavki"
+
+#~ msgid "Settings saved"
+#~ msgstr "Postavke spremljene"
+
+#~ msgid "Settings file loaded"
+#~ msgstr "Datoteka postavki je učitana"
+
+#~ msgid "Files list cleared"
+#~ msgstr "Lista izbrisana"
+
+#~ msgid "WP Performance Optimizer"
+#~ msgstr "WP Performance Optimizer"
 
 #~ msgid "Cloudflare cache"
 #~ msgstr "Cloudflare predmemeorija"
-
-#~ msgid "Varnish"
-#~ msgstr "Varnish"
 
 #~ msgid "If Varnish runs on your server, you need to activate this option."
 #~ msgstr ""
@@ -1402,9 +2231,6 @@ msgstr ""
 
 #~ msgid "settings"
 #~ msgstr "settings"
-
-#~ msgid "Cloudflare"
-#~ msgstr "Cloudflare"
 
 #~ msgid "Error"
 #~ msgstr "Greška"
