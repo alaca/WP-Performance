@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-label="WP Performance">
+  <title>WP Performance</title>
+  <defs>
+    <linearGradient id="wppTile" x1="0.05" y1="0" x2="0.65" y2="1">
+      <stop offset="0" stop-color="#221A17"/>
+      <stop offset="0.5" stop-color="#120D0C"/>
+      <stop offset="1" stop-color="#080606"/>
+    </linearGradient>
+    <radialGradient id="wppBloom" cx="0.56" cy="0.44" r="0.44">
+      <stop offset="0" stop-color="#FC4213" stop-opacity="0.44"/>
+      <stop offset="0.5" stop-color="#FC4213" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#FC4213" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="wppFace" x1="0.88" y1="0" x2="0.15" y2="1">
+      <stop offset="0" stop-color="#FFC084"/>
+      <stop offset="0.42" stop-color="#FD4E1B"/>
+      <stop offset="1" stop-color="#CE2D08"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="256" height="256" rx="56" fill="url(#wppTile)"/>
+  <rect width="256" height="256" rx="56" fill="url(#wppBloom)"/>
+
+  <g transform="translate(128 128) scale(1.07) translate(-118.5 -133.5)">
+    <path d="M159.7 47 L73.4 147.4 L112.2 147.4 L99.8 209 L182.6 112.2 L143.8 112.2 Z" transform="translate(-19.00 11.50)" fill="#471305"/>
+    <path d="M159.7 47 L73.4 147.4 L112.2 147.4 L99.8 209 L182.6 112.2 L143.8 112.2 Z" transform="translate(-18.21 11.02)" fill="#4B1405"/>
+    <path d="M159.7 47 L73.4 147.4 L112.2 147.4 L99.8 209 L182.6 112.2 L143.8 112.2 Z" transform="translate(-17.42 10.54)" fill="#501606"/>
+    <path d="M159.7 47 L73.4 147.4 L112.2 147.4 L99.8 209 L182.6 112.2 L143.8 112.2 Z" transform="translate(-16.63 10.06)" fill="#541706"/>
+    <path d="M159.7 47 L73.4 147.4 L112.2 147.4 L99.8 209 L182.6 112.2 L143.8 112.2 Z" transform="translate(-15.83 9.58)" fill="#581806"/>
+    <path d="M159.7 47 L73.4 147.4 L112.2 147.4 L99.8 209 L182.6 112.2 L143.8 112.2 Z" transform="translate(-15.04 9.10)" fill="#5C1906"/>
+    <path d="M159.7 47 L73.4 147.4 L112.2 147.4 L99.8 209 L182.6 112.2 L143.8 112.2 Z" transform="translate(-14.25 8.63)" fill="#611B07"/>
+    <path d="M159.7 47 L73.4 147.4 L112.2 147.4 L99.8 209 L182.6 112.2 L143.8 112.2 Z" transform="translate(-13.46 8.15)" fill="#651C07"/>
+    <path d="M159.7 47 L73.4 147.4 L112.2 147.4 L99.8 209 L182.6 112.2 L143.8 112.2 Z" transform="translate(-12.67 7.67)" fill="#691D07"/>
+    <path d="M159.7 47 L73.4 147.4 L112.2 147.4 L99.8 209 L182.6 112.2 L143.8 112.2 Z" transform="translate(-11.88 7.19)" fill="#6E1E08"/>
+    <path d="M159.7 47 L73.4 147.4 L112.2 147.4 L99.8 209 L182.6 112.2 L143.8 112.2 Z" transform="translate(-11.08 6.71)" fill="#722008"/>
+    <path d="M159.7 47 L73.4 147.4 L112.2 147.4 L99.8 209 L182.6 112.2 L143.8 112.2 Z" transform="translate(-10.29 6.23)" fill="#762108"/>
+    <path d="M159.7 47 L73.4 147.4 L112.2 147.4 L99.8 209 L182.6 112.2 L143.8 112.2 Z" transform="translate(-9.50 5.75)" fill="#7B2209"/>
+    <path d="M159.7 47 L73.4 147.4 L112.2 147.4 L99.8 209 L182.6 112.2 L143.8 112.2 Z" transform="translate(-8.71 5.27)" fill="#7F2309"/>
+    <path d="M159.7 47 L73.4 147.4 L112.2 147.4 L99.8 209 L182.6 112.2 L143.8 112.2 Z" transform="translate(-7.92 4.79)" fill="#832509"/>
+    <path d="M159.7 47 L73.4 147.4 L112.2 147.4 L99.8 209 L182.6 112.2 L143.8 112.2 Z" transform="translate(-7.13 4.31)" fill="#872609"/>
+    <path d="M159.7 47 L73.4 147.4 L112.2 147.4 L99.8 209 L182.6 112.2 L143.8 112.2 Z" transform="translate(-6.33 3.83)" fill="#8C270A"/>
+    <path d="M159.7 47 L73.4 147.4 L112.2 147.4 L99.8 209 L182.6 112.2 L143.8 112.2 Z" transform="translate(-5.54 3.35)" fill="#90280A"/>
+    <path d="M159.7 47 L73.4 147.4 L112.2 147.4 L99.8 209 L182.6 112.2 L143.8 112.2 Z" transform="translate(-4.75 2.88)" fill="#942A0A"/>
+    <path d="M159.7 47 L73.4 147.4 L112.2 147.4 L99.8 209 L182.6 112.2 L143.8 112.2 Z" transform="translate(-3.96 2.40)" fill="#992B0B"/>
+    <path d="M159.7 47 L73.4 147.4 L112.2 147.4 L99.8 209 L182.6 112.2 L143.8 112.2 Z" transform="translate(-3.17 1.92)" fill="#9D2C0B"/>
+    <path d="M159.7 47 L73.4 147.4 L112.2 147.4 L99.8 209 L182.6 112.2 L143.8 112.2 Z" transform="translate(-2.38 1.44)" fill="#A12D0B"/>
+    <path d="M159.7 47 L73.4 147.4 L112.2 147.4 L99.8 209 L182.6 112.2 L143.8 112.2 Z" transform="translate(-1.58 0.96)" fill="#A52F0B"/>
+    <path d="M159.7 47 L73.4 147.4 L112.2 147.4 L99.8 209 L182.6 112.2 L143.8 112.2 Z" transform="translate(-0.79 0.48)" fill="#AA300C"/>
+    <path d="M159.7 47 L73.4 147.4 L112.2 147.4 L99.8 209 L182.6 112.2 L143.8 112.2 Z" fill="url(#wppFace)" stroke="#FFD9BC" stroke-opacity="0.32" stroke-width="1.4"/>
+  </g>
+
+  <rect x="0.8" y="0.8" width="254.4" height="254.4" rx="55.2" fill="none" stroke="#FFFFFF" stroke-opacity="0.09" stroke-width="1.6"/>
+</svg>

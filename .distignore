@@ -1,0 +1,30 @@
+# Files and directories that must not ship in the WordPress.org package.
+# build/ and vendor/ are deliberately absent: they are generated during the
+# release workflow and are required at runtime.
+
+.git
+.github
+.gitignore
+.distignore
+.wordpress-org
+.idea
+.vscode
+.DS_Store
+
+node_modules
+tests
+bin
+assets/admin
+assets/blocks
+
+composer.json
+composer.lock
+package.json
+package-lock.json
+webpack.config.js
+phpcs.xml
+phpcs.xml.dist
+phpunit.xml
+phpunit.xml.dist
+
+README.md

@@ -1,5 +1,8 @@
-includes/data/settings/*.json
+/vendor/
+/vendor-prefixed/
+/node_modules/
+/build/
 *.backup
 log.txt
-wpp.js
-vendor/
+.DS_Store
+.idea/

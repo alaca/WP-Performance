@@ -1,280 +1,180 @@
-﻿=== WP Performance ===
+=== WP Performance ===
 Contributors: alaca
 Donate link: https://profiles.wordpress.org/alaca
-Tags: wp performance, cache, performance, speed optimization, seo
-Requires at least: 4.7
-Tested up to: 5.4
-Requires PHP: 5.6
-Stable tag: trunk
+Tags: cache, performance, page speed, optimization, core web vitals
+Requires at least: 6.9
+Tested up to: 7.0
+Requires PHP: 8.1
+Stable tag: 2.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
+Make your site fast. Page caching, CSS/JS/HTML optimization, modern images, and Core Web Vitals tools in one simple plugin.
+
+== Description ==
+
+WP Performance makes your WordPress site load faster without the headache. Turn on a few options and the plugin handles caching, asset optimization, and image delivery for you.
+
+Not sure where to start? Open the **Overview** tab and pick a one-click preset (Safe, Balanced, or Aggressive). You can fine-tune anything afterwards.
+
+Version 2.0 is a complete rebuild with a fast new dashboard and no third-party dependencies. Everything below works together out of the box.
+
+### Caching ###
+
+* **Page cache** - serves a static HTML copy of each page, before WordPress even loads
+* **Block cache** - cache just the slow parts of a page, even on pages you can't fully cache (more below)
+* **Cache preloading** - warm the cache from your sitemap
+* **Browser caching** - tells browsers to keep files so repeat visits are instant
+* **GZIP compression** - sends smaller files to the browser
+* **Object cache** - optional Redis drop-in to cut database load
+* **Smart by default** - skips logged-in users and WooCommerce/EDD cart pages, and ignores tracking parameters (utm, gclid, fbclid) so clean URLs share one cache
+* **Mobile cache** - keep a separate copy for mobile devices when you need it
+
+### CSS ###
+
+* Minify CSS (inline and files)
+* Combine CSS files
+* Load CSS without blocking the page
+* Remove unused CSS, per page
+* Critical CSS
+* Combine Google Fonts, or host them on your own server
+* Control font loading (font-display)
+* DNS prefetch and preconnect hints
+
+### JavaScript ###
+
+* Minify JavaScript (inline and files)
+* Combine JavaScript files
+* Defer JavaScript
+* Delay JavaScript until the visitor interacts (great for third-party scripts)
+* Disable scripts you don't need, site-wide or per page
+
+### HTML ###
+
+* Minify HTML
+* Remove comments and unneeded markup
+
+### Images and media ###
+
+* Lazy load images and videos (uses native browser lazy loading)
+* Responsive images
+* Add missing width and height to stop layout shift (better CLS)
+* Preload your largest image and set fetchpriority for a faster LCP
+* Convert images to WebP and AVIF
+* Custom image sizes and one-click thumbnail regeneration
+* Disable emojis and embeds
+
+### Database ###
+
+* Clean up revisions, auto-drafts, trash, spam, transients, and stale cron tasks
+* Schedule cleanups daily, weekly, or monthly
+
+### CDN ###
+
+* Rewrite asset URLs to your CDN, with exclusions
+
+### Tools ###
+
+* **Overview dashboard** with environment health checks
+* **One-click presets** - Safe, Balanced, Aggressive
+* **Restore points** - roll back to your last five saved configurations
+* **Troubleshooting log** with a live viewer
+* **Export and import** your settings
+* **Per-page exclusions** from the post editor
+* **WP-CLI** commands
+* **Multisite** support
+
+### Block cache ###
+
+Block cache stores the rendered output of a section of a page and reuses it, even on pages that are not fully cached (like logged-in or dynamic pages). Use it three ways:
+
+1. **Cache block** - add the "Cache" block in the editor and put any blocks inside it
+2. **Shortcode** - `[wpp_cache ttl="600"]...[/wpp_cache]`
+3. **PHP** - in a template:
+
+`if ( wpp_cache_start( 'sidebar', [ 'ttl' => 3600 ] ) ) { expensive_render(); wpp_cache_end(); }`
+
+You choose how long to cache and whether to keep a separate copy per page, per device, per role, or for logged-in visitors.
+
+### Add-ons ###
+
+* **Cloudflare** - purge cache and control Cloudflare settings
+* **Varnish** - auto-purge Varnish cache
+* **Prefetch** - prefetch links on hover for instant navigation
+
+### WP-CLI ###
+
+* `wp wpp flush` - clear the page cache
+* `wp wpp flush-blocks` - clear the block cache
+* `wp wpp enable` - enable WP Performance
+* `wp wpp disable` - temporarily disable WP Performance
+* `wp wpp cleanup [<type>]` - run a database cleanup (all, trash, spam, revisions, autodrafts, transients, cron)
+
+### Languages ###
+
+* English
+* Hrvatski (Croatian)
+
+### Report bugs ###
+
+Found a bug? Please open an issue on [GitHub](https://github.com/alaca/WP-Performance).
+
+== Installation ==
+
+1. Upload the "wp-performance" folder to "/wp-content/plugins/"
+2. Activate the plugin from the Plugins menu in WordPress
+3. Open WP Performance and apply a preset from the Overview tab, or turn on the options you want
+
+If you already used an older version, your existing settings are migrated automatically.
+
+== Screenshots ==
+
+1. Overview dashboard with presets and health checks
+2. Page cache settings
+3. Image and media optimization
+4. Database cleanup
+5. Settings, restore points, and the troubleshooting log
+
+== Frequently Asked Questions ==
+
+= Where do I start? =
+Open the Overview tab and apply a preset. Safe is risk-free, Balanced suits most sites, and Aggressive turns everything on (test your site afterwards).
+
+= What is the block cache for? =
+It caches just one section of a page. That is useful on pages you can't fully cache, like a logged-in dashboard, where one part (a menu, a product grid) is still expensive to build every time.
+
+= Does it work with Nginx? =
+Yes. WP Performance generates the Nginx rules for you and shows them under Settings. Copy them into your server config and reload Nginx.
+
+= Does it support Multisite? =
+Yes.
+
+= Do I need Redis? =
+No. Redis is optional. If it is available, you can enable the object cache for an extra speed boost; everything else works without it.
+
+= Where can I get help? =
+Use the [wordpress.org support forum](https://wordpress.org/support/plugin/wp-performance), or open an issue on [GitHub](https://github.com/alaca/WP-Performance).
+
 == Changelog ==
+
+= 2.0.0 =
+A complete rebuild with a new dashboard and many new features.
+[NEW] Overview dashboard with environment health checks
+[NEW] One-click presets (Safe, Balanced, Aggressive)
+[NEW] Block cache - cache parts of a page via the Cache block, the [wpp_cache] shortcode, or wpp_cache_start()
+[NEW] Delay JavaScript until the visitor interacts
+[NEW] Remove unused CSS, per page
+[NEW] Host Google Fonts locally
+[NEW] Convert images to WebP and AVIF
+[NEW] Preload the LCP image and set fetchpriority
+[NEW] Add missing image width and height to reduce layout shift
+[NEW] Redis object cache drop-in
+[UPDATE] Rebuilt the cache engine, asset optimizer, and CSS/JS/HTML minifiers from scratch, with no third-party dependencies
+[UPDATE] New React dashboard
+[UPDATE] Existing settings are migrated automatically on update
+[REMOVED] AMP support
 
 = 1.1.8.3 =
 [FIX] Cloudflare add-on - respect existing headers
 
-= 1.1.8.2 =
-[FIX] Prefetch add-on again
-
-= 1.1.8.1 =
-[FIX] Prefetch add-on
-
-= 1.1.8 =
-[NEW] HTML optimization
-[NEW] Google Fonts display optimization
-[NEW] Exclude CSS/JS files from asynchronous loading
-[UPDATE] Translations
-[FIX] Asynchronous JS loading
-
-= 1.1.7.4 =
-[FIX] Combine CSS
-[FIX] Combine JS
-
-= 1.1.7.3 =
-[FIX] Update UI - Checkboxes
-[FIX] Skip dynamic files
-
-= 1.1.7.2 =
-[FIX] Combined resource path errors
-[FIX] Identifiy local resources without URL scheme
-
-= 1.1.7.1 =
-[FIX] htaccess errors
-
-= 1.1.7 =
-[NEW] Cloudflare Add-on - purge individual cache
-[NEW] Option to keep generated JS/CSS files when flushing the cache
-[FIX] Lazy Load issues in MSIE
-
-= 1.1.6.2 =
-[FIX] HTML minify
-
-= 1.1.6.1 =
-[FIX] Lazyload issues
-
-= 1.1.6 =
-[NEW] Lazy load videos
-[NEW] Disable Emojis
-[NEW] Disable Embeds
-[UPDATE] Translations
-[FIX] Load/Save settings
-
-= 1.1.5.1 =
-[FIX] Fix WooCommerce Add to cart error
-
-= 1.1.5 =
-[IMPROVE] Minify JS
-[IMPROVE] Minify CSS
-[IMPROVE] Minify HTML
-[IMPROVE] Images LazyLoad
-[IMPROVE] Async JavaScript
-[IMPROVE] Prefetch Add-on
-[FIX] Cache dir path
-
-= 1.1.4.2 =
-[IMPROVE] Minify JS
-[IMPROVE] Process CSS import rules
-
-= 1.1.4.1 =
-[FIX] Minify HTML
-
-= 1.1.4 =
-[NEW] Multisite support
-[NEW] AMP support
-
-= 1.1.3.4 =
-[FIX] Clear log file after clearing the cache
-[FIX] Wrong optimization status message in WPP metabox on edit page screen
-[IMPROVE] Admin UI
-[IMPROVE] Cloudflare add-on
-[IMPROVE] Dynamic page preload add-on
-[UPDATE] languages
-
-= 1.1.3.3 =
-[FIX] Disable resources on selected URL
-[UPDATE] Chinese language file
-
-= 1.1.3.2 =
-[FIX] Parser minify error
-
-= 1.1.3.1 =
-[FIX] Autoloader errors
-
-= 1.1.3 =
-[NEW] Dynamic page preload addon
-[NEW] Minify HTML
-
-= 1.1.2 =
-[UPDATE] Chinese language file
-
-= 1.1.1 =
-[NEW] Remove cache directory after uninstall
-[IMPROVE] Move log file into cache dir
-[FIX] Empty template errors
-
-= 1.1.0 =
-[NEW] Exclude user agents from cache
-[NEW] Exclude search engines from cache
-[NEW] Add-ons page
-[IMPROVE] Admin UI
-[FIX] XML files cache
-
-= 1.0.9 =
-[IMPROVE] JavaScript async loading
-[IMPROVE] Security
-[IMPROVE] Parser
-[FIX] LazyLoad
-[FIX] Exclude urls
-
-= 1.0.8.1 =
-[FIX] Minor bug fixes
-
-= 1.0.8 =
-[NEW] Cloudflare integration
-[IMPROVE] Admin UI for desktop devices
-[IMPROVE] Admin UI for mobile devices
-[FIX] Disabled resources disappearing options
-[FIX] Minor bugfixes
-
-= 1.0.7 =
-[FIX] Add items to menu error
-[FIX] Parser warnings for responsive images
-[IMPROVE] Admin UI on mobile devices
-
-= 1.0.6 =
-[NEW] Group resources ( Theme, Plugins, External )
-[IMPROVE] Security
-[IMPROVE] Admin UI on mobile devices
-[UPDATE] Translations
-[FIX] Disable external resources
-[FIX] Clear cache on front-page
-[FIX] Various minor bugfixes
-
-= 1.0.5 =
-[NEW] Drafts cleanup
-[NEW] WP CLI commands - run database cleanups
-[IMPROVE] Admin UI
-[UPDATE] Translations
-[FIX] Minor bugfixes
-
-= 1.0.4 =
-[NEW] Resource hints
-[NEW] Exclude page from Image optimization on edit page screen
-[NEW] Exclude URL(s) from Image optimization
-[IMPROVE] Metabox UI on Edit page
-[IMPROVE] Admin UI
-[UPDATE] Translations
-[FIX] Cron tasks cleanup
-[FIX] Combine Google fonts
-
-= 1.0.3 =
-[NEW] Cron tasks cleanup
-[NEW] Exclude page from Cache, JS and CSS optimization on edit page screen
-[NEW] Admin toolbar links
-[IMPROVE] Admin Database UI
-[IMPROVE] Admin UI on mobile devices
-[UPDATE] Translations
-[FIX] htaccess backup handling
-[FIX] Minor bugfixes
-
-= 1.0.2 =
-[NEW] Detect server software
-[NEW] Generate NGINX rewrite rules
-[NEW] Clear collected files list
-[IMPROVE] Admin UI
-[UPDATE] Translations
-[FIX] Htaccess permissions notice
-
-= 1.0.1 =
-[FIX] PCRE2 parser issues
-[FIX] Clear cache JS error
-[NEW] Chinese translation
-
-== Description ==
-
-WP Performance is a cache & performance plugin which makes optimizing your site really easy.
-This plugin generates static html files from your dynamic content and it uses mod_rewrite to load the cache files which is the fastest method.
-
-
-### Features ###
-
-* Page cache
-* Cache preloading
-* Browser cache
-* GZIP Compression
-* Minify CSS, JavaScript, and HTML
-* Asynchronously load CSS/JavaScript
-* Combine CSS/JavaScript
-* Disable CSS/JavaScript
-* Resource hints
-* Critical CSS path generator
-* Database Cleaner
-* Export/import settings
-* Lazy Load images ( supports native lazy load )
-* Lazy Load videos ( supports native lazy load )
-* Responsive images
-* Regenerate thumbs
-* CDN
-* WP-CLI Support
-* WordPress Multisite
-
-### Add-ons ###
-
-* Cloudflare integration
-* Varnish cache
-* Dynamic page preload
-
-### Supported languages ### 
-
-* English
-* Hrvatski
-* 中文 (by @cmhello)
-
-
-### WP-CLI Support ###
-
-* **wp wpp flush** - Clear the cache
-* **wp wpp disable** - Temporarily disable WP Performance
-* **wp wpp enable** - Enable WP Performance
-* **wp wpp cleanup** - Run all database cleanups
-* **wp wpp cleanup trash** - Run trash cleanup
-* **wp wpp cleanup spam** - Run spam cleanup
-* **wp wpp cleanup revisions** - Run revisions cleanup
-* **wp wpp cleanup drafts** - Run drafts cleanup
-* **wp wpp cleanup transients** - Run transients cleanup
-* **wp wpp cleanup cron** - Run cron tasks cleanup
-
-### Report bugs ### 
-If you encounter any bug, please create an issue on [Github](https://github.com/alaca/WP-Performance). 
-
-== Installation ==
-
-1. Upload "wp-performance" to the "/wp-content/plugins/" directory
-2. Activate the plugin through the Plugins menu in WordPress
-
-
-== Screenshots ==
-
-1. Cache page
-2. CSS optimization page
-3. JavaScript optimization page
-4. Images
-5. DB Optimizer
-6. CDN
-7. Settings
-
-
-== Frequently Asked Questions ==
-
-
-= Does WP Performance work with Nginx? =
-WP Performance has support for Nginx servers, but an extra step is required to make it working properly.
-Depending on your WP Performance configuration, rewrite rules will be generated and listed under the “Settings” tab. You have to copy and paste generated rules manually into the Nginx config file.
-
-= Does WP Performance support WordPress Multisite? =
-WP Performance supports WordPress Multisite with subdomains.
-
-= Where can I get help? =
-You can get help on the <a href="https://wordpress.org/support/plugin/wp-performance">wordpress.org support forum</a>. 
-If you encounter any bug, please create an issue on [Github](https://github.com/alaca/WP-Performance).  
+For the full history of older releases, see [changelog.txt](https://plugins.svn.wordpress.org/wp-performance/trunk/changelog.txt).
