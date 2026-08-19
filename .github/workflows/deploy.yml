@@ -13,6 +13,7 @@ jobs:
   deploy:
     name: Build and deploy
     runs-on: ubuntu-latest
+    timeout-minutes: 30
 
     steps:
       - uses: actions/checkout@v4
@@ -62,6 +63,14 @@ jobs:
           test -f build/admin/app.css || { echo "::error::admin stylesheet missing"; exit 1; }
           test -f build/blocks/cache/index.js || { echo "::error::cache block bundle missing"; exit 1; }
           test -f vendor/autoload.php || { echo "::error::autoloader missing"; exit 1; }
+
+      - name: Install Subversion
+        run: |
+          sudo sed -i 's|azure.archive.ubuntu.com|archive.ubuntu.com|g' \
+            /etc/apt/sources.list /etc/apt/sources.list.d/*.sources 2>/dev/null || true
+          sudo apt-get update
+          sudo apt-get install -y subversion
+          svn --version --quiet
 
       - name: Deploy to the plugin directory
         uses: 10up/action-wordpress-plugin-deploy@stable
