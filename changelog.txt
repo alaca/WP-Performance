@@ -1,5 +1,9 @@
 == Changelog ==
 
+= 2.0.1 =
+Tested with WordPress 7.1.
+Updated the build tooling. No change to how the plugin behaves.
+
 = 2.0.0 =
 A complete rebuild with a new dashboard and many new features.
 [NEW] Overview dashboard with environment health checks

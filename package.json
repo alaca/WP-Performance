@@ -1,6 +1,6 @@
 {
     "name": "wp-performance",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "description": "WP Performance Optimizer admin app",
     "private": true,
     "scripts": {

@@ -2,7 +2,7 @@
 /**
  * Plugin Name: WP Performance
  * Description: WP Performance Optimizer - cache & performance plugin.
- * Version: 2.0.0
+ * Version: 2.0.1
  * Requires at least: 6.9
  * Requires PHP: 8.1
  * Author: Ante Laca
@@ -23,7 +23,7 @@ if (! defined('ABSPATH')) {
 require __DIR__ . '/vendor/autoload.php';
 require __DIR__ . '/inc/fragment-helpers.php';
 
-define('WPP_VERSION', '2.0.0');
+define('WPP_VERSION', '2.0.1');
 define('WPP_FILE', __FILE__);
 define('WPP_DIR', plugin_dir_path(__FILE__));
 define('WPP_URL', plugin_dir_url(__FILE__));

@@ -3,9 +3,9 @@ Contributors: alaca
 Donate link: https://profiles.wordpress.org/alaca
 Tags: cache, performance, page speed, optimization, core web vitals
 Requires at least: 6.9
-Tested up to: 7.0
+Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 2.0.0
+Stable tag: 2.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -156,6 +156,10 @@ No. Redis is optional. If it is available, you can enable the object cache for a
 Use the [wordpress.org support forum](https://wordpress.org/support/plugin/wp-performance), or open an issue on [GitHub](https://github.com/alaca/WP-Performance).
 
 == Changelog ==
+
+= 2.0.1 =
+Tested with WordPress 7.1.
+Updated the build tooling. No change to how the plugin behaves.
 
 = 2.0.0 =
 A complete rebuild with a new dashboard and many new features.
